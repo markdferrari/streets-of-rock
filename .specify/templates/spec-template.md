@@ -8,12 +8,19 @@
 
 **Input**: User description: "$ARGUMENTS"
 
+## Product Alignment *(mandatory)*
+
+- **PRD references**: [Applicable FR/NFR/SC and acceptance-scenario IDs from PRD.md]
+- **Included behavior**: [What this feature delivers within the agreed MVP]
+- **Deferred behavior**: [Explicit exclusions; do not import future-vision features]
+- **Provisional tuning**: [Values to adjust through playtesting, distinct from obligations]
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
-  Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
-  you should still have a viable MVP (Minimum Viable Product) that delivers value.
+  Each user story/journey must be INDEPENDENTLY TESTABLE against its declared prerequisites.
+  One story can deliver a playable increment; the full MVP still requires all PRD acceptance gates.
 
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
   Think of each story as a standalone slice of functionality that can be:
@@ -87,16 +94,31 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: System MUST [specific capability, e.g., "accept movement and attack touches simultaneously"]
+- **FR-002**: System MUST [specific capability, e.g., "register each strike once per target"]
+- **FR-003**: Users MUST be able to [key interaction, e.g., "retry the full level after defeat"]
+- **FR-004**: System MUST [data requirement, e.g., "persist audio preferences locally"]
+- **FR-005**: System MUST [behavior, e.g., "pause gameplay when the page is hidden"]
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-006**: System MUST communicate attack readiness via [NEEDS CLARIFICATION: visible feedback not specified]
+- **FR-007**: System MUST define [NEEDS CLARIFICATION: retry behavior for this encounter not specified]
+
+### Mobile Quality and Validation *(mandatory)*
+
+For each affected area, state observable acceptance criteria and map them to PRD requirements.
+If unaffected, record why; do not silently omit a gate.
+
+- Touch input, input cancellation, landscape safe areas, telegraphs, and muted/no-shake play.
+- Background/focus/orientation interruption, explicit resume, and active-time accounting.
+- Audio activation, loading failure, storage failure, complete offline replay, and safe updates.
+- Reference-device performance and applicable five-player evaluation criteria.
+
+Specify which outcomes receive automated regression tests and which also require device
+checks. Define manual procedures before implementation; do not treat device checks as a
+replacement for test-first development of automatable rules. Preserve PRD IDs in a mapping
+if this feature uses its own requirement numbering.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -112,10 +134,10 @@
 
 ### Measurable Outcomes
 
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+- **SC-001**: [Measurable metric, e.g., "4 of 5 players move and attack within 30 seconds"]
+- **SC-002**: [Measurable metric, e.g., "A cached full run completes with networking disabled"]
+- **SC-003**: [User satisfaction metric, e.g., "4 of 5 players finish within three attempts"]
+- **SC-004**: [Performance metric, e.g., "Both reference devices sustain the PRD performance target"]
 
 ## Assumptions
 
@@ -125,7 +147,7 @@
   chosen when the feature description did not specify certain details.
 -->
 
-- [Assumption about target users, e.g., "Users have stable internet connectivity"]
-- [Assumption about scope boundaries, e.g., "Mobile support is out of scope for v1"]
-- [Assumption about data/environment, e.g., "Existing authentication system will be reused"]
-- [Dependency on existing system/service, e.g., "Requires access to the existing user profile API"]
+- [Assumption about target users, e.g., "Initial caching requires connectivity"]
+- [Assumption about scope boundaries, e.g., "Native packaging remains deferred"]
+- [Assumption about data/environment, e.g., "Settings remain local to this browser"]
+- [Dependency on existing system/service, e.g., "Reference phones are available for device acceptance"]

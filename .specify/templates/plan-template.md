@@ -40,9 +40,28 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+For each gate, record evidence or planned verification and any justified non-applicability.
+An unresolved violation blocks implementation; a Complexity Tracking entry does not waive a
+MUST rule. Re-check against `.specify/memory/constitution.md` after design.
+
+- [ ] **Specification-led delivery:** Map feature requirements and acceptance scenarios to
+  PRD IDs. Identify exclusions and distinguish provisional tuning from required behavior.
+- [ ] **Touch combat:** Define checks for simultaneous inputs, canceled touches, readable
+  telegraphs, safe layouts, muted play, and explicit resume where affected.
+- [ ] **Test-first implementation:** Name test tooling and commands, plan failing tests before
+  implementation, isolate deterministic rules, and define manual checks before visual work.
+- [ ] **Mobile-web reliability:** Cover affected offline/cache/update, loading failure,
+  lifecycle, audio, and storage behavior on iOS Safari and Android Chrome.
+- [ ] **Focused scope and measured quality:** Justify dependencies against current scope;
+  record reference devices, frame-timing procedure, and applicable PRD playtest criteria.
+- [ ] **Delivery discipline:** Confirm a feature branch, all-tests-before-commit workflow,
+  and the evidence required before marking the feature or MVP accepted.
 
 ## Project Structure
+
+Use a browser-game structure for the MVP. The generic examples below do not authorize a
+backend, accounts, or native packaging. Record the actual engine, asset workflow, and test
+layout selected for the current requirements.
 
 ### Documentation (this feature)
 
