@@ -32,11 +32,11 @@ unchecked while independent work proceeds; final acceptance requires that eviden
 
 **Purpose**: Establish the selected toolchain and validation harness.
 
-- [ ] T001 Verify a feature branch and initialize package.json, bun.lock, and .node-version with the plan's pinned dependencies, packageManager bun@1.4.2, Node 24.21.0, and matching Three types; use Bun and document required install lifecycle-script permissions in README.md (constitution III; AGENTS.md).
-- [ ] T002 Configure strict TypeScript and browser/worker build targets in tsconfig.json, vite.config.ts, and index.html; create the planned source directories and root static entry with ordinary-development worker registration disabled (NFR-001, NFR-005).
-- [ ] T003 Configure Vitest and Chromium/WebKit Playwright in vitest.config.ts, playwright.config.ts, and package.json; provide runnable development/build/test-build/diagnostics/preview scripts for early story checks and production-preview tests without substituting Bun's test runner; complete asset/precache audits in US4 (constitution III; runtime contract).
-- [ ] T004 Add generated-output ignores in .gitignore and Bun instructions in README.md; confirm bun install --frozen-lockfile reproduces the initial lock and tool CLIs start, without describing an empty suite as passing (constitution III; AGENTS.md).
-- [ ] T005 Define pre-implementation manual procedures and the requirements/evidence register in specs/001-neon-velvet-mvp/validation/procedures.md and specs/001-neon-velvet-mvp/validation/coverage.md, covering AC-001 through AC-034, SC-001 through SC-006, device versions, supplied music, and future AWS-origin checks.
+- [X] T001 Verify a feature branch and initialize package.json, bun.lock, and .node-version with the plan's pinned dependencies, packageManager bun@1.4.2, Node 24.21.0, and matching Three types; use Bun and document required install lifecycle-script permissions in README.md (constitution III; AGENTS.md).
+- [X] T002 Configure strict TypeScript and browser/worker build targets in tsconfig.json, vite.config.ts, and index.html; create the planned source directories and root static entry with ordinary-development worker registration disabled (NFR-001, NFR-005).
+- [X] T003 Configure Vitest and Chromium/WebKit Playwright in vitest.config.ts, playwright.config.ts, and package.json; provide runnable development/build/test-build/diagnostics/preview scripts for early story checks and production-preview tests without substituting Bun's test runner; complete asset/precache audits in US4 (constitution III; runtime contract).
+- [X] T004 Add generated-output ignores in .gitignore and Bun instructions in README.md; confirm bun install --frozen-lockfile reproduces the initial lock and tool CLIs start, without describing an empty suite as passing (constitution III; AGENTS.md).
+- [X] T005 Define pre-implementation manual procedures and the requirements/evidence register in specs/001-neon-velvet-mvp/validation/procedures.md and specs/001-neon-velvet-mvp/validation/coverage.md, covering AC-001 through AC-034, SC-001 through SC-006, device versions, supplied music, and future AWS-origin checks.
 
 **Checkpoint**: Tooling and evidence conventions are available. Full packaging scripts are
 completed under US4 before offline acceptance.
@@ -45,13 +45,13 @@ completed under US4 before offline acceptance.
 
 **Purpose**: Establish deterministic state and clock boundaries shared by all stories.
 
-- [ ] T006 Define shared actor, attack, input, event, run, tuning, and level types in src/game/types.ts and src/content/types.ts with stable IDs and documented module boundaries (FR-002, FR-008, FR-016; data model).
-- [ ] T007 Write and observe failing fresh-state, ID allocation, deterministic step-order, and event-ownership tests in tests/unit/game/run.test.ts and tests/unit/game/step.test.ts; add controlled states in tests/fixtures/run.ts (FR-002, FR-003, FR-016).
-- [ ] T008 Implement pure run creation and the ordered tick pipeline in src/game/run.ts and src/game/step.ts, exposing stages for later systems and importing no browser/rendering APIs; pass T007 (FR-002, FR-003).
-- [ ] T009 Write and observe failing configuration tests in tests/unit/content/tuning.test.ts for finite values, valid actor/attack bounds, tick conversion, and invalid-data rejection (FR-008, FR-012 through FR-018).
-- [ ] T010 Implement provisional tuning and validation in src/content/tuning.ts and src/content/validate.ts using the data-model baselines; pass T009 without shared mutable test state (FR-008 through FR-018, FR-025, FR-029).
-- [ ] T011 Write and observe failing active-wall-time, pause exclusion, fixed-step, backlog-cap, and accumulator-reset tests in tests/unit/app/clock.test.ts and tests/unit/app/loop.test.ts (FR-005; NFR-004).
-- [ ] T012 Implement injected clocks and frame scheduling in src/app/clock.ts and src/app/loop.ts; discarded simulation backlog must still count toward active time, while paused/terminal states never step; pass T011 (FR-005; NFR-004).
+- [X] T006 Define shared actor, attack, input, event, run, tuning, and level types in src/game/types.ts and src/content/types.ts with stable IDs and documented module boundaries (FR-002, FR-008, FR-016; data model).
+- [X] T007 Write and observe failing fresh-state, ID allocation, deterministic step-order, and event-ownership tests in tests/unit/game/run.test.ts and tests/unit/game/step.test.ts; add controlled states in tests/fixtures/run.ts (FR-002, FR-003, FR-016).
+- [X] T008 Implement pure run creation and the ordered tick pipeline in src/game/run.ts and src/game/step.ts, exposing stages for later systems and importing no browser/rendering APIs; pass T007 (FR-002, FR-003).
+- [X] T009 Write and observe failing configuration tests in tests/unit/content/tuning.test.ts for finite values, valid actor/attack bounds, tick conversion, and invalid-data rejection (FR-008, FR-012 through FR-018).
+- [X] T010 Implement provisional tuning and validation in src/content/tuning.ts and src/content/validate.ts using the data-model baselines; pass T009 without shared mutable test state (FR-008 through FR-018, FR-025, FR-029).
+- [X] T011 Write and observe failing active-wall-time, pause exclusion, fixed-step, backlog-cap, and accumulator-reset tests in tests/unit/app/clock.test.ts and tests/unit/app/loop.test.ts (FR-005; NFR-004).
+- [X] T012 Implement injected clocks and frame scheduling in src/app/clock.ts and src/app/loop.ts; discarded simulation backlog must still count toward active time, while paused/terminal states never step; pass T011 (FR-005; NFR-004).
 
 **Checkpoint**: All shared tests pass. Story phases depend on T001–T012.
 

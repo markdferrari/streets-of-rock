@@ -1,0 +1,3 @@
+# Foundation checkpoint — 2026-09-27
+
+Branch: `001-tasks`. Node 24.21.0, Bun 1.4.2. Frozen Bun install succeeded with a workspace-local temp/cache path. `bun run test:unit`: 5 files, 11 tests passed. `bun run typecheck`, `bun run build`, and `bun run audit:build` passed. The current build is a static placeholder shell; the audit only verifies its entry and the full asset/precache audit remains US4 work. No browser gameplay tests, device checks, audio, or playable level exist at this checkpoint. TDD red results were observed for run/step, tuning, and clock/loop tests before their implementations.
