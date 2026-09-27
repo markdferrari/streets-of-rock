@@ -1,4 +1,4 @@
-# Research: The Neon Velvet MVP
+# Research: Bondi Beach MVP
 
 **Date:** 2026-09-26
 **Scope:** Resolve technical choices for [the specification](spec.md), under constitution v1.0.0.

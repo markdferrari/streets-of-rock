@@ -1,4 +1,4 @@
-# Data Model: The Neon Velvet MVP
+# Data Model: Bondi Beach MVP
 
 **Status:** Phase 1 design. Types below describe implementation contracts, not existing code.
 **Related:** [Specification](spec.md), [plan](plan.md), [runtime contracts](contracts/runtime.md).

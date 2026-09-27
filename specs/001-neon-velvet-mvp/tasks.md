@@ -1,4 +1,4 @@
-# Tasks: The Neon Velvet Mobile Game MVP
+# Tasks: Bondi Beach Mobile Game MVP
 
 **Controls revision:** Completed US1 control tasks T013–T014, T016–T020, and T023–T026 document the original floating joystick and Attack/Dodge/Special baseline. Their completion does not validate the accepted fixed joystick, Light/Heavy/Dodge/Special layout, or Heavy attack. Implement and verify those revisions through [feature 002 tasks](../002-revised-controls/tasks.md); preserve unfinished MVP work below.
 
@@ -115,7 +115,7 @@ loss, solo victory, simultaneous lethal damage, waves, pickups, and reset.
 - [ ] T039 [US2] Integrate all AI, projectiles, encounters, pickups, and terminal ordering in src/game/step.ts and src/game/run.ts; pass simultaneous-death and solo-victory cases before emitting results (FR-002, FR-003, FR-022, FR-023, FR-027; AC-009 through AC-012).
 - [ ] T040 [US2] Implement horizontal tracking, complete locked-arena framing, bounds, and transitions in src/presentation/camera.ts; wire scene and GO feedback in src/presentation/scene.ts and src/ui/combat.ts (FR-026, FR-028; AC-008, AC-027).
 - [ ] T041 [US2] Extend src/presentation/actors.ts and src/presentation/effects.ts with Crow, ranged/heavy/Liam poses, projectiles, charge lanes, shockwave warnings, and knockout visuals (FR-017, FR-022, FR-029, FR-030, FR-032; AC-011, AC-027, AC-028).
-- [ ] T042 [US2] Implement loading/progress/retry, title, results, boss HUD, Return to title, and full Retry in src/ui/screens.ts and src/app/game-app.ts; normal Start now loads The Neon Velvet (T032; FR-001 through FR-007).
+- [ ] T042 [US2] Implement loading/progress/retry, title, results, boss HUD, Return to title, and full Retry in src/ui/screens.ts and src/app/game-app.ts; normal Start now loads Bondi Beach (T032; FR-001 through FR-007).
 - [ ] T043 [US2] Implement validated best-time storage in src/platform/best-result.ts with failure fallback and no writes from failed/equal/slower runs; wire result timing in src/app/game-app.ts (T032; FR-005; NFR-008; AC-029).
 - [ ] T044 [US2] Write and observe failing repeated-retry resource tests in tests/integration/presentation/resources.test.ts and full-level browser cases in tests/e2e/level.spec.ts, proving fresh state, single results, and stable transient ownership (FR-002 through FR-005; AC-008 through AC-014, AC-025 through AC-029).
 - [ ] T045 [US2] Implement transient cleanup/shared resources in src/presentation/resources.ts and reset/disposal in src/app/game-app.ts; fix full-level integration until T044 passes (FR-002, FR-004; AC-012).

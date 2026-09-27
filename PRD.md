@@ -13,7 +13,7 @@
 
 Streets of Rock is a mobile-first, arcade-style belt-scrolling beat ’em up featuring stylized cartoon heroes. Its first playable prototype must prove that touchscreen movement, readable combat, and an AI companion can make one short level satisfying to learn and replay.
 
-The MVP is **one complete 3–5 minute level**, The Neon Velvet: a scruffy neon rock venue spanning a dance floor, VIP lounge, backstage corridor, and alley exit. The player controls Cow, a sturdy brawler, with vulnerable AI partner Crow. Defeating Liam the Head Bouncer completes the level.
+The MVP is **one complete 3–5 minute level**, Bondi Beach: a scruffy neon rock venue spanning a dance floor, VIP lounge, backstage corridor, and alley exit. The player controls Cow, a sturdy brawler, with vulnerable AI partner Crow. Defeating Liam the Head Bouncer completes the level.
 
 The audience is casual action players. Difficulty should let a new player learn through play, recover from mistakes, and recognize why an attack hit them. The boss provides a clear final challenge without requiring advanced fighting-game inputs.
 
@@ -113,7 +113,7 @@ Combat must remain beatable with Cow alone. Bovine Spin has no health cost, sepa
 | FR-024 | Crow recovers from obstruction or excessive separation. Recovery must not damage enemies, revive him, or lock an encounter. |
 | FR-025 | Crow provides modest support rather than reliably completing encounters without player attacks. He does not collect healing items or use a separate special ability. |
 
-## 6. The Neon Velvet level
+## 6. Bondi Beach level
 
 ### Encounter sequence
 

@@ -1,4 +1,4 @@
-# Quickstart and Validation: The Neon Velvet MVP
+# Quickstart and Validation: Bondi Beach MVP
 
 **Status:** Design guide. Application scripts below are contracts for implementation, not
 commands that can run against the current documentation-only repository. Do not report them

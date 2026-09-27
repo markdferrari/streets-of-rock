@@ -5,7 +5,7 @@ import { updateEncounters } from '../../../src/game/encounters';
 import { updatePickups } from '../../../src/game/pickups';
 import { moveCow } from '../../../src/game/movement';
 
-describe('The Neon Velvet', () => {
+describe('Bondi Beach', () => {
   it('defines four areas and the agreed initial wave composition', () => {
     expect(neonVelvet.areas.map(area => area.id)).toEqual(['dance-floor', 'vip-lounge', 'backstage-corridor', 'alley-exit']);
     expect(neonVelvet.areas.map(area => area.waves.map(wave => wave.map(spawn => spawn.role)))).toEqual([

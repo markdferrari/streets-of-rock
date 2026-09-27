@@ -1,4 +1,4 @@
-# Feature Specification: The Neon Velvet Mobile Game MVP
+# Feature Specification: Bondi Beach Mobile Game MVP
 
 **Feature Branch**: `001-neon-velvet-mvp`
 

@@ -1,5 +1,5 @@
 export function titleMarkup(): string {
-  return `<main class="menu"><h1>Streets of Rock</h1><p>The Neon Velvet</p><button data-command="start">Start</button></main>`;
+  return `<main class="menu"><h1>Streets of Rock</h1><p>Bondi Beach</p><button data-command="start">Start</button></main>`;
 }
 export function resultMarkup(result: 'victory' | 'defeat', elapsedMs: number, bestMs: number | null): string {
   const heading = result === 'victory' ? 'Victory' : 'Defeat';

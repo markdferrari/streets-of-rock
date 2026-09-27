@@ -1,4 +1,4 @@
-# Implementation Plan: The Neon Velvet Mobile Game MVP
+# Implementation Plan: Bondi Beach Mobile Game MVP
 
 **Branch**: `001-neon-velvet-mvp` | **Date**: 2026-09-26 | **Spec**: [spec.md](spec.md)
 

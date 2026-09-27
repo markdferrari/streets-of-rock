@@ -1,8 +1,8 @@
-# Specification Quality Checklist: The Neon Velvet Mobile Game MVP
+# Specification Quality Checklist: Bondi Beach Mobile Game MVP
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-09-26
-**Feature**: [The Neon Velvet Mobile Game MVP](../spec.md)
+**Feature**: [Bondi Beach Mobile Game MVP](../spec.md)
 
 ## Content Quality
 
