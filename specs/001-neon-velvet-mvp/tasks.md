@@ -73,7 +73,7 @@ covers real touch ergonomics and readable feedback.
 ### Implementation for User Story 1
 
 - [X] T017 [US1] Implement pointer capture, movement/action ownership, joystick following, and command clearing in src/input/pointers.ts and src/input/frame.ts; pass T013 (FR-009 through FR-011).
-- [ ] T018 [US1] Implement bounded movement, retained facing, collision volumes, and swept contacts in src/game/movement.ts and src/game/collision.ts; pass relevant T014/T015 cases and keep allies nonblocking (FR-008, FR-011, FR-016, FR-019).
+- [X] T018 [US1] Implement bounded movement, retained facing, collision volumes, and swept contacts in src/game/movement.ts and src/game/collision.ts; pass relevant T014/T015 cases and keep allies nonblocking (FR-008, FR-011, FR-016, FR-019).
 - [X] T019 [US1] Implement attack phases, one buffered action, combo windows, dodge/cooldown, and spin in src/game/actions.ts; apply documented simultaneous-input priority and pass action tests (FR-012 through FR-015; AC-003, AC-005, AC-006, AC-023).
 - [X] T020 [US1] Implement hit-target sets, damage batching, meter, knockback, and protection in src/game/damage.ts; wire movement/actions/damage into src/game/step.ts and pass remaining T014 cases (FR-014 through FR-017; AC-004, AC-006, AC-007).
 - [X] T021 [US1] Implement grunt approach/windup/recovery and shared attack slots in src/game/ai/grunt.ts and src/game/ai/attack-slots.ts; connect through src/game/step.ts and pass T015 (FR-018, FR-029; AC-024).
@@ -81,9 +81,9 @@ covers real touch ergonomics and readable feedback.
 - [X] T023 [US1] Implement safe-area joystick/buttons, health/meter, Pause affordance, and unavailable-action feedback in src/ui/combat.ts and src/ui/styles.css; connect pointer regions and pass HUD tests (FR-007, FR-009, FR-010, FR-015; NFR-003).
 - [X] T024 [US1] Implement contextual movement/attack/dodge/special prompts in src/ui/tutorial.ts, completing each only after a valid action; retain a storage boundary until persistence arrives in US3 (FR-006; AC-001).
 - [X] T025 [US1] Compose the training encounter in src/main.ts, src/app/game-app.ts, and src/content/training.ts; connect simulation, presentation, inputs, clock, and manual Pause/Resume that clears commands (FR-006 through FR-019; runtime contract).
-- [ ] T026 [US1] Add and run failing-then-passing browser regressions in tests/e2e/touch-combat.spec.ts and tests/fixtures/browser.ts for input clearing, control overlap, combo/meter feedback, and prompts; fix integration defects at their owning modules (AC-001 through AC-007, AC-022 through AC-024).
+- [X] T026 [US1] Add and run failing-then-passing browser regressions in tests/e2e/touch-combat.spec.ts and tests/fixtures/browser.ts for input clearing, control overlap, combo/meter feedback, and prompts; fix integration defects at their owning modules (AC-001 through AC-007, AC-022 through AC-024).
 - [ ] T027 [US1] Execute first-encounter touch/readability checks on available reference phones and record versions and early frame observations in specs/001-neon-velvet-mvp/validation/us1-device.md; leave unavailable device evidence pending (AC-001, AC-002, AC-022 through AC-024; NFR-002, NFR-003).
-- [ ] T028 [US1] Run all existing automated tests and applicable type/build checks; record results and remaining manual gates in specs/001-neon-velvet-mvp/validation/us1-results.md without claiming the entire MVP is complete (US1; constitution III).
+- [X] T028 [US1] Run all existing automated tests and applicable type/build checks; record results and remaining manual gates in specs/001-neon-velvet-mvp/validation/us1-results.md without claiming the entire MVP is complete (US1; constitution III).
 
 **Checkpoint**: First playable increment. US2 can begin after the code and automated checks
 pass; missing phone evidence remains an open final gate.

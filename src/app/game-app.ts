@@ -23,6 +23,15 @@ export class GameApp {
   private hudMarkup = '';
   private feedbackUntilTick = 0;
   constructor(private readonly root: HTMLElement) {
+    if (import.meta.env.VITE_TEST_MODE === '1') {
+      Object.defineProperty(window, '__sorTest', { value: {
+        snapshot: () => this.run ? structuredClone(this.run) : null,
+        placeCow: (x: number) => {
+          const cow = this.run?.actors.find(actor => actor.role === 'cow');
+          if (cow && Number.isFinite(x)) { cow.position.x = Math.max(0, Math.min(16, x)); cow.position.depth = 0; cow.facing = 1; }
+        },
+      }, configurable: true });
+    }
     this.root.innerHTML = `<main class="menu"><h1>Streets of Rock</h1><p>The Neon Velvet</p><button data-command="start">Start</button></main>`;
     this.root.addEventListener('click', event => this.onClick(event));
     this.root.addEventListener('pointerdown', event => this.onPointerDown(event));

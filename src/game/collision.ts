@@ -1,4 +1,19 @@
-import type { AttackInstance, GameActor, Position } from './types';
+import type { AttackInstance, GameActor, Position, RunState } from './types';
+export function resolveActorOverlaps(run: RunState): void {
+  const allies = run.actors.filter(actor => actor.team === 'ally' && actor.hp > 0);
+  for (const enemy of run.actors.filter(actor => actor.team === 'enemy' && actor.hp > 0).sort((a, b) => a.id - b.id)) {
+    for (const ally of allies) {
+      const dx = enemy.position.x - ally.position.x;
+      const dd = enemy.position.depth - ally.position.depth;
+      const distance = Math.hypot(dx, dd);
+      if (distance >= .6) continue;
+      const directionX = distance > 0 ? dx / distance : 1;
+      const directionDepth = distance > 0 ? dd / distance : 0;
+      enemy.position.x = Math.max(0, Math.min(16, enemy.position.x + directionX * (.6 - distance)));
+      enemy.position.depth = Math.max(-3, Math.min(3, enemy.position.depth + directionDepth * (.6 - distance)));
+    }
+  }
+}
 export function sweptCircleContact(start: Position, end: Position, target: Position, radius: number): boolean {
   if (![start.x, start.depth, end.x, end.depth, target.x, target.depth, radius].every(Number.isFinite) || radius < 0) return false;
   const dx = end.x - start.x;

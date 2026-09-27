@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
 import { moveCow } from '../../../src/game/movement';
-import { attackHits, sweptCircleContact } from '../../../src/game/collision';
+import { attackHits, resolveActorOverlaps, sweptCircleContact } from '../../../src/game/collision';
 import { clearCowPendingAction, updateCowAction } from '../../../src/game/actions';
 import { applyAttack } from '../../../src/game/damage';
 import type { AttackInstance, CowState, EnemyState } from '../../../src/game/types';
@@ -45,6 +45,16 @@ describe('movement and hits', () => {
   it('detects fast travel through a target without requiring an end-point overlap', () => {
     expect(sweptCircleContact({ x: 0, depth: 0 }, { x: 4, depth: 0 }, { x: 2, depth: .1 }, .3)).toBe(true);
     expect(sweptCircleContact({ x: 0, depth: 0 }, { x: 4, depth: 0 }, { x: 2, depth: 1 }, .3)).toBe(false);
+  });
+  it('keeps allies nonblocking while separating an enemy overlap', () => {
+    const run = fixtureRun();
+    run.actors[0]!.position.x = 1;
+    run.actors[1]!.position.x = 1;
+    run.actors.push(grunt(3, 1, 0));
+    resolveActorOverlaps(run);
+    expect(run.actors[0]!.position.x).toBe(1);
+    expect(run.actors[1]!.position.x).toBe(1);
+    expect(Math.abs(run.actors[2]!.position.x - 1)).toBeGreaterThanOrEqual(.6);
   });
   it('grants damage protection and rejects attacks from allies', () => {
     const run = fixtureRun();

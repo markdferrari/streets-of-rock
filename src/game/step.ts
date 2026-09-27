@@ -2,13 +2,14 @@ import type { GameEvent, InputFrame, RunState } from './types';
 import { updateCowAction } from './actions';
 import { updateGrunts } from './ai/grunt';
 import { moveCow } from './movement';
+import { resolveActorOverlaps } from './collision';
 import { applyAttacksBatch } from './damage';
 
 export interface TickStage { name: string; apply(run: RunState, input: InputFrame, events: GameEvent[]): void }
 const defaultStages: TickStage[] = [
   { name: 'input', apply: updateCowAction },
   { name: 'ai', apply: (run, _input, events) => updateGrunts(run, events) },
-  { name: 'movement', apply: (run, input) => moveCow(run, input) },
+  { name: 'movement', apply: (run, input) => { moveCow(run, input); resolveActorOverlaps(run); } },
   { name: 'contacts', apply: (run, _input, events) => {
     applyAttacksBatch(run, run.attacks.filter(attack => run.tick < attack.activeUntilTick), events);
     run.attacks = run.attacks.filter(attack => run.tick < attack.activeUntilTick);
