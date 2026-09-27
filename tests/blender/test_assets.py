@@ -21,6 +21,11 @@ class CharacterAssetTests(unittest.TestCase):
                 for part in required:
                     self.assertIn(f'{prefix}.{part}',names)
                 self.assertIn(f'Character.{prefix}',bpy.data.collections)
+                root=bpy.data.objects[f'{prefix}.Root']
+                self.assertEqual(tuple(round(float(v),5) for v in root.location),(0.0,0.0,0.0))
+                self.assertEqual(bpy.context.scene.unit_settings.system,'METRIC')
+                height=max((obj.matrix_world @ __import__('mathutils').Vector(corner)).z for obj in bpy.data.collections[f'Character.{prefix}'].objects if obj.type=='MESH' for corner in obj.bound_box)
+                self.assertAlmostEqual(height,2.0 if role=='cow' else 1.6,delta=.30)
                 self.assertTrue(any(m.name.startswith(f'{prefix}.Material.') for m in bpy.data.materials))
                 self.assertTrue(all(m.vertices and all(all(abs(v)<1000 for v in vertex.co) for vertex in m.vertices) for m in bpy.data.meshes if m.users))
                 self.assertTrue(all(o.data.materials for o in bpy.data.objects if o.type=='MESH' and o.name.startswith(prefix+'.')))

@@ -35,3 +35,10 @@ class CommandBoundaryTests(unittest.TestCase):
         with self.assertRaises(SystemExit) as error:
             render.main([])
         self.assertNotEqual(error.exception.code,0)
+
+    def test_duo_only_preflight_ignores_existing_individual_preview(self):
+        with TemporaryDirectory() as temp:
+            out=Path(temp)
+            (out/'previews').mkdir()
+            (out/'previews/cow-front.png').write_bytes(b'keep')
+            render.preflight(out, smoke=False, overwrite=False, only='duo')

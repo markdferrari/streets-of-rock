@@ -2,7 +2,7 @@
 
 **Feature Branch**: `003-cow-crow-models`  
 **Created**: 2026-09-27  
-**Status**: Specified; visual acceptance pending implementation  
+**Status**: Asset implementation and owner visual review complete; repository browser-test gate open
 **Input**: Owner-approved brief for editable smooth cartoon models, reproducible generation, and preview renders.
 
 ## Product Alignment

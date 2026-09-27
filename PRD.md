@@ -314,4 +314,4 @@ Homepage - start, select your playable character + teammate
     Tapping should show stats, then second tap to confirm
 
 
-
+Future roster: Virus, Rat, Squirrel, Big Mac, Salad Fingers, Slug, Worm, Panda, Fisherman, Trousers, Moleman, Grouchy Old Leinster Fan

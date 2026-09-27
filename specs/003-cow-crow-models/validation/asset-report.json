@@ -1,0 +1,22 @@
+{
+  "blender_version": "5.2.2 LTS",
+  "python_version": "3.13.13",
+  "checks": [
+    {
+      "name": "cow",
+      "passed": true,
+      "diagnostic": "cow: required parts, materials, geometry and presentation found"
+    },
+    {
+      "name": "crow",
+      "passed": true,
+      "diagnostic": "crow: required parts, materials, geometry and presentation found"
+    },
+    {
+      "name": "comparison",
+      "passed": true,
+      "diagnostic": "comparison: required parts, materials, geometry and presentation found"
+    }
+  ],
+  "passed": true
+}

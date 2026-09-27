@@ -1,6 +1,6 @@
 # Quickstart: Cow and Crow Authoring Validation
 
-**Status**: Planned commands for the implementation phase. Scripts and assets do not exist yet; these instructions do not claim successful generation.
+**Status**: Implemented authoring commands. See `validation/results.md` for executed commands, automated results, and the accepted owner visual verdict and open browser-test gate.
 
 ## Prerequisites
 
@@ -16,11 +16,11 @@
 timeout --kill-after=2s 120s blender -noaudio --background --factory-startup --python-exit-code 1 --python-expr 'import bpy, sys; print(bpy.app.version_string, sys.version); bpy.ops.wm.quit_blender()'
 ```
 
-Expected: supported versions, clean shutdown, exit 0. This diagnostic was verified outside the sandbox during research. Generation and rendering remain unverified until implementation.
+Expected: supported versions, clean shutdown, exit 0. This diagnostic was verified outside the sandbox during research. Generation, smoke rendering, and fresh-process validation have been exercised; see `validation/results.md` for the final run status.
 
 ## 2. Define tests and visual checks first
 
-Implement behavioral tests and the manual checklist below before modeling. Observe expected failures for missing generated assets or incorrect behavior; import errors alone do not demonstrate the feature's red stage. Then implement incrementally and rerun:
+The automated tests and pre-modeling visual checklist are present. Red-stage results are recorded in `validation/results.md`. Rerun the suite after any model or script change:
 
 ```sh
 timeout --kill-after=5s 1800s blender -noaudio --background --factory-startup --python-exit-code 1 --python tests/blender/run_tests.py
@@ -51,7 +51,7 @@ Expected: fresh-process scene validation passes; JSON reports checks and version
 timeout --kill-after=5s 1800s blender -noaudio --background --factory-startup --python-exit-code 1 --python scripts/blender/render.py -- --output-dir assets/characters/cow-crow
 ```
 
-Expected: ten PNGs described in [data-model.md](data-model.md), using the saved scenes. Existing target previews require `--overwrite`; other files are preserved. A timeout or nonzero exit is failure and must be investigated before acceptance. Do not weaken the error status merely because some images exist.
+Expected: ten PNGs described in [data-model.md](data-model.md), using the saved scenes. Existing target previews require `--overwrite`; other files are preserved. To refresh one set, add `--only cow`, `--only crow`, or `--only duo` (with `--overwrite` if that set already exists). A timeout or nonzero exit is failure and must be investigated before acceptance. Do not weaken the error status merely because some images exist.
 
 ## 6. Manual acceptance checklist
 
@@ -76,6 +76,6 @@ bun run test
 bun run build
 ```
 
-Inspect build outputs/manifest to confirm no `.blend` files or authoring previews entered the web bundle. Record results, versions, commands, and any unrelated baseline failures; do not claim tests passed if they were blocked. All tests must pass before any conventional commit. Documentation-only planning requires consistency review; it does not require creating a test harness. This planning command does not commit.
+Inspect build outputs/manifest to confirm no `.blend` files or authoring previews entered the web bundle. Record results, versions, commands, and any unrelated baseline failures; do not claim tests passed if they were blocked. All tests must pass before any conventional commit. Documentation-only planning requires consistency review; it does not require creating a test harness. This authoring workflow does not require a commit for validation. Any eventual commit must use a conventional message and include only intended files.
 
 Keep rigs, animation, GLB delivery, runtime loading/caching, gameplay changes, and device acceptance for the separately specified integration milestone.
