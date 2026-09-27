@@ -1,7 +1,22 @@
 import type { GameEvent, InputFrame, RunState } from './types';
+import { updateCowAction } from './actions';
+import { updateGrunts } from './ai/grunt';
+import { moveCow } from './movement';
+import { applyAttack } from './damage';
 
 export interface TickStage { name: string; apply(run: RunState, input: InputFrame, events: GameEvent[]): void }
-export function stepRun(run: RunState, input: InputFrame, stages: TickStage[] = []): GameEvent[] {
+const defaultStages: TickStage[] = [
+  { name: 'input', apply: updateCowAction },
+  { name: 'ai', apply: (run, _input, events) => updateGrunts(run, events) },
+  { name: 'movement', apply: (run, input) => moveCow(run, input) },
+  { name: 'contacts', apply: (run, _input, events) => {
+    for (const attack of [...run.attacks].sort((a, b) => a.id - b.id)) {
+      if (run.tick < attack.activeUntilTick) applyAttack(run, attack, events);
+    }
+    run.attacks = run.attacks.filter(attack => run.tick < attack.activeUntilTick);
+  } },
+];
+export function stepRun(run: RunState, input: InputFrame, stages: TickStage[] = defaultStages): GameEvent[] {
   if (run.result) return [];
   const events: GameEvent[] = [];
   for (const stage of stages) {

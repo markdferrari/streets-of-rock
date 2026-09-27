@@ -29,6 +29,7 @@ export interface CowState extends Actor {
   comboDeadlineTick: number;
   dodgeReadyTick: number;
   specialMeter: number;
+  dodgeDirection?: Position;
   pendingAction?: PendingAction;
 }
 export interface CrowState extends Actor { role: 'crow'; active: boolean; lastProgressTick: number }

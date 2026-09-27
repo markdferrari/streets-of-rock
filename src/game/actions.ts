@@ -11,6 +11,7 @@ function start(run: RunState, cow: CowState, kind: PendingAction['kind'], events
     if (run.tick < cow.dodgeReadyTick) return false;
     cow.action = { kind: 'dodge', startedTick: run.tick, endTick: run.tick + 18 };
     cow.dodgeReadyTick = run.tick + 54;
+    cow.dodgeDirection = { x: cow.facing, depth: 0 };
     cow.protectionUntilTick = Math.max(cow.protectionUntilTick, run.tick + 12);
     events.push({ type: 'dodge', tick: run.tick, actorId: cow.id });
     return true;
@@ -63,5 +64,9 @@ export function updateCowAction(run: RunState, input: InputFrame, events: GameEv
     const pending = cow.pendingAction;
     cow.pendingAction = undefined;
     if (!start(run, cow, pending.kind, events)) events.push({ type: 'unavailable', tick: run.tick, actorId: cow.id });
+    else if (pending.kind === 'dodge') {
+      const magnitude = Math.hypot(input.move.x, input.move.depth);
+      if (Number.isFinite(magnitude) && magnitude > 0) cow.dodgeDirection = { x: input.move.x / magnitude, depth: input.move.depth / magnitude };
+    }
   }
 }

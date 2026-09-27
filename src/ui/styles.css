@@ -1,0 +1,25 @@
+:root { font-family: system-ui, sans-serif; color: #fff7e9; background: #171024; }
+* { box-sizing: border-box; }
+html, body, #app { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+button { font: inherit; font-weight: 800; color: #24162d; border: 3px solid #fff7e9; border-radius: 999px; background: #f4c85b; touch-action: none; }
+button:focus-visible { outline: 3px solid cyan; outline-offset: 3px; }
+.menu { height: 100%; display: grid; place-content: center; text-align: center; background: radial-gradient(circle, #56305e, #171024); }
+.menu h1 { font-size: clamp(2rem, 9vw, 5rem); margin: 0; color: #f4c85b; text-shadow: 4px 4px #852765; }
+.menu p { font-size: 1.5rem; }
+.menu button { min-width: 10rem; padding: .8rem 1.5rem; margin: auto; }
+.game, .scene-host, .scene-host canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.game { touch-action: none; overflow: hidden; }
+.hud-host { position: absolute; z-index: 5; top: max(8px, env(safe-area-inset-top)); left: max(12px, env(safe-area-inset-left)); right: max(12px, env(safe-area-inset-right)); pointer-events: none; }
+.hud { display: flex; gap: .7rem; align-items: center; flex-wrap: wrap; font-size: clamp(.72rem, 2vw, 1rem); font-weight: 800; text-shadow: 1px 2px #161020; }
+.hud span { padding: .4rem .6rem; border: 2px solid #f4c85b; border-radius: .5rem; background: #171024c9; }
+.hud button { margin-left: auto; min-width: 64px; min-height: 44px; padding: .3rem .8rem; pointer-events: auto; }
+.prompt { position: absolute; z-index: 4; top: 18%; left: 50%; transform: translateX(-50%); border-radius: 2rem; padding: .25rem .75rem; background: #171024bb; font-weight: 800; text-align: center; white-space: nowrap; }
+.move-region { position: absolute; z-index: 3; left: 0; bottom: 0; width: 47%; height: 78%; touch-action: none; }
+.joystick { position: fixed; z-index: 4; width: 120px; height: 120px; margin: -60px; border: 4px solid #f4c85b9c; border-radius: 50%; background: #fff8; pointer-events: none; }
+.actions { position: absolute; z-index: 4; right: max(12px, env(safe-area-inset-right)); bottom: max(12px, env(safe-area-inset-bottom)); display: flex; align-items: end; gap: 10px; }
+.actions button { width: 56px; height: 56px; font-size: .7rem; }
+.actions .attack { width: 72px; height: 72px; font-size: .8rem; }
+.overlay { position: absolute; z-index: 10; inset: 0; background: #171024dd; display: grid; place-items: center; }
+.overlay[hidden], .joystick[hidden] { display: none; }
+.pause-menu { display: grid; gap: 1rem; text-align: center; }
+.pause-menu button { padding: .7rem 1.5rem; }

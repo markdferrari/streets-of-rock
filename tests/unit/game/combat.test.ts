@@ -51,6 +51,19 @@ describe('movement and hits', () => {
     applyAttack(run, { ...attack, id: 2, hitTargetIds: [] }, []);
     expect(run.actors[0]!.hp).toBe(482);
   });
+  it('spin hits nearby enemies once without refilling its meter and knocks them back', () => {
+    const run = fixtureRun();
+    run.actors.push(grunt(3, 1, 0), grunt(4, -1, 0), grunt(5, 3, 0));
+    const cow = run.actors[0] as CowState;
+    cow.specialMeter = 0;
+    const attack = { ...strike(), moveId: 'spin' as const, range: 2, damage: 60 };
+    applyAttack(run, attack, []);
+    applyAttack(run, attack, []);
+    expect(run.actors.slice(2).map(actor => actor.hp)).toEqual([60, 60, 120]);
+    expect(cow.specialMeter).toBe(0);
+    expect(run.actors[2]!.position.x).toBeGreaterThan(1);
+    expect(run.actors[3]!.position.x).toBeLessThan(-1);
+  });
 });
 
 describe('Cow actions', () => {
@@ -94,5 +107,20 @@ describe('Cow actions', () => {
     run.tick = 54;
     updateCowAction(run, { move: { x: 0, depth: 0 }, dodge: true }, []);
     expect(cow.action.kind).toBe('dodge');
+  });
+  it('captures joystick dodge direction and uses facing at neutral input', () => {
+    const run = fixtureRun();
+    const cow = run.actors[0] as CowState;
+    cow.position.x = 5;
+    updateCowAction(run, { move: { x: 0, depth: -1 }, dodge: true }, []);
+    moveCow(run, { move: { x: 1, depth: 1 } });
+    expect(cow.position.depth).toBeLessThan(0);
+    expect(cow.position.x).toBe(5);
+    run.tick = 54;
+    cow.action = { kind: 'idle', startedTick: 54, endTick: 54 };
+    cow.facing = -1;
+    updateCowAction(run, { move: { x: 0, depth: 0 }, dodge: true }, []);
+    moveCow(run, { move: { x: 0, depth: 0 } });
+    expect(cow.position.x).toBeLessThan(5);
   });
 });

@@ -5,14 +5,16 @@ export class PointerControls {
   private owner: number | null = null;
   private anchor: Point = { x: 0, y: 0 };
   private knob: Point = { x: 0, y: 0 };
-  private actions: Pick<PointerOutput, 'attack' | 'dodge' | 'special'> = { attack: false, dodge: false, special: false };
+  private actions = new Map<number, 'attack' | 'dodge' | 'special'>();
+  private released = new Set<number>();
   down(id: number, point: Point, region: PointerRegion): void {
+    this.released.delete(id);
     if (region === 'movement' && this.owner === null) {
       this.owner = id;
       this.anchor = { ...point };
       this.knob = { ...point };
     } else if (region === 'attack' || region === 'dodge' || region === 'special') {
-      this.actions[region] = true;
+      this.actions.set(id, region);
     }
   }
   move(id: number, point: Point): void {
@@ -27,11 +29,16 @@ export class PointerControls {
       this.anchor.y += dy / distance * excess;
     }
   }
-  up(id: number): void { if (id === this.owner) this.owner = null; }
-  cancel(id: number): void { this.up(id); }
+  up(id: number): void { if (id === this.owner) this.owner = null; this.released.add(id); }
+  cancel(id: number): void {
+    if (this.released.delete(id)) return;
+    if (id === this.owner) this.owner = null;
+    this.actions.delete(id);
+  }
   clear(): void {
     this.owner = null;
-    this.actions = { attack: false, dodge: false, special: false };
+    this.actions.clear();
+    this.released.clear();
   }
   frame(): PointerOutput {
     const move = { x: 0, y: 0 };
@@ -45,8 +52,9 @@ export class PointerControls {
         move.y = dy * scale;
       }
     }
-    const output = { move, ...this.actions };
-    this.actions = { attack: false, dodge: false, special: false };
+    const pending = [...this.actions.values()];
+    const output = { move, attack: pending.includes('attack'), dodge: pending.includes('dodge'), special: pending.includes('special') };
+    this.actions.clear();
     return output;
   }
   joystick(): { anchor: Point; knob: Point } | null {

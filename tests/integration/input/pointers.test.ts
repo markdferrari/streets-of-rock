@@ -43,4 +43,17 @@ describe('touch ownership', () => {
     controls.cancel(1);
     expect(controls.frame().move.x).toBe(0);
   });
+  it('removes a pending action if that touch is canceled before the next frame', () => {
+    const controls = new PointerControls();
+    controls.down(7, { x: 200, y: 100 }, 'special');
+    controls.cancel(7);
+    expect(controls.frame().special).toBe(false);
+  });
+  it('keeps a completed tap when pointer capture is released normally', () => {
+    const controls = new PointerControls();
+    controls.down(7, { x: 200, y: 100 }, 'attack');
+    controls.up(7);
+    controls.cancel(7);
+    expect(controls.frame().attack).toBe(true);
+  });
 });

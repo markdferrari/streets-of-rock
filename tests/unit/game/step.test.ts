@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
 import { stepRun, type TickStage } from '../../../src/game/step';
+import type { EnemyState } from '../../../src/game/types';
 
 describe('tick pipeline', () => {
   it('executes deterministic stages and gives each tick a fresh event list', () => {
@@ -33,5 +34,16 @@ describe('tick pipeline', () => {
     run.actors[0]!.hp = 0;
     stepRun(run, { move: { x: 0, depth: 0 } });
     expect(run.result).toBe('defeat');
+  });
+
+  it('runs actions, AI and damage through the default pipeline', () => {
+    const run = fixtureRun();
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'grunt', team: 'enemy', hp: 120, maxHp: 120, position: { x: 1, depth: 0 } } as EnemyState);
+    const input = { move: { x: 0, depth: 0 } };
+    stepRun(run, { ...input, attack: true });
+    for (let i = 0; i < 35; i++) stepRun(run, input);
+    expect(run.actors[2]!.hp).toBe(108);
+    expect(run.actors[0]).toMatchObject({ specialMeter: 10 });
+    expect(run.actors[0]!.hp).toBeLessThan(500);
   });
 });

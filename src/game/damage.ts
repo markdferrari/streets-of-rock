@@ -8,6 +8,14 @@ export function applyAttack(run: RunState, attack: AttackInstance, events: GameE
     if (target.team === owner.team || run.tick < target.protectionUntilTick || !attackHits(attack, target)) continue;
     target.hp = Math.max(0, target.hp - attack.damage);
     attack.hitTargetIds.push(target.id);
+    if (attack.moveId === 'cow3' || attack.moveId === 'spin') {
+      const dx = target.position.x - attack.origin.x;
+      const dd = target.position.depth - attack.origin.depth;
+      const distance = Math.hypot(dx, dd);
+      const push = attack.moveId === 'spin' ? 1.5 : 1.2;
+      target.position.x += (distance > 0 ? dx / distance : attack.facing) * push;
+      target.position.depth += (distance > 0 ? dd / distance : 0) * push;
+    }
     if (owner.role === 'cow' && attack.moveId.startsWith('cow') && target.team === 'enemy') {
       const cow = owner as CowState;
       cow.specialMeter = Math.min(100, cow.specialMeter + 10);
