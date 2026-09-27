@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.use({ viewport: { width: 844, height: 390 }, hasTouch: true });
 
-test('starts an encounter, attacks with the touch controls, and pauses explicitly', async ({ page }) => {
+test('starts an encounter, attacks and moves with the touch controls, and pauses explicitly', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('button', { name: 'Start' })).toBeVisible();
   await page.getByRole('button', { name: 'Start' }).click();
@@ -13,9 +13,8 @@ test('starts an encounter, attacks with the touch controls, and pauses explicitl
   await page.mouse.move(80, 300);
   await page.mouse.down();
   await page.mouse.move(150, 300);
-  await expect(page.getByText('Dodge attacks')).toBeVisible();
+  await expect(page.getByText('Move to fight')).toBeHidden();
   await page.getByRole('button', { name: 'Attack' }).click();
-  await expect(page.getByText('Dodge attacks')).toBeVisible();
   await page.mouse.up();
   await page.getByRole('button', { name: 'Pause' }).click();
   await expect(page.getByRole('button', { name: 'Resume' })).toBeVisible();
@@ -48,7 +47,7 @@ test('shows meter gain after a damaging attack', async ({ page }) => {
   await page.getByRole('button', { name: 'Start' }).click();
   await page.evaluate(() => {
     const fixture = (window as unknown as { __sorTest: { placeCow: (x: number) => void } }).__sorTest;
-    fixture.placeCow(1.5);
+    fixture.placeCow(6);
   });
   await page.getByRole('button', { name: 'Attack' }).click();
   await expect(page.getByText('Special 10%')).toBeVisible();

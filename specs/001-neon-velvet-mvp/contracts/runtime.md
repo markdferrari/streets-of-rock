@@ -3,6 +3,8 @@
 **Version:** 1; scoped to the MVP. No public server API.
 **Related:** [Data model](../data-model.md), [specification](../spec.md).
 
+**Controls revision:** The joystick, `InputFrame`, action buttons, and associated touch behavior below describe the original MVP baseline. For the accepted four-button controls, use the [feature 002 controls contract](../../002-revised-controls/contracts/controls.md). The other screen, lifecycle, and delivery obligations remain applicable.
+
 ## Module boundaries
 
 | Boundary | Input | Output / obligations |

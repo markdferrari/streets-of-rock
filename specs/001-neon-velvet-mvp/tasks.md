@@ -1,5 +1,7 @@
 # Tasks: The Neon Velvet Mobile Game MVP
 
+**Controls revision:** Completed US1 control tasks T013–T014, T016–T020, and T023–T026 document the original floating joystick and Attack/Dodge/Special baseline. Their completion does not validate the accepted fixed joystick, Light/Heavy/Dodge/Special layout, or Heavy attack. Implement and verify those revisions through [feature 002 tasks](../002-revised-controls/tasks.md); preserve unfinished MVP work below.
+
 **Created**: 2026-09-27
 **Working branch**: 001-tasks (feature directory is independent of branch name)
 **Input**: [spec.md](spec.md), [plan.md](plan.md), [research.md](research.md),
