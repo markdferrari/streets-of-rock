@@ -311,4 +311,7 @@ Retain these concepts for later specifications without treating them as MVP comm
 Character skins + creator - can we make this a reusable skill?
 
 Homepage - start, select your playable character + teammate
+    Tapping should show stats, then second tap to confirm
+
+
 
