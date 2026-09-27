@@ -65,14 +65,14 @@ covers real touch ergonomics and readable feedback.
 
 ### Tests for User Story 1
 
-- [ ] T013 [P] [US1] Write failing pointer tests in tests/integration/input/pointers.test.ts for movement ownership, independent action fingers, HUD precedence, deadzone/anchor, normalization, release/cancel/lost-capture, and one tap per pointerdown (FR-008 through FR-011; AC-002, AC-022).
+- [X] T013 [P] [US1] Write failing pointer tests in tests/integration/input/pointers.test.ts for movement ownership, independent action fingers, HUD precedence, deadzone/anchor, normalization, release/cancel/lost-capture, and one tap per pointerdown (FR-008 through FR-011; AC-002, AC-022).
 - [ ] T014 [P] [US1] Write failing combat tests in tests/unit/game/combat.test.ts for facing/depth misses, swept contacts, one-hit registration, combo/buffer expiry, dodge boundaries, meter gain/spending, spin knockback, unavailable actions, and protection (FR-012 through FR-017; AC-003 through AC-007, AC-023).
 - [ ] T015 [P] [US1] Write failing coordination tests in tests/unit/game/coordination.test.ts for two shared attack slots, waiting/repositioning, slot release, grunt warnings, no allied damage/body blocking, and repeated-hit prevention (FR-017 through FR-019, FR-029; AC-024).
 - [ ] T016 [P] [US1] Write failing HUD/tutorial tests in tests/integration/ui/combat-ui.test.ts for health/meter/cooldown feedback, successful-action prompt completion, and non-color cues using controlled state/events (FR-006, FR-007, FR-015, FR-037; AC-001, AC-023).
 
 ### Implementation for User Story 1
 
-- [ ] T017 [US1] Implement pointer capture, movement/action ownership, joystick following, and command clearing in src/input/pointers.ts and src/input/frame.ts; pass T013 (FR-009 through FR-011).
+- [X] T017 [US1] Implement pointer capture, movement/action ownership, joystick following, and command clearing in src/input/pointers.ts and src/input/frame.ts; pass T013 (FR-009 through FR-011).
 - [ ] T018 [US1] Implement bounded movement, retained facing, collision volumes, and swept contacts in src/game/movement.ts and src/game/collision.ts; pass relevant T014/T015 cases and keep allies nonblocking (FR-008, FR-011, FR-016, FR-019).
 - [ ] T019 [US1] Implement attack phases, one buffered action, combo windows, dodge/cooldown, and spin in src/game/actions.ts; apply documented simultaneous-input priority and pass action tests (FR-012 through FR-015; AC-003, AC-005, AC-006, AC-023).
 - [ ] T020 [US1] Implement hit-target sets, damage batching, meter, knockback, and protection in src/game/damage.ts; wire movement/actions/damage into src/game/step.ts and pass remaining T014 cases (FR-014 through FR-017; AC-004, AC-006, AC-007).
