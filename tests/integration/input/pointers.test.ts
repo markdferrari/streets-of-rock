@@ -2,8 +2,23 @@ import { describe, expect, it } from 'vitest';
 import { PointerControls } from '../../../src/input/pointers';
 
 describe('touch ownership', () => {
+  it('uses a fixed visible centre and ignores touches that begin beyond the ring', () => {
+    const controls = new PointerControls();
+    controls.setCenter({ x: 100, y: 100 });
+    expect(controls.joystick()).toEqual({ anchor: { x: 100, y: 100 }, knob: { x: 100, y: 100 } });
+    controls.down(1, { x: 180, y: 100 }, 'movement');
+    controls.move(1, { x: 100, y: 100 });
+    expect(controls.frame().move).toEqual({ x: 0, y: 0 });
+    controls.down(2, { x: 100, y: 100 }, 'movement');
+    controls.move(2, { x: 220, y: 100 });
+    expect(controls.frame().move).toEqual({ x: 1, y: 0 });
+    expect(controls.joystick()).toEqual({ anchor: { x: 100, y: 100 }, knob: { x: 160, y: 100 } });
+    controls.up(2);
+    expect(controls.joystick()?.knob).toEqual({ x: 100, y: 100 });
+  });
   it('tracks movement and an action on independent fingers and consumes a tap once', () => {
     const controls = new PointerControls();
+    controls.setCenter({ x: 50, y: 100 });
     controls.down(1, { x: 50, y: 100 }, 'movement');
     controls.move(1, { x: 110, y: 100 });
     controls.down(2, { x: 200, y: 100 }, 'attack');
@@ -18,23 +33,26 @@ describe('touch ownership', () => {
     const controls = new PointerControls();
     controls.down(1, { x: 10, y: 10 }, 'hud');
     expect(controls.joystick()).toBeNull();
+    controls.setCenter({ x: 100, y: 100 });
     controls.down(2, { x: 100, y: 100 }, 'movement');
     controls.move(2, { x: 106, y: 100 });
     expect(controls.frame().move).toEqual({ x: 0, y: 0 });
     controls.move(2, { x: 160, y: 100 });
     expect(controls.frame().move.x).toBe(1);
   });
-  it('normalizes diagonal movement and follows sustained dragging beyond 60 pixels', () => {
+  it('normalizes diagonal movement and clamps the knob beyond 60 pixels', () => {
     const controls = new PointerControls();
+    controls.setCenter({ x: 100, y: 100 });
     controls.down(1, { x: 100, y: 100 }, 'movement');
     controls.move(1, { x: 160, y: 160 });
     expect(Math.hypot(...Object.values(controls.frame().move))).toBeCloseTo(1);
-    expect(controls.joystick()?.anchor.x).toBeGreaterThan(100);
+    expect(controls.joystick()?.anchor.x).toBe(100);
     controls.clear();
-    expect(controls.joystick()).toBeNull();
+    expect(controls.joystick()?.knob).toEqual({ x: 100, y: 100 });
   });
   it('rejects duplicate movement owners and clears lost capture', () => {
     const controls = new PointerControls();
+    controls.setCenter({ x: 0, y: 0 });
     controls.down(1, { x: 0, y: 0 }, 'movement');
     controls.down(2, { x: 100, y: 0 }, 'movement');
     controls.move(1, { x: 60, y: 0 });

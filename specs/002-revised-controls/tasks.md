@@ -40,15 +40,15 @@
 
 ### Tests first — observe the expected failure
 
-- [ ] T007 [P] [US1] Write and observe failing fixed-centre, inside-ring ownership, deadzone, capped drag, second-finger, release/cancel, and HUD-precedence tests in tests/integration/input/pointers.test.ts (FR-008–011; CTRL-AC-002–004).
-- [ ] T008 [P] [US1] Write and observe failing browser checks for the initially visible ring/centred knob, fixed anchor, labelled diamond order, and safe-area visibility at 568×320 in tests/e2e/touch-combat.spec.ts (FR-009, FR-039; CTRL-AC-001–003).
+- [X] T007 [P] [US1] Write and observe failing fixed-centre, inside-ring ownership, deadzone, capped drag, second-finger, release/cancel, and HUD-precedence tests in tests/integration/input/pointers.test.ts (FR-008–011; CTRL-AC-002–004).
+- [X] T008 [P] [US1] Write and observe failing browser checks for the initially visible ring/centred knob, fixed anchor, labelled diamond order, and safe-area visibility at 568×320 in tests/e2e/touch-combat.spec.ts (FR-009, FR-039; CTRL-AC-001–003).
 
 ### Implementation
 
-- [ ] T009 [US1] Replace the floating anchor with a fixed rendered-ring centre and clamped knob/movement vector in src/input/pointers.ts; allow ownership only for a down inside the ring, keep independent action fingers, and pass T007 (FR-009–010; CTRL-AC-002–003).
-- [ ] T010 [US1] Add the persistent ring and inner knob plus four labelled diamond buttons in src/app/game-app.ts and src/ui/styles.css; use safe-area insets and preserve a central warning corridor at the existing lower landscape size (FR-039; CTRL-AC-001, CTRL-AC-012).
-- [ ] T011 [US1] Connect ring hit testing, geometry updates after resize, HUD precedence, and knob rendering in src/app/game-app.ts and src/input/frame.ts; clear ownership before invalid geometry is reused and pass T008 without changing combat resolution yet (FR-009–011, FR-040; CTRL-AC-001–004).
-- [ ] T012 [US1] Run affected tests and the full `bun run test`/`bun run build` gate, record the movement increment and remaining phone checks in specs/002-revised-controls/validation/us1-results.md, then make a conventional milestone commit only if all tests pass (CTRL-AC-001–004; AGENTS.md).
+- [X] T009 [US1] Replace the floating anchor with a fixed rendered-ring centre and clamped knob/movement vector in src/input/pointers.ts; allow ownership only for a down inside the ring, keep independent action fingers, and pass T007 (FR-009–010; CTRL-AC-002–003).
+- [X] T010 [US1] Add the persistent ring and inner knob plus four labelled diamond buttons in src/app/game-app.ts and src/ui/styles.css; use safe-area insets and preserve a central warning corridor at the existing lower landscape size (FR-039; CTRL-AC-001, CTRL-AC-012).
+- [X] T011 [US1] Connect ring hit testing, geometry updates after resize, HUD precedence, and knob rendering in src/app/game-app.ts and src/input/frame.ts; clear ownership before invalid geometry is reused and pass T008 without changing combat resolution yet (FR-009–011, FR-040; CTRL-AC-001–004).
+- [X] T012 [US1] Run affected tests and the full `bun run test`/`bun run build` gate, record the movement increment and remaining phone checks in specs/002-revised-controls/validation/us1-results.md, then make a conventional milestone commit only if all tests pass (CTRL-AC-001–004; AGENTS.md).
 
 **Checkpoint**: The visible joystick works in one encounter. Four labels are present for layout validation; the controls are ready for a player-facing demo after US2 makes Heavy functional.
 

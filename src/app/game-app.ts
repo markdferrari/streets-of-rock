@@ -45,7 +45,7 @@ export class GameApp {
     this.root.addEventListener('pointerup', event => this.pointers.up(event.pointerId));
     this.root.addEventListener('pointercancel', event => this.pointers.cancel(event.pointerId));
     this.root.addEventListener('lostpointercapture', event => this.pointers.cancel(event.pointerId));
-    window.addEventListener('resize', () => this.scene?.resize());
+    window.addEventListener('resize', () => { this.scene?.resize(); this.centerJoystick(); });
     requestAnimationFrame(now => this.frame(now));
   }
   private onClick(event: Event): void {
@@ -73,12 +73,13 @@ export class GameApp {
     this.events = [];
     this.hudMarkup = '';
     this.feedbackUntilTick = 0;
-    this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="move-region" data-region="movement"><div class="joystick" hidden></div></div><div class="actions"><button class="attack" data-region="attack" aria-label="Attack">Attack</button><button data-region="dodge" aria-label="Dodge">Dodge</button><button data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
+    this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="joystick" data-region="movement" aria-label="Move"><div class="knob"></div></div><div class="actions"><button class="light" data-region="attack" aria-label="Light">Light</button><button class="heavy" data-region="heavy" aria-label="Heavy">Heavy</button><button class="dodge" data-region="dodge" aria-label="Dodge">Dodge</button><button class="special" data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
     try {
       this.scene?.dispose();
       this.scene = new GameScene(this.root.querySelector<HTMLElement>('.scene-host')!);
       this.screen = 'running';
       this.clock.start();
+      this.centerJoystick();
       this.updateUi();
     } catch {
       this.screen = 'error';
@@ -144,9 +145,17 @@ export class GameApp {
       const id = this.tutorial.suggest(this.run);
       prompt.textContent = id ? label[id] : '';
     }
-    const joystick = this.root.querySelector<HTMLElement>('.joystick');
+    const joystick = this.root.querySelector<HTMLElement>('.joystick .knob');
     const position = this.pointers.joystick();
-    if (joystick) { joystick.hidden = !position; if (position) { joystick.style.left = `${position.anchor.x}px`; joystick.style.top = `${position.anchor.y}px`; } }
+    if (joystick && position) { joystick.style.left = `${56 + position.knob.x - position.anchor.x}px`; joystick.style.top = `${56 + position.knob.y - position.anchor.y}px`; }
+  }
+  private centerJoystick(): void {
+    const ring = this.root.querySelector<HTMLElement>('.joystick');
+    if (!ring) return;
+    const box = ring.getBoundingClientRect();
+    this.pointers.clear();
+    this.pointers.setCenter({ x: box.left + box.width / 2, y: box.top + box.height / 2 });
+    this.updateUi();
   }
   private frame(now: number): void {
     if (this.screen === 'running') this.loop.frame(now, true);
