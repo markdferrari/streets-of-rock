@@ -6,8 +6,8 @@ export class EffectLayer {
   constructor(private readonly scene: THREE.Scene) {}
   add(events: GameEvent[], positions: Map<number, THREE.Vector3>, now: number): void {
     for (const event of events) {
-      if (event.type !== 'hit' && event.type !== 'enemy-warning') continue;
-      const pos = positions.get(event.type === 'hit' ? event.targetId! : event.actorId!);
+      if (event.type !== 'hit' && event.type !== 'crow-hit' && event.type !== 'enemy-warning') continue;
+      const pos = positions.get(event.type === 'enemy-warning' ? event.actorId! : event.targetId!);
       if (!pos) continue;
       const mesh = new THREE.Mesh(new THREE.RingGeometry(.25, event.type === 'hit' ? .55 : .7, 24),
         new THREE.MeshBasicMaterial({ color: event.type === 'hit' ? 0xffeb8a : 0xff4444, transparent: true, opacity: .85, side: THREE.DoubleSide }));

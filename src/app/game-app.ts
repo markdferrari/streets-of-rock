@@ -2,12 +2,13 @@ import { createRun } from '../game/run';
 import { stepRun } from '../game/step';
 import { clearCowPendingAction } from '../game/actions';
 import type { GameEvent, RunState } from '../game/types';
-import { addTrainingGrunt } from '../content/training';
 import { PointerControls, type PointerRegion } from '../input/pointers';
 import { toInputFrame } from '../input/frame';
 import { GameScene } from '../presentation/scene';
 import { combatHudMarkup } from '../ui/combat';
 import { TutorialProgress } from '../ui/tutorial';
+import { titleMarkup, resultMarkup } from '../ui/screens';
+import { BestResultStore } from '../platform/best-result';
 import { ActiveClock } from './clock';
 import { FixedStepLoop } from './loop';
 
@@ -18,10 +19,11 @@ export class GameApp {
   private tutorial = new TutorialProgress();
   private clock = new ActiveClock(() => performance.now());
   private loop = new FixedStepLoop(() => this.step());
-  private screen: 'title' | 'running' | 'paused' | 'error' = 'title';
+  private screen: 'title' | 'running' | 'paused' | 'victory' | 'defeat' | 'error' = 'title';
   private events: GameEvent[] = [];
   private hudMarkup = '';
   private feedbackUntilTick = 0;
+  private bestResult: BestResultStore;
   constructor(private readonly root: HTMLElement) {
     if (import.meta.env.VITE_TEST_MODE === '1') {
       Object.defineProperty(window, '__sorTest', { value: {
@@ -30,9 +32,13 @@ export class GameApp {
           const cow = this.run?.actors.find(actor => actor.role === 'cow');
           if (cow && Number.isFinite(x)) { cow.position.x = Math.max(0, Math.min(16, x)); cow.position.depth = 0; cow.facing = 1; }
         },
+        defeatCow: () => { const cow = this.run?.actors.find(actor => actor.role === 'cow'); if (cow) cow.hp = 0; },
       }, configurable: true });
     }
-    this.root.innerHTML = `<main class="menu"><h1>Streets of Rock</h1><p>The Neon Velvet</p><button data-command="start">Start</button></main>`;
+    let storage: Storage | null = null;
+    try { storage = window.localStorage; } catch { /* Play without local persistence. */ }
+    this.bestResult = new BestResultStore(storage);
+    this.root.innerHTML = titleMarkup();
     this.root.addEventListener('click', event => this.onClick(event));
     this.root.addEventListener('pointerdown', event => this.onPointerDown(event));
     this.root.addEventListener('pointermove', event => this.pointers.move(event.pointerId, { x: event.clientX, y: event.clientY }));
@@ -47,6 +53,8 @@ export class GameApp {
     if (command === 'start') this.start();
     else if (command === 'pause' && this.screen === 'running') this.pause();
     else if (command === 'resume' && this.screen === 'paused') this.resume();
+    else if (command === 'retry' && (this.screen === 'victory' || this.screen === 'defeat')) this.start();
+    else if (command === 'title' && (this.screen === 'victory' || this.screen === 'defeat')) this.returnToTitle();
   }
   private onPointerDown(event: PointerEvent): void {
     if (this.screen !== 'running') return;
@@ -59,10 +67,12 @@ export class GameApp {
   }
   private start(): void {
     this.run = createRun(Date.now());
-    addTrainingGrunt(this.run);
     this.pointers.clear();
     this.clock.reset();
     this.loop.reset();
+    this.events = [];
+    this.hudMarkup = '';
+    this.feedbackUntilTick = 0;
     this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="move-region" data-region="movement"><div class="joystick" hidden></div></div><div class="actions"><button class="attack" data-region="attack" aria-label="Attack">Attack</button><button data-region="dodge" aria-label="Dodge">Dodge</button><button data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
     try {
       this.scene?.dispose();
@@ -99,6 +109,26 @@ export class GameApp {
     if (this.events.some(event => event.type === 'unavailable')) this.feedbackUntilTick = this.run.tick + 50;
     this.tutorial.accept(this.events, input.move.x !== 0 || input.move.depth !== 0);
     this.updateUi();
+    if (this.run.result) this.finish(this.run.result);
+  }
+  private finish(result: 'victory' | 'defeat'): void {
+    this.screen = result;
+    this.clock.pause();
+    this.pointers.clear();
+    clearCowPendingAction(this.run!);
+    const elapsed = this.clock.elapsedMs();
+    if (result === 'victory') this.bestResult.record(elapsed);
+    const overlay = this.root.querySelector<HTMLElement>('.overlay');
+    if (overlay) { overlay.hidden = false; overlay.innerHTML = resultMarkup(result, elapsed, this.bestResult.best()); }
+  }
+  private returnToTitle(): void {
+    this.scene?.dispose();
+    this.scene = null;
+    this.run = null;
+    this.pointers.clear();
+    this.clock.reset();
+    this.screen = 'title';
+    this.root.innerHTML = titleMarkup();
   }
   private updateUi(): void {
     if (!this.run) return;

@@ -43,4 +43,13 @@ describe('combat feedback', () => {
     (run.actors[0] as CowState).specialMeter = 100;
     expect(tutorial.suggest(run)).toBe('special');
   });
+  it('shows GO on a cleared area and Liam health during the boss', () => {
+    const run = fixtureRun();
+    run.encounter.status = 'cleared';
+    expect(combatHudMarkup(run)).toContain('GO');
+    run.areaIndex = 3;
+    run.encounter.status = 'active';
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'liam', team: 'enemy', hp: 900, maxHp: 1600 } as never);
+    expect(combatHudMarkup(run)).toContain('Liam 900 / 1600');
+  });
 });
