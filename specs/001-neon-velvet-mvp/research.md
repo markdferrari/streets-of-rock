@@ -7,10 +7,16 @@
 ## R1. Browser rendering and toolchain
 
 **Decision:** Use TypeScript 6.0.3, Three.js 0.186.0 with WebGLRenderer, Vite 8.3.0,
-Node 24.21.0, and npm 11.19.0. Use matching Three 0.186 type definitions. The implementation
-must save exact dependency versions and commit package-lock.json; use npm ci thereafter.
-Node/npm versions were observed in the workspace. These are selected baseline releases,
+Node 24.21.0, and Bun 1.4.2 as package manager per the owner's 2026-09-27 instruction.
+Use matching Three 0.186 type definitions. Save exact dependency versions and commit bun.lock;
+use `bun install --frozen-lockfile` thereafter and `bun run` for package scripts.
+Node and Bun versions were observed in the workspace. These are selected baseline releases,
 not an assertion that every package is the newest available version.
+
+Keep Node available for tools with Node shebangs; do not force their runtime to Bun or replace
+Vitest with Bun's test runner. Bun is the required dependency manager, and its script runner
+respects Node executables. See [Bun installation commands](https://bun.sh/docs/pm/cli/install),
+[lockfile](https://bun.sh/docs/pm/lockfile), and [execution behavior](https://bun.sh/docs/runtime).
 
 **Rationale:** Three provides rendering, cameras, assets, and animation while allowing combat
 to remain an independently testable TypeScript model. Use an orthographic camera, DOM/CSS

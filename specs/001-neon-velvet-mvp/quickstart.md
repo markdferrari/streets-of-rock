@@ -7,7 +7,8 @@ as passed until the app and tests exist.
 ## Prerequisites
 
 - Work on `001-neon-velvet-mvp` or an authorized feature branch, never main.
-- Node 24.21.0, npm 11.19.0, and the exact locked dependencies in [plan](plan.md).
+- Node 24.21.0, Bun 1.4.2, and the exact locked dependencies in [plan](plan.md).
+  Bun manages dependencies and scripts; Node remains available for the selected tool CLIs.
 - Playwright browser binaries and their system dependencies for Chromium and WebKit.
 - iPhone 12/Safari and Pixel 6/Chrome; record exact installed OS/browser versions.
 - The owner-supplied soundtrack for final validation; initial development may use a labeled
@@ -27,7 +28,7 @@ Implement these scripts during setup and keep them stable for later task and rev
 | typecheck | tsc --noEmit |
 | test:unit | vitest run; pure rules and adapter integration tests |
 | test:e2e | playwright test; config builds/serves the test-mode production bundle automatically |
-| test | npm run test:unit followed by npm run test:e2e; all existing automated tests |
+| test | bun run test:unit followed by bun run test:e2e; all existing automated tests |
 | build | Typecheck, version content/create inventory, vite build, then audit required precache entries and budgets |
 | build:test | Same production pipeline with VITE_TEST_MODE=1; enables controlled scenario fixtures, keeps service worker behavior |
 | build:diagnostics | Same pipeline with VITE_DIAGNOSTICS=1 and test mode disabled; enables local timing export |
@@ -36,19 +37,19 @@ Implement these scripts during setup and keep them stable for later task and rev
 
 The build scripts must use one shared packaging implementation. Build modes are explicit;
 test mode cannot be silently inherited into release. Playwright's webServer starts
-`npm run build:test` then `npm run preview -- --host 127.0.0.1 --port 4173`; run PWA scenarios
+`bun run build:test` then `bun run preview --host 127.0.0.1 --port 4173`; run PWA scenarios
 with serviceWorkers allowed. No test routes or fixture globals ship in a release.
 
 After application setup and lockfile creation:
 
 ```sh
-npm ci
-npx playwright install chromium webkit
-npm run typecheck
-npm run test
-npm run build
-npm run audit:build
-npm run preview -- --host 127.0.0.1 --port 4173
+bun install --frozen-lockfile
+bun run playwright install chromium webkit
+bun run typecheck
+bun run test
+bun run build
+bun run audit:build
+bun run preview --host 127.0.0.1 --port 4173
 ```
 
 The final preview command is a long-running local server. Use a separate terminal for browser
