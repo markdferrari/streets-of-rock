@@ -23,6 +23,13 @@ export const tuning: Readonly<Tuning> = {
   attackDepthTolerance: 0.45, inputBufferMs: 150, dodgeInvulnerabilityMs: 200,
   concurrentAttackers: 2, meterPerHit: 10, spinDamage: 60, tableHp: 24, healFraction: 0.25,
 };
+export const cowMoveTuning = {
+  cow1: { windup: 8, active: 6, recovery: 14, damage: 12, range: 1.3, depthTolerance: .45, knockback: 0 },
+  cow2: { windup: 8, active: 6, recovery: 14, damage: 14, range: 1.3, depthTolerance: .45, knockback: 0 },
+  cow3: { windup: 11, active: 6, recovery: 20, damage: 22, range: 1.3, depthTolerance: .45, knockback: 1.2 },
+  cowHeavy: { windup: 14, active: 6, recovery: 24, damage: 30, range: 1.3, depthTolerance: .45, knockback: 1.2 },
+  spin: { windup: 6, active: 6, recovery: 21, damage: 60, range: 2, depthTolerance: 2, knockback: 1.5 },
+} as const;
 export function millisecondsToTicks(milliseconds: number): number {
   if (!Number.isFinite(milliseconds) || milliseconds < 0) throw new Error('Invalid duration');
   return Math.ceil(milliseconds * tuning.ticksPerSecond / 1000);

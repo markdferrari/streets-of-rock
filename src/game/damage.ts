@@ -1,5 +1,7 @@
 import type { AttackInstance, CowState, GameActor, GameEvent, RunState } from './types';
 import { attackHits } from './collision';
+import { cowMoveTuning, tuning } from '../content/tuning';
+import { neonVelvet } from '../content/neon-velvet';
 
 interface HitIntent { attack: AttackInstance; owner: GameActor; target: GameActor }
 
@@ -18,17 +20,22 @@ export function applyAttacksBatch(run: RunState, attacks: readonly AttackInstanc
   }
   for (const { attack, owner, target } of intents) {
     target.hp = Math.max(0, target.hp - attack.damage);
-    if (attack.moveId === 'cow3' || attack.moveId === 'spin') {
+    if (attack.moveId in cowMoveTuning && cowMoveTuning[attack.moveId as keyof typeof cowMoveTuning].knockback > 0) {
       const dx = target.position.x - attack.origin.x;
       const dd = target.position.depth - attack.origin.depth;
       const distance = Math.hypot(dx, dd);
-      const push = attack.moveId === 'spin' ? 1.5 : 1.2;
+      const push = cowMoveTuning[attack.moveId as keyof typeof cowMoveTuning].knockback;
       target.position.x += (distance > 0 ? dx / distance : attack.facing) * push;
       target.position.depth += (distance > 0 ? dd / distance : 0) * push;
+      const area = neonVelvet.areas[run.areaIndex];
+      if (area) {
+        target.position.x = Math.max(area.minX, Math.min(area.maxX, target.position.x));
+        target.position.depth = Math.max(area.minDepth, Math.min(area.maxDepth, target.position.depth));
+      }
     }
     if (owner.role === 'cow' && attack.moveId.startsWith('cow') && target.team === 'enemy') {
       const cow = owner as CowState;
-      cow.specialMeter = Math.min(100, cow.specialMeter + 10);
+      cow.specialMeter = Math.min(100, cow.specialMeter + tuning.meterPerHit);
     }
     if (target.role === 'cow') target.protectionUntilTick = run.tick + 36;
     if (target.role === 'crow' && target.hp === 0) target.active = false;

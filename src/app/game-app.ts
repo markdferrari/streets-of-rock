@@ -23,6 +23,7 @@ export class GameApp {
   private events: GameEvent[] = [];
   private hudMarkup = '';
   private feedbackUntilTick = 0;
+  private pauseReason: 'manual' | 'rotate' | 'interrupted' = 'manual';
   private bestResult: BestResultStore;
   constructor(private readonly root: HTMLElement) {
     if (import.meta.env.VITE_TEST_MODE === '1') {
@@ -38,14 +39,21 @@ export class GameApp {
     let storage: Storage | null = null;
     try { storage = window.localStorage; } catch { /* Play without local persistence. */ }
     this.bestResult = new BestResultStore(storage);
+    this.tutorial = new TutorialProgress([], storage);
     this.root.innerHTML = titleMarkup();
     this.root.addEventListener('click', event => this.onClick(event));
     this.root.addEventListener('pointerdown', event => this.onPointerDown(event));
     this.root.addEventListener('pointermove', event => this.pointers.move(event.pointerId, { x: event.clientX, y: event.clientY }));
-    this.root.addEventListener('pointerup', event => this.pointers.up(event.pointerId));
-    this.root.addEventListener('pointercancel', event => this.pointers.cancel(event.pointerId));
-    this.root.addEventListener('lostpointercapture', event => this.pointers.cancel(event.pointerId));
-    window.addEventListener('resize', () => { this.scene?.resize(); this.centerJoystick(); });
+    this.root.addEventListener('pointerup', event => { this.pointers.up(event.pointerId); this.setPressed(event, false); });
+    this.root.addEventListener('pointercancel', event => { this.pointers.cancel(event.pointerId); this.setPressed(event, false); });
+    this.root.addEventListener('lostpointercapture', event => { this.pointers.cancel(event.pointerId); this.setPressed(event, false); });
+    window.addEventListener('resize', () => {
+      this.scene?.resize(); this.centerJoystick();
+      if (this.isPortrait() && this.screen === 'running') this.pause('rotate');
+      else if (this.screen === 'paused') this.updatePauseOverlay();
+    });
+    window.addEventListener('blur', () => { if (this.screen === 'running') this.pause('interrupted'); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden && this.screen === 'running') this.pause('interrupted'); });
     requestAnimationFrame(now => this.frame(now));
   }
   private onClick(event: Event): void {
@@ -64,6 +72,11 @@ export class GameApp {
     event.preventDefault();
     element?.setPointerCapture(event.pointerId);
     this.pointers.down(event.pointerId, { x: event.clientX, y: event.clientY }, region);
+    this.setPressed(event, true);
+  }
+  private setPressed(event: PointerEvent, pressed: boolean): void {
+    const button = (event.target as HTMLElement).closest<HTMLElement>('.actions button');
+    button?.classList.toggle('pressed', pressed);
   }
   private start(): void {
     this.run = createRun(Date.now());
@@ -81,22 +94,35 @@ export class GameApp {
       this.clock.start();
       this.centerJoystick();
       this.updateUi();
+      if (this.isPortrait()) this.pause('rotate');
     } catch {
       this.screen = 'error';
       this.root.innerHTML = `<main class="menu"><h1>Unable to start</h1><p>WebGL may be unavailable.</p><button data-command="start">Retry</button></main>`;
     }
   }
-  private pause(): void {
+  private pause(reason: 'manual' | 'rotate' | 'interrupted' = 'manual'): void {
     this.screen = 'paused';
+    this.pauseReason = reason;
     this.clock.pause();
     this.loop.reset();
     this.pointers.clear();
+    this.root.querySelectorAll('.actions .pressed').forEach(button => button.classList.remove('pressed'));
     if (this.run) clearCowPendingAction(this.run);
+    this.updatePauseOverlay();
+  }
+  private isPortrait(): boolean { return window.innerHeight > window.innerWidth; }
+  private updatePauseOverlay(): void {
     const overlay = this.root.querySelector<HTMLElement>('.overlay');
-    if (overlay) { overlay.hidden = false; overlay.innerHTML = `<div class="pause-menu"><h2>Paused</h2><button data-command="resume">Resume</button></div>`; }
+    if (!overlay) return;
+    overlay.hidden = false;
+    overlay.innerHTML = this.isPortrait()
+      ? `<div class="pause-menu"><h2>Rotate device</h2><p>Turn your device to landscape to continue.</p></div>`
+      : `<div class="pause-menu"><h2>${this.pauseReason === 'manual' ? 'Paused' : 'Ready to resume'}</h2><button data-command="resume">Resume</button></div>`;
   }
   private resume(): void {
+    if (this.isPortrait() || document.hidden) return;
     this.pointers.clear();
+    this.root.querySelectorAll('.actions .pressed').forEach(button => button.classList.remove('pressed'));
     this.loop.reset();
     this.screen = 'running';
     this.clock.start();
@@ -141,13 +167,20 @@ export class GameApp {
     }
     const prompt = this.root.querySelector<HTMLElement>('.prompt');
     if (prompt) {
-      const label = { movement: 'Move to fight', attack: 'Tap Attack', dodge: 'Dodge attacks', special: 'Use your Special' };
+      const label = { movement: 'Move to fight', attack: 'Tap Light', heavy: 'Tap Heavy', dodge: 'Dodge attacks', special: 'Use your Special' };
       const id = this.tutorial.suggest(this.run);
       prompt.textContent = id ? label[id] : '';
     }
     const joystick = this.root.querySelector<HTMLElement>('.joystick .knob');
     const position = this.pointers.joystick();
     if (joystick && position) { joystick.style.left = `${56 + position.knob.x - position.anchor.x}px`; joystick.style.top = `${56 + position.knob.y - position.anchor.y}px`; }
+    const cow = this.run.actors.find(actor => actor.role === 'cow');
+    if (cow?.role === 'cow') {
+      const dodge = this.root.querySelector<HTMLElement>('.actions .dodge');
+      const special = this.root.querySelector<HTMLElement>('.actions .special');
+      if (dodge) dodge.textContent = `Dodge ${cow.dodgeReadyTick > this.run.tick ? `${((cow.dodgeReadyTick - this.run.tick) / 60).toFixed(1)}s` : 'Ready'}`;
+      if (special) special.textContent = `Special ${cow.specialMeter >= 100 ? 'Ready' : `${cow.specialMeter}%`}`;
+    }
   }
   private centerJoystick(): void {
     const ring = this.root.querySelector<HTMLElement>('.joystick');
@@ -155,6 +188,7 @@ export class GameApp {
     const box = ring.getBoundingClientRect();
     this.pointers.clear();
     this.pointers.setCenter({ x: box.left + box.width / 2, y: box.top + box.height / 2 });
+    if (this.run) clearCowPendingAction(this.run);
     this.updateUi();
   }
   private frame(now: number): void {

@@ -29,12 +29,29 @@ describe('combat feedback', () => {
     expect(tutorial.accept([{ type: 'unavailable', tick: 0 }], false)).toEqual([]);
     expect(tutorial.nextPrompt()).toBe('attack');
     expect(tutorial.accept([{ type: 'attack', tick: 1 }], false)).toEqual(['attack']);
-    expect(tutorial.nextPrompt()).toBe('dodge');
+    expect(tutorial.nextPrompt()).toBe('heavy');
     expect(tutorial.completed()).toEqual(['movement', 'attack']);
+  });
+  it('introduces Heavy to a returning player with legacy attack completion and saves it separately', () => {
+    const saved = new Map<string, string>([['streets-of-rock.tutorial.v1', JSON.stringify({ schemaVersion: 1, completed: ['movement', 'attack'] })]]);
+    const storage = { getItem: (key: string) => saved.get(key) ?? null, setItem: (key: string, value: string) => { saved.set(key, value); } };
+    const tutorial = new TutorialProgress([], storage);
+    expect(tutorial.suggest(fixtureRun())).toBe('heavy');
+    expect(tutorial.accept([{ type: 'unavailable', tick: 0 }], false)).toEqual([]);
+    expect(tutorial.accept([{ type: 'heavy', tick: 1 }], false)).toEqual(['heavy']);
+    expect(new TutorialProgress([], storage).completed()).toContain('heavy');
+    expect(new TutorialProgress([], storage).completed()).toContain('attack');
+  });
+  it('keeps Heavy onboarding playable when local storage is unavailable', () => {
+    const storage = { getItem: () => { throw new Error('denied'); }, setItem: () => { throw new Error('denied'); } };
+    const tutorial = new TutorialProgress(['movement', 'attack'], storage);
+    expect(tutorial.suggest(fixtureRun())).toBe('heavy');
+    expect(tutorial.accept([{ type: 'heavy', tick: 0 }], false)).toEqual(['heavy']);
+    expect(tutorial.completed()).toContain('heavy');
   });
   it('waits for a warning before dodge and a ready meter before special', () => {
     const run = fixtureRun();
-    const tutorial = new TutorialProgress(['movement', 'attack']);
+    const tutorial = new TutorialProgress(['movement', 'attack', 'heavy']);
     expect(tutorial.suggest(run)).toBeNull();
     tutorial.accept([{ type: 'enemy-warning', tick: 0 }], false);
     expect(tutorial.suggest(run)).toBe('dodge');

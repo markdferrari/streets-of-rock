@@ -22,6 +22,7 @@ button:focus-visible { outline: 3px solid cyan; outline-offset: 3px; }
 .actions .heavy { left: 120px; top: 62px; }
 .actions .special { left: 60px; top: 0; }
 .actions .dodge { left: 60px; top: 120px; }
+.actions .pressed { transform: scale(.9); box-shadow: 0 0 0 4px #ffffff90; }
 .overlay { position: absolute; z-index: 10; inset: 0; background: #171024dd; display: grid; place-items: center; }
 .overlay[hidden] { display: none; }
 .pause-menu { display: grid; gap: 1rem; text-align: center; }

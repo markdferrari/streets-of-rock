@@ -53,6 +53,17 @@ describe('The Neon Velvet', () => {
     updatePickups(run, []);
     expect(run.pickups).toHaveLength(1);
   });
+  it('lets one Heavy strike break a table without adding special meter', () => {
+    const run = fixtureRun();
+    run.tables.push({ id: 3, areaId: 'vip-lounge', position: { x: 2, depth: 0 }, hp: 24, broken: false });
+    run.attacks.push({ id: 1, ownerId: 1, moveId: 'cowHeavy', origin: { x: 1, depth: 0 }, facing: 1,
+      activeUntilTick: 10, range: 1.3, depthTolerance: .45, damage: 30, hitTargetIds: [] });
+    updatePickups(run, []);
+    updatePickups(run, []);
+    expect(run.tables[0]!.broken).toBe(true);
+    expect(run.pickups).toHaveLength(1);
+    expect(run.actors[0]).toMatchObject({ specialMeter: 0 });
+  });
   it('opens the next travel boundary only after the arena clears', () => {
     const run = fixtureRun();
     run.actors[0]!.position.x = 16;

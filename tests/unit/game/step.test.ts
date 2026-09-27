@@ -43,7 +43,7 @@ describe('tick pipeline', () => {
     run.encounter.status = 'active';
     run.encounter.aliveEnemyIds = [3];
     const input = { move: { x: 0, depth: 0 } };
-    stepRun(run, { ...input, attack: true });
+    stepRun(run, { ...input, requests: [{ kind: 'light' as const, sourcePointerId: -1, order: 0 }] });
     for (let i = 0; i < 35; i++) stepRun(run, input);
     expect(run.actors[2]!.hp).toBe(100);
     expect(run.actors[0]).toMatchObject({ specialMeter: 10 });

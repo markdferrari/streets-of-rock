@@ -1,7 +1,9 @@
 import * as THREE from 'three';
-import type { GameActor } from '../game/types';
+import type { GameActor, MoveId } from '../game/types';
 
-export function actorPose(action: GameActor['action']['kind']): { lean: number; heightScale: number } {
+export function actorPose(action: GameActor['action']['kind'], moveId?: MoveId): { lean: number; heightScale: number } {
+  if (moveId === 'cowHeavy' && action === 'windup') return { lean: -.35, heightScale: 1.16 };
+  if (moveId === 'cowHeavy' && action === 'active') return { lean: .55, heightScale: .88 };
   switch (action) {
     case 'windup': return { lean: -.17, heightScale: 1.08 };
     case 'active': return { lean: .32, heightScale: .95 };

@@ -4,7 +4,9 @@ export interface Position { x: number; depth: number }
 export type Facing = -1 | 1;
 export type Team = 'ally' | 'enemy';
 export type ActionKind = 'idle' | 'windup' | 'active' | 'recovery' | 'hurt' | 'dodge' | 'knockedOut';
-export type MoveId = 'cow1' | 'cow2' | 'cow3' | 'spin' | 'crow' | 'grunt' | 'throw' | 'charge' | 'rope' | 'close' | 'shockwave';
+export type MoveId = 'cow1' | 'cow2' | 'cow3' | 'cowHeavy' | 'spin' | 'crow' | 'grunt' | 'throw' | 'charge' | 'rope' | 'close' | 'shockwave';
+export type PlayerAction = 'light' | 'heavy' | 'dodge' | 'special';
+export interface ActionRequest { kind: PlayerAction; sourcePointerId: number; order: number }
 
 export interface ActionState { kind: ActionKind; moveId?: MoveId; startedTick: number; endTick: number }
 export interface Actor {
@@ -22,7 +24,7 @@ export interface Actor {
   attackSlot: boolean;
   phase: 1 | 2;
 }
-export interface PendingAction { kind: 'attack' | 'dodge' | 'special'; expiresTick: number; sequence: number }
+export interface PendingAction extends ActionRequest { expiresTick: number }
 export interface CowState extends Actor {
   role: 'cow';
   comboStep: 0 | 1 | 2;
@@ -82,7 +84,7 @@ export interface RunState {
   encounter: EncounterState;
   result: RunResult;
 }
-export interface InputFrame { move: Position; attack?: boolean; dodge?: boolean; special?: boolean }
+export interface InputFrame { move: Position; requests?: ActionRequest[]; canceledPointerIds?: number[] }
 export interface GameEvent { type: string; tick: number; actorId?: number; targetId?: number }
 
 // Game rules depend only on these values. Browser, rendering, audio and storage adapters live outside src/game.

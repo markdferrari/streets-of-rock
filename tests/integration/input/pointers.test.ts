@@ -2,6 +2,26 @@ import { describe, expect, it } from 'vitest';
 import { PointerControls } from '../../../src/input/pointers';
 
 describe('touch ownership', () => {
+  it('reports distinct ordered requests and cancels a sampled pending source', () => {
+    const controls = new PointerControls();
+    controls.down(1, { x: 200, y: 100 }, 'attack');
+    controls.down(2, { x: 250, y: 100 }, 'heavy');
+    expect(controls.frame().requests).toEqual([
+      { kind: 'light', sourcePointerId: 1, order: 1 },
+      { kind: 'heavy', sourcePointerId: 2, order: 2 },
+    ]);
+    controls.cancel(2);
+    expect(controls.frame().canceledPointerIds).toEqual([2]);
+  });
+  it('does not repeat a held action or change it when the finger slides', () => {
+    const controls = new PointerControls();
+    controls.down(1, { x: 200, y: 100 }, 'attack');
+    controls.move(1, { x: 300, y: 100 });
+    controls.down(1, { x: 300, y: 100 }, 'heavy');
+    expect(controls.frame().requests.map(request => request.kind)).toEqual(['light']);
+    expect(controls.frame().requests).toEqual([]);
+    controls.up(1);
+  });
   it('uses a fixed visible centre and ignores touches that begin beyond the ring', () => {
     const controls = new PointerControls();
     controls.setCenter({ x: 100, y: 100 });
@@ -22,8 +42,8 @@ describe('touch ownership', () => {
     controls.down(1, { x: 50, y: 100 }, 'movement');
     controls.move(1, { x: 110, y: 100 });
     controls.down(2, { x: 200, y: 100 }, 'attack');
-    expect(controls.frame()).toMatchObject({ move: { x: 1, y: 0 }, attack: true });
-    expect(controls.frame()).toMatchObject({ move: { x: 1, y: 0 }, attack: false });
+    expect(controls.frame()).toMatchObject({ move: { x: 1, y: 0 }, requests: [{ kind: 'light' }] });
+    expect(controls.frame()).toMatchObject({ move: { x: 1, y: 0 }, requests: [] });
     controls.cancel(2);
     expect(controls.frame().move.x).toBe(1);
     controls.cancel(1);
@@ -65,13 +85,13 @@ describe('touch ownership', () => {
     const controls = new PointerControls();
     controls.down(7, { x: 200, y: 100 }, 'special');
     controls.cancel(7);
-    expect(controls.frame().special).toBe(false);
+    expect(controls.frame().requests).toEqual([]);
   });
   it('keeps a completed tap when pointer capture is released normally', () => {
     const controls = new PointerControls();
     controls.down(7, { x: 200, y: 100 }, 'attack');
     controls.up(7);
     controls.cancel(7);
-    expect(controls.frame().attack).toBe(true);
+    expect(controls.frame().requests[0]?.kind).toBe('light');
   });
 });

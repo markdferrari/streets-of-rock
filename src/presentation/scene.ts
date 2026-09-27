@@ -49,7 +49,7 @@ export class GameScene {
       model.position.set(actor.position.x, 0, actor.position.depth);
       model.rotation.y = actor.facing === 1 ? Math.PI / 2 : -Math.PI / 2;
       model.visible = actor.hp > 0 || actor.role === 'crow';
-      const pose = actorPose(actor.hp <= 0 ? 'knockedOut' : actor.action.kind);
+      const pose = actorPose(actor.hp <= 0 ? 'knockedOut' : actor.action.kind, actor.action.moveId);
       model.rotation.z = pose.lean;
       const size = actor.role === 'liam' ? 1.6 : actor.role === 'enforcer' ? 1.2 : actor.role === 'crow' ? .8 : 1;
       model.scale.set(size, size * pose.heightScale, size);
