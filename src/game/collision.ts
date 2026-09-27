@@ -1,5 +1,7 @@
 import type { AttackInstance, GameActor, Position, RunState } from './types';
+import { neonVelvet } from '../content/neon-velvet';
 export function resolveActorOverlaps(run: RunState): void {
+  const area = neonVelvet.areas[run.areaIndex];
   const allies = run.actors.filter(actor => actor.team === 'ally' && actor.hp > 0);
   for (const enemy of run.actors.filter(actor => actor.team === 'enemy' && actor.hp > 0).sort((a, b) => a.id - b.id)) {
     for (const ally of allies) {
@@ -9,8 +11,8 @@ export function resolveActorOverlaps(run: RunState): void {
       if (distance >= .6) continue;
       const directionX = distance > 0 ? dx / distance : 1;
       const directionDepth = distance > 0 ? dd / distance : 0;
-      enemy.position.x = Math.max(0, Math.min(16, enemy.position.x + directionX * (.6 - distance)));
-      enemy.position.depth = Math.max(-3, Math.min(3, enemy.position.depth + directionDepth * (.6 - distance)));
+      enemy.position.x = Math.max(area?.minX ?? 0, Math.min(area?.maxX ?? 16, enemy.position.x + directionX * (.6 - distance)));
+      enemy.position.depth = Math.max(area?.minDepth ?? -3, Math.min(area?.maxDepth ?? 3, enemy.position.depth + directionDepth * (.6 - distance)));
     }
   }
 }

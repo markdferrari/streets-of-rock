@@ -104,12 +104,12 @@ loss, solo victory, simultaneous lethal damage, waves, pickups, and reset.
 
 ### Implementation for User Story 2
 
-- [ ] T033 [US2] Implement Crow targeting, follow/recovery, basic attacks, and knockout in src/game/ai/crow.ts; pass T029 and emit visible partner-status events (FR-020 through FR-025).
-- [ ] T034 [US2] Implement zoner retreat/throwing, enforcer charge/recovery, and projectile lifecycle in src/game/ai/zoner.ts, src/game/ai/enforcer.ts, and src/game/projectiles.ts with swept collision and shared slots (T030; FR-018, FR-028, FR-029).
-- [ ] T035 [US2] Implement Liam's rope/close attacks, half-health transition, and timed-dodge shockwave in src/game/ai/liam.ts; pass T030 without jumps, grabs, or summons (FR-030; AC-011).
-- [ ] T036 [US2] Define all four areas, initial waves, walkable transitions, and two VIP tables in src/content/neon-velvet.ts; validate content and preserve provisional encounter compositions (FR-026 through FR-031).
-- [ ] T037 [US2] Implement entry, wave spawning, alive-enemy tracking, camera-lock state, and GO/unlock in src/game/encounters.ts; pass progression tests, ignoring tables/pickups/Crow for enemy-clear conditions (FR-026 through FR-028; AC-008).
-- [ ] T038 [US2] Implement Cow-only table damage, one drink per table, capped/contact healing, and reset in src/game/pickups.ts; pass T031 including full-health consumption and inactive actors (FR-031; AC-012, AC-013, AC-028).
+- [X] T033 [US2] Implement Crow targeting, follow/recovery, basic attacks, and knockout in src/game/ai/crow.ts; pass T029 and emit visible partner-status events (FR-020 through FR-025).
+- [X] T034 [US2] Implement zoner retreat/throwing, enforcer charge/recovery, and projectile lifecycle in src/game/ai/zoner.ts, src/game/ai/enforcer.ts, and src/game/projectiles.ts with swept collision and shared slots (T030; FR-018, FR-028, FR-029).
+- [X] T035 [US2] Implement Liam's rope/close attacks, half-health transition, and timed-dodge shockwave in src/game/ai/liam.ts; pass T030 without jumps, grabs, or summons (FR-030; AC-011).
+- [X] T036 [US2] Define all four areas, initial waves, walkable transitions, and two VIP tables in src/content/neon-velvet.ts; validate content and preserve provisional encounter compositions (FR-026 through FR-031).
+- [X] T037 [US2] Implement entry, wave spawning, alive-enemy tracking, camera-lock state, and GO/unlock in src/game/encounters.ts; pass progression tests, ignoring tables/pickups/Crow for enemy-clear conditions (FR-026 through FR-028; AC-008).
+- [X] T038 [US2] Implement Cow-only table damage, one drink per table, capped/contact healing, and reset in src/game/pickups.ts; pass T031 including full-health consumption and inactive actors (FR-031; AC-012, AC-013, AC-028).
 - [ ] T039 [US2] Integrate all AI, projectiles, encounters, pickups, and terminal ordering in src/game/step.ts and src/game/run.ts; pass simultaneous-death and solo-victory cases before emitting results (FR-002, FR-003, FR-022, FR-023, FR-027; AC-009 through AC-012).
 - [ ] T040 [US2] Implement horizontal tracking, complete locked-arena framing, bounds, and transitions in src/presentation/camera.ts; wire scene and GO feedback in src/presentation/scene.ts and src/ui/combat.ts (FR-026, FR-028; AC-008, AC-027).
 - [ ] T041 [US2] Extend src/presentation/actors.ts and src/presentation/effects.ts with Crow, ranged/heavy/Liam poses, projectiles, charge lanes, shockwave warnings, and knockout visuals (FR-017, FR-022, FR-029, FR-030, FR-032; AC-011, AC-027, AC-028).

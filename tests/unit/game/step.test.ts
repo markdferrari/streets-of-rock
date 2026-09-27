@@ -39,10 +39,13 @@ describe('tick pipeline', () => {
   it('runs actions, AI and damage through the default pipeline', () => {
     const run = fixtureRun();
     run.actors.push({ ...run.actors[1]!, id: 3, role: 'grunt', team: 'enemy', hp: 120, maxHp: 120, position: { x: 1, depth: 0 } } as EnemyState);
+    run.nextEntityId = 4;
+    run.encounter.status = 'active';
+    run.encounter.aliveEnemyIds = [3];
     const input = { move: { x: 0, depth: 0 } };
     stepRun(run, { ...input, attack: true });
     for (let i = 0; i < 35; i++) stepRun(run, input);
-    expect(run.actors[2]!.hp).toBe(108);
+    expect(run.actors[2]!.hp).toBe(100);
     expect(run.actors[0]).toMatchObject({ specialMeter: 10 });
     expect(run.actors[0]!.hp).toBeLessThan(500);
   });
@@ -59,5 +62,15 @@ describe('tick pipeline', () => {
     expect(run.actors[2]!.hp).toBe(0);
     expect(cow.hp).toBe(0);
     expect(run.result).toBe('defeat');
+  });
+  it('starts the first wave and never spawns after a terminal defeat', () => {
+    const run = fixtureRun();
+    stepRun(run, { move: { x: 0, depth: 0 } });
+    expect(run.encounter.aliveEnemyIds).toHaveLength(3);
+    for (const id of run.encounter.aliveEnemyIds) run.actors.find(actor => actor.id === id)!.hp = 0;
+    run.actors[0]!.hp = 0;
+    stepRun(run, { move: { x: 0, depth: 0 } });
+    expect(run.result).toBe('defeat');
+    expect(run.encounter.waveIndex).toBe(0);
   });
 });

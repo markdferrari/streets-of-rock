@@ -33,7 +33,7 @@ export interface CowState extends Actor {
   pendingAction?: PendingAction;
 }
 export interface CrowState extends Actor { role: 'crow'; active: boolean; lastProgressTick: number }
-export interface EnemyState extends Actor { role: 'grunt' | 'zoner' | 'enforcer' | 'liam' }
+export interface EnemyState extends Actor { role: 'grunt' | 'zoner' | 'enforcer' | 'liam'; shockwaveReadyTick?: number }
 export type GameActor = CowState | CrowState | EnemyState;
 
 export interface AttackInstance {
