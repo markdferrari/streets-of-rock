@@ -305,3 +305,10 @@ Retain these concepts for later specifications without treating them as MVP comm
 - [Repository SpecKit specification template](.specify/templates/spec-template.md)
 - [MDN: Web Audio API best practices](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Best_practices) — initiate browser audio from user interaction.
 - [web.dev: Service workers](https://web.dev/learn/pwa/service-workers) — offline request handling and cached resources.
+
+#### Stuff to follow
+
+Character skins + creator - can we make this a reusable skill?
+
+Homepage - start, select your playable character + teammate
+
