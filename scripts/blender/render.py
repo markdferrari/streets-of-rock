@@ -2,6 +2,7 @@
 import argparse
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 VIEWS = ('front', 'side', 'back', 'three-quarter')
 TARGETS = tuple(f'previews/{role}-{view}.png' for role in ('cow', 'crow') for view in VIEWS) + ('previews/duo-neutral.png', 'previews/duo-neon.png')
@@ -22,9 +23,11 @@ def main(argv=None):
     parser.add_argument('--smoke', action='store_true')
     parser.add_argument('--overwrite', action='store_true')
     args = parser.parse_args(argv)
-    preflight(args.output_dir, args.smoke, args.overwrite)
     import bpy
-    jobs=[('comparison.blend','duo-neutral.png','Camera.Duo','neutral'),('comparison.blend','duo-neon.png','Camera.Duo','neon')] if args.smoke else [(f'{role}.blend',f'{role}-{view}.png',f'Camera.{view}','neutral') for role in ('cow','crow') for view in VIEWS]+[('comparison.blend','duo-neutral.png','Camera.Duo','neutral'),('comparison.blend','duo-neon.png','Camera.Duo','neon')]
+    from scripts.blender.generate import require_supported
+    require_supported(bpy.app.version)
+    preflight(args.output_dir, args.smoke, args.overwrite)
+    jobs=[('comparison.blend','duo-neutral.png','Camera.Duo','neutral')] if args.smoke else [(f'{role}.blend',f'{role}-{view}.png',f'Camera.{view}','neutral') for role in ('cow','crow') for view in VIEWS]+[('comparison.blend','duo-neutral.png','Camera.Duo','neutral'),('comparison.blend','duo-neon.png','Camera.Duo','neon')]
     target_dir=args.output_dir/('smoke' if args.smoke else 'previews')
     target_dir.mkdir(parents=True,exist_ok=True)
     current=None

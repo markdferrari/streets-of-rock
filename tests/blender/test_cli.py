@@ -4,6 +4,11 @@ from tempfile import TemporaryDirectory
 from scripts.blender import generate, render
 
 class CommandBoundaryTests(unittest.TestCase):
+    def test_blender_version_requirement(self):
+        with self.assertRaises(RuntimeError):
+            generate.require_supported((4,5,0))
+        generate.require_supported((5,2,2))
+
     def test_generation_protects_existing_targets_and_unrelated_files(self):
         with TemporaryDirectory() as temp:
             out = Path(temp)
@@ -22,3 +27,11 @@ class CommandBoundaryTests(unittest.TestCase):
             (out/'previews/duo-neutral.png').write_bytes(b'manual')
             with self.assertRaises(FileExistsError):
                 render.preflight(out, smoke=False, overwrite=False)
+
+    def test_missing_output_argument_fails(self):
+        with self.assertRaises(SystemExit) as error:
+            generate.main([])
+        self.assertNotEqual(error.exception.code,0)
+        with self.assertRaises(SystemExit) as error:
+            render.main([])
+        self.assertNotEqual(error.exception.code,0)

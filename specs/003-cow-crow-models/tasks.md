@@ -84,7 +84,7 @@
 ### Implementation and verification
 
 - [X] T027 [US3] Implement `scripts/blender/validate.py` with `--output-dir` and `--report`, fresh-process checks of all three scenes, 120-second child timeouts/cleanup, required parts/materials/geometry/presentation checks, and JSON fields `blender_version`, `python_version`, `checks`, `passed`; return nonzero on any failure without implying visual approval (FR-008–FR-010; AC-007).
-- [ ] T028 [US3] Resolve failures demonstrated by T024 in `scripts/blender/generate.py` and `scripts/blender/render.py`, preserving deterministic semantic results, complete-target preflight, readable failure/recovery guidance, and existing manual edits unless explicitly overwritten; keep all prior tests green (FR-007, FR-009; AC-008–AC-009).
+- [X] T028 [US3] Resolve failures demonstrated by T024 in `scripts/blender/generate.py` and `scripts/blender/render.py`, preserving deterministic semantic results, complete-target preflight, readable failure/recovery guidance, and existing manual edits unless explicitly overwritten; keep all prior tests green (FR-007, FR-009; AC-008–AC-009).
 - [ ] T029 [US3] Execute and update `specs/003-cow-crow-models/quickstart.md` against actual entry points, flags, output filenames, supported versions, timeout behavior, overwrite protection, and approved execution context; confirm no extra dependency was introduced (FR-007, FR-009; AC-007–AC-009).
 - [ ] T030 [US3] Run the complete Blender test suite plus validator and clean-directory generation/smoke workflow, record all exit statuses and reports in `specs/003-cow-crow-models/validation/results.md`, and clearly separate automated pass from pending appearance approval (FR-007–FR-010; AC-007–AC-009).
 

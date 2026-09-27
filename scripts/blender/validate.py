@@ -5,6 +5,7 @@ import math
 import subprocess
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 import bpy
 from mathutils import Vector
 
@@ -47,7 +48,7 @@ def inspect(path,role):
         for view in ('front','side','back','three-quarter'):
             assert f'Camera.{view}' in bpy.data.objects, f'missing Camera.{view}'
     assert not bpy.data.libraries, 'linked external library'
-    assert not any(image.source=='FILE' and image.filepath and not bpy.path.abspath(image.filepath) for image in bpy.data.images), 'unresolved image'
+    assert not any(image.source=='FILE' and image.filepath and not Path(bpy.path.abspath(image.filepath)).exists() for image in bpy.data.images), 'unresolved image'
     return f'{role}: required parts, materials, geometry and presentation found'
 
 def main(argv=None):
@@ -57,6 +58,8 @@ def main(argv=None):
     parser.add_argument('--probe',choices=('cow','crow','comparison'))
     parser.add_argument('--file',type=Path)
     args=parser.parse_args(argv)
+    from scripts.blender.generate import require_supported
+    require_supported(bpy.app.version)
     if args.probe:
         try:
             message=inspect(args.file,args.probe)

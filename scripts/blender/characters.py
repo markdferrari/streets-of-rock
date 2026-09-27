@@ -5,7 +5,7 @@ from mathutils import Vector
 
 PALETTE = {
     'Cow': {'Fur':(0.87,0.81,0.68,1),'White':(0.94,0.91,0.83,1),'Spot':(.18,.16,.18,1),'Jacket':(.07,.055,.065,1),'LeatherEdge':(.19,.15,.17,1),'Muzzle':(.88,.56,.55,1),'Horn':(.90,.83,.62,1),'Boot':(.09,.07,.07,1),'Eye':(.055,.04,.045,1),'Iris':(.26,.16,.1,1),'Metal':(.64,.62,.53,1)},
-    'Crow': {'Feather':(.045,.052,.09,1),'Wing':(.065,.078,.13,1),'FeatherEdge':(.12,.14,.22,1),'Jacket':(.39,.22,.12,1),'LeatherEdge':(.55,.34,.20,1),'Collar':(.90,.79,.58,1),'Beak':(.87,.56,.12,1),'Foot':(.32,.24,.16,1),'Eye':(.96,.91,.78,1),'Iris':(.09,.11,.17,1),'Metal':(.61,.56,.44,1)}
+    'Crow': {'Feather':(.045,.052,.09,1),'Wing':(.065,.078,.13,1),'FeatherEdge':(.12,.14,.22,1),'Jacket':(.25,.13,.075,1),'LeatherEdge':(.40,.22,.12,1),'Collar':(.90,.79,.58,1),'Beak':(.87,.56,.12,1),'Foot':(.32,.24,.16,1),'Eye':(.96,.91,.78,1),'Iris':(.09,.11,.17,1),'Metal':(.61,.56,.44,1)}
 }
 
 def material(role,key):
@@ -55,13 +55,13 @@ def start(role):
 def cow():
     r='Cow'; c,root=start(r)
     ellipsoid(r,'Torso',(0,0,1.08),(.44,.31,.51),'White',c)
-    ellipsoid(r,'Belly',(0,-.235,1.00),(.30,.11,.34),'Fur',c)
-    ellipsoid(r,'Jacket',(0,.07,1.16),(.49,.34,.43),'Jacket',c)
-    ellipsoid(r,'Jacket.Lapel.L',(-.19,-.29,1.34),(.11,.045,.24),'LeatherEdge',c)
-    ellipsoid(r,'Jacket.Lapel.R',(.19,-.29,1.34),(.11,.045,.24),'LeatherEdge',c)
-    ellipsoid(r,'Jacket.Zipper',(0,-.33,1.12),(.025,.018,.31),'Metal',c)
-    ellipsoid(r,'Jacket.Pocket.L',(-.26,-.29,1.05),(.12,.03,.045),'LeatherEdge',c)
-    ellipsoid(r,'Jacket.Pocket.R',(.26,-.29,1.05),(.12,.03,.045),'LeatherEdge',c)
+    ellipsoid(r,'Belly',(0,-.38,1.06),(.06,.025,.23),'White',c)
+    ellipsoid(r,'Jacket',(0,-.015,1.16),(.49,.38,.43),'Jacket',c)
+    ellipsoid(r,'Jacket.Lapel.L',(-.19,-.4,1.34),(.11,.045,.24),'LeatherEdge',c)
+    ellipsoid(r,'Jacket.Lapel.R',(.19,-.4,1.34),(.11,.045,.24),'LeatherEdge',c)
+    ellipsoid(r,'Jacket.Zipper',(0,-.42,1.12),(.025,.018,.31),'Metal',c)
+    ellipsoid(r,'Jacket.Pocket.L',(-.26,-.36,1.05),(.12,.03,.045),'LeatherEdge',c)
+    ellipsoid(r,'Jacket.Pocket.R',(.26,-.36,1.05),(.12,.03,.045),'LeatherEdge',c)
     ellipsoid(r,'Neck',(0,0,1.55),(.20,.19,.20),'Fur',c)
     ellipsoid(r,'Head',(0,-.045,1.71),(.32,.27,.29),'White',c)
     ellipsoid(r,'Muzzle',(0,-.27,1.62),(.275,.19,.155),'Muzzle',c)
@@ -75,15 +75,15 @@ def cow():
         ellipsoid(r,f'Fist.{side}',(x*2.9,-.035,.85),(.15,.15,.16),'Fur',c)
         capsule_between(r,f'Leg.{side}',(x*.75,0,.74),(x*.75,0,.31),.19,'Spot',c)
         ellipsoid(r,f'Boot.{side}',(x*.82,-.10,.17),(.21,.31,.17),'Boot',c)
-    ellipsoid(r,'Marking.L',(-.31,-.275,1.28),(.15,.03,.12),'Spot',c)
-    ellipsoid(r,'Marking.R',(.25,-.25,.92),(.10,.03,.09),'Spot',c)
+    ellipsoid(r,'Marking.L',(-.22,-.205,1.81),(.10,.035,.08),'Spot',c)
+    ellipsoid(r,'Marking.R',(.24,.18,1.55),(.10,.03,.09),'Spot',c)
     return root
 
 def crow():
     r='Crow'; c,root=start(r)
     ellipsoid(r,'Torso',(0,0,.88),(.26,.22,.37),'Feather',c)
-    ellipsoid(r,'Jacket',(0,.025,.92),(.29,.245,.31),'Jacket',c)
-    ellipsoid(r,'Jacket.Front',(0,-.218,.9),(.16,.025,.25),'LeatherEdge',c)
+    ellipsoid(r,'Jacket',(0,-.02,.92),(.29,.27,.31),'Jacket',c)
+    ellipsoid(r,'Jacket.Front',(0,-.29,.9),(.08,.025,.24),'LeatherEdge',c)
     ellipsoid(r,'Collar',(0,-.08,1.17),(.28,.22,.09),'Collar',c)
     ellipsoid(r,'Neck',(0,0,1.22),(.13,.13,.15),'Feather',c)
     ellipsoid(r,'Head',(0,-.035,1.38),(.245,.22,.23),'Feather',c)
@@ -92,7 +92,7 @@ def crow():
         ellipsoid(r,f'Eye.{side}',(x*.72,-.211,1.44),(.068,.027,.077),'Eye',c)
         ellipsoid(r,f'Iris.{side}',(x*.72,-.236,1.43),(.033,.012,.04),'Iris',c)
         ellipsoid(r,f'Brow.{side}',(x*.72,-.223,1.54),(.105,.025,.028),'FeatherEdge',c)
-        capsule_between(r,f'Leg.{side}',(x*.7,0,.59),(x*.75,-.03,.25),.075,'Feather',c)
+        capsule_between(r,f'Leg.{side}',(x*.7,0,.59),(x*.75,-.14,.08),.075,'Feather',c)
         ellipsoid(r,f'Foot.{side}',(x*.75,-.14,.095),(.12,.23,.075),'Foot',c)
         for finger in (-1,0,1):
             ellipsoid(r,f'Toe.{side}.{finger}',(x*.75+finger*.065,-.33,.075),(.04,.14,.035),'Foot',c)

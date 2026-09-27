@@ -6,6 +6,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 TARGETS = ('cow.blend', 'crow.blend', 'comparison.blend')
 
+def require_supported(version):
+    if tuple(version[:2]) != (5, 2):
+        raise RuntimeError(f'Blender 5.2.x is required; found {tuple(version)}')
+
 def preflight(out, overwrite=False):
     out = Path(out)
     if out.exists() and not out.is_dir():
@@ -21,8 +25,9 @@ def main(argv=None):
     parser.add_argument('--output-dir', required=True, type=Path)
     parser.add_argument('--overwrite', action='store_true')
     args = parser.parse_args(argv)
-    preflight(args.output_dir, args.overwrite)
     import bpy
+    require_supported(bpy.app.version)
+    preflight(args.output_dir, args.overwrite)
     from scripts.blender import characters, presentation
     args.output_dir.mkdir(parents=True, exist_ok=True)
     for role, make in (('cow', characters.cow), ('crow', characters.crow)):
