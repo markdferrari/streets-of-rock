@@ -16,3 +16,10 @@ Thumbs.db
 .bun-cache/
 .playwright-browsers/
 .browser-libs/
+
+# Blender authoring backups and disposable smoke renders
+assets/characters/cow-crow/*.blend1
+assets/characters/cow-crow/*.blend2
+assets/characters/cow-crow/smoke/
+__pycache__/
+*.pyc
