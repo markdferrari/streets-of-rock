@@ -1,27 +1,18 @@
 <!--
 Sync Impact Report
-Version change: unratified placeholder template → 1.0.0 (initial adoption)
-Modified principles:
-- PRINCIPLE_1_NAME → I. Specification-Led Delivery
-- PRINCIPLE_2_NAME → II. Responsive and Readable Touch Combat
-- PRINCIPLE_3_NAME → III. Test-First Implementation
-- PRINCIPLE_4_NAME → IV. Reliable Mobile-Web Play
-- PRINCIPLE_5_NAME → V. Focused Scope and Measured Quality
-Added sections: Product and Technical Constraints; Development Workflow and Quality Gates;
-  concrete Governance rules.
-Removed sections: None; generic placeholder content replaced.
-Templates and guidance:
-- ✅ updated: .specify/templates/plan-template.md (explicit constitution gates)
-- ✅ updated: .specify/templates/spec-template.md (traceability and mobile acceptance coverage)
-- ✅ updated: .specify/templates/tasks-template.md (mandatory TDD and device validation tasks)
-- ✅ reviewed, unchanged: .specify/templates/constitution-template.md (generic source template)
-- ✅ reviewed, unchanged: .specify/templates/checklist-template.md
-- ✅ reviewed, unchanged: AGENTS.md and PRD.md (already consistent)
-- ✅ reviewed, unchanged: .agents/skills/speckit-tasks/SKILL.md (user-requested TDD applies)
-- ✅ reviewed, unchanged: .agents/skills/speckit-implement/SKILL.md (reads project governance)
-- .specify/templates/commands/*.md: absent; no command templates to synchronize.
-- README.md and docs/quickstart.md: absent; no runtime guidance to synchronize.
-Follow-up TODOs: None. Engine and test tooling selection belong to feature technical planning.
+Version change: 1.0.0 → 1.1.0 (selectable fighter and AI partner scope amendment)
+Reason: Owner approved the Choose Your Fighter specification plan on 2026-09-27.
+Modified principle: V. Focused Scope and Measured Quality now permits either Cow or Crow
+as the playable fighter and the other as AI partner; role-based solo completion remains required.
+Product impact: PRD 2.2 includes selection, readiness/countdown, and both role assignments.
+Specification impact: 005-choose-your-fighter supersedes fixed-role assumptions in 001,
+002, and 004; earlier specs remain historical, with unaffected rules and 003/004 visual
+identity and asset-quality obligations preserved.
+Templates reviewed: spec-template.md, plan-template.md, tasks-template.md need no changes;
+their existing traceability, TDD, mobile, and evidence gates apply to the expanded scope.
+Validation impact: both role assignments require automated regression and device acceptance;
+new homepage five-player criterion supplements existing gameplay criteria.
+Follow-up: technical planning must account for role-generalization and missing animations.
 -->
 
 # Streets of Rock Constitution
@@ -95,10 +86,10 @@ without a live browser. Native packaging MUST NOT become a prerequisite for web 
 
 ### V. Focused Scope and Measured Quality
 
-The MVP MUST deliver the complete one-level experience defined in `PRD.md`: Cow with
-vulnerable AI Crow, four areas, three enemy roles, a two-phase boss, and a clear result/retry
-loop. The 3–5 minute successful-run target MUST guide playtesting, not impose a countdown.
-Crow's loss MUST NOT make solo completion impossible.
+The MVP MUST deliver the complete one-level experience defined in `PRD.md`: selection of Cow or Crow as the playable fighter with the other as
+a vulnerable AI partner, readiness and entry countdown, four areas, three enemy roles,
+a two-phase boss, and a clear result/retry loop. The 3–5 minute successful-run target MUST guide playtesting, not impose a gameplay deadline. The entry countdown does not count toward run time.
+Loss of either selected AI partner MUST NOT make solo completion impossible for the selected fighter.
 
 Features listed as deferred in the PRD MUST NOT enter implementation without an explicit
 scope revision. Engine abstractions, production pipelines, dependencies, and visual effects
@@ -171,4 +162,4 @@ Every implementation review MUST include constitution compliance and test eviden
 project owner resolves disputed scope or governance decisions. Initial version 1.0.0 adopts
 these rules from the agreed PRD and repository instructions; it replaces an unratified template.
 
-**Version**: 1.0.0 | **Ratified**: 2026-09-26 | **Last Amended**: 2026-09-26
+**Version**: 1.1.0 | **Ratified**: 2026-09-26 | **Last Amended**: 2026-09-27
