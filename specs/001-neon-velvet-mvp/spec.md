@@ -4,16 +4,16 @@
 
 **Created**: 2026-09-26
 
-**Status**: Ready for technical planning; specification quality validated, implementation not started
+**Status**: MVP implementation in progress; controls revised by feature 002 on 2026-09-27
 
 **Input**: User-provided Streets of Rock MVP Product Requirements v2.0, dated 2026-09-26.
 
 ## Product Alignment *(mandatory)*
 
-- **PRD references**: [PRD v2.0](../../PRD.md), FR-001 through FR-037, NFR-001 through NFR-009, SC-001 through SC-006, and AC-001 through AC-021. The identifiers are preserved; AC-022 through AC-034 add coverage without replacing the original scenarios.
+- **PRD references**: [PRD v2.1](../../PRD.md), FR-001 through FR-040, NFR-001 through NFR-009, SC-001 through SC-007, and AC-001 through AC-021 plus AC-035 through AC-039. AC-022 through AC-034 retain their existing supplemental meanings.
 - **Governance**: [Constitution v1.0.0](../../.specify/memory/constitution.md). Implementation follows test-first development on a feature branch. This document specifies outcomes; engine and implementation choices belong to technical planning.
 - **Player value**: Casual action players can learn readable touch combat, fight with an AI companion, and finish and replay one complete 3–5 minute rock-club level.
-- **Included behavior**: Cow with vulnerable AI Crow; simple stylized 3D; four connected areas; movement, attack, dodge, and Bovine Spin; three common enemy roles; two-phase Liam; two breakable tables and healing drinks; onboarding, HUD, pause/settings, results/retry; bundled soundtrack; mobile-browser installation and offline replay.
+- **Included behavior**: Cow with vulnerable AI Crow; simple stylized 3D; four connected areas; movement, Light combo, Heavy, Dodge, and Bovine Spin; three common enemy roles; two-phase Liam; two breakable tables and healing drinks; onboarding, HUD, pause/settings, results/retry; bundled soundtrack; mobile-browser installation and offline replay.
 - **Deferred behavior**: Character selection, playable Crow/Lion/Plates, multiplayer, jumping/aerial combat, grapples, directional special moves, rear strikes, simultaneous-button gestures, weapons, random loot, revives, team cinematics, boss summons, additional levels, upgrades, accounts, leaderboards, remote analytics, monetization, native distribution, Capacitor wrapping, rhythm combat, and player-selected music files.
 - **Provisional tuning**: Encounter counts, pacing budgets, and the starting control values below are adjustable against acceptance goals. Damage, health, timings, recovery, knockback, post-hit protection, cooldowns, meter gain, movement, and hit alignment are tuning values. Production art and an automated asset-generation pipeline are not delivery gates.
 
@@ -21,6 +21,8 @@ The 3–5 minute target measures successful active gameplay, not loading, pauses
 There is no countdown failure: players may take longer. Crow can be knocked out for the rest
 of a run, but Cow can still win alone. A complete MVP requires all four stories, including P2
 offline play; an independently demonstrated story is only an increment.
+
+The controls in [002-revised-controls](../002-revised-controls/spec.md) replace the original floating joystick and three-button layout. This document is synchronized to that product revision. Existing MVP plan, contracts, tasks, and validation evidence describe the earlier implementation baseline; revised-control planning must update affected contracts and tests before code changes, and prior passing results do not validate the new controls.
 
 ## Clarifications
 
@@ -40,16 +42,22 @@ As a casual player, I can move and fight immediately so the game feels understan
 
 **Acceptance Scenarios**:
 
-1. **AC-001:** Given a first run, when control starts, then movement and attack prompts appear contextually without blocking play; dodge and special prompts appear when those actions become relevant. Completed prompts remain completed after a normal reload when storage is available. (FR-006, NFR-008)
-2. **AC-002:** Given an active joystick touch, when another finger taps Attack, then Cow attacks while the movement input remains correctly tracked. Canceling either touch does not leave it stuck. (FR-009–012)
+1. **AC-001:** Given a first run, when control starts, then movement and Light prompts appear contextually without blocking play; Heavy is introduced in the first encounter, and Dodge and Special when relevant. Completed prompts persist when storage is available; legacy attack completion does not suppress the new Heavy prompt. (FR-006, NFR-008)
+2. **AC-002:** Given an active joystick touch, when another finger taps Light, Heavy, Dodge, or Special, then the requested available action executes while movement input remains correctly tracked. Canceling either touch does not leave it stuck. (FR-009–012)
 3. **AC-003:** Given an attack nearing recovery, when a follow-up is entered within the configured buffer, then it executes once at the next valid opportunity; expired input does not execute later. (FR-012)
 4. **AC-004:** Given an enemy outside attack depth, when Cow attacks, then it takes no damage. Given a valid overlap, that strike damages it only once. (FR-016)
 5. **AC-005:** Given a ready dodge, when an attack overlaps its invulnerability window, then Cow takes no damage from that attack. Repeated input during cooldown does not grant another dodge. (FR-013, FR-015)
-6. **AC-006:** Given a full meter, when Special is pressed in an actionable state, then Bovine Spin fires once and empties the meter. An incomplete meter causes no attack or resource loss. Cow’s damaging attacks fill the meter, Crow’s attacks do not, and unavailable or non-actionable states cannot spend it. (FR-014–015)
+6. **AC-006:** Given a full meter, when Special is pressed in an actionable state, then Bovine Spin fires once and empties the meter. An incomplete meter causes no attack or resource loss. Cow’s damaging Light/Heavy enemy hits fill the meter; Crow, table damage, misses, and Bovine Spin do not, and unavailable or non-actionable states cannot spend it. (FR-014–015)
 7. **AC-007:** Given Cow has just taken damage, when another hit arrives during post-hit protection, then that hit does not reduce health. (FR-017)
 8. **AC-022:** Given landscape play and an initial facing toward progression, when Cow moves horizontally, moves only along depth, or reaches an arena edge, then facing follows horizontal movement and persists for depth-only movement, and Cow remains in bounds. Touching Pause or another HUD control does not start movement. (FR-007, FR-008, FR-009, FR-011)
-9. **AC-023:** Given Cow is actionable, when the player enters three timely Attack taps, then a three-hit sequence ends in knockback; after a missed continuation window, the next attack starts a new sequence. Neutral-input dodge follows facing, directed dodge follows movement, and each unavailable action gives feedback without consuming resources. (FR-012, FR-013, FR-015)
+9. **AC-023:** Given Cow is actionable, when the player enters three timely Light taps, then a three-hit sequence ends in knockback; after a missed continuation window, the next attack starts a new sequence. Neutral-input dodge follows facing, directed dodge follows movement, and each unavailable action gives feedback without consuming resources. (FR-012, FR-013, FR-015)
 10. **AC-024:** Given several enemies and both allies share an arena, when attacks occur, then no more enemies attack concurrently than the configured limit, other enemies wait or reposition, allies cannot damage or body-block each other, and hit reactions and post-hit protection are visible. (FR-017, FR-018, FR-019)
+
+11. **AC-035:** Given active landscape gameplay before any touch, when the player views and drags the joystick, then its ring and knob are visible, the fixed anchor stays in place, the knob tracks within the ring, and release or cancellation centres it and stops movement. Touches outside the ring do not start movement. (FR-009)
+12. **AC-036:** Given Cow is actionable, when Heavy is tapped, then one slower, stronger strike occurs without health or meter cost and the next Light begins at hit one. Holding Heavy does not repeat it; its recovery cannot be canceled. (FR-012, FR-038, FR-040)
+13. **AC-037:** Given equivalent enemy targets, when Light and Heavy land or miss, then range/depth and once-per-target rules hold and only damaging enemy hits fill the capped meter. Table damage and Bovine Spin do not refill it. Both Light and Heavy can break tables under FR-031. (FR-014, FR-016, FR-031, FR-038)
+14. **AC-038:** Given either reference phone, when controls are shown with audio muted and shake disabled, then the four labels and diamond positions are clear, presses are visible, Dodge cooldown and Special readiness are understandable without color alone, and controls remain reachable within safe areas without covering combat warnings. (FR-037, FR-039, NFR-003)
+15. **AC-039:** Given overlapping requests or a held/sliding action touch, when inputs are resolved, then only one action and at most one unexpired follow-up are accepted under FR-040, with no unintended repetition or recovery cancel. Cancellation removes that touch’s pending request; interruptions, results, and retry clear every pending input. (FR-010, FR-012, FR-015, FR-040, NFR-004)
 
 ### User Story 2 - Complete and replay the level with Crow (Priority: P1)
 
@@ -139,15 +147,15 @@ The following IDs correspond directly to the PRD. All are required for this feat
 - **FR-003**: Defeating Liam wins the level. Cow reaching zero health loses the run regardless of Crow’s status. If both occur in the same simulation step, defeat takes precedence.
 - **FR-004**: Victory and defeat stop combat and offer full-level retry and return to title. There is no checkpoint or countdown failure.
 - **FR-005**: Victory shows completion time and best successful time. Measure active gameplay from player control becoming available until victory; exclude loading, pauses, and result screens.
-- **FR-006**: The first encounter teaches movement and attack with short contextual prompts. Introduce dodge and special as they become relevant. Prompts must not require a separate tutorial level or block essential controls.
+- **FR-006**: The first encounter teaches movement and Light with short contextual prompts. Introduce Heavy during that encounter and Dodge and Special as they become relevant. Prompts must not require a separate tutorial level or block essential controls. Returning players with completed legacy attack prompts must still receive the new Heavy prompt; completing it persists when storage is available.
 - **FR-007**: The HUD shows Cow health, Crow health/knockout status, special-meter readiness, and pause. Show Liam’s health during the boss encounter.
 - **FR-008**: Cow moves horizontally and along arena depth. Movement stays within walkable arena and camera bounds. There is no player-controlled jump.
-- **FR-009**: The joystick appears at the initial movement touch, applies a deadzone, and permits continued dragging beyond its initial radius. Releasing or canceling that touch immediately stops movement.
+- **FR-009**: The fixed-position joystick is visible before any touch during active landscape gameplay, with an outer ring and a centred thumb knob. A touch beginning inside the ring controls movement relative to its centre, with a deadzone. The knob follows the drag up to the ring boundary; dragging beyond it continues movement at maximum input without moving the anchor. Releasing or canceling the controlling touch immediately stops movement and centres the knob.
 - **FR-010**: Movement and action touches work simultaneously. Buttons remain usable while the joystick is held; canceled touches cannot leave an action or movement held.
 - **FR-011**: Horizontal movement determines facing; vertical-only movement preserves facing. Attacks use the established facing direction. Cow initially faces the direction of progression.
-- **FR-012**: Repeated Attack taps perform a three-hit combo with a knockback finisher. A missed continuation window resets the next attack to the first hit. Buffered actions must not accumulate into an uncontrolled sequence.
+- **FR-012**: Repeated Light taps perform a three-hit combo with a knockback finisher. A missed continuation window resets the next Light attack to the first hit. Buffered actions must not accumulate into an uncontrolled sequence.
 - **FR-013**: Dodge moves in the current joystick direction or, with neutral input, the facing direction. It has a visible cooldown and a short invulnerability window.
-- **FR-014**: Successful damaging attacks by Cow fill one special meter. At full meter, Special activates Bovine Spin, damages nearby enemies, knocks them back, and empties the meter. Crow’s attacks and status do not control availability.
+- **FR-014**: Successful damaging Light and Heavy attacks against enemies fill one special meter, capped at full. Misses, table damage, and Bovine Spin do not fill it. At full meter, Special activates Bovine Spin, damages nearby enemies, knocks them back, and empties the meter. Crow’s attacks and status do not control availability.
 - **FR-015**: Unavailable actions give clear feedback and consume no resources. Actions require Cow to be alive and in an actionable state.
 - **FR-016**: Attack hits require both range and arena-depth alignment. A single strike can damage each eligible target at most once.
 - **FR-017**: Successful hits produce readable visual and sound feedback. Cow receives brief protection after taking damage to prevent unavoidable repeated hits.
@@ -172,11 +180,13 @@ The following IDs correspond directly to the PRD. All are required for this feat
 - **FR-036**: Provide basic action, impact, damage, pickup, and result sound effects. Offer independent music/effects volume controls and a screen-shake toggle, available from title and pause settings.
 - **FR-037**: Essential gameplay feedback must remain understandable with audio muted and screen shake disabled. Communicate health and readiness through shapes/text or animation as well as color.
 
+- **FR-038**: Heavy performs one facing-directed strike with longer startup and recovery and greater per-target damage than any individual Light hit, plus knockback on eligible enemies. It has no charge gesture, health cost, or meter cost. Starting Heavy resets the Light combo. It obeys the same range, depth, once-per-target, actionable-state, and breakable-damage rules as Light; it grants no invulnerability or recovery cancel.
+- **FR-039**: Show four labelled buttons in a right-hand diamond: Special above, Light left, Heavy right, and Dodge below. Light and Dodge occupy the easiest thumb-reach positions. Buttons show press feedback; Dodge shows cooldown progress and Special shows meter progress and readiness. Labels and readiness remain understandable without color, audio, or screen shake. Controls respect safe areas without overlapping each other, the HUD, or central combat warnings.
+- **FR-040**: Each action touch requests at most one action; holding or sliding between buttons does not repeat attacks or trigger another button. At most one unexpired follow-up is buffered. The latest eligible request replaces it; requests in the same input sample use Special, Dodge, Heavy, then Light priority. Unavailable requests give feedback without displacing a valid buffered request or spending resources. Actions do not interrupt active startup, execution, or recovery. Cancellation clears requests from that touch; pause, backgrounding, focus loss, portrait rotation, results, and retry clear all active and buffered inputs. Resume requires fresh input.
+
 #### Level and encounter baseline
 
-Cow moves horizontally and along arena depth. A floating joystick occupies the left movement
-region; Attack, Dodge, and Special occupy the right. HUD interactions take precedence over
-joystick activation. Combat must be readable in the central space between controls.
+Cow moves horizontally and along arena depth. Landscape gameplay uses an always-visible fixed joystick on the left and four labelled buttons in a diamond on the right: Special above, Light left, Heavy right, Dodge below. Light and Dodge receive the most accessible thumb positions. HUD interactions take precedence over movement activation. Controls must respect screen safe areas and remain reachable without obscuring the central combat space.
 
 | Area | Provisional composition | Active-time budget |
 | --- | --- | --- |
@@ -194,9 +204,9 @@ seconds; they are not enforced timers. Required enemy behavior:
 - Club Enforcers telegraph shoulder charges with a punishable recovery.
 - Liam uses a long-range rope swing and close-range strike in phase one; below half health, he adds the telegraphed dodgeable shockwave. The phase change happens once. No attack requires a jump or a grapple escape.
 
-Provisional starting values remain 150 ms input buffering, a 15% joystick deadzone, a drag
-radius of 60 CSS pixels before the anchor follows, 72 CSS pixels for Attack, 56 CSS pixels
-for Dodge/Special, 200 ms dodge invulnerability, and at most two concurrent enemy attackers.
+Provisional starting values remain 150 ms input buffering, a 15% joystick deadzone, a fixed joystick
+radius of 60 CSS pixels, 72 CSS pixels for Light, 56 CSS pixels
+for Heavy/Dodge/Special, 200 ms dodge invulnerability, and at most two concurrent enemy attackers.
 These are supplied product tuning baselines, not a choice of engine or rendering technique.
 Bovine Spin has no health cost or team meter and remains available after Crow falls.
 
@@ -240,6 +250,7 @@ AC-001 through AC-021 retain their PRD meaning, with additional explicit Given/W
 | FR-001, FR-002, FR-007 | AC-012, AC-020, AC-025, AC-022 |
 | FR-003, FR-004, FR-005 | AC-009, AC-010, AC-011, AC-012, AC-029 |
 | FR-006 | AC-001 |
+| FR-009, FR-038, FR-039, FR-040 | AC-035, AC-036, AC-037, AC-038, AC-039 |
 | FR-008, FR-009, FR-010, FR-011 | AC-002, AC-022 |
 | FR-012, FR-013, FR-014, FR-015 | AC-003, AC-005, AC-006, AC-009, AC-023 |
 | FR-016, FR-017, FR-018, FR-019 | AC-004, AC-007, AC-024 |
@@ -270,19 +281,23 @@ AC-001 through AC-021 retain their PRD meaning, with additional explicit Given/W
 
 ### Measurable Outcomes
 
-- **SC-001**: At least 4 of 5 players move and attack within 30 seconds of gaining control, without verbal coaching.
+- **SC-001**: At least 4 of 5 players move and perform a Light attack within 30 seconds of gaining control, without verbal coaching.
 - **SC-002**: At least 4 of 5 players complete the level within three attempts.
 - **SC-003**: At least 4 of 5 players record a first successful run lasting 3–5 minutes of active gameplay. Players who do not finish do not satisfy this criterion.
 - **SC-004**: At least 4 of 5 players rate both control responsiveness and combat readability at least 4/5. Ask the two ratings separately.
 - **SC-005**: All acceptance scenarios pass, including solo completion after Crow’s knockout and complete offline replay.
 - **SC-006**: Both reference devices meet the performance requirement during a complete run. Record frame timing and any visible stalls.
 
-SC-005 covers all 34 scenarios in this specification, including the original 21 PRD scenarios.
+- **SC-007**: At least 4 of 5 players correctly demonstrate Light, Heavy, directed Dodge, and ready Special within two minutes after receiving their contextual prompts, without verbal coaching. Record each action separately.
+
+For SC-007, start the two-minute window after the final relevant prompt with a reachable enemy and sufficient meter for Special; gameplay or a prepared encounter may provide these prerequisites.
+
+SC-005 covers all 39 scenarios in this specification, including the original 21 PRD scenarios and five control-revision scenarios.
 SC-006 targets 60 fps and requires at least 30 fps in the busiest encounter during a complete
 run on both reference phones. The technical plan must define a repeatable measurement procedure.
 
 Recruit five casual action players for a formative evaluation. Each receives at most three
-attempts and no verbal control coaching. Record time to first movement and attack, attempt
+attempts and no verbal control coaching. Record time to first movement and Light, each action demonstration under SC-007, attempt
 count, first successful active-run duration, Crow survival, recurring confusion, and separate
 1–5 responsiveness/readability ratings. At least four must meet each SC-001 through SC-004
 threshold. The same four need not satisfy every criterion. Players who do not finish fail
@@ -291,8 +306,8 @@ validation from this small sample. No remote analytics are required.
 
 ## Assumptions
 
-- This is a single-player, landscape, mobile-web prototype. The complete scope is one feature with four prioritized stories; native wrapping remains deferred.
-- The original PRD IDs remain authoritative. Added scenarios clarify existing requirements; they do not authorize new gameplay systems.
+- This is a single-player, landscape, mobile-web prototype. The MVP baseline has four prioritized stories; feature 002 revises its controls. Native wrapping remains deferred.
+- The original PRD IDs remain authoritative. AC-022–034 clarify the original requirements; AC-035–039 cover the explicitly approved controls revision and new Heavy attack.
 - To make “modest support” observable, Crow’s damage is lower than Cow’s basic-attack damage over equal active attack time against equivalent targets. This comparison is an adopted acceptance interpretation; exact damage values remain tunable.
 - A new run resets all combat state but keeps available local settings, completed prompts, and best time. Equal or slower successful times do not replace the fastest time. No account or cross-device sync exists.
 - Missing/corrupt local preferences fall back to playable defaults; missing results mean no recorded best time. Initial audio levels are audible and adjustable, and shake can be disabled; exact initial volume levels are presentation tuning.
