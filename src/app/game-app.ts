@@ -5,6 +5,7 @@ import type { GameEvent, RunState } from '../game/types';
 import { PointerControls, type PointerRegion } from '../input/pointers';
 import { toInputFrame } from '../input/frame';
 import { GameScene } from '../presentation/scene';
+import { CharacterAssetStore } from '../presentation/character-assets';
 import { combatHudMarkup } from '../ui/combat';
 import { TutorialProgress } from '../ui/tutorial';
 import { titleMarkup, resultMarkup } from '../ui/screens';
@@ -15,11 +16,12 @@ import { FixedStepLoop } from './loop';
 export class GameApp {
   private run: RunState | null = null;
   private scene: GameScene | null = null;
+  private characterAssets = new CharacterAssetStore();
   private pointers = new PointerControls();
   private tutorial = new TutorialProgress();
   private clock = new ActiveClock(() => performance.now());
   private loop = new FixedStepLoop(() => this.step());
-  private screen: 'title' | 'running' | 'paused' | 'victory' | 'defeat' | 'error' = 'title';
+  private screen: 'title' | 'loading' | 'running' | 'paused' | 'victory' | 'defeat' | 'error' = 'title';
   private events: GameEvent[] = [];
   private hudMarkup = '';
   private feedbackUntilTick = 0;
@@ -32,6 +34,19 @@ export class GameApp {
         placeCow: (x: number) => {
           const cow = this.run?.actors.find(actor => actor.role === 'cow');
           if (cow && Number.isFinite(x)) { cow.position.x = Math.max(0, Math.min(16, x)); cow.position.depth = 0; cow.facing = 1; }
+        },
+        stageCowHit: () => {
+          const cow = this.run?.actors.find(actor => actor.role === 'cow');
+          const enemies = this.run?.actors.filter(actor => actor.team === 'enemy' && actor.hp > 0) ?? [];
+          if (!cow || !enemies.length || !this.run) return;
+          cow.position.x = 6;
+          cow.position.depth = 0;
+          cow.facing = 1;
+          enemies.forEach((enemy, index) => {
+            enemy.position.x = index === 0 ? 6.9 : 10 + index;
+            enemy.position.depth = 0;
+            enemy.decisionReadyTick = this.run!.tick + 120;
+          });
         },
         defeatCow: () => { const cow = this.run?.actors.find(actor => actor.role === 'cow'); if (cow) cow.hp = 0; },
       }, configurable: true });
@@ -61,7 +76,7 @@ export class GameApp {
     if (command === 'start') this.start();
     else if (command === 'pause' && this.screen === 'running') this.pause();
     else if (command === 'resume' && this.screen === 'paused') this.resume();
-    else if (command === 'retry' && (this.screen === 'victory' || this.screen === 'defeat')) this.start();
+    else if (command === 'retry' && (this.screen === 'victory' || this.screen === 'defeat' || this.screen === 'error')) this.start();
     else if (command === 'title' && (this.screen === 'victory' || this.screen === 'defeat')) this.returnToTitle();
   }
   private onPointerDown(event: PointerEvent): void {
@@ -78,7 +93,17 @@ export class GameApp {
     const button = (event.target as HTMLElement).closest<HTMLElement>('.actions button');
     button?.classList.toggle('pressed', pressed);
   }
-  private start(): void {
+  private async start(): Promise<void> {
+    if (this.screen === 'loading') return;
+    this.screen = 'loading';
+    this.root.innerHTML = `<main class="menu"><h1>Loading characters</h1><p>Preparing Cow and Crow…</p></main>`;
+    try {
+      await this.characterAssets.load();
+    } catch {
+      this.screen = 'error';
+      this.root.innerHTML = `<main class="menu"><h1>Unable to load characters</h1><p>Check your connection and try again.</p><button data-command="retry">Retry</button></main>`;
+      return;
+    }
     this.run = createRun(Date.now());
     this.pointers.clear();
     this.clock.reset();
@@ -89,7 +114,7 @@ export class GameApp {
     this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="joystick" data-region="movement" aria-label="Move"><div class="knob"></div></div><div class="actions"><button class="light" data-region="attack" aria-label="Light">Light</button><button class="heavy" data-region="heavy" aria-label="Heavy">Heavy</button><button class="dodge" data-region="dodge" aria-label="Dodge">Dodge</button><button class="special" data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
     try {
       this.scene?.dispose();
-      this.scene = new GameScene(this.root.querySelector<HTMLElement>('.scene-host')!);
+      this.scene = new GameScene(this.root.querySelector<HTMLElement>('.scene-host')!, this.characterAssets);
       this.screen = 'running';
       this.clock.start();
       this.centerJoystick();

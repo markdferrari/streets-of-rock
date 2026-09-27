@@ -1,0 +1,6 @@
+# Validation quickstart
+
+1. Run `/usr/local/bin/blender -noaudio --background --factory-startup --python-exit-code 1 --python tests/blender/run_tests.py`, then `/usr/local/bin/blender -noaudio --background --factory-startup --python-exit-code 1 --python scripts/blender/rig_export.py -- --output-dir assets/characters/cow-crow/runtime --overwrite`. Confirm rigged `.blend` scenes reopen and both GLBs contain named clips, meshes and materials without cameras/lights/external URIs.
+2. Run `bun run typecheck`, `bun run build`, `bun run test`. Inspect `dist/assets` for both hashed GLBs.
+3. Start the game in a landscape browser: confirm jackets, muzzle/beak, horns/wings and size; perform Light 1–3, Heavy, Dodge and Spin; observe Crow attacking and becoming inactive when knocked out. Pause mid-strike and resume; defeat Cow and retry. Disconnect a character URL and confirm a retryable load error.
+4. Record gameplay-scale captures for front/back/facing directions and actions; check ground contact and clothing/wing intersections. On the reference iPhone and Pixel, record OS/browser, frame times over a complete run and the busiest encounter, and note whether the 30 fps minimum holds. Missing devices mean device acceptance remains open.

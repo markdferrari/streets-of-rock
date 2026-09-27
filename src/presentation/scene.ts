@@ -4,16 +4,20 @@ import { actorModel, actorPose } from './actors';
 import { EffectLayer } from './effects';
 import { addVenueScenery } from './environments';
 import { cameraCenterX } from './camera';
+import { CharacterAssetStore } from './character-assets';
+import { animationSample } from './character-animation';
 
 export class GameScene {
   private renderer: THREE.WebGLRenderer;
   private scene = new THREE.Scene();
   private camera = new THREE.OrthographicCamera(-8, 8, 4, -4, .1, 100);
   private models = new Map<number, THREE.Group>();
+  private animated = new Map<number, { root: THREE.Group; mixer: THREE.AnimationMixer; clips: Map<string, THREE.AnimationClip>; current: string | null }>();
+  private previousPositions = new Map<number, THREE.Vector2>();
   private objectModels = new Map<number, THREE.Mesh>();
   private projectileModels = new Map<number, THREE.Mesh>();
   private effects = new EffectLayer(this.scene);
-  constructor(private readonly host: HTMLElement) {
+  constructor(private readonly host: HTMLElement, private readonly characterAssets: CharacterAssetStore) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
     this.host.append(this.renderer.domElement);
@@ -45,14 +49,52 @@ export class GameScene {
     const positions = new Map<number, THREE.Vector3>();
     for (const actor of run.actors) {
       let model = this.models.get(actor.id);
-      if (!model) { model = actorModel(actor); this.models.set(actor.id, model); this.scene.add(model); }
+      if (!model) {
+        if (actor.role === 'cow' || actor.role === 'crow') {
+          const instance = this.characterAssets.create(actor.role);
+          model = instance.root;
+          const mixer = new THREE.AnimationMixer(model);
+          this.animated.set(actor.id, { root: model, mixer, clips: new Map(instance.animations.map(clip => [clip.name, clip])), current: null });
+          const shadow = new THREE.Mesh(new THREE.CircleGeometry(.48, 16), new THREE.MeshBasicMaterial({ color: 0, transparent: true, opacity: .28, depthWrite: false }));
+          shadow.name = 'Local.GroundShadow';
+          shadow.rotation.x = -Math.PI / 2;
+          shadow.position.y = .012;
+          model.add(shadow);
+        } else model = actorModel(actor);
+        this.models.set(actor.id, model);
+        this.scene.add(model);
+      }
+      const previous = this.previousPositions.get(actor.id);
+      const moving = !!previous && Math.hypot(actor.position.x - previous.x, actor.position.depth - previous.y) > .001;
+      this.previousPositions.set(actor.id, new THREE.Vector2(actor.position.x, actor.position.depth));
       model.position.set(actor.position.x, 0, actor.position.depth);
       model.rotation.y = actor.facing === 1 ? Math.PI / 2 : -Math.PI / 2;
-      model.visible = actor.hp > 0 || actor.role === 'crow';
+      model.visible = actor.hp > 0 || actor.role === 'crow' || actor.role === 'cow';
       const pose = actorPose(actor.hp <= 0 ? 'knockedOut' : actor.action.kind, actor.action.moveId);
-      model.rotation.z = pose.lean;
-      const size = actor.role === 'liam' ? 1.6 : actor.role === 'enforcer' ? 1.2 : actor.role === 'crow' ? .8 : 1;
-      model.scale.set(size, size * pose.heightScale, size);
+      const animation = this.animated.get(actor.id);
+      if (animation) {
+        model.rotation.z = pose.lean;
+        model.scale.set(1.25, 1.25 * pose.heightScale, 1.25);
+        const sample = animationSample(actor, run.tick, moving);
+        const clip = animation.clips.get(sample.clip);
+        if (clip) {
+          if (animation.current !== sample.clip) {
+            animation.mixer.stopAllAction();
+            animation.mixer.setTime(0);
+            const action = animation.mixer.clipAction(clip);
+            action.reset().play();
+            action.setLoop(sample.clip === 'Idle' || sample.clip === 'Move' ? THREE.LoopRepeat : THREE.LoopOnce, 1);
+            action.clampWhenFinished = true;
+            animation.current = sample.clip;
+          }
+          animation.mixer.setTime(Math.min(clip.duration, clip.duration * sample.progress));
+        }
+        if (sample.clip === 'spin.active') model.rotation.y += sample.progress * Math.PI * 2;
+      } else {
+        model.rotation.z = pose.lean;
+        const size = actor.role === 'liam' ? 1.6 : actor.role === 'enforcer' ? 1.2 : 1;
+        model.scale.set(size, size * pose.heightScale, size);
+      }
       positions.set(actor.id, model.position.clone());
     }
     for (const table of run.tables) {
@@ -94,6 +136,17 @@ export class GameScene {
   }
   dispose(): void {
     this.effects.dispose();
+    for (const actor of this.animated.values()) {
+      actor.mixer.stopAllAction();
+      actor.mixer.uncacheRoot(actor.root);
+      const shadow = actor.root.getObjectByName('Local.GroundShadow');
+      if (shadow instanceof THREE.Mesh) {
+        shadow.geometry.dispose();
+        (shadow.material as THREE.Material).dispose();
+      }
+      this.scene.remove(actor.root);
+    }
+    this.animated.clear();
     this.scene.traverse(object => {
       if (object instanceof THREE.Mesh) {
         object.geometry.dispose();

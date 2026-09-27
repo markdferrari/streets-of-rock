@@ -20,6 +20,8 @@ Thumbs.db
 # Blender authoring backups and disposable smoke renders
 assets/characters/cow-crow/*.blend1
 assets/characters/cow-crow/*.blend2
+assets/characters/cow-crow/runtime/*.blend1
+assets/characters/cow-crow/runtime/*.blend2
 assets/characters/cow-crow/smoke/
 assets/characters/cow-crow/previews/
 __pycache__/

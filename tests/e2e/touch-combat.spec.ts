@@ -1,11 +1,16 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 
 test.use({ viewport: { width: 844, height: 390 }, hasTouch: true });
+
+async function startGame(page: Page): Promise<void> {
+  await page.getByRole('button', { name: 'Start' }).click();
+  await expect(page.getByText('Cow 500 / 500')).toBeVisible();
+}
 
 test('shows a fixed joystick and labelled diamond before movement', async ({ page }) => {
   await page.setViewportSize({ width: 568, height: 320 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   const stick = page.locator('.joystick');
   await expect(stick).toBeVisible();
   await expect(stick.locator('.knob')).toBeVisible();
@@ -28,7 +33,7 @@ test('shows a fixed joystick and labelled diamond before movement', async ({ pag
 test('starts an encounter, attacks and moves with the touch controls, and pauses explicitly', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByRole('button', { name: 'Start' })).toBeVisible();
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await expect(page.getByText('Cow 500 / 500')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Light' })).toBeVisible();
   await page.getByRole('button', { name: 'Light' }).click();
@@ -47,7 +52,7 @@ test('starts an encounter, attacks and moves with the touch controls, and pauses
 
 test('releases movement and gives feedback for an unavailable special', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   const x = () => page.evaluate(() => {
     const fixture = (window as unknown as { __sorTest?: { snapshot: () => { actors: { position: { x: number } }[] } } }).__sorTest;
     return fixture!.snapshot().actors[0]!.position.x;
@@ -67,10 +72,11 @@ test('releases movement and gives feedback for an unavailable special', async ({
 
 test('shows meter gain after a damaging attack', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { __sorTest: { snapshot: () => { actors: { team: string }[] } } }).__sorTest.snapshot().actors.filter(actor => actor.team === 'enemy').length)).toBe(3);
   await page.evaluate(() => {
-    const fixture = (window as unknown as { __sorTest: { placeCow: (x: number) => void } }).__sorTest;
-    fixture.placeCow(6);
+    const fixture = (window as unknown as { __sorTest: { stageCowHit: () => void } }).__sorTest;
+    fixture.stageCowHit();
   });
   await page.getByRole('button', { name: 'Light' }).click();
   await expect(page.locator('.hud span').filter({ hasText: 'Special 10%' })).toBeVisible();
@@ -78,7 +84,7 @@ test('shows meter gain after a damaging attack', async ({ page }) => {
 
 test('continues the combo with a timely second tap', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   const action = () => page.evaluate(() => {
     const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string; moveId?: string } }[] } } }).__sorTest;
     return fixture.snapshot().actors[0]!.action;
@@ -95,7 +101,7 @@ test('continues the combo with a timely second tap', async ({ page }) => {
 
 test('uses the Heavy button for one committed strike', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await page.getByRole('button', { name: 'Heavy' }).click();
   const action = () => page.evaluate(() => {
     const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string; moveId?: string } }[] } } }).__sorTest;
@@ -114,18 +120,18 @@ test('teaches Heavy independently of legacy Light completion', async ({ page }) 
     if (!localStorage.getItem('streets-of-rock.tutorial.v1')) localStorage.setItem('streets-of-rock.tutorial.v1', JSON.stringify({ schemaVersion: 1, completed: ['movement', 'attack'] }));
   });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await expect(page.getByText('Tap Heavy')).toBeVisible();
   await page.getByRole('button', { name: 'Heavy' }).click();
   await expect(page.getByText('Tap Heavy')).toBeHidden();
   await page.reload();
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await expect(page.getByText('Tap Heavy')).toBeHidden();
 });
 
 test('shows Dodge cooldown and Special meter on the buttons', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await expect(page.locator('.actions .dodge')).toContainText('Ready');
   await expect(page.locator('.actions .special')).toContainText('0%');
   await page.locator('.actions .dodge').click();
@@ -134,7 +140,7 @@ test('shows Dodge cooldown and Special meter on the buttons', async ({ page }) =
 
 test('pauses on lost focus and requires explicit Resume', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await page.evaluate(() => window.dispatchEvent(new Event('blur')));
   await expect(page.getByRole('button', { name: 'Resume' })).toBeVisible();
   await page.evaluate(() => window.dispatchEvent(new Event('focus')));
@@ -145,7 +151,7 @@ test('pauses on lost focus and requires explicit Resume', async ({ page }) => {
 
 test('shows a rotate prompt and waits for Resume after returning to landscape', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Start' }).click();
+  await startGame(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.getByText('Rotate device')).toBeVisible();
   await page.setViewportSize({ width: 844, height: 390 });
