@@ -1,5 +1,6 @@
 import { createRun } from '../game/run';
 import { stepRun } from '../game/step';
+import { clearCowPendingAction } from '../game/actions';
 import type { GameEvent, RunState } from '../game/types';
 import { addTrainingGrunt } from '../content/training';
 import { PointerControls, type PointerRegion } from '../input/pointers';
@@ -20,6 +21,7 @@ export class GameApp {
   private screen: 'title' | 'running' | 'paused' | 'error' = 'title';
   private events: GameEvent[] = [];
   private hudMarkup = '';
+  private feedbackUntilTick = 0;
   constructor(private readonly root: HTMLElement) {
     this.root.innerHTML = `<main class="menu"><h1>Streets of Rock</h1><p>The Neon Velvet</p><button data-command="start">Start</button></main>`;
     this.root.addEventListener('click', event => this.onClick(event));
@@ -69,6 +71,7 @@ export class GameApp {
     this.clock.pause();
     this.loop.reset();
     this.pointers.clear();
+    if (this.run) clearCowPendingAction(this.run);
     const overlay = this.root.querySelector<HTMLElement>('.overlay');
     if (overlay) { overlay.hidden = false; overlay.innerHTML = `<div class="pause-menu"><h2>Paused</h2><button data-command="resume">Resume</button></div>`; }
   }
@@ -84,12 +87,13 @@ export class GameApp {
     if (!this.run) return;
     const input = toInputFrame(this.pointers.frame());
     this.events = stepRun(this.run, input);
+    if (this.events.some(event => event.type === 'unavailable')) this.feedbackUntilTick = this.run.tick + 50;
     this.tutorial.accept(this.events, input.move.x !== 0 || input.move.depth !== 0);
     this.updateUi();
   }
   private updateUi(): void {
     if (!this.run) return;
-    const next = combatHudMarkup(this.run).replace('data-action="pause"', 'data-command="pause" data-region="hud"');
+    const next = combatHudMarkup(this.run, this.run.tick < this.feedbackUntilTick ? 'Action not ready' : '').replace('data-action="pause"', 'data-command="pause" data-region="hud"');
     if (next !== this.hudMarkup) {
       this.hudMarkup = next;
       const host = this.root.querySelector<HTMLElement>('.hud-host');
@@ -98,7 +102,7 @@ export class GameApp {
     const prompt = this.root.querySelector<HTMLElement>('.prompt');
     if (prompt) {
       const label = { movement: 'Move to fight', attack: 'Tap Attack', dodge: 'Dodge attacks', special: 'Use your Special' };
-      const id = this.tutorial.nextPrompt();
+      const id = this.tutorial.suggest(this.run);
       prompt.textContent = id ? label[id] : '';
     }
     const joystick = this.root.querySelector<HTMLElement>('.joystick');

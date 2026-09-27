@@ -1,6 +1,18 @@
 import * as THREE from 'three';
 import type { GameActor } from '../game/types';
 
+export function actorPose(action: GameActor['action']['kind']): { lean: number; heightScale: number } {
+  switch (action) {
+    case 'windup': return { lean: -.17, heightScale: 1.08 };
+    case 'active': return { lean: .32, heightScale: .95 };
+    case 'recovery': return { lean: .1, heightScale: .98 };
+    case 'hurt': return { lean: -.4, heightScale: .88 };
+    case 'dodge': return { lean: .5, heightScale: .68 };
+    case 'knockedOut': return { lean: 1.2, heightScale: .35 };
+    default: return { lean: 0, heightScale: 1 };
+  }
+}
+
 function material(color: number) { return new THREE.MeshLambertMaterial({ color }); }
 function box(parent: THREE.Group, width: number, height: number, depth: number, color: number, x: number, y: number, z: number) {
   const mesh = new THREE.Mesh(new THREE.BoxGeometry(width, height, depth), material(color));

@@ -1,13 +1,23 @@
-import type { AttackInstance, CowState, GameEvent, RunState } from './types';
+import type { AttackInstance, CowState, GameActor, GameEvent, RunState } from './types';
 import { attackHits } from './collision';
 
-export function applyAttack(run: RunState, attack: AttackInstance, events: GameEvent[]): void {
-  const owner = run.actors.find(actor => actor.id === attack.ownerId);
-  if (!owner || owner.hp <= 0) return;
-  for (const target of [...run.actors].sort((a, b) => a.id - b.id)) {
-    if (target.team === owner.team || run.tick < target.protectionUntilTick || !attackHits(attack, target)) continue;
+interface HitIntent { attack: AttackInstance; owner: GameActor; target: GameActor }
+
+export function applyAttacksBatch(run: RunState, attacks: readonly AttackInstance[], events: GameEvent[]): void {
+  const intents: HitIntent[] = [];
+  const protectedCow = new Set<number>();
+  for (const attack of [...attacks].sort((a, b) => a.id - b.id)) {
+    const owner = run.actors.find(actor => actor.id === attack.ownerId);
+    if (!owner || owner.hp <= 0) continue;
+    for (const target of [...run.actors].sort((a, b) => a.id - b.id)) {
+      if (target.team === owner.team || run.tick < target.protectionUntilTick || (target.role === 'cow' && protectedCow.has(target.id)) || !attackHits(attack, target)) continue;
+      intents.push({ attack, owner, target });
+      attack.hitTargetIds.push(target.id);
+      if (target.role === 'cow') protectedCow.add(target.id);
+    }
+  }
+  for (const { attack, owner, target } of intents) {
     target.hp = Math.max(0, target.hp - attack.damage);
-    attack.hitTargetIds.push(target.id);
     if (attack.moveId === 'cow3' || attack.moveId === 'spin') {
       const dx = target.position.x - attack.origin.x;
       const dd = target.position.depth - attack.origin.depth;
@@ -24,4 +34,8 @@ export function applyAttack(run: RunState, attack: AttackInstance, events: GameE
     if (target.role === 'crow' && target.hp === 0) target.active = false;
     events.push({ type: 'hit', tick: run.tick, actorId: owner.id, targetId: target.id });
   }
+}
+
+export function applyAttack(run: RunState, attack: AttackInstance, events: GameEvent[]): void {
+  applyAttacksBatch(run, [attack], events);
 }

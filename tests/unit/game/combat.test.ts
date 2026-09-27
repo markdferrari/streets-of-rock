@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
 import { moveCow } from '../../../src/game/movement';
-import { attackHits } from '../../../src/game/collision';
-import { updateCowAction } from '../../../src/game/actions';
+import { attackHits, sweptCircleContact } from '../../../src/game/collision';
+import { clearCowPendingAction, updateCowAction } from '../../../src/game/actions';
 import { applyAttack } from '../../../src/game/damage';
 import type { AttackInstance, CowState, EnemyState } from '../../../src/game/types';
 
@@ -42,6 +42,10 @@ describe('movement and hits', () => {
     expect(run.actors[1]!.hp).toBe(240);
     expect(attack.hitTargetIds).toEqual([3]);
   });
+  it('detects fast travel through a target without requiring an end-point overlap', () => {
+    expect(sweptCircleContact({ x: 0, depth: 0 }, { x: 4, depth: 0 }, { x: 2, depth: .1 }, .3)).toBe(true);
+    expect(sweptCircleContact({ x: 0, depth: 0 }, { x: 4, depth: 0 }, { x: 2, depth: 1 }, .3)).toBe(false);
+  });
   it('grants damage protection and rejects attacks from allies', () => {
     const run = fixtureRun();
     run.actors.push(grunt());
@@ -50,6 +54,18 @@ describe('movement and hits', () => {
     expect(run.actors[0]!.hp).toBe(482);
     applyAttack(run, { ...attack, id: 2, hitTargetIds: [] }, []);
     expect(run.actors[0]!.hp).toBe(482);
+  });
+  it('ends protection at its exclusive tick boundary', () => {
+    const run = fixtureRun();
+    run.actors.push(grunt());
+    const incoming = { ...strike(), ownerId: 3, origin: { x: 1, depth: 0 }, facing: -1 as const, damage: 18 };
+    applyAttack(run, incoming, []);
+    run.tick = 35;
+    applyAttack(run, { ...incoming, id: 2, hitTargetIds: [] }, []);
+    expect(run.actors[0]!.hp).toBe(482);
+    run.tick = 36;
+    applyAttack(run, { ...incoming, id: 3, hitTargetIds: [] }, []);
+    expect(run.actors[0]!.hp).toBe(464);
   });
   it('spin hits nearby enemies once without refilling its meter and knocks them back', () => {
     const run = fixtureRun();
@@ -84,6 +100,28 @@ describe('Cow actions', () => {
     }
     updateCowAction(run, { move: { x: 0, depth: 0 }, attack: true }, events);
     expect(cow.action.moveId).toBe('cow1');
+  });
+  it('drops a buffered tap that expires before recovery ends', () => {
+    const run = fixtureRun();
+    const cow = run.actors[0] as CowState;
+    updateCowAction(run, { move: { x: 0, depth: 0 }, attack: true }, []);
+    for (let tick = 1; tick < 35; tick++) {
+      run.tick = tick;
+      updateCowAction(run, { move: { x: 0, depth: 0 }, attack: tick === 1 }, []);
+    }
+    expect(cow.action.kind).toBe('idle');
+    expect(cow.pendingAction).toBeUndefined();
+  });
+  it('clears buffered commands on interruption without changing the current attack', () => {
+    const run = fixtureRun();
+    const cow = run.actors[0] as CowState;
+    updateCowAction(run, { move: { x: 0, depth: 0 }, attack: true }, []);
+    run.tick = 1;
+    updateCowAction(run, { move: { x: 0, depth: 0 }, attack: true }, []);
+    expect(cow.pendingAction).toBeDefined();
+    clearCowPendingAction(run);
+    expect(cow.pendingAction).toBeUndefined();
+    expect(cow.action.kind).toBe('windup');
   });
   it('uses full meter once, and rejects special before full meter', () => {
     const run = fixtureRun();

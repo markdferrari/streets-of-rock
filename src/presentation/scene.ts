@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import type { GameEvent, RunState } from '../game/types';
-import { actorModel } from './actors';
+import { actorModel, actorPose } from './actors';
 import { EffectLayer } from './effects';
 
 export class GameScene {
@@ -50,7 +50,9 @@ export class GameScene {
       model.position.set(actor.position.x, 0, actor.position.depth);
       model.rotation.y = actor.facing === 1 ? Math.PI / 2 : -Math.PI / 2;
       model.visible = actor.hp > 0 || actor.role === 'crow';
-      if (actor.role === 'crow' && actor.hp === 0) model.rotation.z = Math.PI / 2;
+      const pose = actorPose(actor.hp <= 0 ? 'knockedOut' : actor.action.kind);
+      model.rotation.z = pose.lean;
+      model.scale.y = pose.heightScale;
       positions.set(actor.id, model.position.clone());
     }
     this.effects.add(events, positions, now);

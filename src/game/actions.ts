@@ -70,3 +70,8 @@ export function updateCowAction(run: RunState, input: InputFrame, events: GameEv
     }
   }
 }
+
+export function clearCowPendingAction(run: RunState): void {
+  const cow = run.actors.find(actor => actor.role === 'cow') as CowState | undefined;
+  if (cow) cow.pendingAction = undefined;
+}

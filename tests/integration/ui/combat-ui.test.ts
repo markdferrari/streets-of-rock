@@ -16,6 +16,13 @@ describe('combat feedback', () => {
     expect(html).toContain('Special ready');
     expect(html).toContain('Pause');
   });
+  it('describes cooldown and an unavailable action in text', () => {
+    const run = fixtureRun();
+    (run.actors[0] as CowState).dodgeReadyTick = 54;
+    const html = combatHudMarkup(run, 'Special not ready');
+    expect(html).toContain('Dodge 0.9s');
+    expect(html).toContain('Special not ready');
+  });
   it('completes prompts only after valid actions and remembers supplied completion', () => {
     const tutorial = new TutorialProgress(['movement']);
     expect(tutorial.nextPrompt()).toBe('attack');
@@ -24,5 +31,16 @@ describe('combat feedback', () => {
     expect(tutorial.accept([{ type: 'attack', tick: 1 }], false)).toEqual(['attack']);
     expect(tutorial.nextPrompt()).toBe('dodge');
     expect(tutorial.completed()).toEqual(['movement', 'attack']);
+  });
+  it('waits for a warning before dodge and a ready meter before special', () => {
+    const run = fixtureRun();
+    const tutorial = new TutorialProgress(['movement', 'attack']);
+    expect(tutorial.suggest(run)).toBeNull();
+    tutorial.accept([{ type: 'enemy-warning', tick: 0 }], false);
+    expect(tutorial.suggest(run)).toBe('dodge');
+    tutorial.accept([{ type: 'dodge', tick: 1 }], false);
+    expect(tutorial.suggest(run)).toBeNull();
+    (run.actors[0] as CowState).specialMeter = 100;
+    expect(tutorial.suggest(run)).toBe('special');
   });
 });

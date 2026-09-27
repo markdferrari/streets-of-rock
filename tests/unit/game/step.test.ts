@@ -46,4 +46,18 @@ describe('tick pipeline', () => {
     expect(run.actors[0]).toMatchObject({ specialMeter: 10 });
     expect(run.actors[0]!.hp).toBeLessThan(500);
   });
+  it('applies mutually lethal contacts in one tick before choosing defeat', () => {
+    const run = fixtureRun();
+    const cow = run.actors[0]!;
+    cow.hp = 18;
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'liam', team: 'enemy', hp: 12, maxHp: 1600, position: { x: 1, depth: 0 } } as EnemyState);
+    run.attacks.push(
+      { id: 1, ownerId: 1, moveId: 'cow1', origin: { x: 0, depth: 0 }, facing: 1, activeUntilTick: 1, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] },
+      { id: 2, ownerId: 3, moveId: 'close', origin: { x: 1, depth: 0 }, facing: -1, activeUntilTick: 1, range: 1.3, depthTolerance: .45, damage: 18, hitTargetIds: [] },
+    );
+    stepRun(run, { move: { x: 0, depth: 0 } });
+    expect(run.actors[2]!.hp).toBe(0);
+    expect(cow.hp).toBe(0);
+    expect(run.result).toBe('defeat');
+  });
 });
