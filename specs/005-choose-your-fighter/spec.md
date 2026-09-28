@@ -10,6 +10,8 @@
 
 > **Follow-up revision:** [006-combat-view-partner](../006-combat-view-partner/spec.md) supersedes only the preserved distance-based follow/recovery policy in FR-009 and related baseline assumptions. Homepage selection, shared actions, role identity and knockout rules remain in scope here. Downstream implementation must use 006 for partner engagement/facing/visibility when combining these features.
 
+> **Roster follow-up:** [007-lion-plates-characters](../007-lion-plates-characters/spec.md) expands the production roster to four and adds distinct Lion/Plates Specials. It supersedes two-character-only and universal area-attack assumptions while retaining this feature’s selection, role and session requirements.
+
 ## Product Alignment *(mandatory)*
 
 - **PRD references**: FR-001–005, FR-007–025, FR-028, FR-031–040 and new FR-041–047; NFR-001–009; AC-004–021, AC-035–046; SC-001–008.

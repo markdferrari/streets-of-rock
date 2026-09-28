@@ -1,19 +1,18 @@
 <!--
 Sync Impact Report
-Version change: 1.0.0 → 1.1.0 (selectable fighter and AI partner scope amendment)
-Reason: Owner approved the Choose Your Fighter specification plan on 2026-09-27.
-Modified principle: V. Focused Scope and Measured Quality now permits either Cow or Crow
-as the playable fighter and the other as AI partner; role-based solo completion remains required.
-Product impact: PRD 2.2 includes selection, readiness/countdown, and both role assignments.
-Specification impact: 005-choose-your-fighter supersedes fixed-role assumptions in 001,
-002, and 004; earlier specs remain historical, with unaffected rules and 003/004 visual
-identity and asset-quality obligations preserved.
-Templates reviewed: spec-template.md, plan-template.md, tasks-template.md need no changes;
-their existing traceability, TDD, mobile, and evidence gates apply to the expanded scope.
-Validation impact: both role assignments require automated regression and device acceptance;
-new homepage five-player criterion supplements existing gameplay criteria.
-Follow-up: technical planning must account for role-generalization and missing animations.
+Version change: 1.1.0 → 1.2.0 (four-character roster and creation workflow)
+Reason: Owner approved specification of Lion, Plates and reusable character creation on 2026-09-28.
+Modified principle: V. Focused Scope and Measured Quality allows Cow, Crow, Lion or Plates
+as fighter and a different AI partner; existing solo-completion and quality gates remain.
+PRD 2.4 adds FR-051–055, AC-053–057, SC-010 and explicit Lion/Plates Special semantics.
+Feature 007 supersedes 005's two-character/shared-Special assumptions; 006 partner/view rules apply.
+Reviewed spec-template.md, plan-template.md and tasks-template.md: existing traceability,
+TDD, mobile and evidence gates apply without template edits.
+Validation impact: twelve duo initialisations, new Special/status/projectile rules, both skill
+exercises, concept/gameplay review, cached asset and phone performance evidence required.
+Deferred graphical upgrades and further roster content remain deferred.
 -->
+
 
 # Streets of Rock Constitution
 
@@ -86,7 +85,7 @@ without a live browser. Native packaging MUST NOT become a prerequisite for web 
 
 ### V. Focused Scope and Measured Quality
 
-The MVP MUST deliver the complete one-level experience defined in `PRD.md`: selection of Cow or Crow as the playable fighter with the other as
+The MVP MUST deliver the complete one-level experience defined in `PRD.md`: selection of Cow, Crow, Lion or Plates as the playable fighter with a different character as
 a vulnerable AI partner, readiness and entry countdown, four areas, three enemy roles,
 a two-phase boss, and a clear result/retry loop. The 3–5 minute successful-run target MUST guide playtesting, not impose a gameplay deadline. The entry countdown does not count toward run time.
 Loss of either selected AI partner MUST NOT make solo completion impossible for the selected fighter.
@@ -162,4 +161,4 @@ Every implementation review MUST include constitution compliance and test eviden
 project owner resolves disputed scope or governance decisions. Initial version 1.0.0 adopts
 these rules from the agreed PRD and repository instructions; it replaces an unratified template.
 
-**Version**: 1.1.0 | **Ratified**: 2026-09-26 | **Last Amended**: 2026-09-27
+**Version**: 1.2.0 | **Ratified**: 2026-09-26 | **Last Amended**: 2026-09-28

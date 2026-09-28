@@ -1,10 +1,10 @@
 # Streets of Rock — MVP Product Requirements
 
-**Version:** 2.3
+**Version:** 2.4
 
-**Status:** Agreed prototype scope; homepage selection and combat-view/partner revisions specified, implementation acceptance pending
+**Status:** Agreed prototype scope; homepage, combat-view/partner and Lion/Plates character revisions specified, implementation acceptance pending
 
-**Updated:** 2026-09-27
+**Updated:** 2026-09-28
 
 **Delivery:** Mobile browser and installable progressive web app (PWA)  
 **Working title:** Streets of Rock
@@ -13,15 +13,15 @@
 
 Streets of Rock is a mobile-first, arcade-style belt-scrolling beat ’em up featuring stylized cartoon heroes. Its first playable prototype must prove that touchscreen movement, readable combat, and an AI companion can make one short level satisfying to learn and replay.
 
-The MVP is **one complete 3–5 minute level**, Bondi Beach: a scruffy neon rock venue spanning a dance floor, VIP lounge, backstage corridor, and alley exit. The player chooses Cow or Crow as their fighter and the other character as a vulnerable AI partner. Defeating Liam the Head Bouncer completes the level.
+The MVP is **one complete 3–5 minute level**, Bondi Beach: a scruffy neon rock venue spanning a dance floor, VIP lounge, backstage corridor, and alley exit. The player chooses Cow, Crow, Lion or Plates as their fighter and a different character as a vulnerable AI partner. Defeating Liam the Head Bouncer completes the level.
 
 The audience is casual action players. Difficulty should let a new player learn through play, recover from mistakes, and recognize why an attack hit them. The boss provides a clear final challenge without requiring advanced fighting-game inputs.
 
 ### Product pillars
 
 1. **Responsive touch combat:** Simultaneous movement and actions, readable feedback, and forgiving input buffering.
-2. **A visible partnership:** The selected AI partner contributes useful support and can be lost during a run; either playable fighter remains capable of winning alone.
-3. **Distinct character identity:** A muscular cow in a leather jacket and a quick crow in an aviator jacket, expressed through simple stylized 3D models and readable animation.
+2. **A visible partnership:** The selected AI partner contributes useful support and can be lost during a run; each playable fighter remains capable of winning alone.
+3. **Distinct character identity:** Cow and Crow retain their jacketed identities; Lion is a powerful slow brawler and Plates a fast, long-reaching walking dinner plate, expressed through simple stylized 3D models and readable animation.
 4. **A complete short session:** Immediate entry, escalating encounters, a boss, a result, and a fast retry.
 5. **Mobile web access:** Play through a browser link, install where supported, and replay offline after caching.
 
@@ -31,9 +31,9 @@ Requirements identified by `FR`, `NFR`, and `SC` describe MVP obligations. Value
 
 ### Included
 
-- Two selectable characters, Cow and Crow: one player-controlled fighter and one different AI partner.
+- Four selectable characters, Cow, Crow, Lion and Plates: one player-controlled fighter and one different AI partner.
 - Simple stylized 3D characters and scenery with a fixed-angle, horizontally tracking camera.
-- Horizontal and depth movement, visible fixed joystick, three-hit Light combo, Heavy strike, Dodge, and an area-attack Special with character-specific presentation.
+- Horizontal and depth movement, visible fixed joystick, three-hit Light combo, Heavy strike, Dodge, and a character-specific Special: Cow/Crow area attacks, Lion ROAR and Plates Headrest Throw.
 - Four connected combat areas, three common enemy roles, and a two-phase boss.
 - Two breakable tables and one deterministic healing-pickup type.
 - Arcade fighter/partner selection homepage, readiness/countdown, contextual onboarding, HUD, pause/settings, victory, defeat, and retry flows.
@@ -42,7 +42,7 @@ Requirements identified by `FR`, `NFR`, and `SC` describe MVP obligations. Value
 
 ### Deferred
 
-Additional playable characters including Lion and Plates; distinct character movesets; multiplayer; jumping and aerial combat; grapples; directional special attacks; rear strikes; simultaneous-button gestures; weapons; random loot; revives; team special cinematics; boss summons; additional levels; upgrades; accounts; leaderboards; remote analytics; monetization; native app distribution and Capacitor packaging.
+Further playable characters; additional move mechanics beyond the specified four-character actions; multiplayer; jumping and aerial combat; grapples; manually aimed directional special attacks; rear strikes; simultaneous-button gestures; collectible/equippable weapons; random loot; revives; team special cinematics; boss summons; additional levels; upgrades; accounts; leaderboards; remote analytics; monetization; native app distribution and Capacitor packaging.
 
 Production-quality art and an automated Blender pipeline are not acceptance requirements. The technical stack is selected during SpecKit planning.
 
@@ -70,8 +70,8 @@ The scope revision is defined in [005-choose-your-fighter](specs/005-choose-your
 | FR-042 | After fighter confirmation, show “Choose Your Partner” and explain AI control. Retain the fighter visibly with an unavailable tile labelled “Your Fighter.” Require separate preview and confirmation for a different partner, including when only one is eligible. Back clears the partner and restores the previous fighter as an unconfirmed preview. |
 | FR-043 | Show animated full-body 3D previews with name and Health, Power, and Speed bars on shared comparison scales reflecting maximum playable health, first Light strike damage, and normal movement speed. AI-role text explains automatic support behavior. Use bold arcade typography, chunky frames, vivid outlines, and short selection transitions. Reduced motion uses still poses and removes decorative motion. |
 | FR-044 | Partner confirmation locks the duo. Once assets and the level are ready, show both characters throughout 3, 2, 1, one second each, then start exactly one run. Loading failure offers retry with the duo retained. Background, focus, and orientation interruptions suspend countdown and require explicit Resume. Combat and active run timing begin only after countdown. Inputs cannot carry into the next selection step or combat. |
-| FR-045 | Support touch, mouse, and keyboard: arrows move visible grid focus; fresh Enter presses preview and confirm. Cancelled touches, scrolling, and held-key repetition do not select. Labels and frames supplement colour. Launch with two characters without empty slots, and keep additional roster entries reachable in supported landscape safe areas without changing the flow. Preserve homepage settings. |
-| FR-046 | Both Cow and Crow can be the player or AI partner. Both playable fighters support shared Light/Heavy/Dodge/Special rules with character-specific stats and presentation; Cow retains Bovine Spin and Crow receives an appropriate presentation of the same area attack. HUD, defeat, healing, meter, tutorials, and solo continuation follow roles. AI partners use support behavior revised by feature 006, without player-only pickups or a separate Special. |
+| FR-045 | Support touch, mouse, and keyboard: arrows move visible grid focus; fresh Enter presses preview and confirm. Cancelled touches, scrolling, and held-key repetition do not select. Labels and frames supplement colour. Show the four-character roster without empty slots, and keep additional roster entries reachable in supported landscape safe areas without changing the flow. Preserve homepage settings. |
+| FR-046 | Cow, Crow, Lion and Plates can each be the player or AI partner. All support Light/Heavy/Dodge/Special controls with character-specific tuning; Cow/Crow retain existing area attacks while Lion/Plates use FR-052–053. There are twelve distinct ordered duos. HUD, defeat, healing, meter, tutorials, and solo continuation follow roles. AI partners use support behavior revised by feature 006, without player-only pickups or a separate Special. |
 | FR-047 | Retry retains the duo and repeats readiness/countdown with full run reset. Returning to the homepage or reloading clears selection. Selection works offline after successful caching and does not require storage or audio. Updates cannot disrupt a locked duo’s preparation/countdown. |
 
 ## 4. Movement, controls, and combat
@@ -88,9 +88,9 @@ Landscape gameplay uses an always-visible fixed joystick on the left and four la
 | FR-011 | Horizontal movement determines facing; vertical-only movement preserves facing. Attacks use the established facing direction. The fighter initially faces the direction of progression. |
 | FR-012 | Repeated Light taps perform a three-hit combo with a knockback finisher. A missed continuation window resets the next Light attack to the first hit. Buffered actions must not accumulate into an uncontrolled sequence. |
 | FR-013 | Dodge moves in the current joystick direction or, with neutral input, the facing direction. It has a visible cooldown and a short invulnerability window. |
-| FR-014 | Successful damaging Light and Heavy attacks against enemies fill one special meter, capped at full. Misses, table damage, and the fighter’s Special do not fill it. At full meter, Special performs the fighter’s area attack, damaging nearby enemies, knocking them back, and emptying the meter. The partner’s attacks and status do not control availability. |
+| FR-014 | Successful damaging Light and Heavy attacks against enemies fill one special meter, capped at full. Misses, table damage, and the fighter’s Special do not fill it. At full meter, a valid Special performs the fighter’s configured effect and empties the meter once. Cow/Crow retain area damage/knockback; Lion uses FR-052 and Plates FR-053. Plates with no eligible target gives unavailable feedback without spending meter. The partner’s attacks and status do not control availability. |
 | FR-015 | Unavailable actions give clear feedback and consume no resources. Actions require the fighter to be alive and in an actionable state. |
-| FR-016 | Attack hits require both range and arena-depth alignment. A single strike can damage each eligible target at most once. |
+| FR-016 | Basic attack hits require both range and arena-depth alignment; Specials use their defined radius or projectile-collision rules. A single strike can damage each eligible target at most once. |
 | FR-017 | Successful hits produce readable visual and sound feedback. The fighter receives brief protection after taking damage to prevent unavoidable repeated hits. |
 | FR-018 | Enemy attack coordination limits simultaneous attackers. Other enemies wait or reposition instead of all attacking at once. |
 | FR-019 | The fighter and the partner do not damage or body-block each other. Collision and avoidance must not trap either ally or prevent encounter completion. |
@@ -137,6 +137,18 @@ Combat must remain beatable with the fighter alone. The fighter’s Special has 
 | FR-049 | Present the existing room nearly full-screen with increased displayed combat-surface coverage and less unused surrounding space, while preserving room geometry, fixed camera angle, actor speeds and encounter content. Render behind overlaid controls/HUD, retain safe areas and simultaneous input, and leave central combat clear. A full-size canvas without improved room framing is insufficient. |
 | FR-050 | Show a prominent directional arrow plus “GO” only after the final wave clears and the next route unlocks. Keep it visible through travel until next-room entry; clear on reset/results and never show a next-room cue after final victory. Fit safe areas without covering essential controls/HUD; communicate through shape/text and support muted/reduced-motion play. |
 
+### Lion, Plates and reusable character creation
+
+[007-lion-plates-characters](specs/007-lion-plates-characters/spec.md) expands the roster and supported Specials. It supersedes 005's two-character-only scope and identical Special-effect assumption while preserving its role/selection flow and 006 partner behaviour. Shared definitions and a reusable development skill are included; concept review establishes the new characters' final appearance within the existing style.
+
+| ID | Requirement |
+| --- | --- |
+| FR-051 | Each character has an independently editable validated definition containing identity/style, player stats/moves, AI support tuning and presentation references. Selection stats derive from gameplay values. Supported move behaviours take configurable parameters; missing assets/animations, invalid values or duplicate identity prevent readiness. Keep Cow/Crow compatible. |
+| FR-052 | Lion is slower in movement/basic attacks and stronger per corresponding basic hit than Plates, with claw combo and broad Heavy swipe. ROAR stuns normal enemies in radius without damage/knockback and instead damages bosses without stun, knockback or attack interruption. Stun cancels normal-enemy attacks, prevents movement/attacks, refreshes instead of stacking, freezes on pause and clears on reset; already-released projectiles persist. ROAR affects each target once and spends a full meter even with no target. |
+| FR-053 | Plates is a large walking dinner plate, faster and longer-reaching with lower corresponding basic-hit damage than Lion. Headrest Throw conjures a car-seat headrest, fixes aim at the nearest living visible enemy's position at action start, including bosses with stable ties, then travels straight without homing. It may miss or be intercepted; damage only the first enemy struck once, then disappear, with no stun/knockback/piercing/friendly fire. Misses expire at maximum travel distance. No eligible target means unavailable feedback, no throw and no meter spend. |
+| FR-054 | All twelve distinct ordered duos must initialise correct roles and preserve selection/countdown/HUD/knockout/solo/retry rules. New AI partners use ordinary support attacks and 006 behaviour without Specials. New assets work offline; Cow/Crow behaviour remains compatible. Reset clears stun and projectile state. |
+| FR-055 | Deliver a reusable character-creation skill from brief through definition, concept/model/portrait/animation review, supported/new move behaviour, role/roster integration, tests and playable review. Exercise it for Lion and Plates. Report missing information/unsupported mechanics, preserve unrelated resources, follow TDD, and distinguish verified outputs from outstanding art/balance/device checks. |
+
 ## 6. Bondi Beach level
 
 ### Encounter sequence
@@ -174,7 +186,7 @@ These budgets total approximately 190–260 seconds and leave room for player va
 
 ### Breakables and pickups
 
-**FR-031:** Each of the two VIP cocktail tables breaks after receiving sufficient player damage and drops exactly one energy drink. The fighter collects it by contact, restoring 25% of maximum health, capped at full health. Collection consumes the pickup even at full health. The partner neither breaks these tables nor collects their drops. Drops and destroyed objects reset on retry.
+**FR-031:** Each of the two VIP cocktail tables breaks after receiving sufficient player basic-attack damage and drops exactly one energy drink. The fighter collects it by contact, restoring 25% of maximum health, capped at full health. Collection consumes the pickup even at full health. The partner neither breaks these tables nor collects their drops. Drops and destroyed objects reset on retry.
 
 This replaces the conflicting drink, pizza, kebab, and bottle lists. No random drops or usable weapons are required.
 
@@ -229,7 +241,7 @@ As a casual player, I can move and fight immediately so that the game feels unde
 - **AC-003:** Given an attack nearing recovery, when a follow-up is entered within the configured buffer, then it executes once at the next valid opportunity; expired input does not execute later. (FR-012)
 - **AC-004:** Given an enemy outside attack depth, when the fighter attacks, then it takes no damage. Given a valid overlap, that strike damages it only once. (FR-016)
 - **AC-005:** Given a ready dodge, when an attack overlaps its invulnerability window, then the fighter takes no damage from that attack. Repeated input during cooldown does not grant another dodge. (FR-013, FR-015)
-- **AC-006:** Given a full meter, when Special is pressed in an actionable state, then the fighter’s Special fires once and empties the meter. An incomplete meter causes no attack or resource loss. (FR-014–015)
+- **AC-006:** Given a full meter, when Special is pressed in an actionable state, then a valid fighter Special fires once and empties the meter. An incomplete meter or Plates with no eligible target causes no attack or resource loss. (FR-014–015)
 - **AC-007:** Given the fighter has just taken damage, when another hit arrives during post-hit protection, then that hit does not reduce health. (FR-017)
 
 - **AC-035:** Given active landscape gameplay before any touch, when the player views and drags the joystick, then its ring and knob are visible, the fixed anchor stays in place, the knob tracks within the ring, and release or cancellation centres it and stops movement. Touches outside the ring do not start movement. (FR-009)
@@ -298,6 +310,14 @@ As a player, I can inspect and select my duo before entering the level with the 
 - **AC-051:** Given either reference device with audio muted and reduced motion, when controls/cue are shown or the viewport changes, then text/shape, safe areas, central combat visibility, simultaneous input and explicit resume remain usable; paused partner motion/timing remains stopped. (FR-010, FR-037, FR-039–040, FR-048–050; NFR-003–004)
 - **AC-052:** Given a cached full build and either partner, when playing a full run offline, then revised movement/view/cue, audio, results and retry work, with the existing device performance and safe-update gates retained. (NFR-001–009; SC-005–006)
 
+### US-007 — Play new fighters and reuse their creation workflow (P1)
+
+- **AC-053:** Given Lion, when using basic attacks and ROAR, then his slow/strong style is distinct; normal enemies receive stun only, bosses damage only, one effect per target, with pause/refresh/expiry/reset and existing released-projectile behavior correct. (FR-051–052)
+- **AC-054:** Given Plates, when moving/attacking/throwing, then his fast/long-reach style is distinct and the headrest fixes nearest-visible-target aim at action start, can miss or hit an interceptor, damages one enemy once and expires; no target spends no meter. (FR-051, FR-053)
+- **AC-055:** Given the four-character roster, when trying all twelve distinct ordered duos, then selected roles, accurate previews/stats, duplicate prevention, AI restrictions, solo continuation and retained-duo full retry reset work. (FR-041–048, FR-054)
+- **AC-056:** Given both new characters, when running full cached/offline sessions on both reference phones, then required presentation/audio/results/retry and muted/safe-area/performance gates pass with correct interrupted stun/projectile timing and nonblocking audio/storage failure. (FR-054; NFR-001–009)
+- **AC-057:** Given each new character brief, when using the same creation skill, then definitions/assets/integration/tests and a playable review report result; invalid inputs or unsupported mechanics are reported, unrelated resources are preserved and outstanding checks are not called complete. (FR-051, FR-055)
+
 ## 10. Measurable prototype success
 
 Conduct a formative playtest with five casual action players. Record results manually. These targets guide iteration; the sample does not establish broad market validation.
@@ -313,6 +333,7 @@ Conduct a formative playtest with five casual action players. Record results man
 | SC-007 | At least 4 of 5 players correctly demonstrate Light, Heavy, directed Dodge, and ready Special within two minutes after receiving their contextual prompts, without verbal coaching. Record each action separately. |
 | SC-008 | At least 4 of 5 first-time testers select their intended fighter and partner and reach gameplay without verbal coaching, and at least 4 correctly identify the AI-controlled character afterward. |
 | SC-009 | At least 4 of 5 first-time testers indicate the correct next-room direction within three seconds of the GO arrow appearing, without verbal coaching. |
+| SC-010 | At least 4 of 5 testers identify Lion as slower/stronger and Plates as faster/longer-reaching after trying both, without coaching. |
 
 For SC-007, start the two-minute window after the final relevant prompt with a reachable enemy and sufficient meter for Special; gameplay or a prepared encounter may provide these prerequisites.
 
@@ -347,8 +368,8 @@ Retain these concepts for later specifications without treating them as MVP comm
 
 - **Cow:** Heavy tank/brawler; potential armor, charge, and grapple expansion.
 - **Crow:** Further speedster/aerial identity beyond the shared launch action set; potential double jump and dive attacks.
-- **Lion:** Balanced martial-arts champion; roar and pounce identity.
-- **Plates:** Anthropomorphic dinner plate with toon limbs; defensive wildcard using spins and unusual thrown objects.
+- **Lion:** Further abilities beyond the committed slow brawler/swipe/ROAR profile remain deferred.
+- **Plates:** Additional thrown objects or defensive mechanics beyond the committed fast, long-reaching fighter/Headrest Throw remain deferred.
 - Expanded roster, coordinated team specials, additional music venues and bosses, environmental weapons, richer pickups, and longer-term progression.
 - Automated Blender asset generation where it improves production, followed by native distribution using Capacitor when the web experience is established.
 
