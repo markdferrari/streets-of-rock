@@ -8,6 +8,8 @@
 
 **Input**: Arcade homepage inspired by Street Fighter and classic beat ’em ups. Select a fighter and a different AI partner using separate preview and confirmation activations, then enter the level after a 3–2–1 countdown. Owner decisions: animated full-body 3D previews, Health/Power/Speed bars, shared Light/Heavy/Dodge/Special combat rules with character-specific stats and presentation.
 
+> **Follow-up revision:** [006-combat-view-partner](../006-combat-view-partner/spec.md) supersedes only the preserved distance-based follow/recovery policy in FR-009 and related baseline assumptions. Homepage selection, shared actions, role identity and knockout rules remain in scope here. Downstream implementation must use 006 for partner engagement/facing/visibility when combining these features.
+
 ## Product Alignment *(mandatory)*
 
 - **PRD references**: FR-001–005, FR-007–025, FR-028, FR-031–040 and new FR-041–047; NFR-001–009; AC-004–021, AC-035–046; SC-001–008.

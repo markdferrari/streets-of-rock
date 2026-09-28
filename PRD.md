@@ -1,8 +1,8 @@
 # Streets of Rock — MVP Product Requirements
 
-**Version:** 2.2
+**Version:** 2.3
 
-**Status:** Agreed prototype scope; selectable fighter/AI partner homepage specified, pending technical planning and implementation
+**Status:** Agreed prototype scope; homepage selection and combat-view/partner revisions specified, implementation acceptance pending
 
 **Updated:** 2026-09-27
 
@@ -71,7 +71,7 @@ The scope revision is defined in [005-choose-your-fighter](specs/005-choose-your
 | FR-043 | Show animated full-body 3D previews with name and Health, Power, and Speed bars on shared comparison scales reflecting maximum playable health, first Light strike damage, and normal movement speed. AI-role text explains automatic support behavior. Use bold arcade typography, chunky frames, vivid outlines, and short selection transitions. Reduced motion uses still poses and removes decorative motion. |
 | FR-044 | Partner confirmation locks the duo. Once assets and the level are ready, show both characters throughout 3, 2, 1, one second each, then start exactly one run. Loading failure offers retry with the duo retained. Background, focus, and orientation interruptions suspend countdown and require explicit Resume. Combat and active run timing begin only after countdown. Inputs cannot carry into the next selection step or combat. |
 | FR-045 | Support touch, mouse, and keyboard: arrows move visible grid focus; fresh Enter presses preview and confirm. Cancelled touches, scrolling, and held-key repetition do not select. Labels and frames supplement colour. Launch with two characters without empty slots, and keep additional roster entries reachable in supported landscape safe areas without changing the flow. Preserve homepage settings. |
-| FR-046 | Both Cow and Crow can be the player or AI partner. Both playable fighters support shared Light/Heavy/Dodge/Special rules with character-specific stats and presentation; Cow retains Bovine Spin and Crow receives an appropriate presentation of the same area attack. HUD, defeat, healing, meter, tutorials, and solo continuation follow roles. AI partners use existing support behavior without player-only pickups or a separate Special. |
+| FR-046 | Both Cow and Crow can be the player or AI partner. Both playable fighters support shared Light/Heavy/Dodge/Special rules with character-specific stats and presentation; Cow retains Bovine Spin and Crow receives an appropriate presentation of the same area attack. HUD, defeat, healing, meter, tutorials, and solo continuation follow roles. AI partners use support behavior revised by feature 006, without player-only pickups or a separate Special. |
 | FR-047 | Retry retains the duo and repeats readiness/countdown with full run reset. Returning to the homepage or reloading clears selection. Selection works offline after successful caching and does not require storage or audio. Updates cannot disrupt a locked duo’s preparation/countdown. |
 
 ## 4. Movement, controls, and combat
@@ -120,12 +120,22 @@ Combat must remain beatable with the fighter alone. The fighter’s Special has 
 
 | ID | Requirement |
 | --- | --- |
-| FR-020 | The partner follows the fighter between encounters, stays within the playable camera region, and attacks automatically during combat. |
-| FR-021 | The partner prioritizes nearby threats attacking the fighter, then reachable ranged threats, then other nearby enemies. Following the fighter takes priority when separation would leave the partner behind. |
+| FR-020 | The partner defaults to aggressive engagement of reachable visible enemies, moves freely inside the visible walkable arena, and follows naturally between encounters or when needed to remain visible. |
+| FR-021 | The partner prioritizes nearby threats attacking the fighter, then reachable ranged threats, then other nearby enemies. Following takes priority only when needed to retain visibility or accompany progression. Separation alone must not repeatedly interrupt eligible pursuit or an underway attack; finish the attack when visible bounds and combat rules permit. |
 | FR-022 | The partner takes enemy damage. At zero health, he visibly becomes inactive for the remainder of the run; his body cannot block movement or absorb further attacks. |
 | FR-023 | The partner’s knockout does not end the run, block wave completion, remove the fighter’s special, or prevent progression. Retry restores the partner. |
-| FR-024 | The partner recovers from obstruction or excessive separation. Recovery must not damage enemies, revive him, or lock an encounter. |
+| FR-024 | The partner regroups through normal movement. Repositioning requires genuine obstruction preventing movement progress, never ordinary separation, attacking, cooldown, pause or knockout; recovery must place the partner inside visible walkable space without damage, revival or encounter/progression side effects. |
 | FR-025 | The partner provides modest support rather than reliably completing encounters without player attacks. He does not collect healing items or use a separate special ability. |
+
+### Combat view and AI partner revision
+
+[006-combat-view-partner](specs/006-combat-view-partner/spec.md) refines companion engagement, framing and progression. It supersedes earlier distance-tether/recovery assumptions, including feature 005's requirement to retain those old behaviors. Homepage selection remains a separate feature. Room dimensions, connections, combat abilities and encounter composition stay unchanged. New models, textures, lighting and effects remain deferred.
+
+| ID | Requirement |
+| --- | --- |
+| FR-048 | The AI partner pursues eligible enemies freely inside visible walkable space, without distance-only interruption or repositioning. Normal movement faces horizontal travel; depth-only movement preserves facing and attacks face targets. Visibility and normal progression follow take priority when needed; genuine obstruction alone permits recovery. Apply to either partner identity without increasing attack strength or changing knockout/solo rules. |
+| FR-049 | Present the existing room nearly full-screen with increased displayed combat-surface coverage and less unused surrounding space, while preserving room geometry, fixed camera angle, actor speeds and encounter content. Render behind overlaid controls/HUD, retain safe areas and simultaneous input, and leave central combat clear. A full-size canvas without improved room framing is insufficient. |
+| FR-050 | Show a prominent directional arrow plus “GO” only after the final wave clears and the next route unlocks. Keep it visible through travel until next-room entry; clear on reset/results and never show a next-room cue after final victory. Fit safe areas without covering essential controls/HUD; communicate through shape/text and support muted/reduced-motion play. |
 
 ## 6. Bondi Beach level
 
@@ -146,7 +156,7 @@ These budgets total approximately 190–260 seconds and leave room for player va
 | ID | Requirement |
 | --- | --- |
 | FR-026 | Entering a combat area locks the camera and forward progression. The camera angle stays fixed while tracking horizontal progression between areas. |
-| FR-027 | Spawn the next wave only after all enemies in the current wave are defeated. Clear the area only after its final wave; unlock progression and display a visible “GO” cue. |
+| FR-027 | Spawn the next wave only after all enemies in the current wave are defeated. Clear the area only after its final wave; unlock progression and display a directional arrow with “GO” toward the next room until entry; do not show it between unfinished waves or after the final boss. |
 | FR-028 | Enemies and pickups remain reachable. Breakable objects and the partner’s status do not count toward enemy-clear conditions. |
 | FR-029 | Introduce heavier and ranged threats progressively. Enemy attacks must give a visible warning and an opportunity to avoid damage. |
 
@@ -240,7 +250,7 @@ As a player, I can fight through the venue with my companion, reach a clear resu
 - **AC-011:** Given Liam crosses below half health, then the phase transition is visible and his shockwave can be avoided using the available dodge. Defeating him while the fighter survives produces victory and a completion time. (FR-005, FR-030)
 - **AC-012:** Given a terminal result, when Retry is selected, then both heroes, the empty meter, all encounters, objects, pickups, and elapsed time reset. (FR-002, FR-004)
 - **AC-013:** Given a damaged fighter and a broken table, when the fighter contacts its drink, then health increases by 25% of maximum without exceeding maximum and the pickup disappears exactly once. The partner cannot consume it. (FR-031)
-- **AC-014:** Given the partner is obstructed or separated, when the fighter progresses, then the partner recovers without blocking the camera or granting damage, revival, or encounter completion. (FR-020–024)
+- **AC-014:** Given ordinary separation, when the fighter progresses, then the partner regroups by normal movement while remaining visible. Given genuine stuck movement, recovery stays visible and walkable without damage, revival, blocking or encounter completion. (FR-020–024)
 
 ### US-003 — Play reliably on a mobile device (P1)
 
@@ -277,6 +287,17 @@ As a player, I can inspect and select my duo before entering the level with the 
 - **AC-045:** Given two or twelve roster entries, when using touch, mouse, or keyboard, then all eligible portraits and settings/Back remain reachable; cancellation, scrolling, and held keys do not confirm; muted/reduced-motion states remain understandable. (FR-043, FR-045)
 - **AC-046:** Given either duo’s result, when Retry is chosen, then the same duo enters a reset run after countdown; returning home or reloading clears selection. Repeat the complete flow offline after caching, with storage/audio unavailable, and with an update pending during countdown. (FR-047; NFR-005–009)
 
+### US-006 — Fight with an independent partner and follow clear progression (P1)
+
+**Independent evaluation:** Existing encounters and room transitions, both partner identities, matched before/after framing on both reference phones.
+
+- **AC-047:** Given visible reachable enemies, when the fighter moves away, then the partner continues eligible pursuit/attacks without distance-only interruption, routine snapping or off-screen pursuit; normal left/right movement faces travel and attacks face the target. (FR-020–021, FR-048)
+- **AC-048:** Given room travel, when visibility requires regrouping, then the partner follows naturally. Only genuine stuck movement permits recovery to a visible walkable position without damage/revival/progression side effects; pause/knockout/attacking are not stuck. (FR-019–025, FR-048)
+- **AC-049:** Given matched room positions on each reference phone, when comparing before/after presentation, then the combat surface appears larger with less unused surrounding space and controls/HUD overlay it safely; geometry, fixed angle, movement speeds, connections and encounter composition match the baseline. (FR-026, FR-039, FR-049)
+- **AC-050:** Given final-wave clearance in a non-final room, when progression unlocks, then an arrow and GO point to the next route until room entry; unfinished waves, reset, defeat and final victory never show a stale next-room cue. (FR-027–028, FR-050)
+- **AC-051:** Given either reference device with audio muted and reduced motion, when controls/cue are shown or the viewport changes, then text/shape, safe areas, central combat visibility, simultaneous input and explicit resume remain usable; paused partner motion/timing remains stopped. (FR-010, FR-037, FR-039–040, FR-048–050; NFR-003–004)
+- **AC-052:** Given a cached full build and either partner, when playing a full run offline, then revised movement/view/cue, audio, results and retry work, with the existing device performance and safe-update gates retained. (NFR-001–009; SC-005–006)
+
 ## 10. Measurable prototype success
 
 Conduct a formative playtest with five casual action players. Record results manually. These targets guide iteration; the sample does not establish broad market validation.
@@ -291,6 +312,7 @@ Conduct a formative playtest with five casual action players. Record results man
 | SC-006 | Both reference devices meet the performance requirement during a complete run. Record frame timing and any visible stalls. |
 | SC-007 | At least 4 of 5 players correctly demonstrate Light, Heavy, directed Dodge, and ready Special within two minutes after receiving their contextual prompts, without verbal coaching. Record each action separately. |
 | SC-008 | At least 4 of 5 first-time testers select their intended fighter and partner and reach gameplay without verbal coaching, and at least 4 correctly identify the AI-controlled character afterward. |
+| SC-009 | At least 4 of 5 first-time testers indicate the correct next-room direction within three seconds of the GO arrow appearing, without verbal coaching. |
 
 For SC-007, start the two-minute window after the final relevant prompt with a reachable enemy and sufficient meter for Special; gameplay or a prepared encounter may provide these prerequisites.
 
