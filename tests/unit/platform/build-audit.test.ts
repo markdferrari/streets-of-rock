@@ -25,7 +25,7 @@ function fixture(): string {
     'assets/cow.png': 'portrait', 'assets/crow.png': 'portrait',
     'assets/cow.glb': glb(requiredCharacterClips('cow')),
     'assets/crow.glb': glb(requiredCharacterClips('crow')),
-    'assets/audio/music-placeholder.wav': 'RIFF',
+    'assets/audio/brightside.mp3': 'RIFF',
     'assets/icons/icon.svg': '<svg/>', 'assets/icons/icon-maskable.svg': '<svg/>',
   };
   for (const [name, value] of Object.entries(files)) {

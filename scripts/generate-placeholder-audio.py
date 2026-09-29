@@ -1,6 +1,6 @@
 """Generate a short, deterministic development-only music loop.
 
-Replace public/assets/audio/music-placeholder.wav with the owner soundtrack before
+Replace public/assets/audio/brightside.mp3 with the owner soundtrack before
 final audio, offline, and performance acceptance. This file is intentionally named
 so it cannot be mistaken for the intended track.
 """
@@ -12,7 +12,7 @@ from wave import open as wave_open
 
 RATE = 22050
 SECONDS = 8
-DESTINATION = Path(__file__).resolve().parents[1] / "public/assets/audio/music-placeholder.wav"
+DESTINATION = Path(__file__).resolve().parents[1] / "public/assets/audio/brightside.mp3"
 
 
 def sample(t: float) -> float:

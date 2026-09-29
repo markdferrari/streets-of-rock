@@ -12,7 +12,7 @@ test('a complete installed cache relaunches offline for both duos, results and r
   await page.reload();
   await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   const media = await page.evaluate(async () => {
-    const url = '/assets/audio/music-placeholder.wav';
+    const url = '/assets/audio/brightside.mp3';
     const full = await fetch(url);
     const partial = await fetch(url, { headers: { Range: 'bytes=0-9' } });
     const invalid = await fetch(url, { headers: { Range: 'bytes=999999999-' } });
@@ -47,7 +47,7 @@ test('missing cached bytes never appear as offline ready', async ({ page }) => {
     for (const name of await caches.keys()) {
       const cache = await caches.open(name);
       for (const request of await cache.keys()) {
-        if (request.url.includes('/assets/audio/music-placeholder.wav')) return cache.delete(request);
+        if (request.url.includes('/assets/audio/brightside.mp3')) return cache.delete(request);
       }
     }
     return false;

@@ -90,7 +90,7 @@ export class GameApp {
     this.bestResult = new BestResultStore(storage);
     this.settingsStore = new SettingsStore(storage);
     this.settings = this.settingsStore.read();
-    this.audio = new AudioController('/assets/audio/music-placeholder.wav', this.settings);
+    this.audio = new AudioController('/assets/audio/brightside.mp3', this.settings);
     this.tutorial = new TutorialProgress([], storage);
     this.selectionInput = new SelectionInput(this.root,
       (id, modality) => this.activateSelection(id, modality), id => this.focusSelection(id));
