@@ -1,4 +1,4 @@
-# Specification Quality Checklist: Choose Your Fighter
+# Specification Quality Checklist: Choose Your Chieftain
 
 **Purpose**: Validate specification completeness and quality before proceeding to planning
 **Created**: 2026-09-27

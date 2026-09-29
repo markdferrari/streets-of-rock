@@ -30,15 +30,15 @@ export function selectionMarkup(state: SelectionState, roster: readonly Characte
   const stats = selected ? playableStats(selected) : null;
   const instruction = status === 'ready' && selected ? (modality === 'keyboard' ? 'Press Enter again to choose' : 'Tap again to choose') : '';
   return `<main class="selection-screen">
-    <header class="selection-header"><span class="brand">Streets of Rock</span><h1>${state.step === 'fighter' ? 'Choose Your Fighter' : 'Choose Your Partner'}</h1></header>
-    ${state.step === 'partner' ? `<p class="partner-role">Your partner is AI controlled. Your Fighter: <strong>${escapeHtml(fighter?.displayName ?? '')}</strong></p>` : ''}
+    <header class="selection-header"><span class="brand">Streets of Rock</span><h1>${state.step === 'fighter' ? 'Choose Your Chieftain' : 'Choose Your Partner'}</h1></header>
+    ${state.step === 'partner' ? `<p class="partner-role">Ai-controlled companion. Your Chieftain: <strong>${escapeHtml(fighter?.displayName ?? '')}</strong></p>` : ''}
     <div class="selection-layout"><div class="roster" role="group" aria-label="${state.step === 'fighter' ? 'Fighters' : 'Partners'}">${tiles}</div>
     <section class="fighter-preview" aria-label="Character preview"><div class="preview-canvas-host"></div>
       ${selected ? `<div class="preview-details"><h2>${escapeHtml(selected.displayName)}</h2>
       ${stats ? meter('Health', stats.health, STAT_SCALE.health) + meter('Power', stats.power, STAT_SCALE.power) + meter('Speed', stats.speed, STAT_SCALE.speed) : ''}
-      ${state.step === 'partner' ? '<p>Stats describe this character as a fighter; your partner attacks automatically.</p>' : ''}
+      ${state.step === 'partner' ? '<p>Your partner attacks automatically.</p>' : ''}
       <p class="selection-instruction" aria-live="polite">${status === 'error' ? 'Unable to load character' : status === 'loading' ? 'Loading character…' : instruction}</p>
-      ${status === 'error' ? '<button type="button" data-command="preview-retry">Retry</button>' : ''}</div>` : '<p class="preview-placeholder">Select a portrait to preview a fighter</p>'}
+      ${status === 'error' ? '<button type="button" data-command="preview-retry">Retry</button>' : ''}</div>` : '<p class="preview-placeholder">Tap to Preview</p>'}
     </section></div>
     <footer class="selection-footer">${state.step === 'partner' ? '<button type="button" data-command="selection-back">Back</button>' : ''}<span class="pwa-status" aria-live="polite"></span><button type="button" data-command="settings">Settings</button></footer>
   </main>`;

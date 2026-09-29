@@ -17,7 +17,7 @@ function portrait(id: string): string {
 }
 
 export function lockedDuoMarkup(duo: Readonly<DuoAssignment>): string {
-  return `<div class="locked-duo" aria-label="Chosen duo"><figure><img src="${portrait(duo.fighterId)}" alt="${duo.fighterId === 'cow' ? 'Cow' : 'Crow'} portrait"><figcaption>Your Fighter: ${duo.fighterId === 'cow' ? 'Cow' : 'Crow'}</figcaption></figure><figure><img src="${portrait(duo.partnerId)}" alt="${duo.partnerId === 'cow' ? 'Cow' : 'Crow'} portrait"><figcaption>AI Partner: ${duo.partnerId === 'cow' ? 'Cow' : 'Crow'}</figcaption></figure></div>`;
+  return `<div class="locked-duo" aria-label="Chosen duo"><figure><img src="${portrait(duo.fighterId)}" alt="${duo.fighterId === 'cow' ? 'Cow' : 'Crow'} portrait"><figcaption>Your Chieftain: ${duo.fighterId === 'cow' ? 'Cow' : 'Crow'}</figcaption></figure><figure><img src="${portrait(duo.partnerId)}" alt="${duo.partnerId === 'cow' ? 'Cow' : 'Crow'} portrait"><figcaption>AI Partner: ${duo.partnerId === 'cow' ? 'Cow' : 'Crow'}</figcaption></figure></div>`;
 }
 
 export function preparingMarkup(duo: Readonly<DuoAssignment>, stage: string): string {

@@ -1,4 +1,4 @@
-# Tasks: Choose Your Fighter
+# Tasks: Choose Your Chieftain
 
 **Input**: [plan.md](plan.md), [spec.md](spec.md), [research.md](research.md), [data-model.md](data-model.md), [UI contract](contracts/selection-ui.md), [runtime contract](contracts/runtime.md), and [quickstart.md](quickstart.md).
 

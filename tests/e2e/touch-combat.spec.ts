@@ -33,7 +33,7 @@ test('shows a fixed joystick and labelled diamond before movement', async ({ pag
 
 test('starts an encounter, attacks and moves with the touch controls, and pauses explicitly', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await startGame(page);
   await expect(page.getByText('Cow 500 / 500')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Light' })).toBeVisible();

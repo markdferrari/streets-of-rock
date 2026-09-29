@@ -1,4 +1,4 @@
-# Choose Your Fighter validation
+# Choose Your Chieftain validation
 
 Build under test: `005-implement`, 2026-09-28. This is implementation evidence, not final acceptance. Feature 007 later expands the production roster to four; feature 005's two-character minimum remains a validation rule, not a final roster cap.
 

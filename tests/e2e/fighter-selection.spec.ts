@@ -4,7 +4,7 @@ test.use({ hasTouch: true });
 
 test('homepage compares named fighters and confirms only after a second activation', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   const cow = page.getByRole('button', { name: 'Cow', exact: true });
   const crow = page.getByRole('button', { name: 'Crow', exact: true });
   await expect(cow).toBeVisible();
@@ -18,7 +18,7 @@ test('homepage compares named fighters and confirms only after a second activati
   await expect(page.getByRole('meter', { name: 'Speed' })).toHaveAttribute('aria-valuenow', '3.2');
   await crow.click();
   await expect(page.getByRole('meter', { name: 'Health' })).toHaveAttribute('aria-valuenow', '240');
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await crow.click();
   await expect(page.getByRole('heading', { name: 'Choose Your Partner' })).toBeVisible();
   await expect(page.locator('.game')).toHaveCount(0);
@@ -33,7 +33,7 @@ test('keyboard focus is visible but does not preview; repeated Enter cannot conf
   await page.keyboard.down('Enter');
   await expect(cow).toHaveAttribute('aria-pressed', 'true');
   await expect(page.getByText('Press Enter again to choose')).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await page.keyboard.up('Enter');
   await page.keyboard.press('Enter');
   await expect(page.getByRole('heading', { name: 'Choose Your Partner' })).toBeVisible();
@@ -50,7 +50,7 @@ test('Space uses fresh presses and a failed preview blocks confirmation until Re
   await expect(page.getByText('Unable to load character')).toBeVisible();
   await page.keyboard.up('Space');
   await page.keyboard.press('Space');
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await page.unroute('**/*.glb');
   await page.getByRole('button', { name: 'Retry' }).click();
   await expect(page.getByText('Press Enter again to choose')).toBeVisible();
@@ -64,7 +64,7 @@ test('touch activation previews and confirms with separate taps', async ({ page 
   const cow = page.getByRole('button', { name: 'Cow', exact: true });
   await cow.tap();
   await expect(cow).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await expect(page.getByText('Tap again to choose')).toBeVisible();
   await cow.tap();
   await expect(page.getByRole('heading', { name: 'Choose Your Partner' })).toBeVisible();

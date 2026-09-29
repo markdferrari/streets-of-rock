@@ -42,7 +42,7 @@ test('a changed worker waits while two tabs stay open and never reloads a select
     await writeFile(workerPath, `${await readFile(workerPath, 'utf8')}\n// second-build-update\n`);
     await first.evaluate(async () => (await navigator.serviceWorker.getRegistration())?.update());
     await expect(first.getByText('Update ready. Close all game windows and reopen.')).toBeVisible({ timeout: 20_000 });
-    await expect(second.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+    await expect(second.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
     await chooseDuo(first, 'Cow');
     await expect(first.locator('.overlay')).toBeHidden({ timeout: 10_000 });
     await expect(first.locator('.hud')).toContainText('Cow 500 / 500');

@@ -10,7 +10,7 @@ test('a complete installed cache relaunches offline for both duos, results and r
   await page.reload();
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   const media = await page.evaluate(async () => {
     const url = '/assets/audio/music-placeholder.wav';
     const full = await fetch(url);

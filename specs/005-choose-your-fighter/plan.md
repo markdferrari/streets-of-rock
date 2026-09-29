@@ -1,4 +1,4 @@
-# Implementation Plan: Choose Your Fighter
+# Implementation Plan: Choose Your Chieftain
 
 **Branch**: `005-choose-your-fighter` | **Date**: 2026-09-27 | **Spec**: [spec.md](spec.md)
 

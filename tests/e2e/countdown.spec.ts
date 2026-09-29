@@ -38,7 +38,7 @@ test('retry preserves the Crow-player duo with a new zero-tick countdown; homepa
   await page.evaluate(() => (window as unknown as { __sorTest: { defeatPlayer: () => void } }).__sorTest.defeatPlayer());
   await expect(page.getByRole('heading', { name: 'Defeat' })).toBeVisible();
   await page.getByRole('button', { name: 'Return to title' }).click();
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   expect(await page.evaluate(() => (window as unknown as { __sorTest: { snapshot: () => unknown } }).__sorTest.snapshot())).toBeNull();
 });
 

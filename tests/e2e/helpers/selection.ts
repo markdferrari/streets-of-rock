@@ -2,7 +2,7 @@ import { expect, type Page } from '@playwright/test';
 
 export async function chooseDuo(page: Page, fighter: 'Cow' | 'Crow' = 'Cow'): Promise<void> {
   const partner = fighter === 'Cow' ? 'Crow' : 'Cow';
-  await expect(page.getByRole('heading', { name: 'Choose Your Fighter' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   const fighterTile = page.getByRole('button', { name: fighter, exact: true });
   await fighterTile.click();
   await expect(page.getByText('Tap again to choose')).toBeVisible();

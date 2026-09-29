@@ -1,4 +1,4 @@
-# Quickstart and Validation: Choose Your Fighter
+# Quickstart and Validation: Choose Your Chieftain
 
 This guide defines validation for the forthcoming implementation. The planning command does not claim the feature, browser checks, or device acceptance are complete.
 

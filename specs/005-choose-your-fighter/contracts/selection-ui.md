@@ -4,11 +4,11 @@ Applies to feature FR-001–008, FR-011–014. No network API is exposed.
 
 ## Screens and controls
 
-- Homepage heading is “Choose Your Fighter”; preserve “Streets of Rock” branding. Partner heading is “Choose Your Partner” with “Your partner is AI controlled.”
+- Homepage heading is “Choose Your Chieftain”; preserve “Streets of Rock” branding. Partner heading is “Choose Your Partner” with “Ai-controlled companion.”
 - Each tile is a native button with character name as its accessible name and portrait alt empty when the name is already adjacent. Previewed tile exposes `aria-pressed=true`; unavailable fighter tile exposes disabled state and visible “Your Fighter.”
 - Native buttons live in a named roster group with roving tabindex. Tab enters at current focus and can leave to Back/settings; arrows navigate eligible tiles by their displayed row/column, clamp at edges, and scroll focused tiles into view. Enter and Space activate once per fresh key press; repeated keydown is ignored and default synthetic activation is prevented when handled.
 - Focus never previews by itself. First activation previews; next activation of that same eligible portrait confirms. Input is handled through one canonical activation path, with no pointerup-plus-click double processing. Pointer movement beyond 8 CSS px or pointercancel suppresses activation; roster buttons override global touch-action to allow vertical panning.
-- Preview contains name, animated full body, Health/Power/Speed meters and a live confirmation instruction. Touch/mouse show “Tap again to choose”; keyboard shows “Press Enter again to choose.” Meter accessible values come from actual playable tuning. Partner screen explains “Stats describe this character as a fighter; your partner attacks automatically.”
+- Preview contains name, animated full body, Health/Power/Speed meters and a live confirmation instruction. Touch/mouse show “Tap again to choose”; keyboard shows “Press Enter again to choose.” Meter accessible values come from actual playable tuning. Partner screen explains “Your partner attacks automatically.”
 - Partner Back returns to the prior fighter preview requiring confirmation. With two characters the only partner still requires its own preview and confirmation. No auto-pick or double-click-specific timer.
 - Settings is available during selection and paused gameplay; it offers labelled music/effects sliders and shake toggle, restores prior focus on close, and never changes the duo. Portrait orientation displays rotate guidance, retaining state and blocking progression.
 
