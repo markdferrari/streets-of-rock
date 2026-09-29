@@ -1,6 +1,7 @@
 import type { EnemyState, GameEvent, RunState } from './types';
 import { neonVelvet, vipTables } from '../content/neon-velvet';
 import { allocateEntityId } from './run';
+import { getPlayer } from './selectors';
 
 function spawnWave(run: RunState, events: GameEvent[]): void {
   const area = neonVelvet.areas[run.areaIndex];
@@ -27,8 +28,8 @@ function spawnWave(run: RunState, events: GameEvent[]): void {
 export function updateEncounters(run: RunState, events: GameEvent[]): void {
   if (run.result) return;
   const area = neonVelvet.areas[run.areaIndex];
-  const cow = run.actors.find(actor => actor.role === 'cow');
-  if (!area || !cow || cow.hp <= 0) return;
+  const cow = getPlayer(run);
+  if (!area || cow.hp <= 0) return;
   if (run.encounter.status === 'awaitingEntry') {
     if (cow.position.x >= area.minX) spawnWave(run, events);
     return;

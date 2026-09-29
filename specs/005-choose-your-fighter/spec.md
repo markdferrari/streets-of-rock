@@ -1,4 +1,4 @@
-# Feature Specification: Choose Your Fighter
+# Feature Specification: Choose Your Chieftain
 
 **Feature Branch**: `005-choose-your-fighter`
 

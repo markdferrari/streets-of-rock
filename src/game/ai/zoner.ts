@@ -1,11 +1,12 @@
 import type { GameEvent, RunState } from '../types';
 import { allocateAttackId, allocateEntityId } from '../run';
 import { assignAttackSlots } from './attack-slots';
+import { getPlayer } from '../selectors';
 
 export function updateZoners(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
-  const cow = run.actors.find(actor => actor.role === 'cow');
-  if (!cow || cow.hp <= 0) return;
+  const cow = getPlayer(run);
+  if (cow.hp <= 0) return;
   for (const zoner of run.actors.filter(actor => actor.role === 'zoner').sort((a, b) => a.id - b.id)) {
     if (zoner.hp <= 0) { zoner.attackSlot = false; continue; }
     const dx = cow.position.x - zoner.position.x;

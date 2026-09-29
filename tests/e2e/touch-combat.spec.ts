@@ -1,9 +1,10 @@
 import { expect, test, type Page } from '@playwright/test';
+import { enterRun } from './helpers/selection';
 
 test.use({ viewport: { width: 844, height: 390 }, hasTouch: true });
 
 async function startGame(page: Page): Promise<void> {
-  await page.getByRole('button', { name: 'Start' }).click();
+  await enterRun(page);
   await expect(page.getByText('Cow 500 / 500')).toBeVisible();
 }
 
@@ -32,7 +33,7 @@ test('shows a fixed joystick and labelled diamond before movement', async ({ pag
 
 test('starts an encounter, attacks and moves with the touch controls, and pauses explicitly', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByRole('button', { name: 'Start' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Choose Your Chieftain' })).toBeVisible();
   await startGame(page);
   await expect(page.getByText('Cow 500 / 500')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Light' })).toBeVisible();
@@ -75,8 +76,8 @@ test('shows meter gain after a damaging attack', async ({ page }) => {
   await startGame(page);
   await expect.poll(() => page.evaluate(() => (window as unknown as { __sorTest: { snapshot: () => { actors: { team: string }[] } } }).__sorTest.snapshot().actors.filter(actor => actor.team === 'enemy').length)).toBe(3);
   await page.evaluate(() => {
-    const fixture = (window as unknown as { __sorTest: { stageCowHit: () => void } }).__sorTest;
-    fixture.stageCowHit();
+    const fixture = (window as unknown as { __sorTest: { stagePlayerHit: () => void } }).__sorTest;
+    fixture.stagePlayerHit();
   });
   await page.getByRole('button', { name: 'Light' }).click();
   await expect(page.locator('.hud span').filter({ hasText: 'Special 10%' })).toBeVisible();
@@ -85,18 +86,15 @@ test('shows meter gain after a damaging attack', async ({ page }) => {
 test('continues the combo with a timely second tap', async ({ page }) => {
   await page.goto('/');
   await startGame(page);
-  const action = () => page.evaluate(() => {
-    const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string; moveId?: string } }[] } } }).__sorTest;
-    return fixture.snapshot().actors[0]!.action;
-  });
+  const moves = () => page.evaluate(() => (window as unknown as { __sorTest: { moves: () => string[] } }).__sorTest.moves());
   await page.getByRole('button', { name: 'Light' }).click();
-  await expect.poll(async () => (await action()).kind).toBe('windup');
+  await expect.poll(async () => (await moves()).at(-1)).toBe('light1');
   await page.waitForFunction(() => {
     const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string } }[] } } }).__sorTest;
     return fixture.snapshot().actors[0]!.action.kind === 'idle';
   }, null, { polling: 'raf' });
   await page.getByRole('button', { name: 'Light' }).click();
-  await expect.poll(async () => (await action()).moveId).toBe('cow2');
+  await expect.poll(async () => (await moves()).at(-1)).toBe('light2');
 });
 
 test('uses the Heavy button for one committed strike', async ({ page }) => {
@@ -107,7 +105,7 @@ test('uses the Heavy button for one committed strike', async ({ page }) => {
     const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string; moveId?: string } }[] } } }).__sorTest;
     return fixture.snapshot().actors[0]!.action;
   });
-  await expect.poll(async () => (await action()).moveId).toBe('cowHeavy');
+  await expect.poll(async () => (await action()).moveId).toBe('heavy');
   await page.waitForFunction(() => {
     const fixture = (window as unknown as { __sorTest: { snapshot: () => { actors: { action: { kind: string } }[] } } }).__sorTest;
     return fixture.snapshot().actors[0]!.action.kind === 'idle';

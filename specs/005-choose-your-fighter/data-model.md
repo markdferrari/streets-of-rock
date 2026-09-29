@@ -1,4 +1,4 @@
-# Data Model: Choose Your Fighter
+# Data Model: Choose Your Chieftain
 
 ## Character registry
 

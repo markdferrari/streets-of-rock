@@ -4,8 +4,9 @@ import { actorModel, actorPose } from './actors';
 import { EffectLayer } from './effects';
 import { addVenueScenery } from './environments';
 import { cameraCenterX } from './camera';
-import { CharacterAssetStore } from './character-assets';
+import { CharacterAssetStore, type CharacterRole } from './character-assets';
 import { animationSample } from './character-animation';
+import { cameraShakeOffset } from './shake';
 
 export class GameScene {
   private renderer: THREE.WebGLRenderer;
@@ -17,6 +18,7 @@ export class GameScene {
   private objectModels = new Map<number, THREE.Mesh>();
   private projectileModels = new Map<number, THREE.Mesh>();
   private effects = new EffectLayer(this.scene);
+  private lastImpactMs: number | null = null;
   constructor(private readonly host: HTMLElement, private readonly characterAssets: CharacterAssetStore) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
@@ -42,16 +44,22 @@ export class GameScene {
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height, false);
   }
-  render(run: RunState, events: GameEvent[], now: number): void {
+  drawStats(): { draws: number; triangles: number } {
+    return { draws: this.renderer.info.render.calls, triangles: this.renderer.info.render.triangles };
+  }
+  render(run: RunState, events: GameEvent[], now: number, shakeEnabled = true): void {
+    if (events.some(event => event.type === 'hit' || event.type === 'partner-hit')) this.lastImpactMs = now;
     const center = cameraCenterX(run);
-    this.camera.position.set(center, 8, 12);
-    this.camera.lookAt(center, 0, 0);
+    const offset = this.lastImpactMs === null ? 0 : cameraShakeOffset(now - this.lastImpactMs, shakeEnabled);
+    this.camera.position.set(center + offset, 8, 12);
+    this.camera.lookAt(center + offset, 0, 0);
     const positions = new Map<number, THREE.Vector3>();
     for (const actor of run.actors) {
       let model = this.models.get(actor.id);
       if (!model) {
-        if (actor.role === 'cow' || actor.role === 'crow') {
-          const instance = this.characterAssets.create(actor.role);
+        if (actor.role === 'player' || actor.role === 'partner') {
+          const identity = actor.characterId as CharacterRole;
+          const instance = this.characterAssets.create(identity);
           model = instance.root;
           const mixer = new THREE.AnimationMixer(model);
           this.animated.set(actor.id, { root: model, mixer, clips: new Map(instance.animations.map(clip => [clip.name, clip])), current: null });
@@ -69,7 +77,7 @@ export class GameScene {
       this.previousPositions.set(actor.id, new THREE.Vector2(actor.position.x, actor.position.depth));
       model.position.set(actor.position.x, 0, actor.position.depth);
       model.rotation.y = actor.facing === 1 ? Math.PI / 2 : -Math.PI / 2;
-      model.visible = actor.hp > 0 || actor.role === 'crow' || actor.role === 'cow';
+      model.visible = actor.hp > 0 || actor.team === 'ally';
       const pose = actorPose(actor.hp <= 0 ? 'knockedOut' : actor.action.kind, actor.action.moveId);
       const animation = this.animated.get(actor.id);
       if (animation) {
@@ -89,7 +97,7 @@ export class GameScene {
           }
           animation.mixer.setTime(Math.min(clip.duration, clip.duration * sample.progress));
         }
-        if (sample.clip === 'spin.active') model.rotation.y += sample.progress * Math.PI * 2;
+        if (sample.clip === 'spin.active' || sample.clip === 'wingSpin.active') model.rotation.y += sample.progress * Math.PI * 2;
       } else {
         model.rotation.z = pose.lean;
         const size = actor.role === 'liam' ? 1.6 : actor.role === 'enforcer' ? 1.2 : 1;

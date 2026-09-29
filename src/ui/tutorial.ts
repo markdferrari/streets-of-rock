@@ -1,4 +1,5 @@
 import type { GameEvent, RunState } from '../game/types';
+import { getPlayer } from '../game/selectors';
 export type PromptId = 'movement' | 'attack' | 'heavy' | 'dodge' | 'special';
 const order: PromptId[] = ['movement', 'attack', 'heavy', 'dodge', 'special'];
 const key = 'streets-of-rock.tutorial.v1';
@@ -23,8 +24,8 @@ export class TutorialProgress {
     if (!this.done.has('attack')) return 'attack';
     if (!this.done.has('heavy')) return 'heavy';
     if (!this.done.has('dodge') && this.sawWarning) return 'dodge';
-    const cow = run.actors.find(actor => actor.role === 'cow');
-    if (!this.done.has('special') && cow?.role === 'cow' && cow.specialMeter === 100) return 'special';
+    const player = getPlayer(run);
+    if (!this.done.has('special') && player.specialMeter === 100) return 'special';
     return null;
   }
   accept(events: GameEvent[], moved: boolean): PromptId[] {

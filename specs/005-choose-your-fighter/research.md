@@ -1,4 +1,4 @@
-# Research: Choose Your Fighter
+# Research: Choose Your Chieftain
 
 Date: 2026-09-27. All technical questions identified during planning are resolved below. Findings describe this checkout, not assumed capabilities of installed packages.
 
