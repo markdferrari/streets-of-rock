@@ -14,12 +14,13 @@ These remain review decisions; no owner approval is claimed.
 
 ## Concept review
 
-The current production direction is a broad white ceramic plate body with cobalt rim,
-simple face, and short visible limbs so its plate silhouette remains clear in the
-selection preview. The headrest remains a distinct prop. The team selected a restrained
-silhouette before modeling to keep the weapon readable in flight; formal external
-concept approval remains pending. Candidate-sheet art is not yet retained, so this
-review is incomplete and final art production remains provisional.
+`concepts/plates-candidates.svg` compares three silhouettes: a scalloped plate, a broad
+rimmed round plate, and a square ceramic plate. Direction B was selected for its clear
+dinner-plate silhouette at small size and its close match to the existing friendly
+character style. Its portrait and model use a warm rim rather than the sheet's blue
+material swatch. The separate seat headrest prop makes the weapon identity clear.
+This is the implementation team's provisional selection; formal external concept
+approval remains pending.
 
 ## Exercise outputs
 

@@ -12,7 +12,7 @@ from mathutils import Vector
 REQUIRED={
     'cow': ('Torso','Head','Muzzle','Horn.L','Horn.R','Jacket','Boot.L','Boot.R','Eye.L','Eye.R'),
     'crow': ('Torso','Head','Beak','Jacket','Collar','Wing.L','Wing.R','Foot.L','Foot.R','Eye.L','Eye.R'),
-    'lion': ('Torso','Mane','Face','Muzzle','Jacket','Arm.L','Leg.L'),
+    'lion': ('Torso','Mane','Face','Muzzle.L','Muzzle.R','Jacket','Arm.L','Leg.L'),
     'plates': ('Plate.Rim','Plate.Face','Eye.L','Arm.L','Leg.L'),
 }
 CHARACTERS=('cow','crow','lion','plates')

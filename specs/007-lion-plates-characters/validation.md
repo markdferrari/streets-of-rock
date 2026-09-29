@@ -71,4 +71,40 @@ object keys, nonempty presentation keys, bounded Special kinds, required Light c
 partner Special rejection and kebab-case unique IDs. The invalid timing case failed
 before its validator change; afterward `bunx vitest run tests/unit/content/characters.test.ts`
 passed 5/5 and `bun run typecheck` passed. Enemy definitions state normal/boss
-classification explicitly; wider status and runtime integration remain unchecked.
+classification explicitly. At that earlier checkpoint, wider status and runtime
+integration had not yet been implemented; see the latest snapshot below.
+
+## Latest implementation and validation snapshot — 2026-09-29
+
+Implemented four validated character definitions, role-specific run initialization,
+Lion ROAR and status cancellation/expiry, Plates target snapshot and swept headrest
+collision, selected-role static asset loading, readable feedback, character authoring
+commands, scoped Blender generation and the character-builder skill. A browser regression
+found and fixed hard-coded Cow/Crow names in the preparation screen and combat HUD.
+
+| Check | Latest result |
+| --- | --- |
+| `bun run typecheck` | Pass |
+| `bun run test:unit` | Pass: 47 files, 167 tests |
+| Four-roster selection, all 12 ordered duos | Pass in Chromium |
+| Offline cache/results/retry for Lion and Plates | Pass in Chromium: 2 tests |
+| Full Chromium e2e | Pass: 40 passed, 3 skipped |
+| Blender suite | Pass: 24 tests |
+| Production build/audit | Pass: 22 precached assets, 7.05 MiB; no production test hooks detected |
+| Definition/resource validation | Pass: all 4 definitions, then Lion-only and Plates-only validation |
+| Character-builder skill validator | Pass |
+| `git diff --check` | Pass |
+| Full WebKit e2e | Not runnable: host lacks `libavif16`; Playwright dependency installation requires sudo credentials unavailable here |
+
+The first Lion portrait read as a bear. The mane color/shape and muzzle were refined,
+then its source, runtime rig/GLB, and portrait were regenerated and visually inspected.
+Owner art approval remains pending. Plates concept candidates are retained in
+`reviews/concepts/plates-candidates.svg`; the broad-rim direction was selected before
+regenerating its final source, rig, GLB, and portrait. External concept approval remains
+pending.
+
+The phone, installed-browser phone, full-run performance, intended soundtrack approval,
+and five-player tests require external devices, track authorization, or participants.
+They remain acceptance blockers and are not represented as passing. The feature can
+complete automated implementation locally, but not the entire acceptance plan in this
+environment.

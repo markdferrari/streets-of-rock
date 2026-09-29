@@ -1,10 +1,15 @@
 # Quickstart and Validation: Lion and Plates
 
-This is a future implementation validation guide. Planning has not created characters, configuration scripts or the character-builder skill.
+This guide reflects the implementation in progress. Lion, Plates, their role-aware
+runtime behavior, character authoring commands, Blender assets and the character-builder
+skill are present. Device, owner-art, soundtrack and participant acceptance remain open.
 
 ## Prerequisites
 
-Integrate 005 selected roles/session/platform and 006 visible arena/partner behavior. Use branch `007-lion-plates-characters`, Bun 1.4.2, existing lockfile and Blender 5.2.x. Final acceptance requires visual concept/gameplay review, intended soundtrack, both reference phones and five testers. Do not interpret prior feature documents as working runtime code.
+The 005 selected-role/session/platform and 006 visible-arena/partner behavior are
+integrated in this checkout. Work is on branch `007-implement`, with Bun 1.4.2, the
+existing lockfile and Blender 5.2.2. Final acceptance still requires owner visual and
+gameplay review, intended soundtrack evidence, both reference phones and five testers.
 
 From repository root:
 
@@ -14,7 +19,12 @@ bunx playwright install chromium webkit
 bun run dev
 ```
 
-Before implementation create `validation.md` here mapping FR-001–015 and every story scenario to evidence. Each automatable change starts with a meaningful failing test and recorded reason, then implementation/refactor with green results. Preserve Cow/Crow numeric/visual baseline before moving configuration.
+`validation.md` here maps FR-001–015 and story scenarios to automated/manual evidence.
+For a fresh browser run, use `CI=1 bun run test:e2e`; to run Chromium where WebKit
+dependencies are unavailable, use `CI=1 bun run test:e2e --project=chromium`. New
+automatable behavior was developed test first; see the validation log for observed
+red/green results and limitations. Cow/Crow profile snapshots and asset hashes are
+recorded there and in the creation reports.
 
 ## Definition and workflow validation
 
@@ -70,4 +80,8 @@ Five testers try both characters without coaching. Ask which is slower/stronger 
 
 ## Completion record
 
-`validation.md` records FR/scenario mappings, red/green commands, build/asset inventory, device versions, frame evidence, solo/offline outcomes and participant results; per-character reports record concept and workflow evidence. Final owner track, reviews, physical phones and participants may remain unavailable, but their tasks remain incomplete. No runtime acceptance is implied by this plan.
+`validation.md` records FR/scenario mappings, red/green commands, build/asset
+inventory, suite status and remaining acceptance evidence. Per-character reports record
+workflow and provisional visual review. Final owner track, art approval, physical phones
+and participants may remain unavailable, but their tasks remain incomplete. Passing
+automated checks do not imply those acceptance gates passed.

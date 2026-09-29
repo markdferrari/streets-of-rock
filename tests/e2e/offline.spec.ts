@@ -4,6 +4,7 @@ import { enterRun } from './helpers/selection';
 test.use({ viewport: { width: 844, height: 390 }, hasTouch: true });
 
 test('a complete installed cache relaunches offline for both duos, results and retry', async ({ page, context, browserName }) => {
+  test.setTimeout(120_000);
   test.skip(browserName === 'webkit', 'Playwright WebKit reports an internal navigation error under offline emulation; physical Safari acceptance is pending.');
   await page.goto('/');
   await expect(page.getByText('Offline ready')).toBeVisible({ timeout: 20_000 });

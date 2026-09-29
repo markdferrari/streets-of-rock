@@ -8,7 +8,7 @@ from scripts.blender import validate
 class CharacterAssetTests(unittest.TestCase):
     def test_new_character_sources_are_editable_and_inside_expected_envelopes(self):
         for role, parts in {
-            'lion': ('Mane', 'Face', 'Muzzle', 'Jacket', 'Tail.Tuft'),
+            'lion': ('Mane', 'Face', 'Jacket', 'Tail.Tuft'),
             'plates': ('Plate.Rim', 'Plate.Face', 'Eye.L', 'Arm.L', 'Boot.L'),
         }.items():
             source=Path('assets/characters')/role/'source.blend'
@@ -17,6 +17,7 @@ class CharacterAssetTests(unittest.TestCase):
             prefix=role.title()
             names={obj.name for obj in bpy.data.objects}
             for part in parts: self.assertIn(f'{prefix}.{part}',names)
+            if role == 'lion': self.assertTrue({'Lion.Muzzle.L','Lion.Muzzle.R'} <= names)
             self.assertIn(f'Character.{prefix}',bpy.data.collections)
             meshes=[obj for obj in bpy.data.collections[f'Character.{prefix}'].objects if obj.type=='MESH']
             height=max((obj.matrix_world @ __import__('mathutils').Vector(corner)).z for obj in meshes for corner in obj.bound_box)
