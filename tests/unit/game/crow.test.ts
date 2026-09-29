@@ -20,14 +20,18 @@ describe('Crow AI', () => {
     zoner.hp = 0;
     expect(choosePartnerTarget(run)).toBe(3);
   });
-  it('recovers alive Crow from excessive separation without health or damage changes', () => {
+  it('does not recover Crow merely from separation while retaining health and damage', () => {
     const run = fixtureRun();
     const crow = run.actors[1] as PartnerState;
-    crow.position.x = -10;
+    crow.position.x = 1;
+    run.actors[0]!.position.x = 9;
     crow.hp = 90;
-    run.actors.push(fixtureEnemy(3, 'grunt', 1));
-    updatePartner(run, []);
-    expect(Math.abs(crow.position.x - run.actors[0]!.position.x)).toBeLessThan(2);
+    run.actors.push(fixtureEnemy(3, 'grunt', 4));
+    const events: { type: string; tick: number }[] = [];
+    updatePartner(run, events);
+    expect(crow.position.x).toBeGreaterThan(1);
+    expect(crow.position.x).toBeLessThan(1.1);
+    expect(events.some(event => event.type === 'partner-recovered')).toBe(false);
     expect(crow.hp).toBe(90);
     expect(run.actors[2]!.hp).toBe(120);
   });

@@ -1,11 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
-import { CharacterAssetStore, requiredCharacterClips } from '../../../src/presentation/character-assets';
+import { CharacterAssetStore, characterBodyEnvelope, requiredCharacterClips } from '../../../src/presentation/character-assets';
 import { characters } from '../../../src/content/characters';
 
 const clip = (name: string) => new THREE.AnimationClip(name, 1, []);
 
 describe('character asset ownership and loading', () => {
+  it('exposes conservative world-space bounds for the rotated and scaled Cow/Crow clips', () => {
+    for (const role of ['cow', 'crow'] as const) {
+      const bounds = characterBodyEnvelope(role);
+      expect(bounds.minX).toBeLessThanOrEqual(-1.7);
+      expect(bounds.maxX).toBeGreaterThanOrEqual(1.7);
+      expect(bounds.minDepth).toBeLessThanOrEqual(-1.7);
+      expect(bounds.maxDepth).toBeGreaterThanOrEqual(1.7);
+      expect(bounds.minY).toBeLessThanOrEqual(0);
+      expect(bounds.maxY).toBeGreaterThanOrEqual(role === 'cow' ? 2.7 : 2.2);
+    }
+  });
   it('requires every Crow player phase plus Dodge before readiness', () => {
     const clips = requiredCharacterClips('crow');
     expect(clips).toContain('Dodge');

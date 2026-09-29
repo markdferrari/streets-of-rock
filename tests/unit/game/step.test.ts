@@ -4,8 +4,24 @@ import { stepRun, type TickStage } from '../../../src/game/step';
 import type { EnemyState } from '../../../src/game/types';
 import { createRun } from '../../../src/game/run';
 import { getPartner, getPlayer } from '../../../src/game/selectors';
+import { buildArenaContext } from '../../../src/game/arena';
 
 describe('tick pipeline', () => {
+  it('uses the supplied visible arena when the partner chooses a target', () => {
+    const run = fixtureRun();
+    getPartner(run).position.x = 1;
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'grunt', team: 'enemy', hp: 120, maxHp: 120,
+      position: { x: 2, depth: 0 } } as EnemyState);
+    run.actors.push({ ...run.actors[1]!, id: 4, role: 'zoner', team: 'enemy', hp: 180, maxHp: 180,
+      position: { x: 15, depth: 0 } } as EnemyState);
+    run.encounter.status = 'active';
+    run.encounter.aliveEnemyIds = [3, 4];
+    const context = buildArenaContext(run,
+      { anchorX: 2, anchorDepth: 0, anchorHeight: 1.2, halfHeight: 2, aspect: 2 },
+      { minX: -.5, maxX: .5, minY: 0, maxY: 2.5, minDepth: -.5, maxDepth: .5 }, 'partner');
+    stepRun(run, { move: { x: 0, depth: 0 } }, undefined, context);
+    expect(getPartner(run).targetId).toBe(3);
+  });
   it('continues after selected partner knockout and gives selected player defeat precedence on a tie', () => {
     const run = createRun(30, { fighterId: 'crow', partnerId: 'cow' });
     getPartner(run).hp = 0;

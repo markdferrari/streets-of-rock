@@ -5,10 +5,21 @@ import cowUrl from '../../assets/characters/cow-crow/runtime/cow.glb?url';
 import crowUrl from '../../assets/characters/cow-crow/runtime/crow.glb?url';
 import type { CharacterDefinition } from '../content/characters';
 import { requiredCharacterClips, type CharacterAssetKey } from '../content/animation-clips';
+import type { BodyEnvelope } from '../game/arena';
 
 export type CharacterRole = CharacterAssetKey;
 type Asset = { scene: THREE.Group; animations: THREE.AnimationClip[] };
 export { requiredCharacterClips } from '../content/animation-clips';
+
+// Exported geometry reaches 1.26 local units on Crow's wing and 2.09 units in
+// Cow's height. Gameplay scales both by 1.25 and rotates them around Y; the
+// margins also cover the authored action poses and the presentation lean.
+const bodyEnvelopes: Record<CharacterRole, BodyEnvelope> = {
+  cow: { minX: -1.7, maxX: 1.7, minY: 0, maxY: 3.1, minDepth: -1.7, maxDepth: 1.7 },
+  crow: { minX: -1.7, maxX: 1.7, minY: 0, maxY: 2.6, minDepth: -1.7, maxDepth: 1.7 },
+};
+
+export function characterBodyEnvelope(role: CharacterRole): BodyEnvelope { return bodyEnvelopes[role]; }
 
 const urls: Record<CharacterRole, string> = { cow: cowUrl, crow: crowUrl };
 const gltfLoader = new GLTFLoader();

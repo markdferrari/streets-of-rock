@@ -3,10 +3,12 @@ import type { GameEvent, RunState } from '../game/types';
 import { actorModel, actorPose } from './actors';
 import { EffectLayer } from './effects';
 import { addVenueScenery } from './environments';
-import { cameraCenterX } from './camera';
-import { CharacterAssetStore, type CharacterRole } from './character-assets';
+import { computeArenaFrame } from './camera';
+import { CharacterAssetStore, characterBodyEnvelope, type CharacterRole } from './character-assets';
 import { animationSample } from './character-animation';
 import { cameraShakeOffset } from './shake';
+import { buildArenaContext, type ArenaContext, type CameraFrame } from '../game/arena';
+import { getPartner, getPlayer } from '../game/selectors';
 
 export class GameScene {
   private renderer: THREE.WebGLRenderer;
@@ -19,6 +21,8 @@ export class GameScene {
   private projectileModels = new Map<number, THREE.Mesh>();
   private effects = new EffectLayer(this.scene);
   private lastImpactMs: number | null = null;
+  private currentFrame: CameraFrame | null = null;
+  private lastFrameTime: number | null = null;
   constructor(private readonly host: HTMLElement, private readonly characterAssets: CharacterAssetStore) {
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, powerPreference: 'high-performance' });
     this.renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
@@ -36,23 +40,39 @@ export class GameScene {
   resize(): void {
     const width = Math.max(1, this.host.clientWidth);
     const height = Math.max(1, this.host.clientHeight);
-    const aspect = width / height;
-    this.camera.left = -6 * aspect;
-    this.camera.right = 6 * aspect;
-    this.camera.top = 6;
-    this.camera.bottom = -6;
-    this.camera.updateProjectionMatrix();
+    this.currentFrame = null;
     this.renderer.setSize(width, height, false);
   }
   drawStats(): { draws: number; triangles: number } {
     return { draws: this.renderer.info.render.calls, triangles: this.renderer.info.render.triangles };
   }
-  render(run: RunState, events: GameEvent[], now: number, shakeEnabled = true): void {
+  frameSnapshot(): CameraFrame | null { return this.currentFrame ? { ...this.currentFrame } : null; }
+  arenaContext(run: RunState): ArenaContext {
+    const player = getPlayer(run); const partner = getPartner(run);
+    const viewport = { width: Math.max(1, this.host.clientWidth), height: Math.max(1, this.host.clientHeight) };
+    const frame = this.currentFrame ?? computeArenaFrame(run, viewport, {
+      player: characterBodyEnvelope(player.characterId as CharacterRole), partner: characterBodyEnvelope(partner.characterId as CharacterRole),
+    });
+    return buildArenaContext(run, frame, characterBodyEnvelope(partner.characterId as CharacterRole), 'partner');
+  }
+  render(run: RunState, events: GameEvent[], now: number, shakeEnabled = true, active = true): void {
     if (events.some(event => event.type === 'hit' || event.type === 'partner-hit')) this.lastImpactMs = now;
-    const center = cameraCenterX(run);
+    const player = getPlayer(run); const partner = getPartner(run);
+    const viewport = { width: Math.max(1, this.host.clientWidth), height: Math.max(1, this.host.clientHeight) };
+    const delta = active && this.lastFrameTime !== null ? Math.min(.1, Math.max(0, (now - this.lastFrameTime) / 1000)) : 0;
+    const frame = computeArenaFrame(run, viewport, {
+      player: characterBodyEnvelope(player.characterId as CharacterRole), partner: characterBodyEnvelope(partner.characterId as CharacterRole),
+    }, this.currentFrame, delta);
+    this.currentFrame = frame;
+    this.lastFrameTime = now;
+    this.camera.left = -frame.halfHeight * frame.aspect;
+    this.camera.right = frame.halfHeight * frame.aspect;
+    this.camera.top = frame.halfHeight;
+    this.camera.bottom = -frame.halfHeight;
+    this.camera.updateProjectionMatrix();
     const offset = this.lastImpactMs === null ? 0 : cameraShakeOffset(now - this.lastImpactMs, shakeEnabled);
-    this.camera.position.set(center + offset, 8, 12);
-    this.camera.lookAt(center + offset, 0, 0);
+    this.camera.position.set(frame.anchorX + offset, frame.anchorHeight + 8, frame.anchorDepth + 12);
+    this.camera.lookAt(frame.anchorX + offset, frame.anchorHeight, frame.anchorDepth);
     const positions = new Map<number, THREE.Vector3>();
     for (const actor of run.actors) {
       let model = this.models.get(actor.id);

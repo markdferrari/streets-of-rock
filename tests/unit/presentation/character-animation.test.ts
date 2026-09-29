@@ -9,7 +9,9 @@ function actor(identity: 'cow' | 'crow', kind: GameActor['action']['kind'], move
     protectionUntilTick: 0, decisionReadyTick: 0, attackSlot: false, phase: 1 as const };
   return role === 'player'
     ? { ...base, role, comboStep: 0, comboDeadlineTick: 0, dodgeReadyTick: 0, specialMeter: 0 }
-    : { ...base, role, active: true, lastProgressTick: 0 };
+    : { ...base, role, active: true, lastProgressTick: 0,
+      intentState: { intent: 'idle', targetId: null, destination: null, lastHorizontalFacing: 1,
+        blockedTicks: 0, blockedDestination: null, lastResolvedPosition: { x: 0, depth: 0 }, lastRecoveryTick: -120 } };
 }
 
 describe('character animation selection', () => {

@@ -38,7 +38,17 @@ export interface PlayerState extends Actor {
   dodgeDirection?: Position;
   pendingAction?: PendingAction;
 }
-export interface PartnerState extends Actor { role: 'partner'; characterId: CharacterId; active: boolean; lastProgressTick: number }
+export interface PartnerIntentState {
+  intent: 'engage' | 'regroup' | 'idle' | 'recover';
+  targetId: number | null;
+  destination: Position | null;
+  lastHorizontalFacing: Facing;
+  blockedTicks: number;
+  blockedDestination: Position | null;
+  lastResolvedPosition: Position;
+  lastRecoveryTick: number;
+}
+export interface PartnerState extends Actor { role: 'partner'; characterId: CharacterId; active: boolean; lastProgressTick: number; intentState: PartnerIntentState }
 export interface EnemyState extends Actor { role: 'grunt' | 'zoner' | 'enforcer' | 'liam'; shockwaveReadyTick?: number }
 export type GameActor = PlayerState | PartnerState | EnemyState;
 

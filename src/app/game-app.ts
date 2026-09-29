@@ -1,5 +1,5 @@
 import { createRun } from '../game/run';
-import { getPlayer } from '../game/selectors';
+import { getPartner, getPlayer } from '../game/selectors';
 import { stepRun } from '../game/step';
 import { clearPlayerPendingAction } from '../game/actions';
 import type { GameEvent, RunState } from '../game/types';
@@ -24,6 +24,8 @@ import { AudioController } from '../platform/audio';
 import { pwaStatusText, type PwaStatus } from '../platform/pwa';
 import { FrameDiagnostics } from '../platform/diagnostics';
 import { settingsMarkup } from '../ui/settings';
+import { neonVelvet } from '../content/neon-velvet';
+import { deriveProgressionCue, placeProgressionCue, progressionMarkup, type UiRect } from '../ui/progression';
 
 export class GameApp {
   private readonly session: RunSession;
@@ -45,6 +47,7 @@ export class GameApp {
   private selectionModality: ActivationModality = 'pointer';
   private events: GameEvent[] = [];
   private hudMarkup = '';
+  private lastCueKey = '';
   private feedbackUntilTick = 0;
   private readonly testMoves: string[] = [];
   private nextRunId = 1;
@@ -66,10 +69,22 @@ export class GameApp {
     if (import.meta.env.VITE_TEST_MODE === '1') {
       Object.defineProperty(window, '__sorTest', { value: {
         snapshot: () => this.run ? structuredClone(this.run) : null,
+        cameraFrame: () => this.scene?.frameSnapshot() ?? null,
         moves: () => [...this.testMoves],
         placePlayer: (x: number) => {
           const player = this.run ? getPlayer(this.run) : null;
-          if (player && Number.isFinite(x)) { player.position.x = Math.max(0, Math.min(16, x)); player.position.depth = 0; player.facing = 1; }
+          if (player && Number.isFinite(x)) { player.position.x = Math.max(0, Math.min(neonVelvet.areas.at(-1)!.maxX, x)); player.position.depth = 0; player.facing = 1; }
+        },
+        placePartner: (x: number) => {
+          const partner = this.run ? getPartner(this.run) : null;
+          if (partner && Number.isFinite(x)) { partner.position.x = Math.max(0, Math.min(neonVelvet.areas.at(-1)!.maxX, x)); partner.position.depth = 0; partner.facing = 1; }
+        },
+        clearWave: () => {
+          if (!this.run) return;
+          for (const id of this.run.encounter.aliveEnemyIds) {
+            const enemy = this.run.actors.find(actor => actor.id === id);
+            if (enemy) enemy.hp = 0;
+          }
         },
         stagePlayerHit: () => {
           const player = this.run ? getPlayer(this.run) : null;
@@ -112,6 +127,7 @@ export class GameApp {
     this.root.addEventListener('lostpointercapture', event => { this.pointers.cancel(event.pointerId); this.setPressed(event, false); });
     window.addEventListener('resize', () => {
       this.preview?.resize(); this.scene?.resize(); this.centerJoystick();
+      if (this.run) this.updateProgressionUi(this.run);
       if (this.isPortrait() && ['preparing', 'countdown', 'running'].includes(this.phase)) this.pause('rotate');
       else if (this.phase === 'paused') this.updatePauseOverlay();
     });
@@ -207,6 +223,7 @@ export class GameApp {
     this.clock.reset();
     this.events = [];
     this.hudMarkup = '';
+    this.lastCueKey = '';
     this.feedbackUntilTick = 0;
     this.testMoves.length = 0;
     this.root.innerHTML = preparingMarkup(duo, 'Loading character models…');
@@ -216,7 +233,7 @@ export class GameApp {
       if (generation !== this.session.snapshot().generation || !['preparing', 'paused'].includes(this.phase)) return;
       this.root.querySelector('[role="status"]')!.textContent = 'Building the level…';
       const run = createRun(this.nextRunId++, duo);
-      this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="joystick" data-region="movement" aria-label="Move"><div class="knob"></div></div><div class="actions"><button class="light" data-region="attack" aria-label="Light">Light</button><button class="heavy" data-region="heavy" aria-label="Heavy">Heavy</button><button class="dodge" data-region="dodge" aria-label="Dodge">Dodge</button><button class="special" data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
+      this.root.innerHTML = `<div class="game"><div class="scene-host"></div><div class="hud-host"></div><div class="prompt" aria-live="polite"></div><div class="progression-layer"></div><div class="joystick" data-region="movement" aria-label="Move"><div class="knob"></div></div><div class="actions"><button class="light" data-region="attack" aria-label="Light">Light</button><button class="heavy" data-region="heavy" aria-label="Heavy">Heavy</button><button class="dodge" data-region="dodge" aria-label="Dodge">Dodge</button><button class="special" data-region="special" aria-label="Special">Special</button></div><div class="overlay" hidden></div></div>`;
       candidate = new GameScene(this.root.querySelector<HTMLElement>('.scene-host')!, this.characterAssets);
       candidate.render(run, [], performance.now());
       if (generation !== this.session.snapshot().generation || !['preparing', 'paused'].includes(this.phase)) { candidate.dispose(); return; }
@@ -292,7 +309,7 @@ export class GameApp {
     const run = this.run;
     if (this.phase !== 'running' || !run) return;
     const input = toInputFrame(this.pointers.frame());
-    this.events = stepRun(run, input);
+    this.events = stepRun(run, input, undefined, this.scene?.arenaContext(run));
     if (import.meta.env.VITE_TEST_MODE === '1' && this.events.some(event =>
       event.actorId === getPlayer(run).id && (event.type === 'attack' || event.type === 'heavy' || event.type === 'special'))) {
       const move = getPlayer(run).action.moveId;
@@ -315,6 +332,9 @@ export class GameApp {
     this.clock.pause();
     this.audio.effect('result');
     this.audio.pause();
+    const cueLayer = this.root.querySelector<HTMLElement>('.progression-layer');
+    if (cueLayer) cueLayer.innerHTML = '';
+    this.lastCueKey = '';
     this.clearInputs();
     const elapsed = this.clock.elapsedMs();
     if (result === 'victory') this.bestResult.record(elapsed);
@@ -339,6 +359,7 @@ export class GameApp {
       const host = this.root.querySelector<HTMLElement>('.hud-host');
       if (host) host.innerHTML = next;
     }
+    this.updateProgressionUi(run);
     const prompt = this.root.querySelector<HTMLElement>('.prompt');
     if (prompt) {
       const label = { movement: 'Move to fight', attack: 'Tap Light', heavy: 'Tap Heavy', dodge: 'Dodge attacks', special: 'Use your Special' };
@@ -353,6 +374,41 @@ export class GameApp {
     const special = this.root.querySelector<HTMLElement>('.actions .special');
     if (dodge) dodge.textContent = `Dodge ${player.dodgeReadyTick > run.tick ? `${((player.dodgeReadyTick - run.tick) / 60).toFixed(1)}s` : 'Ready'}`;
     if (special) special.textContent = `Special ${player.specialMeter >= 100 ? 'Ready' : `${player.specialMeter}%`}`;
+  }
+
+  private updateProgressionUi(run: RunState): void {
+    const layer = this.root.querySelector<HTMLElement>('.progression-layer');
+    const game = this.root.querySelector<HTMLElement>('.game');
+    if (!layer || !game) return;
+    const cue = deriveProgressionCue(run, this.phase);
+    const key = cue.visible ? `${cue.areaId}:${cue.nextAreaId}` : '';
+    if (!cue.visible) {
+      if (this.lastCueKey) layer.innerHTML = '';
+      this.lastCueKey = '';
+      return;
+    }
+    const gameBounds = game.getBoundingClientRect();
+    const measured = ['.hud-host', '.actions', '.joystick', '.prompt'].map(selector => game.querySelector<HTMLElement>(selector))
+      .filter((element): element is HTMLElement => !!element)
+      .map(element => {
+        const bounds = element.getBoundingClientRect();
+        return { x: bounds.left - gameBounds.left, y: bounds.top - gameBounds.top,
+          width: bounds.width, height: bounds.height } satisfies UiRect;
+      });
+    const hud = game.querySelector<HTMLElement>('.hud-host');
+    const safeStyle = hud ? getComputedStyle(hud) : null;
+    const inset = (value: string | undefined) => Math.max(12, Number.parseFloat(value ?? '') || 0);
+    const placement = placeProgressionCue(cue, { width: gameBounds.width, height: gameBounds.height,
+      safe: { top: inset(safeStyle?.top), right: inset(safeStyle?.right),
+        bottom: 12, left: inset(safeStyle?.left) } }, measured);
+    if (!placement) return;
+    if (key !== this.lastCueKey) {
+      layer.innerHTML = progressionMarkup(cue, placement);
+      this.lastCueKey = key;
+    } else {
+      const element = layer.querySelector<HTMLElement>('.progression-cue');
+      if (element) { element.style.left = `${placement.x}px`; element.style.top = `${placement.y}px`; }
+    }
   }
 
   private centerJoystick(): void {
@@ -376,7 +432,8 @@ export class GameApp {
     }
     this.loop.frame(now, this.phase === 'running');
     if (this.scene && this.run) this.scene.render(this.run, this.events.splice(0), now,
-      this.settings.screenShake && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      this.settings.screenShake && !window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+      this.phase === 'running');
     if (this.diagnostics) {
       const stats = this.scene?.drawStats() ?? this.preview?.drawStats() ?? { draws: 0, triangles: 0 };
       this.diagnostics.sample({ now, phase: this.phase, encounter: this.run?.encounter.areaId ?? null,

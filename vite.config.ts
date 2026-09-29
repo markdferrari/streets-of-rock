@@ -9,7 +9,7 @@ export default defineConfig({
     srcDir: 'src',
     filename: 'sw.ts',
     injectManifest: { maximumFileSizeToCacheInBytes: 16 * 1024 * 1024,
-      globPatterns: ['**/*.{html,js,css,png,glb,wav}'] },
+      globPatterns: ['**/*.{html,js,css,png,glb,wav,mp3,ogg,m4a}'] },
     manifest: {
       name: 'Streets of Rock', short_name: 'Streets of Rock', start_url: '/', display: 'standalone',
       background_color: '#171024', theme_color: '#171024',

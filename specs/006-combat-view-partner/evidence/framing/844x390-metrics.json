@@ -1,0 +1,28 @@
+{
+  "viewport": {
+    "width": 844,
+    "height": 390
+  },
+  "metrics": [
+    {
+      "area": "dance-floor",
+      "halfHeight": 5.365865677708626,
+      "floorCoverage": 0.2848727214103939
+    },
+    {
+      "area": "vip-lounge",
+      "halfHeight": 4.763914527367698,
+      "floorCoverage": 0.36141197339248426
+    },
+    {
+      "area": "backstage-corridor",
+      "halfHeight": 4.6639223822005,
+      "floorCoverage": 0.3770750782263119
+    },
+    {
+      "area": "alley-exit",
+      "halfHeight": 4.671671421298583,
+      "floorCoverage": 0.37582518460909986
+    }
+  ]
+}

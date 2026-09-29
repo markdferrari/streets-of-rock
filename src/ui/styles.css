@@ -14,6 +14,9 @@ button:focus-visible { outline: 3px solid cyan; outline-offset: 3px; }
 .hud span { padding: .4rem .6rem; border: 2px solid #f4c85b; border-radius: .5rem; background: #171024c9; }
 .hud button { margin-left: auto; min-width: 64px; min-height: 44px; padding: .3rem .8rem; pointer-events: auto; }
 .prompt { position: absolute; z-index: 4; top: 18%; left: 50%; transform: translateX(-50%); border-radius: 2rem; padding: .25rem .75rem; background: #171024bb; font-weight: 800; text-align: center; white-space: nowrap; }
+.progression-layer { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
+.progression-cue { position: absolute; width: 96px; height: 48px; display: flex; align-items: center; justify-content: center; gap: 2px; border: 3px solid #fff7e9; border-radius: 8px; background: #171024ed; color: #f4c85b; font-size: 20px; font-weight: 900; line-height: 1; text-shadow: 1px 1px #171024; pointer-events: none; }
+.progression-cue svg { flex: none; fill: none; stroke: currentColor; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
 .joystick { position: absolute; z-index: 4; left: calc(12px + env(safe-area-inset-left)); bottom: calc(12px + env(safe-area-inset-bottom)); width: 120px; height: 120px; border: 4px solid #f4c85b; border-radius: 50%; background: #ffffff30; touch-action: none; }
 .joystick .knob { position: absolute; left: 56px; top: 56px; width: 52px; height: 52px; border: 3px solid #fff7e9; border-radius: 50%; background: #f4c85b; transform: translate(-50%, -50%); pointer-events: none; }
 .actions { position: absolute; z-index: 4; right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom)); width: 176px; height: 176px; }

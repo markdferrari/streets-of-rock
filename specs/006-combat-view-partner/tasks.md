@@ -15,8 +15,8 @@ Preserve the existing specification/design edits. This feature does not reimplem
 
 ### Preparation
 
-- [ ] T001 Confirm branch/toolchain and create `specs/006-combat-view-partner/validation.md` with feature requirement/scenario coverage, baseline commands, pending hardware/track/player dependencies, and the manual procedures from `specs/006-combat-view-partner/quickstart.md` (FR-001–012).
-- [ ] T002 Integrate the completed 005 selected-role/session/platform work using `specs/005-choose-your-fighter/tasks.md` as its authoritative prerequisite list; verify `src/game/selectors.ts`, `src/game/ai/partner.ts`, `src/app/session.ts`, `src/platform/pwa.ts` and the enhanced `scripts/audit-build.ts`, recording actual readiness in `specs/006-combat-view-partner/validation.md`. Do not mark missing prerequisite code as present; use 005 tasks for unfinished work (FR-005, FR-012).
+- [X] T001 Confirm branch/toolchain and create `specs/006-combat-view-partner/validation.md` with feature requirement/scenario coverage, baseline commands, pending hardware/track/player dependencies, and the manual procedures from `specs/006-combat-view-partner/quickstart.md` (FR-001–012).
+- [X] T002 Integrate the completed 005 selected-role/session/platform work using `specs/005-choose-your-fighter/tasks.md` as its authoritative prerequisite list; verify `src/game/selectors.ts`, `src/game/ai/partner.ts`, `src/app/session.ts`, `src/platform/pwa.ts` and the enhanced `scripts/audit-build.ts`, recording actual readiness in `specs/006-combat-view-partner/validation.md`. Do not mark missing prerequisite code as present; use 005 tasks for unfinished work (FR-005, FR-012).
 - [ ] T003 Capture the integrated 005 baseline before camera changes: matched four-room screenshots at 844×390, 915×412 and actual phone sizes, projected floor coverage, actor positions and `src/content/neon-velvet.ts` bounds/spawns; save captures under `specs/006-combat-view-partner/evidence/baseline/` and commands/tool versions/results in `specs/006-combat-view-partner/validation.md` (FR-006–008; SC-003).
 
 ## Phase 2: Foundational — Shared Camera and Arena Context
@@ -25,15 +25,15 @@ Depends on setup and 005 integration. This shared geometry blocks US1 and US2 be
 
 ### Tests first
 
-- [ ] T004 [P] Write and run failing tests in `tests/unit/game/arena.test.ts` for current-room/unlocked-corridor unions, retained trailing-partner regions, full-body visible polygons, segment-limited movement, finite input validation and no new locked-room access (FR-002–003, FR-007).
-- [ ] T005 [P] Write and run failing tests in `tests/unit/presentation/camera.test.ts` for fixed-angle envelope fitting, 5% padding, body containment, all three doorway gaps, immediate expansion/constrained smoothing, knocked-out partner exclusion and resize without repositioning (FR-002, FR-006–008).
+- [X] T004 [P] Write and run failing tests in `tests/unit/game/arena.test.ts` for current-room/unlocked-corridor unions, retained trailing-partner regions, full-body visible polygons, segment-limited movement, finite input validation and no new locked-room access (FR-002–003, FR-007).
+- [X] T005 [P] Write and run failing tests in `tests/unit/presentation/camera.test.ts` for fixed-angle envelope fitting, 5% padding, body containment, all three doorway gaps, immediate expansion/constrained smoothing, knocked-out partner exclusion and resize without repositioning (FR-002, FR-006–008).
 
 ### Implementation
 
-- [ ] T006 Add numeric ArenaContext, CameraFrame, BodyEnvelope and TransitionState contracts in `src/game/arena.ts`; implement legal-region/visible-polygon helpers and segment-bound movement using the equations and validation rules in `specs/006-combat-view-partner/data-model.md`, without Three/DOM imports (FR-002–003, FR-007).
-- [ ] T007 Replace fixed-span/doorway-centre interpolation with computeArenaFrame in `src/presentation/camera.ts`, using the existing (0,8,12) view direction, 90% fit and 0.15-second constrained smoothing; retain a trailing living partner in the fit until natural arrival without delaying player progression (FR-002, FR-006–007).
-- [ ] T008 Provide conservative existing-clip body envelopes via `src/presentation/character-assets.ts`, apply the same computed camera frame in `src/presentation/scene.ts`, and pass numeric viewport/transition context through `src/app/game-app.ts` to `src/game/step.ts`; preserve existing AI/damage order and re-fit final positions before rendering (FR-002, FR-007–008, FR-012).
-- [ ] T009 Run shared geometry/type/integration checks and record matching render/AI bounds and unchanged room data in `specs/006-combat-view-partner/validation.md`; confirm no DOM/Three dependency entered deterministic game rules and no ordinary camera movement relocates an actor (FR-002, FR-006–008).
+- [X] T006 Add numeric ArenaContext, CameraFrame, BodyEnvelope and TransitionState contracts in `src/game/arena.ts`; implement legal-region/visible-polygon helpers and segment-bound movement using the equations and validation rules in `specs/006-combat-view-partner/data-model.md`, without Three/DOM imports (FR-002–003, FR-007).
+- [X] T007 Replace fixed-span/doorway-centre interpolation with computeArenaFrame in `src/presentation/camera.ts`, using the existing (0,8,12) view direction, 90% fit and 0.15-second constrained smoothing; retain a trailing living partner in the fit until natural arrival without delaying player progression (FR-002, FR-006–007).
+- [X] T008 Provide conservative existing-clip body envelopes via `src/presentation/character-assets.ts`, apply the same computed camera frame in `src/presentation/scene.ts`, and pass numeric viewport/transition context through `src/app/game-app.ts` to `src/game/step.ts`; preserve existing AI/damage order and re-fit final positions before rendering (FR-002, FR-007–008, FR-012).
+- [X] T009 Run shared geometry/type/integration checks and record matching render/AI bounds and unchanged room data in `specs/006-combat-view-partner/validation.md`; confirm no DOM/Three dependency entered deterministic game rules and no ordinary camera movement relocates an actor (FR-002, FR-006–008).
 
 ## Phase 3: US1 — Fight Alongside an Independent Partner (P1)
 
@@ -43,18 +43,18 @@ Depends on setup and 005 integration. This shared geometry blocks US1 and US2 be
 
 ### Tests first
 
-- [ ] T010 [P] [US1] Write and run failing engagement tests in `tests/unit/game/partner-engagement.test.ts` for both identities, eligible-target filtering/ranking, retained pursuit/attack despite separation, action expiration before movement returns, preserved damage/cadence, no target oscillation and knockout/solo behavior (FR-001–002, FR-005).
-- [ ] T011 [P] [US1] Write and run failing movement/facing tests in `tests/unit/game/partner-movement.test.ts` for horizontal/depth/jitter cases, target-facing attacks, profile-speed travel, settled regroup hysteresis, visible segment bounds and natural doorway catch-up (FR-002, FR-004–005).
-- [ ] T012 [P] [US1] Write and run failing obstruction tests in `tests/unit/game/partner-recovery.test.ts` for alternate routing, 120 genuine blocked ticks, progress/destination reset, safe candidate ordering and no recovery from distance, clipping, attack, cooldown, pause or knockout (FR-003, FR-005).
+- [X] T010 [P] [US1] Write and run failing engagement tests in `tests/unit/game/partner-engagement.test.ts` for both identities, eligible-target filtering/ranking, retained pursuit/attack despite separation, action expiration before movement returns, preserved damage/cadence, no target oscillation and knockout/solo behavior (FR-001–002, FR-005).
+- [X] T011 [P] [US1] Write and run failing movement/facing tests in `tests/unit/game/partner-movement.test.ts` for horizontal/depth/jitter cases, target-facing attacks, profile-speed travel, settled regroup hysteresis, visible segment bounds and natural doorway catch-up (FR-002, FR-004–005).
+- [X] T012 [P] [US1] Write and run failing obstruction tests in `tests/unit/game/partner-recovery.test.ts` for alternate routing, 120 genuine blocked ticks, progress/destination reset, safe candidate ordering and no recovery from distance, clipping, attack, cooldown, pause or knockout (FR-003, FR-005).
 
 ### Implementation
 
-- [ ] T013 [US1] Add transient PartnerIntentState and StuckEvidence to `src/game/types.ts`, reset them through `src/game/run.ts`, and add only provisional intent/recovery/facing thresholds to `src/content/tuning.ts`; preserve all 005 profile speeds, damage and cadence (FR-001–005).
-- [ ] T014 [US1] Refactor `src/game/ai/partner.ts` to filter visible reachable targets before existing threat ranking, retain eligible engagement, finish valid underway attacks, expire actions before early returns, and eliminate distance-only follow/repositioning without changing support-hit ordering (FR-001–002, FR-005).
-- [ ] T015 [US1] Implement legal normal regrouping and actual-displacement facing in `src/game/ai/partner.ts`, consuming shared arena/transition context, existing normal/catch-up speeds, depth-facing preservation and the model’s 2/1-unit idle-follow hysteresis; never alter player speed or gate wave spawn on the partner (FR-002, FR-004–005).
-- [ ] T016 [US1] Implement actual rejected-movement evidence and deterministic safe recovery in `src/game/ai/partner.ts` with obstruction checks in `src/game/arena.ts`; reset evidence on excluded states, retain attack cooldown/health/world state, and remain stopped if no valid recovery candidate exists (FR-003, FR-005).
-- [ ] T017 [US1] Migrate the old separation-teleport assertion in `tests/unit/game/crow.test.ts` to the new no-distance-recovery rule while retaining modest-damage/no-healing/knockout assertions; add both-duo live regressions in `tests/e2e/partner-behaviour.spec.ts` for engagement, facing, trailing travel and visibility (FR-001–005).
-- [ ] T018 [US1] Run US1 unit/integration/browser checks and record all seven scenario outcomes, recovery events and unchanged combat tuning in `specs/006-combat-view-partner/validation.md`; physical-device observations remain pending until performed (FR-001–005; SC-001–002).
+- [X] T013 [US1] Add transient PartnerIntentState and StuckEvidence to `src/game/types.ts`, reset them through `src/game/run.ts`, and add only provisional intent/recovery/facing thresholds to `src/content/tuning.ts`; preserve all 005 profile speeds, damage and cadence (FR-001–005).
+- [X] T014 [US1] Refactor `src/game/ai/partner.ts` to filter visible reachable targets before existing threat ranking, retain eligible engagement, finish valid underway attacks, expire actions before early returns, and eliminate distance-only follow/repositioning without changing support-hit ordering (FR-001–002, FR-005).
+- [X] T015 [US1] Implement legal normal regrouping and actual-displacement facing in `src/game/ai/partner.ts`, consuming shared arena/transition context, existing normal/catch-up speeds, depth-facing preservation and the model’s 2/1-unit idle-follow hysteresis; never alter player speed or gate wave spawn on the partner (FR-002, FR-004–005).
+- [X] T016 [US1] Implement actual rejected-movement evidence and deterministic safe recovery in `src/game/ai/partner.ts` with obstruction checks in `src/game/arena.ts`; reset evidence on excluded states, retain attack cooldown/health/world state, and remain stopped if no valid recovery candidate exists (FR-003, FR-005).
+- [X] T017 [US1] Migrate the old separation-teleport assertion in `tests/unit/game/crow.test.ts` to the new no-distance-recovery rule while retaining modest-damage/no-healing/knockout assertions; add both-duo live regressions in `tests/e2e/partner-behaviour.spec.ts` for engagement, facing, trailing travel and visibility (FR-001–005).
+- [X] T018 [US1] Run US1 unit/integration/browser checks and record all seven scenario outcomes, recovery events and unchanged combat tuning in `specs/006-combat-view-partner/validation.md`; physical-device observations remain pending until performed (FR-001–005; SC-001–002).
 
 ## Phase 4: US2 — See a Larger Presentation of the Existing Room (P1)
 
@@ -64,14 +64,14 @@ Depends on setup and 005 integration. This shared geometry blocks US1 and US2 be
 
 ### Tests first
 
-- [ ] T019 [P] [US2] Write and run failing framing/overlay browser cases in `tests/e2e/combat-view.spec.ts` for greater projected floor coverage than stored baseline, at least 90% viewport span, unchanged angle/bounds/spawns, body visibility, safe-area controls and simultaneous/cancelled input (FR-006–008).
-- [ ] T020 [P] [US2] Write and run failing lifecycle tests in `tests/integration/app/arena-lifecycle.test.ts` for viewport changes, hidden/focus/portrait pause, frozen intent/stuck timers, explicit Resume and no displacement or elapsed-time jump while re-fitting (FR-008, FR-012).
+- [X] T019 [P] [US2] Write and run failing framing/overlay browser cases in `tests/e2e/combat-view.spec.ts` for greater projected floor coverage than stored baseline, at least 90% viewport span, unchanged angle/bounds/spawns, body visibility, safe-area controls and simultaneous/cancelled input (FR-006–008).
+- [X] T020 [P] [US2] Write and run failing lifecycle tests in `tests/integration/app/arena-lifecycle.test.ts` for viewport changes, hidden/focus/portrait pause, frozen intent/stuck timers, explicit Resume and no displacement or elapsed-time jump while re-fitting (FR-008, FR-012).
 
 ### Implementation
 
-- [ ] T021 [US2] Complete stable-room and natural-transition framing in `src/presentation/scene.ts` and `src/presentation/camera.ts`, validating conservative envelopes against existing pose extents; keep full-screen rendering and original view angle while improving projected floor coverage in all four rooms (FR-006–007).
-- [ ] T022 [US2] Refine overlay layout in `src/ui/styles.css` and `src/ui/combat.ts` so HUD/controls remain legible inside safe areas with the central action clear; preserve the joystick/diamond arrangement, touch hit regions and room view behind overlays (FR-008).
-- [ ] T023 [US2] Complete resize/interruption context handling in `src/app/game-app.ts` and `src/app/session.ts`, fitting both active allies before Resume and freezing movement/recovery/active time during pause; retain 005 audio and input-clearing behavior (FR-008, FR-012).
+- [X] T021 [US2] Complete stable-room and natural-transition framing in `src/presentation/scene.ts` and `src/presentation/camera.ts`, validating conservative envelopes against existing pose extents; keep full-screen rendering and original view angle while improving projected floor coverage in all four rooms (FR-006–007).
+- [X] T022 [US2] Refine overlay layout in `src/ui/styles.css` and `src/ui/combat.ts` so HUD/controls remain legible inside safe areas with the central action clear; preserve the joystick/diamond arrangement, touch hit regions and room view behind overlays (FR-008).
+- [X] T023 [US2] Complete resize/interruption context handling in `src/app/game-app.ts` and `src/app/session.ts`, fitting both active allies before Resume and freezing movement/recovery/active time during pause; retain 005 audio and input-clearing behavior (FR-008, FR-012).
 - [ ] T024 [US2] Run US2 suites and produce matched after captures/coverage metrics under `specs/006-combat-view-partner/evidence/framing/`; compare world bounds, spawns and traversal timing to baseline and record results in `specs/006-combat-view-partner/validation.md` without counting temporary transition widening as stable-room coverage (FR-006–008; SC-003).
 
 ## Phase 5: US3 — Know Where to Go After Clearing a Room (P2)
@@ -82,15 +82,15 @@ Depends on setup and 005 integration. This shared geometry blocks US1 and US2 be
 
 ### Tests first
 
-- [ ] T025 [P] [US3] Write and run failing cue-contract tests in `tests/unit/ui/progression.test.ts` for cleared-plus-next-route eligibility, actual left/right route direction, terminal/reset suppression and pause-state persistence; include a synthetic left route without adding shipped content (FR-009–011).
-- [ ] T026 [P] [US3] Write and run failing markup/placement tests in `tests/integration/ui/progression-ui.test.ts` for one arrow/GO label, one announcement per room unlock, static reduced-motion view, 8-px clearance and deterministic safe-area placement; add browser touch pass-through cases in `tests/e2e/progression.spec.ts` (FR-009–011).
+- [X] T025 [P] [US3] Write and run failing cue-contract tests in `tests/unit/ui/progression.test.ts` for cleared-plus-next-route eligibility, actual left/right route direction, terminal/reset suppression and pause-state persistence; include a synthetic left route without adding shipped content (FR-009–011).
+- [X] T026 [P] [US3] Write and run failing markup/placement tests in `tests/integration/ui/progression-ui.test.ts` for one arrow/GO label, one announcement per room unlock, static reduced-motion view, 8-px clearance and deterministic safe-area placement; add browser touch pass-through cases in `tests/e2e/progression.spec.ts` (FR-009–011).
 
 ### Implementation
 
-- [ ] T027 [US3] Add deriveProgressionCue and placement helpers in `src/ui/progression.ts` using actual next-room existence/direction and session/run state; preserve `src/game/encounters.ts` progression timing rather than introducing a separate cue timer or hardcoded final index (FR-009–010).
-- [ ] T028 [US3] Render inline SVG arrow plus GO/status text in `src/ui/progression.ts` and style its dedicated layer in `src/ui/styles.css`, implementing the data-model 96×48 cue, safe-side preferred placement and collision fallback with no pointer events or decorative animation (FR-011).
-- [ ] T029 [US3] Integrate the derived cue and measured overlay bounds in `src/app/game-app.ts`, remove duplicate GO markup from `src/ui/combat.ts`, and ensure pause overlays retain precedence, Resume restores the cue, and entry/results/reset remove it (FR-009–011).
-- [ ] T030 [US3] Run all US3 cue and browser journeys through the three exits and final boss, recording timing, accessibility, non-overlap and no accidental input interception in `specs/006-combat-view-partner/validation.md` (FR-009–011; SC-004).
+- [X] T027 [US3] Add deriveProgressionCue and placement helpers in `src/ui/progression.ts` using actual next-room existence/direction and session/run state; preserve `src/game/encounters.ts` progression timing rather than introducing a separate cue timer or hardcoded final index (FR-009–010).
+- [X] T028 [US3] Render inline SVG arrow plus GO/status text in `src/ui/progression.ts` and style its dedicated layer in `src/ui/styles.css`, implementing the data-model 96×48 cue, safe-side preferred placement and collision fallback with no pointer events or decorative animation (FR-011).
+- [X] T029 [US3] Integrate the derived cue and measured overlay bounds in `src/app/game-app.ts`, remove duplicate GO markup from `src/ui/combat.ts`, and ensure pause overlays retain precedence, Resume restores the cue, and entry/results/reset remove it (FR-009–011).
+- [X] T030 [US3] Run all US3 cue and browser journeys through the three exits and final boss, recording timing, accessibility, non-overlap and no accidental input interception in `specs/006-combat-view-partner/validation.md` (FR-009–011; SC-004).
 
 ## Phase 6: Polish and Cross-Cutting Acceptance
 
@@ -98,7 +98,7 @@ All stories must complete before full acceptance. Missing 005/platform, soundtra
 
 ### Final validation
 
-- [ ] T031 Execute both-role regression checks for 005 selection/countdown, audio/storage failures, pause/input clearing, full offline replay and safe waiting updates using `specs/006-combat-view-partner/quickstart.md`; verify new bundled cue code is included by `scripts/audit-build.ts` and record results in `specs/006-combat-view-partner/validation.md` (FR-012).
+- [X] T031 Execute both-role regression checks for 005 selection/countdown, audio/storage failures, pause/input clearing, full offline replay and safe waiting updates using `specs/006-combat-view-partner/quickstart.md`; verify new bundled cue code is included by `scripts/audit-build.ts` and record results in `specs/006-combat-view-partner/validation.md` (FR-012).
 - [ ] T032 Run both-duo physical checks on iPhone 12/Safari and Pixel 6/Chrome for aggression, body visibility, natural travel, correct facing, touch ergonomics, resize, muted/no-shake/reduced-motion and explicit Resume; record exact versions and evidence in `specs/006-combat-view-partner/validation.md` (FR-001–012; SC-001–004).
 - [ ] T033 Verify full cached offline level/audio/results/retry and waiting-update behavior on both phones, including installed mode where supported, using the intended track and completed 005 cache audit; record build/inventory identity in `specs/006-combat-view-partner/validation.md` (FR-012; SC-006).
 - [ ] T034 Measure complete runs with both partners using 005 diagnostics, including busiest encounter and widest transition framing, 60-fps target/30-fps minimum, longest frames, draw calls/triangles and visible stalls; record full-asset evidence in `specs/006-combat-view-partner/validation.md` (SC-006).

@@ -30,6 +30,10 @@ export const cowMoveTuning = {
   cowHeavy: { windup: 14, active: 6, recovery: 24, damage: 30, range: 1.3, depthTolerance: .45, knockback: 1.2 },
   spin: { windup: 6, active: 6, recovery: 21, damage: 60, range: 2, depthTolerance: 2, knockback: 1.5 },
 } as const;
+export const partnerBehavior = Object.freeze({
+  followStart: 2, followStop: 1, behindPlayer: .8, facingDeadzone: .001,
+  blockedProgress: .02, blockedTicks: 120, recoverySpacing: .5,
+});
 export function millisecondsToTicks(milliseconds: number): number {
   if (!Number.isFinite(milliseconds) || milliseconds < 0) throw new Error('Invalid duration');
   return Math.ceil(milliseconds * tuning.ticksPerSecond / 1000);

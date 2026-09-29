@@ -12,11 +12,12 @@ import { applyAttacksBatch } from './damage';
 import { updatePickups } from './pickups';
 import { updateEncounters } from './encounters';
 import { getPlayer } from './selectors';
+import type { ArenaContext } from './arena';
 
-export interface TickStage { name: string; apply(run: RunState, input: InputFrame, events: GameEvent[]): void }
+export interface TickStage { name: string; apply(run: RunState, input: InputFrame, events: GameEvent[], arena?: ArenaContext): void }
 const defaultStages: TickStage[] = [
   { name: 'input', apply: updatePlayerAction },
-  { name: 'ai', apply: (run, _input, events) => { updateGrunts(run, events); updateZoners(run, events); updateEnforcers(run, events); updateLiam(run, events); updatePartner(run, events); } },
+  { name: 'ai', apply: (run, _input, events, arena) => { updateGrunts(run, events); updateZoners(run, events); updateEnforcers(run, events); updateLiam(run, events); updatePartner(run, events, arena); } },
   { name: 'movement', apply: (run, input, events) => { movePlayer(run, input); resolveActorOverlaps(run); updateProjectiles(run, events); } },
   { name: 'contacts', apply: (run, _input, events) => {
     applyAttacksBatch(run, run.attacks.filter(attack => run.tick < attack.activeUntilTick), events);
@@ -30,11 +31,11 @@ const defaultStages: TickStage[] = [
   } },
   { name: 'progression', apply: (run, _input, events) => { updatePickups(run, events); updateEncounters(run, events); } },
 ];
-export function stepRun(run: RunState, input: InputFrame, stages: TickStage[] = defaultStages): GameEvent[] {
+export function stepRun(run: RunState, input: InputFrame, stages: TickStage[] = defaultStages, arena?: ArenaContext): GameEvent[] {
   if (run.result) return [];
   const events: GameEvent[] = [];
   for (const stage of stages) {
-    stage.apply(run, input, events);
+    stage.apply(run, input, events, arena);
     if (run.result) break;
   }
   const cow = getPlayer(run);
