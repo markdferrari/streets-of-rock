@@ -16,8 +16,8 @@ export function updateProjectiles(run: RunState, events: GameEvent[]): void {
       consumed = true;
       if (run.tick >= target.protectionUntilTick) {
         target.hp = Math.max(0, target.hp - 24);
-        if (target.role === 'cow') target.protectionUntilTick = run.tick + 36;
-        if (target.role === 'crow' && target.hp === 0) target.active = false;
+        if (target.role === 'player') target.protectionUntilTick = run.tick + 36;
+        if (target.role === 'partner' && target.hp === 0) target.active = false;
         events.push({ type: 'hit', tick: run.tick, actorId: owner.id, targetId: target.id });
       }
       break;

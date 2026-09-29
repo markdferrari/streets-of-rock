@@ -23,7 +23,9 @@ class RigExportTests(unittest.TestCase):
             rig_export.main(['--output-dir', str(out)])
             for role, clips in {
                 'cow': ('Idle','Move','cow1.windup','cow1.active','cowHeavy.active','spin.active','Dodge','Hurt','KnockedOut'),
-                'crow': ('Idle','Move','crow.windup','crow.active','Hurt','KnockedOut'),
+                'crow': ('Idle','Move','crow.windup','crow.active','Dodge','Hurt','KnockedOut',
+                         *(f'{move}.{phase}' for move in ('crow1','crow2','crow3','crowHeavy','wingSpin')
+                           for phase in ('windup','active','recovery'))),
             }.items():
                 blend, glb = out/f'{role}-rigged.blend', out/f'{role}.glb'
                 self.assertTrue(blend.is_file())
@@ -46,3 +48,7 @@ class RigExportTests(unittest.TestCase):
                 self.assertFalse(gltf.get('extensionsRequired'))
                 self.assertFalse(any('uri' in item for item in gltf.get('buffers', [])))
                 self.assertTrue(set(clips) <= {a['name'] for a in gltf.get('animations',[])})
+
+    def test_crow_special_pose_is_distinct_from_basic_attack(self):
+        self.assertNotEqual(rig_export.pose_values('crow', 'wingSpin.active', 6),
+                            rig_export.pose_values('crow', 'crow1.active', 6))

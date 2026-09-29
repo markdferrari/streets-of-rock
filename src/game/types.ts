@@ -1,10 +1,13 @@
 import type { ActorRole } from '../content/types';
+import type { CharacterId } from '../content/characters';
+import type { DuoAssignment } from './duo';
 
 export interface Position { x: number; depth: number }
 export type Facing = -1 | 1;
 export type Team = 'ally' | 'enemy';
 export type ActionKind = 'idle' | 'windup' | 'active' | 'recovery' | 'hurt' | 'dodge' | 'knockedOut';
-export type MoveId = 'cow1' | 'cow2' | 'cow3' | 'cowHeavy' | 'spin' | 'crow' | 'grunt' | 'throw' | 'charge' | 'rope' | 'close' | 'shockwave';
+export type MoveId = 'light1' | 'light2' | 'light3' | 'heavy' | 'special' | 'support' |
+  'grunt' | 'throw' | 'charge' | 'rope' | 'close' | 'shockwave';
 export type PlayerAction = 'light' | 'heavy' | 'dodge' | 'special';
 export interface ActionRequest { kind: PlayerAction; sourcePointerId: number; order: number }
 
@@ -25,8 +28,9 @@ export interface Actor {
   phase: 1 | 2;
 }
 export interface PendingAction extends ActionRequest { expiresTick: number }
-export interface CowState extends Actor {
-  role: 'cow';
+export interface PlayerState extends Actor {
+  role: 'player';
+  characterId: CharacterId;
   comboStep: 0 | 1 | 2;
   comboDeadlineTick: number;
   dodgeReadyTick: number;
@@ -34,9 +38,9 @@ export interface CowState extends Actor {
   dodgeDirection?: Position;
   pendingAction?: PendingAction;
 }
-export interface CrowState extends Actor { role: 'crow'; active: boolean; lastProgressTick: number }
+export interface PartnerState extends Actor { role: 'partner'; characterId: CharacterId; active: boolean; lastProgressTick: number }
 export interface EnemyState extends Actor { role: 'grunt' | 'zoner' | 'enforcer' | 'liam'; shockwaveReadyTick?: number }
-export type GameActor = CowState | CrowState | EnemyState;
+export type GameActor = PlayerState | PartnerState | EnemyState;
 
 export interface AttackInstance {
   id: number;
@@ -70,6 +74,7 @@ export interface EncounterState {
 }
 export type RunResult = 'victory' | 'defeat' | null;
 export interface RunState {
+  duo: Readonly<DuoAssignment>;
   runId: number;
   tick: number;
   nextEntityId: number;

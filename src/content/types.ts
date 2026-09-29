@@ -1,5 +1,5 @@
-export type ActorRole = 'cow' | 'crow' | 'grunt' | 'zoner' | 'enforcer' | 'liam';
-export type EnemyRole = Exclude<ActorRole, 'cow' | 'crow'>;
+export type ActorRole = 'player' | 'partner' | 'grunt' | 'zoner' | 'enforcer' | 'liam';
+export type EnemyRole = Exclude<ActorRole, 'player' | 'partner'>;
 
 export interface SpawnDefinition {
   readonly role: EnemyRole;

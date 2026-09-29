@@ -2,8 +2,23 @@ import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
 import { stepRun, type TickStage } from '../../../src/game/step';
 import type { EnemyState } from '../../../src/game/types';
+import { createRun } from '../../../src/game/run';
+import { getPartner, getPlayer } from '../../../src/game/selectors';
 
 describe('tick pipeline', () => {
+  it('continues after selected partner knockout and gives selected player defeat precedence on a tie', () => {
+    const run = createRun(30, { fighterId: 'crow', partnerId: 'cow' });
+    getPartner(run).hp = 0;
+    getPartner(run).active = false;
+    stepRun(run, { move: { x: 0, depth: 0 } });
+    expect(run.result).toBeNull();
+    const boss = { ...run.actors[1]!, id: 50, role: 'liam' as const, team: 'enemy' as const,
+      hp: 0, maxHp: 1600 } as EnemyState;
+    run.actors.push(boss);
+    getPlayer(run).hp = 0;
+    stepRun(run, { move: { x: 0, depth: 0 } });
+    expect(run.result).toBe('defeat');
+  });
   it('executes deterministic stages and gives each tick a fresh event list', () => {
     const run = fixtureRun();
     const called: string[] = [];
@@ -55,7 +70,7 @@ describe('tick pipeline', () => {
     cow.hp = 18;
     run.actors.push({ ...run.actors[1]!, id: 3, role: 'liam', team: 'enemy', hp: 12, maxHp: 1600, position: { x: 1, depth: 0 } } as EnemyState);
     run.attacks.push(
-      { id: 1, ownerId: 1, moveId: 'cow1', origin: { x: 0, depth: 0 }, facing: 1, activeUntilTick: 1, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] },
+      { id: 1, ownerId: 1, moveId: 'light1', origin: { x: 0, depth: 0 }, facing: 1, activeUntilTick: 1, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] },
       { id: 2, ownerId: 3, moveId: 'close', origin: { x: 1, depth: 0 }, facing: -1, activeUntilTick: 1, range: 1.3, depthTolerance: .45, damage: 18, hitTargetIds: [] },
     );
     stepRun(run, { move: { x: 0, depth: 0 } });

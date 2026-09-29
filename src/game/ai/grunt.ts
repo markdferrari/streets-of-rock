@@ -1,11 +1,12 @@
 import type { GameEvent, RunState } from '../types';
 import { allocateAttackId } from '../run';
 import { assignAttackSlots } from './attack-slots';
+import { getPlayer } from '../selectors';
 
 export function updateGrunts(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
-  const cow = run.actors.find(actor => actor.role === 'cow');
-  if (!cow || cow.hp <= 0) return;
+  const cow = getPlayer(run);
+  if (cow.hp <= 0) return;
   for (const grunt of run.actors.filter(actor => actor.role === 'grunt').sort((a, b) => a.id - b.id)) {
     if (grunt.hp <= 0) continue;
     if (!grunt.attackSlot) {

@@ -10,7 +10,7 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "test": "bun run test:unit && bun run test:e2e",
-    "build": "bun run typecheck && vite build",
+    "build": "bun run typecheck && vite build && bun scripts/build-asset-inventory.ts",
     "build:test": "VITE_TEST_MODE=1 bun run build",
     "build:diagnostics": "VITE_DIAGNOSTICS=1 bun run build",
     "audit:build": "bun scripts/audit-build.ts",

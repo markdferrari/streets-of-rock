@@ -94,8 +94,12 @@ def pose_values(role, clip, frame):
     if move == 'spin':
         return {'Torso': (0, 0, (math.pi*.8 if phase == 'active' else -.22)*t),
                 side: (-.45*t, 0, 0), other: (-.45*t, 0, 0)}
-    if move == 'cowHeavy': strength *= 1.45
-    if move in ('cow2',): side, other = other, side
+    if move == 'wingSpin':
+        return {'Torso': (0, 0, (math.pi*.7 if phase == 'active' else -.18)*t),
+                'Wing.L': (-.8*t, -.35*t, -.3*t), 'Wing.R': (-.8*t, .35*t, .3*t),
+                'Head': (.1*t, 0, 0)}
+    if move in ('cowHeavy', 'crowHeavy'): strength *= 1.45
+    if move in ('cow2', 'crow2'): side, other = other, side
     return {side: (strength*.95*t, 0, strength*.25*t),
             other: (-strength*.22*t, 0, 0), 'Torso': (strength*.16*t, 0, 0),
             'Head': (-strength*.08*t, 0, 0)}
@@ -103,8 +107,8 @@ def pose_values(role, clip, frame):
 
 def clip_names(role):
     names = ['Idle', 'Move', 'Hurt', 'KnockedOut']
-    if role == 'cow': names.append('Dodge')
-    moves = ('cow1', 'cow2', 'cow3', 'cowHeavy', 'spin') if role == 'cow' else ('crow',)
+    names.append('Dodge')
+    moves = ('cow1', 'cow2', 'cow3', 'cowHeavy', 'spin') if role == 'cow' else ('crow', 'crow1', 'crow2', 'crow3', 'crowHeavy', 'wingSpin')
     names += [f'{move}.{phase}' for move in moves for phase in ('windup', 'active', 'recovery')]
     return names
 

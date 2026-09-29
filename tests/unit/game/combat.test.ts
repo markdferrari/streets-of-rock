@@ -1,10 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
-import { moveCow } from '../../../src/game/movement';
+import { movePlayer } from '../../../src/game/movement';
 import { attackHits, resolveActorOverlaps, sweptCircleContact } from '../../../src/game/collision';
-import { clearCowPendingAction, updateCowAction } from '../../../src/game/actions';
+import { clearPlayerPendingAction, updatePlayerAction } from '../../../src/game/actions';
 import { applyAttack } from '../../../src/game/damage';
-import type { ActionRequest, AttackInstance, CowState, EnemyState } from '../../../src/game/types';
+import type { ActionRequest, AttackInstance, PlayerState, EnemyState } from '../../../src/game/types';
+import { getPlayer } from '../../../src/game/selectors';
+import { createRun } from '../../../src/game/run';
+import { stepRun } from '../../../src/game/step';
+import { updatePickups } from '../../../src/game/pickups';
 
 function tap(kind: ActionRequest['kind']): ActionRequest { return { kind, sourcePointerId: -1, order: 0 }; }
 function grunt(id = 3, x = 1, depth = 0): EnemyState {
@@ -13,19 +17,48 @@ function grunt(id = 3, x = 1, depth = 0): EnemyState {
     protectionUntilTick: 0, decisionReadyTick: 0, attackSlot: false, phase: 1 };
 }
 function strike(id = 1): AttackInstance {
-  return { id, ownerId: 1, moveId: 'cow1', origin: { x: 0, depth: 0 }, facing: 1,
+  return { id, ownerId: 1, moveId: 'light1', origin: { x: 0, depth: 0 }, facing: 1,
     activeUntilTick: 10, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] };
 }
+
+describe('selected player actions', () => {
+  it('lets Crow use Light, Heavy, Dodge and a character-specific Special', () => {
+    for (const [kind, moveId] of [['light', 'light1'], ['heavy', 'heavy'], ['dodge', undefined], ['special', 'special']] as const) {
+      const run = createRun(100, { fighterId: 'crow', partnerId: 'cow' });
+      const player = getPlayer(run);
+      if (kind === 'special') player.specialMeter = 100;
+      stepRun(run, { move: { x: 0, depth: 0 }, requests: [tap(kind)] });
+      expect(player.action.kind).toBe(kind === 'dodge' ? 'dodge' : 'windup');
+      expect(player.action.moveId).toBe(moveId);
+      expect(run.result).toBeNull();
+    }
+  });
+  it('uses Crow movement speed, gains meter from a hit and receives player-only healing', () => {
+    const run = createRun(101, { fighterId: 'crow', partnerId: 'cow' });
+    const player = getPlayer(run);
+    movePlayer(run, { move: { x: 1, depth: 0 } });
+    expect(player.position.x).toBeCloseTo(3.4 / 60);
+    run.actors.push(grunt(3, 1));
+    applyAttack(run, { ...strike(), moveId: 'light1', damage: 10 }, []);
+    expect(run.actors[2]!.hp).toBe(110);
+    expect(player.specialMeter).toBe(10);
+    player.hp = 100;
+    run.pickups.push({ id: 4, sourceTableId: 5, position: { ...player.position }, available: true });
+    updatePickups(run, []);
+    expect(player.hp).toBe(160);
+    expect(run.actors[1]!.hp).toBe(500);
+  });
+});
 
 describe('movement and hits', () => {
   it('retains facing for depth-only movement and clamps bounds', () => {
     const run = fixtureRun();
-    moveCow(run, { move: { x: 0, depth: 1 } });
+    movePlayer(run, { move: { x: 0, depth: 1 } });
     expect(run.actors[0]!.facing).toBe(1);
-    for (let i = 0; i < 300; i++) moveCow(run, { move: { x: 1, depth: 1 } });
+    for (let i = 0; i < 300; i++) movePlayer(run, { move: { x: 1, depth: 1 } });
     expect(run.actors[0]!.position.x).toBeLessThanOrEqual(16);
     expect(run.actors[0]!.position.depth).toBeLessThanOrEqual(3);
-    moveCow(run, { move: { x: -1, depth: 0 } });
+    movePlayer(run, { move: { x: -1, depth: 0 } });
     expect(run.actors[0]!.facing).toBe(-1);
   });
   it('requires range, facing and depth and only damages an actor once per strike', () => {
@@ -81,10 +114,10 @@ describe('movement and hits', () => {
   it('spin hits nearby enemies once without refilling its meter and knocks them back', () => {
     const run = fixtureRun();
     run.actors.push(grunt(3, 4, 0), grunt(4, 2, 0), grunt(5, 6, 0));
-    const cow = run.actors[0] as CowState;
+    const cow = run.actors[0] as PlayerState;
     cow.position.x = 3;
     cow.specialMeter = 0;
-    const attack = { ...strike(), moveId: 'spin' as const, origin: { x: 3, depth: 0 }, range: 2, damage: 60 };
+    const attack = { ...strike(), moveId: 'special' as const, origin: { x: 3, depth: 0 }, range: 2, damage: 60 };
     applyAttack(run, attack, []);
     applyAttack(run, attack, []);
     expect(run.actors.slice(2).map(actor => actor.hp)).toEqual([60, 60, 120]);
@@ -97,55 +130,55 @@ describe('movement and hits', () => {
 describe('Cow actions', () => {
   it('starts one slower Heavy strike, resets Light combo, and cannot cancel recovery', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
+    const cow = run.actors[0] as PlayerState;
     cow.comboStep = 2;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 7, order: 1 }] }, []);
-    expect(cow.action).toMatchObject({ kind: 'windup', moveId: 'cowHeavy', endTick: 14 });
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 7, order: 1 }] }, []);
+    expect(cow.action).toMatchObject({ kind: 'windup', moveId: 'heavy', endTick: 14 });
     expect(cow.comboStep).toBe(0);
     run.tick = 14;
-    updateCowAction(run, { move: { x: 0, depth: 0 } }, []);
-    expect(run.attacks[0]).toMatchObject({ moveId: 'cowHeavy', damage: 30 });
+    updatePlayerAction(run, { move: { x: 0, depth: 0 } }, []);
+    expect(run.attacks[0]).toMatchObject({ moveId: 'heavy', damage: 30 });
     run.tick = 20;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 8, order: 2 }] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 8, order: 2 }] }, []);
     expect(cow.action.kind).toBe('recovery');
     run.tick = 44;
-    updateCowAction(run, { move: { x: 0, depth: 0 } }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 } }, []);
     expect(cow.action.kind).toBe('idle');
     expect(cow.pendingAction).toBeUndefined();
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 9, order: 3 }] }, []);
-    expect(cow.action.moveId).toBe('cow1');
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 9, order: 3 }] }, []);
+    expect(cow.action.moveId).toBe('light1');
   });
   it('keeps one eligible buffer and ignores an unavailable request', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
+    const cow = run.actors[0] as PlayerState;
     cow.action = { kind: 'recovery', startedTick: 0, endTick: 5 };
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 1, order: 1 }] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'light', sourcePointerId: 1, order: 1 }] }, []);
     run.tick = 1;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'special', sourcePointerId: 2, order: 2 }] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'special', sourcePointerId: 2, order: 2 }] }, []);
     expect(cow.pendingAction?.kind).toBe('light');
     run.tick = 2;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 3, order: 3 }] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 3, order: 3 }] }, []);
     expect(cow.pendingAction?.kind).toBe('heavy');
     run.tick = 3;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, canceledPointerIds: [3] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, canceledPointerIds: [3] }, []);
     expect(cow.pendingAction).toBeUndefined();
   });
   it('gives same-tick Special priority and meters only one accepted Heavy enemy hit', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
+    const cow = run.actors[0] as PlayerState;
     cow.specialMeter = 100;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [
       { kind: 'heavy', sourcePointerId: 1, order: 2 },
       { kind: 'special', sourcePointerId: 2, order: 1 },
     ] }, []);
-    expect(cow.action.moveId).toBe('spin');
+    expect(cow.action.moveId).toBe('special');
     expect(cow.specialMeter).toBe(0);
     cow.action = { kind: 'idle', startedTick: 1, endTick: 1 };
     run.tick = 1;
     run.actors.push(grunt(3, 1, 0));
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 3, order: 3 }] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [{ kind: 'heavy', sourcePointerId: 3, order: 3 }] }, []);
     run.tick = 15;
-    updateCowAction(run, { move: { x: 0, depth: 0 } }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 } }, []);
     const heavy = run.attacks.at(-1)!;
     applyAttack(run, heavy, []);
     applyAttack(run, heavy, []);
@@ -154,80 +187,80 @@ describe('Cow actions', () => {
   });
   it('starts an attack, accepts one buffered continuation, and expires an old combo', () => {
     const run = fixtureRun();
-    const cow = run.actors[0]! as CowState;
+    const cow = run.actors[0]! as PlayerState;
     const events: { type: string; tick: number }[] = [];
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, events);
-    expect(cow.action).toMatchObject({ kind: 'windup', moveId: 'cow1' });
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, events);
+    expect(cow.action).toMatchObject({ kind: 'windup', moveId: 'light1' });
     for (let tick = 1; tick < 32; tick++) {
       run.tick = tick;
-      updateCowAction(run, { move: { x: 0, depth: 0 }, requests: tick === 26 ? [tap('light')] : [] }, events);
+      updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: tick === 26 ? [tap('light')] : [] }, events);
     }
-    expect(cow.action.moveId).toBe('cow2');
+    expect(cow.action.moveId).toBe('light2');
     for (let tick = 32; tick < 120; tick++) {
       run.tick = tick;
-      updateCowAction(run, { move: { x: 0, depth: 0 } }, events);
+      updatePlayerAction(run, { move: { x: 0, depth: 0 } }, events);
     }
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, events);
-    expect(cow.action.moveId).toBe('cow1');
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, events);
+    expect(cow.action.moveId).toBe('light1');
   });
   it('drops a buffered tap that expires before recovery ends', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
+    const cow = run.actors[0] as PlayerState;
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
     for (let tick = 1; tick < 35; tick++) {
       run.tick = tick;
-      updateCowAction(run, { move: { x: 0, depth: 0 }, requests: tick === 1 ? [tap('light')] : [] }, []);
+      updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: tick === 1 ? [tap('light')] : [] }, []);
     }
     expect(cow.action.kind).toBe('idle');
     expect(cow.pendingAction).toBeUndefined();
   });
   it('clears buffered commands on interruption without changing the current attack', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
+    const cow = run.actors[0] as PlayerState;
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
     run.tick = 1;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('light')] }, []);
     expect(cow.pendingAction).toBeDefined();
-    clearCowPendingAction(run);
+    clearPlayerPendingAction(run);
     expect(cow.pendingAction).toBeUndefined();
     expect(cow.action.kind).toBe('windup');
   });
   it('uses full meter once, and rejects special before full meter', () => {
     const run = fixtureRun();
-    const cow = run.actors[0]! as CowState;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('special')] }, []);
+    const cow = run.actors[0]! as PlayerState;
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('special')] }, []);
     expect(cow.action.kind).toBe('idle');
     cow.specialMeter = 100;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('special')] }, []);
-    expect(cow.action.moveId).toBe('spin');
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('special')] }, []);
+    expect(cow.action.moveId).toBe('special');
     expect(cow.specialMeter).toBe(0);
   });
   it('dodges once until cooldown, with protection ending before movement', () => {
     const run = fixtureRun();
-    const cow = run.actors[0]! as CowState;
-    updateCowAction(run, { move: { x: 1, depth: 0 }, requests: [tap('dodge')] }, []);
+    const cow = run.actors[0]! as PlayerState;
+    updatePlayerAction(run, { move: { x: 1, depth: 0 }, requests: [tap('dodge')] }, []);
     expect(cow.action.kind).toBe('dodge');
     expect(cow.protectionUntilTick).toBe(12);
     run.tick = 18;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
     expect(cow.action.kind).toBe('idle');
     run.tick = 54;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
     expect(cow.action.kind).toBe('dodge');
   });
   it('captures joystick dodge direction and uses facing at neutral input', () => {
     const run = fixtureRun();
-    const cow = run.actors[0] as CowState;
+    const cow = run.actors[0] as PlayerState;
     cow.position.x = 5;
-    updateCowAction(run, { move: { x: 0, depth: -1 }, requests: [tap('dodge')] }, []);
-    moveCow(run, { move: { x: 1, depth: 1 } });
+    updatePlayerAction(run, { move: { x: 0, depth: -1 }, requests: [tap('dodge')] }, []);
+    movePlayer(run, { move: { x: 1, depth: 1 } });
     expect(cow.position.depth).toBeLessThan(0);
     expect(cow.position.x).toBe(5);
     run.tick = 54;
     cow.action = { kind: 'idle', startedTick: 54, endTick: 54 };
     cow.facing = -1;
-    updateCowAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
-    moveCow(run, { move: { x: 0, depth: 0 } });
+    updatePlayerAction(run, { move: { x: 0, depth: 0 }, requests: [tap('dodge')] }, []);
+    movePlayer(run, { move: { x: 0, depth: 0 } });
     expect(cow.position.x).toBeLessThan(5);
   });
 });

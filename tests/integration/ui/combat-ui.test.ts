@@ -2,13 +2,27 @@ import { describe, expect, it } from 'vitest';
 import { fixtureRun } from '../../fixtures/run';
 import { combatHudMarkup } from '../../../src/ui/combat';
 import { TutorialProgress } from '../../../src/ui/tutorial';
-import type { CowState, CrowState } from '../../../src/game/types';
+import type { PlayerState, PartnerState } from '../../../src/game/types';
+import { createRun } from '../../../src/game/run';
+import { getPartner, getPlayer } from '../../../src/game/selectors';
 
 describe('combat feedback', () => {
+  it('labels selected Crow as the controlled fighter and Cow as the AI partner', () => {
+    const run = createRun(91, { fighterId: 'crow', partnerId: 'cow' });
+    getPlayer(run).specialMeter = 100;
+    getPartner(run).hp = 0;
+    getPartner(run).active = false;
+    const html = combatHudMarkup(run);
+    expect(html).toContain('Crow 240 / 240');
+    expect(html).toContain('Cow knocked out');
+    expect(html).toContain('Special ready');
+    const tutorial = new TutorialProgress(['movement', 'attack', 'heavy', 'dodge']);
+    expect(tutorial.suggest(run)).toBe('special');
+  });
   it('labels health, meter, availability and companion status without relying on color', () => {
     const run = fixtureRun();
-    (run.actors[0] as CowState).specialMeter = 100;
-    (run.actors[1] as CrowState).active = false;
+    (run.actors[0] as PlayerState).specialMeter = 100;
+    (run.actors[1] as PartnerState).active = false;
     run.actors[1]!.hp = 0;
     const html = combatHudMarkup(run);
     expect(html).toContain('Cow 500 / 500');
@@ -18,7 +32,7 @@ describe('combat feedback', () => {
   });
   it('describes cooldown and an unavailable action in text', () => {
     const run = fixtureRun();
-    (run.actors[0] as CowState).dodgeReadyTick = 54;
+    (run.actors[0] as PlayerState).dodgeReadyTick = 54;
     const html = combatHudMarkup(run, 'Special not ready');
     expect(html).toContain('Dodge 0.9s');
     expect(html).toContain('Special not ready');
@@ -57,7 +71,7 @@ describe('combat feedback', () => {
     expect(tutorial.suggest(run)).toBe('dodge');
     tutorial.accept([{ type: 'dodge', tick: 1 }], false);
     expect(tutorial.suggest(run)).toBeNull();
-    (run.actors[0] as CowState).specialMeter = 100;
+    (run.actors[0] as PlayerState).specialMeter = 100;
     expect(tutorial.suggest(run)).toBe('special');
   });
   it('shows GO on a cleared area and Liam health during the boss', () => {

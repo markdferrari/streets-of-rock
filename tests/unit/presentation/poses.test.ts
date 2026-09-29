@@ -9,7 +9,7 @@ describe('readable action poses', () => {
     expect(actorPose('knockedOut').heightScale).toBeLessThan(1);
   });
   it('makes Heavy windup and impact visibly different from Light', () => {
-    expect(actorPose('windup', 'cowHeavy').lean).toBeLessThan(actorPose('windup', 'cow1').lean);
-    expect(actorPose('active', 'cowHeavy').lean).toBeGreaterThan(actorPose('active', 'cow1').lean);
+    expect(actorPose('windup', 'heavy').lean).toBeLessThan(actorPose('windup', 'light1').lean);
+    expect(actorPose('active', 'heavy').lean).toBeGreaterThan(actorPose('active', 'light1').lean);
   });
 });

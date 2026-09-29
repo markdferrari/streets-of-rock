@@ -3,7 +3,7 @@ import { fixtureRun } from '../../fixtures/run';
 import { neonVelvet, vipTables } from '../../../src/content/neon-velvet';
 import { updateEncounters } from '../../../src/game/encounters';
 import { updatePickups } from '../../../src/game/pickups';
-import { moveCow } from '../../../src/game/movement';
+import { movePlayer } from '../../../src/game/movement';
 
 describe('Bondi Beach', () => {
   it('defines four areas and the agreed initial wave composition', () => {
@@ -41,7 +41,7 @@ describe('Bondi Beach', () => {
     const cow = run.actors[0]!;
     cow.hp = 300;
     run.tables.push({ id: 3, areaId: 'vip-lounge', position: { x: 2, depth: 0 }, hp: 12, broken: false });
-    run.attacks.push({ id: 1, ownerId: 1, moveId: 'cow1', origin: { x: 1, depth: 0 }, facing: 1, activeUntilTick: 10, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] });
+    run.attacks.push({ id: 1, ownerId: 1, moveId: 'light1', origin: { x: 1, depth: 0 }, facing: 1, activeUntilTick: 10, range: 1.3, depthTolerance: .45, damage: 12, hitTargetIds: [] });
     updatePickups(run, []);
     expect(run.tables[0]!.broken).toBe(true);
     expect(run.pickups).toHaveLength(1);
@@ -56,7 +56,7 @@ describe('Bondi Beach', () => {
   it('lets one Heavy strike break a table without adding special meter', () => {
     const run = fixtureRun();
     run.tables.push({ id: 3, areaId: 'vip-lounge', position: { x: 2, depth: 0 }, hp: 24, broken: false });
-    run.attacks.push({ id: 1, ownerId: 1, moveId: 'cowHeavy', origin: { x: 1, depth: 0 }, facing: 1,
+    run.attacks.push({ id: 1, ownerId: 1, moveId: 'heavy', origin: { x: 1, depth: 0 }, facing: 1,
       activeUntilTick: 10, range: 1.3, depthTolerance: .45, damage: 30, hitTargetIds: [] });
     updatePickups(run, []);
     updatePickups(run, []);
@@ -67,12 +67,12 @@ describe('Bondi Beach', () => {
   it('opens the next travel boundary only after the arena clears', () => {
     const run = fixtureRun();
     run.actors[0]!.position.x = 16;
-    moveCow(run, { move: { x: 1, depth: 0 } });
+    movePlayer(run, { move: { x: 1, depth: 0 } });
     expect(run.actors[0]!.position.x).toBe(16);
     run.encounter.status = 'cleared';
-    moveCow(run, { move: { x: 1, depth: 0 } });
+    movePlayer(run, { move: { x: 1, depth: 0 } });
     expect(run.actors[0]!.position.x).toBeGreaterThan(16);
-    for (let i = 0; i < 100; i++) moveCow(run, { move: { x: 1, depth: 0 } });
+    for (let i = 0; i < 100; i++) movePlayer(run, { move: { x: 1, depth: 0 } });
     expect(run.actors[0]!.position.x).toBe(18);
   });
 });

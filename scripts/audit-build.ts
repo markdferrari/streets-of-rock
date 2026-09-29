@@ -1,6 +1,5 @@
-import { existsSync } from 'node:fs';
+import { auditBuild } from './build-asset-inventory';
 
-if (!existsSync('dist/index.html')) {
-  throw new Error('Build audit requires dist/index.html; run bun run build first.');
-}
-console.log('Build entry exists. Full asset and precache audit is scheduled for US4.');
+const result = auditBuild('dist', { requireFinalTrack: process.argv.includes('--final') });
+console.log(`Build audit passed: ${result.files} precached assets, ${(result.bytes / 1024 / 1024).toFixed(2)} MiB.`);
+if (!process.argv.includes('--final')) console.log('Intended soundtrack evidence remains pending final acceptance.');

@@ -4,8 +4,16 @@ import { updateZoners } from '../../../src/game/ai/zoner';
 import { updateEnforcers } from '../../../src/game/ai/enforcer';
 import { updateLiam } from '../../../src/game/ai/liam';
 import { updateProjectiles } from '../../../src/game/projectiles';
+import { createRun } from '../../../src/game/run';
 
 describe('ranged and heavy enemies', () => {
+  it('targets a selected Crow player with existing enemy telegraphs', () => {
+    const run = createRun(16, { fighterId: 'crow', partnerId: 'cow' });
+    run.actors.push(fixtureEnemy(3, 'zoner', 4));
+    const events: { type: string; tick: number; actorId?: number }[] = [];
+    updateZoners(run, events);
+    expect(events.some(event => event.type === 'enemy-warning')).toBe(true);
+  });
   it('telegraphs a zoner throw and creates a finite visible projectile', () => {
     const run = fixtureRun();
     run.actors.push(fixtureEnemy(3, 'zoner', 4));

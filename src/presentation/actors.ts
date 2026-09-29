@@ -2,8 +2,9 @@ import * as THREE from 'three';
 import type { GameActor, MoveId } from '../game/types';
 
 export function actorPose(action: GameActor['action']['kind'], moveId?: MoveId): { lean: number; heightScale: number } {
-  if (moveId === 'cowHeavy' && action === 'windup') return { lean: -.35, heightScale: 1.16 };
-  if (moveId === 'cowHeavy' && action === 'active') return { lean: .55, heightScale: .88 };
+  if (moveId === 'heavy' && action === 'windup') return { lean: -.35, heightScale: 1.16 };
+  if (moveId === 'heavy' && action === 'active') return { lean: .55, heightScale: .88 };
+  if (moveId === 'special' && action === 'active') return { lean: .45, heightScale: 1.05 };
   switch (action) {
     case 'windup': return { lean: -.17, heightScale: 1.08 };
     case 'active': return { lean: .32, heightScale: .95 };
@@ -25,8 +26,8 @@ function box(parent: THREE.Group, width: number, height: number, depth: number, 
 
 export function actorModel(actor: GameActor): THREE.Group {
   const group = new THREE.Group();
-  const cow = actor.role === 'cow';
-  const crow = actor.role === 'crow';
+  const cow = (actor.role === 'player' || actor.role === 'partner') && actor.characterId === 'cow';
+  const crow = (actor.role === 'player' || actor.role === 'partner') && actor.characterId === 'crow';
   const bodyColor = cow ? 0xeee5cc : crow ? 0x222238 : actor.role === 'grunt' ? 0xbd325e : 0x514470;
   const jacketColor = cow ? 0x292126 : crow ? 0x9d6943 : 0x282532;
   box(group, .52, .78, .35, jacketColor, 0, .95, 0);

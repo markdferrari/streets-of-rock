@@ -1,12 +1,13 @@
 import type { EnemyState, GameEvent, RunState } from '../types';
 import { allocateAttackId } from '../run';
 import { assignAttackSlots } from './attack-slots';
+import { getPlayer } from '../selectors';
 
 export function updateLiam(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
   const liam = run.actors.find(actor => actor.role === 'liam') as EnemyState | undefined;
-  const cow = run.actors.find(actor => actor.role === 'cow');
-  if (!liam || !cow || liam.hp <= 0 || cow.hp <= 0) return;
+  const cow = getPlayer(run);
+  if (!liam || liam.hp <= 0 || cow.hp <= 0) return;
   if (liam.phase === 1 && liam.hp < liam.maxHp / 2) {
     liam.phase = 2;
     liam.shockwaveReadyTick = run.tick;
