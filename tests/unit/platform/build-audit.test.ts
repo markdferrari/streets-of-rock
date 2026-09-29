@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from 'vitest';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { requiredCharacterClips } from '../../../src/content/animation-clips';
@@ -25,6 +25,10 @@ function fixture(): string {
     'assets/cow.png': 'portrait', 'assets/crow.png': 'portrait',
     'assets/cow.glb': glb(requiredCharacterClips('cow')),
     'assets/crow.glb': glb(requiredCharacterClips('crow')),
+    'assets/lion.png': 'portrait', 'assets/plates.png': 'portrait',
+    'assets/lion.glb': glb(requiredCharacterClips('lion')),
+    'assets/plates.glb': glb(requiredCharacterClips('plates')),
+    'assets/headrest.glb': glb([]),
     'assets/audio/brightside.mp3': 'RIFF',
     'assets/icons/icon.svg': '<svg/>', 'assets/icons/icon-maskable.svg': '<svg/>',
   };
@@ -39,7 +43,7 @@ function fixture(): string {
 describe('production build audit', () => {
   it('accepts complete assets but keeps final soundtrack evidence pending', () => {
     const dir = fixture();
-    expect(auditBuild(dir).files).toBe(12);
+    expect(auditBuild(dir).files).toBe(17);
     expect(() => auditBuild(dir, { requireFinalTrack: true })).toThrow('intended soundtrack');
   });
   it('rejects omitted precache entries and missing action clips', () => {
@@ -50,6 +54,12 @@ describe('production build audit', () => {
     writeFileSync(join(complete, 'assets/crow.glb'), glb(['Idle']));
     generateInventory(complete);
     expect(() => auditBuild(complete)).toThrow('crow model lacks');
+  });
+  it('requires both new fighters, every semantic clip, and the separate headrest prop', () => {
+    const noLion = fixture(); unlinkSync(join(noLion, 'assets/lion.glb')); generateInventory(noLion);
+    expect(() => auditBuild(noLion)).toThrow('Missing lion model');
+    const noProp = fixture(); unlinkSync(join(noProp, 'assets/headrest.glb')); generateInventory(noProp);
+    expect(() => auditBuild(noProp)).toThrow('headrest prop');
   });
   it('rejects production hooks, modified revisions, and oversized assets', () => {
     const dir = fixture();

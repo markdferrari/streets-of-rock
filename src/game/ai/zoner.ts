@@ -1,14 +1,15 @@
-import type { GameEvent, RunState } from '../types';
+import type { EnemyState, GameEvent, RunState } from '../types';
 import { allocateAttackId, allocateEntityId } from '../run';
 import { assignAttackSlots } from './attack-slots';
 import { getPlayer } from '../selectors';
+import { enemyIsStunned } from '../status-effects';
 
 export function updateZoners(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
   const cow = getPlayer(run);
   if (cow.hp <= 0) return;
-  for (const zoner of run.actors.filter(actor => actor.role === 'zoner').sort((a, b) => a.id - b.id)) {
-    if (zoner.hp <= 0) { zoner.attackSlot = false; continue; }
+  for (const zoner of run.actors.filter((actor): actor is EnemyState => actor.team === 'enemy' && actor.role === 'zoner').sort((a, b) => a.id - b.id)) {
+    if (zoner.hp <= 0 || enemyIsStunned(zoner, run.tick)) { zoner.attackSlot = false; continue; }
     const dx = cow.position.x - zoner.position.x;
     const dd = cow.position.depth - zoner.position.depth;
     if (zoner.action.kind === 'idle') {

@@ -1,5 +1,12 @@
 export type ActorRole = 'player' | 'partner' | 'grunt' | 'zoner' | 'enforcer' | 'liam';
 export type EnemyRole = Exclude<ActorRole, 'player' | 'partner'>;
+export type CombatClass = 'normal' | 'boss';
+
+export interface EnemyDefinition {
+  readonly role: EnemyRole;
+  readonly combatClass: CombatClass;
+  readonly hp: number;
+}
 
 export interface SpawnDefinition {
   readonly role: EnemyRole;

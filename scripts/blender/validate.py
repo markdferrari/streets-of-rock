@@ -12,7 +12,10 @@ from mathutils import Vector
 REQUIRED={
     'cow': ('Torso','Head','Muzzle','Horn.L','Horn.R','Jacket','Boot.L','Boot.R','Eye.L','Eye.R'),
     'crow': ('Torso','Head','Beak','Jacket','Collar','Wing.L','Wing.R','Foot.L','Foot.R','Eye.L','Eye.R'),
+    'lion': ('Torso','Mane','Face','Muzzle','Jacket','Arm.L','Leg.L'),
+    'plates': ('Plate.Rim','Plate.Face','Eye.L','Arm.L','Leg.L'),
 }
+CHARACTERS=('cow','crow','lion','plates')
 
 def inspect(path,role):
     bpy.ops.wm.open_mainfile(filepath=str(path))
@@ -33,7 +36,8 @@ def inspect(path,role):
             assert obj.data.materials, f'{obj.name}: no material'
             for mat in obj.data.materials:
                 assert mat and mat.use_nodes and mat.node_tree.nodes.get('Principled BSDF'),f'{obj.name}: invalid material'
-        assert bpy.data.objects[f'{character}.Torso'].dimensions.length>0, f'{character}: invalid torso'
+        torso=bpy.data.objects.get(f'{character}.Torso') or bpy.data.objects.get(f'{character}.Plate.Rim')
+        assert torso and torso.dimensions.length>0, f'{character}: invalid body mesh'
     actual={c.name for c in bpy.data.collections if c.name.startswith('Character.')}
     assert actual=={f'Character.{c}' for c in expected}, f'unexpected character collections: {actual}'
     for name in ('Presentation.Cameras','Presentation.Lights.Neutral'):
@@ -55,7 +59,8 @@ def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir',type=Path)
     parser.add_argument('--report',type=Path)
-    parser.add_argument('--probe',choices=('cow','crow','comparison'))
+    parser.add_argument('--probe',choices=(*CHARACTERS,'comparison'))
+    parser.add_argument('--character',choices=CHARACTERS,help='validate only this identity in --output-dir')
     parser.add_argument('--file',type=Path)
     args=parser.parse_args(argv)
     from scripts.blender.generate import require_supported
@@ -72,8 +77,9 @@ def main(argv=None):
         parser.error('--output-dir and --report are required')
     checks=[]
     script=str(Path(__file__).resolve())
-    for role in ('cow','crow','comparison'):
-        path=args.output_dir/f'{role}.blend'
+    roles=(args.character,) if args.character else ('cow','crow','comparison')
+    for role in roles:
+        path=args.output_dir/('source.blend' if role in ('lion','plates') else f'{role}.blend')
         if not path.is_file():
             checks.append({'name':role,'passed':False,'diagnostic':f'missing {path}'})
             continue

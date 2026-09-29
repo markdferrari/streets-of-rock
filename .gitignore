@@ -24,5 +24,9 @@ assets/characters/cow-crow/runtime/*.blend1
 assets/characters/cow-crow/runtime/*.blend2
 assets/characters/cow-crow/smoke/
 assets/characters/cow-crow/previews/
+assets/characters/*/*.blend1
+assets/characters/*/*.blend2
+assets/characters/*/runtime/*.blend1
+assets/characters/*/runtime/*.blend2
 __pycache__/
 *.pyc

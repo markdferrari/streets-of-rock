@@ -5,7 +5,9 @@ from mathutils import Vector
 
 PALETTE = {
     'Cow': {'Fur':(0.87,0.81,0.68,1),'White':(0.94,0.91,0.83,1),'Spot':(.18,.16,.18,1),'Jacket':(.07,.055,.065,1),'LeatherEdge':(.19,.15,.17,1),'Muzzle':(.88,.56,.55,1),'Horn':(.90,.83,.62,1),'Boot':(.09,.07,.07,1),'Eye':(.055,.04,.045,1),'Iris':(.26,.16,.1,1),'Metal':(.64,.62,.53,1)},
-    'Crow': {'Feather':(.045,.052,.09,1),'Wing':(.065,.078,.13,1),'FeatherEdge':(.12,.14,.22,1),'Jacket':(.25,.13,.075,1),'LeatherEdge':(.40,.22,.12,1),'Collar':(.90,.79,.58,1),'Beak':(.87,.56,.12,1),'Foot':(.32,.24,.16,1),'Eye':(.96,.91,.78,1),'Iris':(.09,.11,.17,1),'Metal':(.61,.56,.44,1)}
+    'Crow': {'Feather':(.045,.052,.09,1),'Wing':(.065,.078,.13,1),'FeatherEdge':(.12,.14,.22,1),'Jacket':(.25,.13,.075,1),'LeatherEdge':(.40,.22,.12,1),'Collar':(.90,.79,.58,1),'Beak':(.87,.56,.12,1),'Foot':(.32,.24,.16,1),'Eye':(.96,.91,.78,1),'Iris':(.09,.11,.17,1),'Metal':(.61,.56,.44,1)},
+    'Lion': {'Fur':(.92,.48,.12,1),'Mane':(.34,.095,.018,1),'ManeLight':(.58,.20,.025,1),'Jacket':(.07,.055,.065,1),'LeatherEdge':(.23,.15,.12,1),'Muzzle':(.96,.72,.43,1),'Nose':(.15,.045,.025,1),'Eye':(.11,.07,.04,1),'Boot':(.09,.07,.07,1),'Metal':(.64,.62,.53,1)},
+    'Plates': {'Ceramic':(.84,.85,.81,1),'Rim':(.97,.68,.10,1),'Shadow':(.32,.37,.42,1),'Jacket':(.13,.18,.23,1),'LeatherEdge':(.24,.29,.34,1),'Arm':(.68,.72,.76,1),'Boot':(.09,.07,.07,1),'Eye':(.06,.08,.1,1),'Iris':(.15,.42,.55,1),'Metal':(.64,.68,.71,1)}
 }
 
 def material(role,key):
@@ -106,4 +108,61 @@ def crow():
             capsule_between(r,f'Wing.Feather.{side}.{i}',(start_x,-.02,1.12+i*.035),(end_x,-.075,.76+i*.04),.067,'FeatherEdge' if i%2 else 'Wing',c)
     for i in range(3):
         cone(r,f'Crest.{i}',((i-1)*.07,.09,1.58),.06,.15,'Feather',c)
+    return root
+
+def lion():
+    r='Lion'; c,root=start(r)
+    ellipsoid(r,'Torso',(0,0,.94),(.42,.31,.48),'Fur',c)
+    ellipsoid(r,'Jacket',(0,-.02,1.02),(.48,.37,.43),'Jacket',c)
+    ellipsoid(r,'Jacket.Front',(0,-.405,1.03),(.045,.02,.33),'Metal',c)
+    ellipsoid(r,'Neck',(0,0,1.43),(.27,.25,.26),'Fur',c)
+    ellipsoid(r,'Mane',(0,-.035,1.62),(.53,.40,.56),'Mane',c,20,12)
+    ellipsoid(r,'Face',(0,-.345,1.65),(.28,.19,.31),'Fur',c)
+    ellipsoid(r,'Muzzle.L',(-.075,-.505,1.49),(.14,.105,.105),'Muzzle',c)
+    ellipsoid(r,'Muzzle.R',(.075,-.505,1.49),(.14,.105,.105),'Muzzle',c)
+    cone(r,'Nose',(0,-.605,1.56),.075,.11,'Nose',c,vertices=3,rotation=(0,0,math.pi))
+    capsule_between(r,'Mouth.Center',(0,-.59,1.52),(0,-.59,1.43),.012,'Nose',c)
+    capsule_between(r,'Mouth.L',(0,-.59,1.43),(-.07,-.58,1.41),.012,'Nose',c)
+    capsule_between(r,'Mouth.R',(0,-.59,1.43),(.07,-.58,1.41),.012,'Nose',c)
+    for side,x in [('L',-.19),('R',.19)]:
+        ellipsoid(r,f'Ear.{side}',(x,-.12,2.00),(.09,.09,.10),'Fur',c)
+        ellipsoid(r,f'Ear.Inner.{side}',(x,-.196,2.00),(.045,.02,.055),'Mane',c)
+        ellipsoid(r,f'Eye.{side}',(x*.66,-.506,1.72),(.065,.032,.07),'Eye',c)
+        ellipsoid(r,f'Iris.{side}',(x*.66,-.534,1.72),(.027,.015,.035),'Muzzle',c)
+        capsule_between(r,f'Arm.{side}',(x*2.1,0,1.30),(x*2.55,-.04,.88),.17,'Jacket',c)
+        ellipsoid(r,f'Fist.{side}',(x*2.62,-.05,.78),(.18,.17,.16),'Fur',c)
+        capsule_between(r,f'Leg.{side}',(x*.72,0,.65),(x*.75,0,.28),.18,'Fur',c)
+        ellipsoid(r,f'Boot.{side}',(x*.77,-.10,.15),(.22,.3,.15),'Boot',c)
+    # Layered mane locks keep the broad silhouette readable from the combat camera.
+    for i in range(12):
+        angle=math.tau*i/12
+        x=.46*math.sin(angle); y=-.015+.30*math.cos(angle)
+        ellipsoid(r,f'Mane.Lock.{i}',(x,y,1.6),(.16,.14,.20),'ManeLight' if i%2 else 'Mane',c)
+        cone(r,f'Mane.Point.{i}',(x,-.02+.31*math.cos(angle),1.6+.47*math.cos(angle)),.18,.40,'ManeLight' if i%2 else 'Mane',c,vertices=8,rotation=(0,angle,0))
+    for side,sign in [('L',-1),('R',1)]:
+        cone(r,f'Mane.CheekPoint.{side}',(sign*.43,-.24,1.48),.18,.42,'ManeLight',c,vertices=8,rotation=(0,sign*math.pi/2,0))
+        cone(r,f'Mane.BrowPoint.{side}',(sign*.38,-.27,1.91),.15,.34,'ManeLight',c,vertices=8,rotation=(0,sign*.8,0))
+        cone(r,f'Ear.Point.{side}',(sign*.34,-.08,2.03),.11,.25,'ManeLight',c,vertices=8,rotation=(0,sign*.32,0))
+    cone(r,'Mane.CrownPoint',(0,-.20,2.04),.14,.27,'ManeLight',c,vertices=8)
+    capsule_between(r,'Tail',(0,.15,.72),(.18,.36,.38),.055,'Fur',c)
+    ellipsoid(r,'Tail.Tuft',(.20,.4,.34),(.10,.11,.15),'Mane',c)
+    return root
+
+def plates():
+    r='Plates'; c,root=start(r)
+    # A large upright dinner plate is the torso and head; the gold rim makes its silhouette legible.
+    ellipsoid(r,'Plate.Rim',(0,0,1.08),(.58,.22,.69),'Rim',c,24,16)
+    ellipsoid(r,'Plate.Face',(0,-.04,1.08),(.50,.205,.61),'Ceramic',c,24,16)
+    ellipsoid(r,'Plate.Center',(0,-.224,1.08),(.31,.018,.39),'Ceramic',c,20,12)
+    for side,x in [('L',-.19),('R',.19)]:
+        ellipsoid(r,f'Eye.{side}',(x,-.249,1.24),(.055,.025,.065),'Eye',c)
+        ellipsoid(r,f'Iris.{side}',(x,-.271,1.235),(.024,.012,.034),'Iris',c)
+        capsule_between(r,f'Arm.{side}',(x*2.85,0,1.04),(x*3.35,-.02,.68),.13,'Arm',c)
+        ellipsoid(r,f'Fist.{side}',(x*3.42,-.03,.64),(.14,.14,.14),'Ceramic',c)
+        capsule_between(r,f'Leg.{side}',(x*.85,0,.52),(x*.92,0,.20),.12,'Arm',c)
+        ellipsoid(r,f'Boot.{side}',(x*.94,-.10,.12),(.18,.25,.12),'Boot',c)
+    # A restrained smile and cheek marks give the plate a clear face at preview size.
+    capsule_between(r,'Smile.L',(-.09,-.251,.99),(0,-.263,.96),.012,'Shadow',c)
+    capsule_between(r,'Smile.R',(0,-.263,.96),(.09,-.251,.99),.012,'Shadow',c)
+    for side,x in [('L',-.31),('R',.31)]: ellipsoid(r,f'Cheek.{side}',(x,-.238,1.07),(.045,.018,.035),'Rim',c)
     return root

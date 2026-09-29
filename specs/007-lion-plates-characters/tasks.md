@@ -14,9 +14,9 @@ The initial character-builder skill belongs in the foundation because Lion and P
 ## Phase 1: Setup and prerequisite integration
 
 **Goal**: Establish the implemented 005/006 baseline and an evidence record before extending it.
-- [ ] T001 Verify branch and integrate the prerequisite work tracked in `specs/005-choose-your-fighter/tasks.md` and `specs/006-combat-view-partner/tasks.md`: selected roles, selection/session/countdown, asset readiness/cache/full-build audit, visible arena and aggressive partner behavior; record actual implementation status in `specs/007-lion-plates-characters/validation.md`, retaining pending acceptance gates and avoiding duplicate systems.
-- [ ] T002 Install locked dependencies with Bun, establish existing unit/integration/browser/Blender and build results from `package.json` and `tests/blender/run_tests.py`, and record versions, commands and baseline failures in `specs/007-lion-plates-characters/validation.md`.
-- [ ] T003 Map FR-001–015, every US1–US4 scenario and SC-001–006 to automated/manual evidence in `specs/007-lion-plates-characters/validation.md`; define concept, muted/reduced-motion, phone, offline and five-player procedures from `specs/007-lion-plates-characters/quickstart.md` before implementation.
+- [X] T001 Verify branch and integrate the prerequisite work tracked in `specs/005-choose-your-fighter/tasks.md` and `specs/006-combat-view-partner/tasks.md`: selected roles, selection/session/countdown, asset readiness/cache/full-build audit, visible arena and aggressive partner behavior; record actual implementation status in `specs/007-lion-plates-characters/validation.md`, retaining pending acceptance gates and avoiding duplicate systems.
+- [X] T002 Install locked dependencies with Bun, establish existing unit/integration/browser/Blender and build results from `package.json` and `tests/blender/run_tests.py`, and record versions, commands and baseline failures in `specs/007-lion-plates-characters/validation.md`.
+- [X] T003 Map FR-001–015, every US1–US4 scenario and SC-001–006 to automated/manual evidence in `specs/007-lion-plates-characters/validation.md`; define concept, muted/reduced-motion, phone, offline and five-player procedures from `specs/007-lion-plates-characters/quickstart.md` before implementation.
 
 ## Phase 2: Shared foundation
 
@@ -24,14 +24,14 @@ The initial character-builder skill belongs in the foundation because Lion and P
 
 ### Tests first
 
-- [ ] T004 [P] Add failing schema/registry tests in `tests/unit/content/characters.test.ts` for unknown fields/version/kinds, malformed IDs, duplicates, numeric/timing domains, three Light stages, role separation and actionable errors; snapshot the integrated 005 Cow/Crow profiles before migration.
+- [X] T004 [P] Add failing schema/registry tests in `tests/unit/content/characters.test.ts` for unknown fields/version/kinds, malformed IDs, duplicates, numeric/timing domains, three Light stages, role separation and actionable errors; snapshot the integrated 005 Cow/Crow profiles before migration.
 - [ ] T005 [P] Add failing resource/semantic-clip readiness tests in `tests/unit/presentation/character-assets.test.ts`, including missing model/portrait/sound/animation keys and unchanged Cow/Crow resource paths.
 - [ ] T006 [P] Add failing command tests in `tests/unit/characters/commands.test.ts` for read-only validation, brief/ID errors, unsupported behavior reporting, duplicate/existing-output refusal and unrelated-file preservation using temporary fixtures.
 - [ ] T007 [P] Add failing per-character CLI/preflight/export tests in `tests/blender/test_cli.py` and `tests/blender/test_rig_export.py` for scoped output/overwrite, required clip coverage and legacy Cow/Crow invocation compatibility.
 
 ### Implementation
 
-- [ ] T008 Implement schemaVersion 1 types and strict pure registry validation in `src/content/characters.ts` and `src/content/types.ts` from `specs/007-lion-plates-characters/data-model.md`, with the bounded areaStrike/roar/straightProjectile union, separate player/partner profiles and no executable configuration.
+- [X] T008 Implement schemaVersion 1 types and strict pure registry validation in `src/content/characters.ts` and `src/content/types.ts` from `specs/007-lion-plates-characters/data-model.md`, with the bounded areaStrike/roar/straightProjectile union, separate player/partner profiles and no executable configuration.
 - [ ] T009 Migrate exact integrated Cow/Crow values into `src/content/characters/cow.json` and `src/content/characters/crow.json`; update consumers in `src/content/tuning.ts`, `src/game/actions.ts` and `src/game/run.ts` atomically to use definitions while keeping existing behavior/snapshots green.
 - [ ] T010 Extend static resource/animation manifests in `src/presentation/character-assets.ts` and `src/presentation/character-animation.ts` to validate all semantic phases and expose readiness failures before entry; preserve existing Cow/Crow imports.
 - [ ] T011 Implement safe commands in `scripts/characters/validate.ts` and `scripts/characters/scaffold.ts` per `specs/007-lion-plates-characters/contracts/character-definition.md`: character-specific actionable errors, draft definition/report, temporary-test support, nonzero failures, no arbitrary evaluation and no existing-output overwrite.
@@ -174,5 +174,3 @@ The initial character-builder skill belongs in the foundation because Lion and P
 | SC-004 two verified exercises | T024, T034, T042–T046, T051 |
 | SC-005 style recognition | T050 |
 | SC-006 solo/offline/performance | T036–T041, T048–T049 |
-
-

@@ -16,7 +16,7 @@ export function createRun(runId: number, assignment: DuoAssignment): RunState {
   const fighter = characters.find(character => character.id === duo.fighterId)!;
   const partner = characters.find(character => character.id === duo.partnerId)!;
   return {
-    runId, duo, tick: 0, nextEntityId: 3, nextAttackId: 1, areaIndex: 0, waveIndex: 0,
+    runId, duo, tick: 0, nextEntityId: 3, nextAttackId: 1, nextSpecialActivationId: 1, areaIndex: 0, waveIndex: 0,
     actors: [
       { ...baseActor(1, 'player', fighter.playerProfile.maxHp), role: 'player', characterId: fighter.id,
         comboStep: 0, comboDeadlineTick: 0, dodgeReadyTick: 0, specialMeter: 0 },
@@ -25,7 +25,7 @@ export function createRun(runId: number, assignment: DuoAssignment): RunState {
         intentState: { intent: 'idle', targetId: null, destination: null, lastHorizontalFacing: 1,
           blockedTicks: 0, blockedDestination: null, lastResolvedPosition: { x: -0.8, depth: 0 }, lastRecoveryTick: -120 } },
     ],
-    attacks: [], projectiles: [], tables: [], pickups: [],
+    attacks: [], projectiles: [], pendingSpecialDamage: [], tables: [], pickups: [],
     encounter: { areaId: 'dance-floor', waveIndex: 0, status: 'awaitingEntry', aliveEnemyIds: [], cameraCenter: 0 },
     result: null,
   };

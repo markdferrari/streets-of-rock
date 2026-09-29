@@ -3,10 +3,12 @@ import { playableStats, STAT_SCALE } from '../content/characters';
 import type { SelectionState } from '../app/selection';
 import cowPortrait from '../../assets/characters/cow-crow/portraits/cow.png?url';
 import crowPortrait from '../../assets/characters/cow-crow/portraits/crow.png?url';
+import lionPortrait from '../../assets/characters/lion/portrait.png?url';
+import platesPortrait from '../../assets/characters/plates/portrait.png?url';
 
 export type PreviewStatus = 'empty' | 'loading' | 'ready' | 'error';
 export type ActivationModality = 'pointer' | 'keyboard';
-export const portraits = { cow: cowPortrait, crow: crowPortrait };
+export const portraits = { cow: cowPortrait, crow: crowPortrait, lion: lionPortrait, plates: platesPortrait };
 function escapeHtml(value: string): string {
   return value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]!);
 }

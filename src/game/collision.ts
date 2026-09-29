@@ -24,6 +24,22 @@ export function sweptCircleContact(start: Position, end: Position, target: Posit
   const fraction = lengthSquared === 0 ? 0 : Math.max(0, Math.min(1, ((target.x - start.x) * dx + (target.depth - start.depth) * dd) / lengthSquared));
   return Math.hypot(target.x - (start.x + dx * fraction), target.depth - (start.depth + dd * fraction)) <= radius;
 }
+export function segmentCircleEntryFraction(start: Position, end: Position, target: Position, radius: number): number | null {
+  if (![start.x, start.depth, end.x, end.depth, target.x, target.depth, radius].every(Number.isFinite) || radius < 0) return null;
+  const dx = end.x - start.x;
+  const dd = end.depth - start.depth;
+  const fx = start.x - target.x;
+  const fd = start.depth - target.depth;
+  const c = fx * fx + fd * fd - radius * radius;
+  if (c <= 0) return 0;
+  const a = dx * dx + dd * dd;
+  if (a <= 1e-18) return null;
+  const b = 2 * (fx * dx + fd * dd);
+  const discriminant = b * b - 4 * a * c;
+  if (discriminant < 0) return null;
+  const entry = (-b - Math.sqrt(discriminant)) / (2 * a);
+  return entry >= 0 && entry <= 1 ? entry : null;
+}
 export function attackHits(attack: AttackInstance, target: GameActor): boolean {
   if (target.hp <= 0 || attack.hitTargetIds.includes(target.id)) return false;
   const dx = target.position.x - attack.origin.x;

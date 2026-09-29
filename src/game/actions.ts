@@ -2,6 +2,8 @@ import type { ActionRequest, GameEvent, InputFrame, PendingAction, PlayerAction,
 import { allocateAttackId } from './run';
 import { getPlayer } from './selectors';
 import { playerMoveId, playerMoveTuning } from './moves';
+import type { ArenaContext } from './arena';
+import { prepareSpecial, releaseSpecial } from './specials';
 
 type Controlled = PlayerState;
 function eligible(run: RunState, cow: Controlled, kind: PlayerAction): boolean {
@@ -11,7 +13,7 @@ function eligible(run: RunState, cow: Controlled, kind: PlayerAction): boolean {
   return true;
 }
 
-function start(run: RunState, cow: Controlled, kind: PlayerAction, input: InputFrame, events: GameEvent[]): boolean {
+function start(run: RunState, cow: Controlled, kind: PlayerAction, input: InputFrame, events: GameEvent[], arena?: ArenaContext): boolean {
   if (cow.hp <= 0 || cow.action.kind !== 'idle' || !eligible(run, cow, kind)) return false;
   if (kind === 'dodge') {
     cow.action = { kind: 'dodge', startedTick: run.tick, endTick: run.tick + 18 };
@@ -25,6 +27,7 @@ function start(run: RunState, cow: Controlled, kind: PlayerAction, input: InputF
     return true;
   }
   if (kind === 'special') {
+    if (!prepareSpecial(run, cow, arena, events)) return false;
     cow.specialMeter = 0;
     const moveId = playerMoveId('special');
     cow.action = { kind: 'windup', moveId, startedTick: run.tick, endTick: run.tick + playerMoveTuning(run, moveId)!.windup };
@@ -54,7 +57,8 @@ function advance(run: RunState, cow: Controlled, events: GameEvent[]): void {
   if (action.kind === 'windup' && move && playerMoveTuning(run, move)) {
     const data = playerMoveTuning(run, move)!;
     cow.action = { kind: 'active', moveId: move, startedTick: run.tick, endTick: run.tick + data.active };
-    run.attacks.push({
+    if (move === 'special' && cow.preparedSpecial) releaseSpecial(run, cow, events);
+    else run.attacks.push({
       id: allocateAttackId(run), ownerId: cow.id, moveId: move, origin: { ...cow.position }, facing: cow.facing,
       activeUntilTick: cow.action.endTick, range: data.range, depthTolerance: data.depthTolerance,
       damage: data.damage, hitTargetIds: [],
@@ -70,7 +74,7 @@ function advance(run: RunState, cow: Controlled, events: GameEvent[]): void {
 }
 
 const priority: Record<PlayerAction, number> = { light: 0, heavy: 1, dodge: 2, special: 3 };
-export function updatePlayerAction(run: RunState, input: InputFrame, events: GameEvent[]): void {
+export function updatePlayerAction(run: RunState, input: InputFrame, events: GameEvent[], arena?: ArenaContext): void {
   const cow = getPlayer(run);
   if (cow.hp <= 0) return;
   if (cow.pendingAction && input.canceledPointerIds?.includes(cow.pendingAction.sourcePointerId)) cow.pendingAction = undefined;
@@ -86,7 +90,7 @@ export function updatePlayerAction(run: RunState, input: InputFrame, events: Gam
   if (cow.action.kind === 'idle' && cow.pendingAction) {
     const pending = cow.pendingAction;
     cow.pendingAction = undefined;
-    if (!start(run, cow, pending.kind, input, events)) events.push({ type: 'unavailable', tick: run.tick, actorId: cow.id });
+    if (!start(run, cow, pending.kind, input, events, arena)) events.push({ type: 'unavailable', tick: run.tick, actorId: cow.id });
   }
 }
 

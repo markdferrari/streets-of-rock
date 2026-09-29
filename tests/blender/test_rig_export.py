@@ -17,6 +17,24 @@ def glb_json(path):
 
 
 class RigExportTests(unittest.TestCase):
+    def test_lion_and_plates_runtime_exports_cover_semantic_actions(self):
+        required = {
+            'lion': ('Idle','Move','Hurt','KnockedOut','Dodge',
+                     *(f'{move}.{phase}' for move in ('lion1','lion2','lion3','lionHeavy','roar','lionSupport') for phase in ('windup','active','recovery'))),
+            'plates': ('Idle','Move','Hurt','KnockedOut','Dodge',
+                       *(f'{move}.{phase}' for move in ('plates1','plates2','plates3','platesHeavy','headrest','platesSupport') for phase in ('windup','active','recovery'))),
+        }
+        for role, clips in required.items():
+            runtime=Path('assets/characters')/role/'runtime'
+            blend=runtime/'rigged.blend'; glb=runtime/'character.glb'
+            self.assertTrue(blend.is_file()); self.assertTrue(glb.is_file())
+            bpy.ops.wm.open_mainfile(filepath=str(blend.resolve()))
+            arm=bpy.data.objects[f'{role.title()}.Rig']
+            for part in ('Torso','Head','Arm.L','Leg.L'): self.assertIn(part,arm.data.bones)
+            gltf=glb_json(glb)
+            names={clip['name'] for clip in gltf.get('animations',[])}
+            self.assertTrue(set(clips) <= names, sorted(set(clips)-names))
+
     def test_both_reopen_with_rigid_bones_and_self_contained_animated_glbs(self):
         with TemporaryDirectory() as temp:
             out = Path(temp)

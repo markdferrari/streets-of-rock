@@ -12,6 +12,7 @@ import bpy
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / 'assets/characters/cow-crow'
+CHARACTERS = ('cow', 'crow', 'lion', 'plates')
 
 
 def bone_for(role, name):
@@ -21,7 +22,7 @@ def bone_for(role, name):
         return 'Wing.' + ('L' if '.L' in part else 'R')
     if part.startswith(('Leg.', 'Boot.', 'Foot.', 'Toe.')):
         return 'Leg.' + ('L' if '.L' in part else 'R')
-    if part.startswith(('Head', 'Muzzle', 'Horn.', 'Eye.', 'Iris.', 'Brow.', 'Crest.', 'Ear.', 'Nostril.', 'Beak', 'Marking.L')):
+    if part.startswith(('Head', 'Muzzle', 'Horn.', 'Eye.', 'Iris.', 'Brow.', 'Crest.', 'Ear.', 'Nostril.', 'Beak', 'Marking.L', 'Face', 'Nose', 'Mane')):
         return 'Head'
     return 'Torso'
 
@@ -44,10 +45,14 @@ def make_rig(role):
         for side, sign in (('L', -1), ('R', 1)):
             layout[f'Arm.{side}'] = ((sign*.39, 0, 1.40), (sign*.67, 0, .98), 'Torso')
             layout[f'Leg.{side}'] = ((sign*.18, 0, .74), (sign*.19, 0, .20), 'Root')
-    else:
+    elif role == 'crow':
         for side, sign in (('L', -1), ('R', 1)):
             layout[f'Wing.{side}'] = ((sign*.29, 0, 1.07), (sign*.90, 0, 1.25), 'Torso')
             layout[f'Leg.{side}'] = ((sign*.14, 0, .58), (sign*.15, -.15, .08), 'Root')
+    else:
+        for side, sign in (('L', -1), ('R', 1)):
+            layout[f'Arm.{side}'] = ((sign*.39, 0, 1.25), (sign*.67, 0, .92), 'Torso')
+            layout[f'Leg.{side}'] = ((sign*.18, 0, .62), (sign*.19, 0, .18), 'Root')
     for name, (head, tail, _) in layout.items():
         bone = arm_data.edit_bones.new(name)
         bone.head, bone.tail = head, tail
@@ -82,14 +87,14 @@ def pose_values(role, clip, frame):
         return {'Torso': (.025*t, 0, 0), 'Head': (-.04*t, 0, 0)}
     if clip == 'Move':
         return {'Leg.L': (.42*t, 0, 0), 'Leg.R': (-.42*t, 0, 0),
-                ('Arm.L' if role == 'cow' else 'Wing.L'): (-.16*t, 0, 0),
-                ('Arm.R' if role == 'cow' else 'Wing.R'): (.16*t, 0, 0)}
+                ('Wing.L' if role == 'crow' else 'Arm.L'): (-.16*t, 0, 0),
+                ('Wing.R' if role == 'crow' else 'Arm.R'): (.16*t, 0, 0)}
     if clip == 'Hurt': return {'Torso': (-.28*t, 0, 0), 'Head': (.22*t, 0, 0)}
     if clip == 'KnockedOut': return {'Torso': (0, 0, 1.15*t), 'Head': (0, 0, .25*t)}
     if clip == 'Dodge': return {'Torso': (.4*t, 0, 0), 'Leg.L': (-.4*t, 0, 0), 'Leg.R': (.4*t, 0, 0)}
     move, phase = clip.split('.')
-    side = 'Arm.R' if role == 'cow' else 'Wing.R'
-    other = 'Arm.L' if role == 'cow' else 'Wing.L'
+    side = 'Wing.R' if role == 'crow' else 'Arm.R'
+    other = 'Wing.L' if role == 'crow' else 'Arm.L'
     strength = 1.0 if phase == 'active' else (-.55 if phase == 'windup' else .25)
     if move == 'spin':
         return {'Torso': (0, 0, (math.pi*.8 if phase == 'active' else -.22)*t),
@@ -98,8 +103,10 @@ def pose_values(role, clip, frame):
         return {'Torso': (0, 0, (math.pi*.7 if phase == 'active' else -.18)*t),
                 'Wing.L': (-.8*t, -.35*t, -.3*t), 'Wing.R': (-.8*t, .35*t, .3*t),
                 'Head': (.1*t, 0, 0)}
-    if move in ('cowHeavy', 'crowHeavy'): strength *= 1.45
-    if move in ('cow2', 'crow2'): side, other = other, side
+    if move in ('cowHeavy', 'crowHeavy', 'lionHeavy', 'platesHeavy'): strength *= 1.45
+    if move in ('cow2', 'crow2', 'lion2', 'plates2'): side, other = other, side
+    if move == 'roar': return {'Torso': (-.35*t, 0, 0), 'Head': (-.45*t, 0, 0), side: (-.3*t, 0, 0), other: (-.3*t, 0, 0)}
+    if move == 'headrest': return {'Torso': (-.35*t, 0, 0), 'Head': (.12*t, 0, 0), side: (-.65*t, 0, 0), other: (.22*t, 0, 0)}
     return {side: (strength*.95*t, 0, strength*.25*t),
             other: (-strength*.22*t, 0, 0), 'Torso': (strength*.16*t, 0, 0),
             'Head': (-strength*.08*t, 0, 0)}
@@ -108,7 +115,10 @@ def pose_values(role, clip, frame):
 def clip_names(role):
     names = ['Idle', 'Move', 'Hurt', 'KnockedOut']
     names.append('Dodge')
-    moves = ('cow1', 'cow2', 'cow3', 'cowHeavy', 'spin') if role == 'cow' else ('crow', 'crow1', 'crow2', 'crow3', 'crowHeavy', 'wingSpin')
+    moves = {'cow': ('cow1', 'cow2', 'cow3', 'cowHeavy', 'spin'),
+             'crow': ('crow', 'crow1', 'crow2', 'crow3', 'crowHeavy', 'wingSpin'),
+             'lion': ('lion1', 'lion2', 'lion3', 'lionHeavy', 'roar', 'lionSupport'),
+             'plates': ('plates1', 'plates2', 'plates3', 'platesHeavy', 'headrest', 'platesSupport')}[role]
     names += [f'{move}.{phase}' for move in moves for phase in ('windup', 'active', 'recovery')]
     return names
 
@@ -134,34 +144,47 @@ def make_animations(role, arm):
 
 
 def export(role, output):
-    bpy.ops.wm.open_mainfile(filepath=str(SOURCE/f'{role}.blend'))
+    source = SOURCE/f'{role}.blend' if role in ('cow', 'crow') else ROOT/f'assets/characters/{role}/source.blend'
+    bpy.ops.wm.open_mainfile(filepath=str(source))
     arm = make_rig(role)
     make_animations(role, arm)
     bpy.context.preferences.filepaths.save_version = 0
-    bpy.ops.wm.save_as_mainfile(filepath=str(output/f'{role}-rigged.blend'), check_existing=False)
+    rigged_path = output/'rigged.blend' if role in ('lion', 'plates') else output/f'{role}-rigged.blend'
+    glb_path = output/'character.glb' if role in ('lion', 'plates') else output/f'{role}.glb'
+    bpy.ops.wm.save_as_mainfile(filepath=str(rigged_path), check_existing=False)
     bpy.ops.object.select_all(action='DESELECT')
     arm.select_set(True)
     for obj in bpy.data.collections[f'Character.{role.title()}'].objects:
         if obj.type == 'MESH': obj.select_set(True)
     bpy.context.view_layer.objects.active = arm
-    bpy.ops.export_scene.gltf(filepath=str(output/f'{role}.glb'), export_format='GLB',
+    bpy.ops.export_scene.gltf(filepath=str(glb_path), export_format='GLB',
         use_selection=True, export_animations=True, export_animation_mode='ACTIONS',
         export_merge_animation='ACTION', export_skins=True, export_cameras=False,
         export_lights=False, export_yup=True)
 
 
+def preflight(output, overwrite=False, character=None):
+    output = Path(output)
+    if character is not None and character not in CHARACTERS: raise ValueError(f'Unknown character ID: {character}')
+    if output.exists() and not output.is_dir(): raise NotADirectoryError(output)
+    roles = (character,) if character else ('cow','crow')
+    targets = [output/('rigged.blend' if role in ('lion','plates') else f'{role}-rigged.blend') for role in roles]
+    targets += [output/('character.glb' if role in ('lion','plates') else f'{role}.glb') for role in roles]
+    existing = [str(path) for path in targets if path.exists()]
+    if existing and not overwrite: raise FileExistsError('Rigged assets exist; use --overwrite: ' + ', '.join(existing))
+    return output
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--overwrite', action='store_true')
+    parser.add_argument('--character', choices=CHARACTERS, help='export only the named character')
     args = parser.parse_args(argv)
     if tuple(bpy.app.version[:2]) != (5, 2): raise RuntimeError('Blender 5.2.x required')
     out = args.output_dir.resolve()
+    preflight(out, args.overwrite, args.character)
     out.mkdir(parents=True, exist_ok=True)
-    targets = [out/f'{role}{suffix}' for role in ('cow', 'crow') for suffix in ('-rigged.blend', '.glb')]
-    if not args.overwrite and any(path.exists() for path in targets):
-        raise FileExistsError('Rigged assets exist; use --overwrite')
-    for role in ('cow', 'crow'): export(role, out)
+    for role in ((args.character,) if args.character else ('cow', 'crow')): export(role, out)
     return 0
 
 

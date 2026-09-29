@@ -13,9 +13,14 @@ import { updatePickups } from './pickups';
 import { updateEncounters } from './encounters';
 import { getPlayer } from './selectors';
 import type { ArenaContext } from './arena';
+import { updateEnemyStatuses } from './status-effects';
 
 export interface TickStage { name: string; apply(run: RunState, input: InputFrame, events: GameEvent[], arena?: ArenaContext): void }
 const defaultStages: TickStage[] = [
+  { name: 'statuses', apply: (run, _input, events) => {
+    const status = updateEnemyStatuses(run);
+    for (const id of status.expiredIds) events.push({ type: 'stun-ended', tick: run.tick, actorId: id });
+  } },
   { name: 'input', apply: updatePlayerAction },
   { name: 'ai', apply: (run, _input, events, arena) => { updateGrunts(run, events); updateZoners(run, events); updateEnforcers(run, events); updateLiam(run, events); updatePartner(run, events, arena); } },
   { name: 'movement', apply: (run, input, events) => { movePlayer(run, input); resolveActorOverlaps(run); updateProjectiles(run, events); } },

@@ -1,14 +1,15 @@
-import type { GameEvent, RunState } from '../types';
+import type { EnemyState, GameEvent, RunState } from '../types';
 import { allocateAttackId } from '../run';
 import { assignAttackSlots } from './attack-slots';
 import { getPlayer } from '../selectors';
+import { enemyIsStunned } from '../status-effects';
 
 export function updateEnforcers(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
   const cow = getPlayer(run);
   if (cow.hp <= 0) return;
-  for (const enemy of run.actors.filter(actor => actor.role === 'enforcer').sort((a, b) => a.id - b.id)) {
-    if (enemy.hp <= 0) { enemy.attackSlot = false; continue; }
+  for (const enemy of run.actors.filter((actor): actor is EnemyState => actor.team === 'enemy' && actor.role === 'enforcer').sort((a, b) => a.id - b.id)) {
+    if (enemy.hp <= 0 || enemyIsStunned(enemy, run.tick)) { enemy.attackSlot = false; continue; }
     if (enemy.action.kind === 'idle') {
       const dx = cow.position.x - enemy.position.x;
       if (Math.abs(dx) > 4) { enemy.position.x += Math.sign(dx) * 1.5 / 60; continue; }

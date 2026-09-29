@@ -4,9 +4,9 @@ export interface AnimationSample { clip: string; progress: number }
 
 function allyClip(actor: GameActor, moveId: NonNullable<GameActor['action']['moveId']>): string {
   if (actor.role !== 'player' && actor.role !== 'partner') return moveId;
-  if (moveId === 'support') return actor.characterId === 'cow' ? 'cow1' : 'crow';
-  if (moveId === 'heavy') return actor.characterId === 'cow' ? 'cowHeavy' : 'crowHeavy';
-  if (moveId === 'special') return actor.characterId === 'cow' ? 'spin' : 'wingSpin';
+  if (moveId === 'support') return ({ cow: 'cow1', crow: 'crow', lion: 'lionSupport', plates: 'platesSupport' } as const)[actor.characterId as 'cow' | 'crow' | 'lion' | 'plates'];
+  if (moveId === 'heavy') return ({ cow: 'cowHeavy', crow: 'crowHeavy', lion: 'lionHeavy', plates: 'platesHeavy' } as const)[actor.characterId as 'cow' | 'crow' | 'lion' | 'plates'];
+  if (moveId === 'special') return ({ cow: 'spin', crow: 'wingSpin', lion: 'roar', plates: 'headrest' } as const)[actor.characterId as 'cow' | 'crow' | 'lion' | 'plates'];
   if (/^light[123]$/.test(moveId)) return `${actor.characterId}${moveId.at(-1)}`;
   return moveId;
 }

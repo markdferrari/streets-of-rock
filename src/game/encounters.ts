@@ -1,5 +1,5 @@
 import type { EnemyState, GameEvent, RunState } from './types';
-import { neonVelvet, vipTables } from '../content/neon-velvet';
+import { enemyDefinitions, neonVelvet, vipTables } from '../content/neon-velvet';
 import { allocateEntityId } from './run';
 import { getPlayer } from './selectors';
 
@@ -12,9 +12,10 @@ function spawnWave(run: RunState, events: GameEvent[]): void {
   run.encounter.cameraCenter = (area.minX + area.maxX) / 2;
   run.encounter.aliveEnemyIds = [];
   for (const spawn of wave) {
-    const hp = { grunt: 120, zoner: 180, enforcer: 340, liam: 1600 }[spawn.role];
+    const definition = enemyDefinitions[spawn.role];
+    const hp = definition.hp;
     const enemy: EnemyState = { id: allocateEntityId(run), role: spawn.role, team: 'enemy', position: { x: spawn.x, depth: spawn.depth },
-      facing: -1, hp, maxHp: hp, action: { kind: 'idle', startedTick: run.tick, endTick: run.tick },
+      combatClass: definition.combatClass, facing: -1, hp, maxHp: hp, action: { kind: 'idle', startedTick: run.tick, endTick: run.tick },
       protectionUntilTick: 0, decisionReadyTick: run.tick, attackSlot: false, phase: 1 };
     run.actors.push(enemy);
     run.encounter.aliveEnemyIds.push(enemy.id);

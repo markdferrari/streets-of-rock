@@ -1,11 +1,20 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
-import { CharacterAssetStore, characterBodyEnvelope, requiredCharacterClips } from '../../../src/presentation/character-assets';
+import { CharacterAssetStore, characterBodyEnvelope, requiredCharacterClips, validateCharacterResources, characterResourcePaths } from '../../../src/presentation/character-assets';
 import { characters } from '../../../src/content/characters';
 
 const clip = (name: string) => new THREE.AnimationClip(name, 1, []);
 
 describe('character asset ownership and loading', () => {
+  it('reports missing model, portrait, sound, and semantic animation resources by character and field', () => {
+    expect(() => validateCharacterResources(undefined, { models: ['cow', 'crow', 'plates'], portraits: ['cow', 'crow', 'plates'], sounds: ['cow', 'crow', 'lion', 'plates'], animationSets: ['cow', 'crow', 'lion', 'plates'] })).toThrow(/lion.*modelKey/i);
+    expect(() => validateCharacterResources(undefined, { models: ['cow', 'crow', 'lion', 'plates'], portraits: ['cow', 'crow', 'plates'], sounds: ['cow', 'crow', 'lion', 'plates'], animationSets: ['cow', 'crow', 'lion', 'plates'] })).toThrow(/lion.*portraitKey/i);
+    expect(() => validateCharacterResources(undefined, { models: ['cow', 'crow', 'lion', 'plates'], portraits: ['cow', 'crow', 'lion', 'plates'], sounds: ['cow', 'crow', 'plates'], animationSets: ['cow', 'crow', 'lion', 'plates'] })).toThrow(/lion.*soundSetKey/i);
+    expect(() => validateCharacterResources(undefined, { models: ['cow', 'crow', 'lion', 'plates'], portraits: ['cow', 'crow', 'lion', 'plates'], sounds: ['cow', 'crow', 'lion', 'plates'], animationSets: ['cow', 'crow', 'plates'] })).toThrow(/lion.*animationSetKey/i);
+    expect(() => validateCharacterResources(undefined, { models: ['cow', 'crow', 'lion', 'plates'], portraits: ['cow', 'crow', 'lion', 'plates'], sounds: ['cow', 'crow', 'lion', 'plates'], animationSets: ['cow', 'crow', 'lion', 'plates'], props: [] })).toThrow(/plates.*projectileKey/i);
+    expect(characterResourcePaths.cow).toEqual({ model: 'assets/characters/cow-crow/runtime/cow.glb', portrait: 'assets/characters/cow-crow/portraits/cow.png' });
+    expect(characterResourcePaths.crow).toEqual({ model: 'assets/characters/cow-crow/runtime/crow.glb', portrait: 'assets/characters/cow-crow/portraits/crow.png' });
+  });
   it('exposes conservative world-space bounds for the rotated and scaled Cow/Crow clips', () => {
     for (const role of ['cow', 'crow'] as const) {
       const bounds = characterBodyEnvelope(role);
@@ -35,9 +44,9 @@ describe('character asset ownership and loading', () => {
     }, ['Idle', 'Move', 'KnockedOut']);
     await expect(store.load()).rejects.toThrow('offline');
     await store.load();
-    expect(loads).toBe(3);
+    expect(loads).toBe(5);
     await store.load();
-    expect(loads).toBe(3);
+    expect(loads).toBe(5);
     const first = store.create('cow');
     const second = store.create('cow');
     expect(first.root).not.toBe(second.root);
@@ -46,6 +55,15 @@ describe('character asset ownership and loading', () => {
   it('rejects a model missing a required action', async () => {
     const store = new CharacterAssetStore(async () => ({ scene: new THREE.Group(), animations: [clip('Idle')] }), ['Idle', 'KnockedOut']);
     await expect(store.load()).rejects.toThrow('KnockedOut');
+  });
+  it('requires Lion roar and Plates headrest/support semantic clips', async () => {
+    const required = requiredCharacterClips('lion');
+    const scene = () => { const group = new THREE.Group(); group.add(new THREE.Object3D()); return group; };
+    const lionStore = new CharacterAssetStore(async () => ({ scene: scene(), animations: required.slice(0, -1).map(clip) }));
+    await expect(lionStore.loadCharacter(characters.find(character => character.id === 'lion')!)).rejects.toThrow(/lion model lacks lionSupport.recovery/);
+    const plateRequired = requiredCharacterClips('plates');
+    const platesStore = new CharacterAssetStore(async () => ({ scene: scene(), animations: plateRequired.filter(name => name !== 'headrest.active').map(clip) }));
+    await expect(platesStore.loadCharacter(characters.find(character => character.id === 'plates')!)).rejects.toThrow(/plates model lacks headrest.active/);
   });
   it('resolves registry asset keys and retries an individual failed preview load', async () => {
     let attempts = 0;
@@ -73,6 +91,6 @@ describe('character asset ownership and loading', () => {
     await expect(store.load()).rejects.toThrow('crow unavailable');
     expect(store.create('cow').root.name).toBe('cow');
     await store.load();
-    expect(loaded).toEqual(['cow', 'crow', 'crow']);
+    expect(loaded).toEqual(['cow', 'crow', 'lion', 'plates', 'crow']);
   });
 });

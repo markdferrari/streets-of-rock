@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "cow",
+  "displayName": "Cow",
+  "description": "A steady, powerful fighter.",
+  "fightingStyle": "Balanced power",
+  "player": {
+    "maxHp": 500,
+    "moveSpeed": 3.2,
+    "light": [
+      { "windupTicks": 8, "activeTicks": 6, "recoveryTicks": 14, "damage": 12, "range": 1.3, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 8, "activeTicks": 6, "recoveryTicks": 14, "damage": 14, "range": 1.3, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 11, "activeTicks": 6, "recoveryTicks": 20, "damage": 22, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }
+    ],
+    "heavy": { "windupTicks": 14, "activeTicks": 6, "recoveryTicks": 24, "damage": 30, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 },
+    "dodge": { "durationTicks": 18, "speed": 6, "invulnerabilityTicks": 12, "cooldownTicks": 54 },
+    "special": { "kind": "areaStrike", "windupTicks": 6, "activeTicks": 6, "recoveryTicks": 21, "damage": 60, "range": 2, "depthTolerance": 2, "knockback": 1.5 }
+  },
+  "partner": { "maxHp": 500, "moveSpeed": 3.2, "catchUpSpeed": 4.5, "supportDamage": 8, "supportCooldownTicks": 54, "animationKey": "cow-support" },
+  "presentation": { "modelKey": "cow", "portraitKey": "cow", "animationSetKey": "cow", "soundSetKey": "cow", "specialLabel": "Bovine Spin" }
+}

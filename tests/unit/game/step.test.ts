@@ -61,7 +61,7 @@ describe('tick pipeline', () => {
 
   it('resolves a lethal tie as defeat before progression', () => {
     const run = fixtureRun();
-    run.actors.push({ ...run.actors[1]!, id: 3, role: 'liam', team: 'enemy', hp: 0, maxHp: 1600 });
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'liam', combatClass: 'boss', team: 'enemy', hp: 0, maxHp: 1600 } as EnemyState);
     run.actors[0]!.hp = 0;
     stepRun(run, { move: { x: 0, depth: 0 } });
     expect(run.result).toBe('defeat');
@@ -69,7 +69,7 @@ describe('tick pipeline', () => {
 
   it('runs actions, AI and damage through the default pipeline', () => {
     const run = fixtureRun();
-    run.actors.push({ ...run.actors[1]!, id: 3, role: 'grunt', team: 'enemy', hp: 120, maxHp: 120, position: { x: 1, depth: 0 } } as EnemyState);
+    run.actors.push({ ...run.actors[1]!, id: 3, role: 'grunt', combatClass: 'normal', team: 'enemy', hp: 120, maxHp: 120, position: { x: 1, depth: 0 } } as EnemyState);
     run.nextEntityId = 4;
     run.encounter.status = 'active';
     run.encounter.aliveEnemyIds = [3];

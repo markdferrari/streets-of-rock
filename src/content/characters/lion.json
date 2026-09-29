@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "lion",
+  "displayName": "Lion",
+  "description": "A slow, powerful brawler who ROARS to stop groups.",
+  "fightingStyle": "Slow and powerful",
+  "player": {
+    "maxHp": 500,
+    "moveSpeed": 2.6,
+    "light": [
+      { "windupTicks": 12, "activeTicks": 8, "recoveryTicks": 20, "damage": 18, "range": 1.4, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 12, "activeTicks": 8, "recoveryTicks": 20, "damage": 22, "range": 1.4, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 16, "activeTicks": 8, "recoveryTicks": 26, "damage": 32, "range": 1.4, "depthTolerance": 0.45, "knockback": 1.2 }
+    ],
+    "heavy": { "windupTicks": 20, "activeTicks": 8, "recoveryTicks": 32, "damage": 44, "range": 1.8, "depthTolerance": 0.6, "knockback": 1.5 },
+    "dodge": { "durationTicks": 18, "speed": 6, "invulnerabilityTicks": 12, "cooldownTicks": 54 },
+    "special": { "kind": "roar", "windupTicks": 18, "activeTicks": 1, "recoveryTicks": 30, "radius": 3, "stunTicks": 120, "bossDamage": 60 }
+  },
+  "partner": { "maxHp": 500, "moveSpeed": 2.6, "catchUpSpeed": 4.5, "supportDamage": 8, "supportCooldownTicks": 54, "animationKey": "lion-support" },
+  "presentation": { "modelKey": "lion", "portraitKey": "lion", "animationSetKey": "lion", "soundSetKey": "lion", "specialLabel": "ROAR" }
+}

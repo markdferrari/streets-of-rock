@@ -5,7 +5,7 @@ import type { Position, RunState } from './types';
 export interface Rect { minX: number; maxX: number; minDepth: number; maxDepth: number }
 export interface BodyEnvelope { minX: number; maxX: number; minY: number; maxY: number; minDepth: number; maxDepth: number }
 export interface CameraFrame { anchorX: number; anchorDepth: number; anchorHeight: number; halfHeight: number; aspect: number }
-export interface ArenaContext { legalRegions: readonly Rect[]; visibleRegions: readonly Rect[]; frame: CameraFrame; body: BodyEnvelope; obstructions?: readonly Rect[] }
+export interface ArenaContext { legalRegions: readonly Rect[]; visibleRegions: readonly Rect[]; frame: CameraFrame; body: BodyEnvelope; obstructions?: readonly Rect[]; playerVisibleRegions?: readonly Rect[] }
 
 export const VIEW_PADDING = .05;
 export const BODY_MARGIN = .1;

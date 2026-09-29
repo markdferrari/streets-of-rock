@@ -5,7 +5,7 @@ import { updateGrunts } from '../../../src/game/ai/grunt';
 import type { EnemyState } from '../../../src/game/types';
 
 function enemy(id: number): EnemyState {
-  return { id, role: 'grunt', team: 'enemy', position: { x: 1 + id * .1, depth: 0 }, facing: -1,
+  return { id, role: 'grunt', combatClass: 'normal', team: 'enemy', position: { x: 1 + id * .1, depth: 0 }, facing: -1,
     hp: 120, maxHp: 120, action: { kind: 'idle', startedTick: 0, endTick: 0 },
     protectionUntilTick: 0, decisionReadyTick: 0, attackSlot: false, phase: 1 };
 }

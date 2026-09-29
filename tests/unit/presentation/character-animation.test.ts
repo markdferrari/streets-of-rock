@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { animationSample } from '../../../src/presentation/character-animation';
 import type { GameActor } from '../../../src/game/types';
 
-function actor(identity: 'cow' | 'crow', kind: GameActor['action']['kind'], moveId?: GameActor['action']['moveId'],
+function actor(identity: 'cow' | 'crow' | 'lion' | 'plates', kind: GameActor['action']['kind'], moveId?: GameActor['action']['moveId'],
   role: 'player' | 'partner' = identity === 'cow' ? 'player' : 'partner'): GameActor {
   const base = { id: 1, characterId: identity, team: 'ally' as const, position: { x: 0, depth: 0 }, facing: 1 as const,
     hp: 10, maxHp: 10, action: { kind, moveId, startedTick: 20, endTick: 30 },
@@ -24,6 +24,12 @@ describe('character animation selection', () => {
     expect(animationSample(actor('cow', 'active', 'support', 'partner'), 25, false).clip).toBe('cow1.active');
     expect(animationSample(actor('crow', 'active', 'light1', 'player'), 25, false).clip).toBe('crow1.active');
     expect(animationSample(actor('cow', 'active', 'special', 'player'), 25, false).clip).toBe('spin.active');
+    expect(animationSample(actor('lion', 'active', 'light2', 'player'), 25, false).clip).toBe('lion2.active');
+    expect(animationSample(actor('lion', 'windup', 'heavy', 'player'), 25, false).clip).toBe('lionHeavy.windup');
+    expect(animationSample(actor('lion', 'active', 'special', 'player'), 25, false).clip).toBe('roar.active');
+    expect(animationSample(actor('plates', 'active', 'light3', 'player'), 25, false).clip).toBe('plates3.active');
+    expect(animationSample(actor('plates', 'active', 'heavy', 'player'), 25, false).clip).toBe('platesHeavy.active');
+    expect(animationSample(actor('plates', 'windup', 'special', 'player'), 25, false).clip).toBe('headrest.windup');
   });
   it('selects idle, movement, reactions, and holds knockout', () => {
     expect(animationSample(actor('cow', 'idle'), 25, false).clip).toBe('Idle');

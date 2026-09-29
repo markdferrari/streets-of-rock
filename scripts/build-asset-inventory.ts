@@ -53,13 +53,25 @@ export function auditBuild(dir = 'dist', options: { requireFinalTrack?: boolean 
   if (total > 30 * 1024 * 1024) throw new Error('Required build assets exceed 30 MiB');
   const urls = new Set([...readFileSync(join(dir, 'sw.js'), 'utf8').matchAll(/"url":"([^"]+)"/g)].map(match => match[1]!));
   for (const asset of inventory.assets) if (!urls.has(asset.url)) throw new Error(`Missing precache entry: ${asset.url}`);
-  for (const key of ['cow', 'crow'] as const) {
-    const model = inventory.assets.find(asset => new RegExp(`^assets/${key}(?:-[^.]+)?\\.glb$`).test(asset.url));
+  const keys = ['cow', 'crow', 'lion', 'plates'] as const;
+  const glbs = inventory.assets.filter(asset => asset.url.endsWith('.glb'));
+  const portraits = inventory.assets.filter(asset => asset.url.endsWith('.png'));
+  for (const key of ['cow', 'crow']) {
+    if (!portraits.some(asset => new RegExp(`^assets/${key}(?:-[^.]+)?\\.png$`).test(asset.url))) {
+      throw new Error(`Missing ${key} portrait`);
+    }
+  }
+  if (portraits.length < keys.length) throw new Error('Missing Lion or Plates portrait');
+  for (const key of keys) {
+    const direct = glbs.find(asset => asset.url === `assets/${key}.glb` ||
+      new RegExp(`(?:^|/)${key}(?:/|-[^/]*\\.glb$)`).test(asset.url) && /\\.glb$/.test(asset.url));
+    const expectedClips = requiredCharacterClips(key);
+    const model = direct ?? glbs.find(asset => animationNames(join(dir, asset.url)).has(expectedClips.find(clip => /^(lion1|plates1|crow1|cow1)\.windup$/.test(clip))!));
     if (!model) throw new Error(`Missing ${key} model`);
     const clips = animationNames(join(dir, model.url));
-    for (const clip of requiredCharacterClips(key)) if (!clips.has(clip)) throw new Error(`${key} model lacks ${clip}`);
-    if (!inventory.assets.some(asset => new RegExp(`^assets/${key}(?:-[^.]+)?\\.png$`).test(asset.url))) throw new Error(`Missing ${key} portrait`);
+    for (const clip of expectedClips) if (!clips.has(clip)) throw new Error(`${key} model lacks ${clip}`);
   }
+  if (!glbs.some(asset => /(?:^|\/)headrest(?:-[^/]+)?\.glb$/.test(asset.url))) throw new Error('Missing headrest prop');
   for (const required of ['index.html', 'manifest.webmanifest', 'assets/icons/icon.svg', 'assets/icons/icon-maskable.svg']) {
     if (!urls.has(required)) throw new Error(`Missing required precache asset: ${required}`);
   }

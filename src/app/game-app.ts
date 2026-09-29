@@ -8,7 +8,7 @@ import { PointerControls, type PointerRegion } from '../input/pointers';
 import { SelectionInput } from '../input/selection';
 import { toInputFrame } from '../input/frame';
 import { GameScene } from '../presentation/scene';
-import { CharacterAssetStore } from '../presentation/character-assets';
+import { CharacterAssetStore, validateCharacterResources } from '../presentation/character-assets';
 import { CharacterPreview } from '../presentation/character-preview';
 import { combatHudMarkup } from '../ui/combat';
 import { TutorialProgress } from '../ui/tutorial';
@@ -229,7 +229,9 @@ export class GameApp {
     this.root.innerHTML = preparingMarkup(duo, 'Loading character models…');
     let candidate: GameScene | null = null;
     try {
-      await this.characterAssets.load();
+      const selected = [duo.fighterId, duo.partnerId].map(id => this.roster.find(character => character.id === id)!);
+      validateCharacterResources(selected.map(character => character.definition));
+      await Promise.all(selected.map(character => this.characterAssets.loadCharacter(character)));
       if (generation !== this.session.snapshot().generation || !['preparing', 'paused'].includes(this.phase)) return;
       this.root.querySelector('[role="status"]')!.textContent = 'Building the level…';
       const run = createRun(this.nextRunId++, duo);

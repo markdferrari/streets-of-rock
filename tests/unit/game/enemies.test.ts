@@ -22,7 +22,9 @@ describe('ranged and heavy enemies', () => {
     expect(events.some(event => event.type === 'enemy-warning')).toBe(true);
     for (let tick = 1; tick < 45; tick++) { run.tick = tick; updateZoners(run, events); }
     expect(run.projectiles).toHaveLength(1);
-    expect(run.projectiles[0]!.remainingTicks).toBeGreaterThan(0);
+    const bottle = run.projectiles[0]!;
+    if (bottle.kind === 'headrest') throw new Error('Expected the existing bottle projectile');
+    expect(bottle.remainingTicks).toBeGreaterThan(0);
   });
   it('uses swept projectile contact and consumes the projectile once', () => {
     const run = fixtureRun();

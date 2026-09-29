@@ -43,6 +43,13 @@ export function applyAttacksBatch(run: RunState, attacks: readonly AttackInstanc
     if (target.role === 'partner' && target.hp === 0) target.active = false;
     events.push({ type: 'hit', tick: run.tick, actorId: owner.id, targetId: target.id });
   }
+  for (const pending of run.pendingSpecialDamage.sort((a, b) => a.activationId - b.activationId || a.targetId - b.targetId)) {
+    const target = run.actors.find(actor => actor.id === pending.targetId);
+    if (!target || target.hp <= 0 || target.team !== 'enemy') continue;
+    target.hp = Math.max(0, target.hp - pending.damage);
+    events.push({ type: 'special-damage', tick: run.tick, actorId: pending.ownerId, targetId: target.id });
+  }
+  run.pendingSpecialDamage = [];
 }
 
 export function applyAttack(run: RunState, attack: AttackInstance, events: GameEvent[]): void {

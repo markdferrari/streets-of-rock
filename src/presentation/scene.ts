@@ -18,7 +18,7 @@ export class GameScene {
   private animated = new Map<number, { root: THREE.Group; mixer: THREE.AnimationMixer; clips: Map<string, THREE.AnimationClip>; current: string | null }>();
   private previousPositions = new Map<number, THREE.Vector2>();
   private objectModels = new Map<number, THREE.Mesh>();
-  private projectileModels = new Map<number, THREE.Mesh>();
+  private projectileModels = new Map<number, THREE.Object3D>();
   private effects = new EffectLayer(this.scene);
   private lastImpactMs: number | null = null;
   private currentFrame: CameraFrame | null = null;
@@ -53,7 +53,9 @@ export class GameScene {
     const frame = this.currentFrame ?? computeArenaFrame(run, viewport, {
       player: characterBodyEnvelope(player.characterId as CharacterRole), partner: characterBodyEnvelope(partner.characterId as CharacterRole),
     });
-    return buildArenaContext(run, frame, characterBodyEnvelope(partner.characterId as CharacterRole), 'partner');
+    const partnerContext = buildArenaContext(run, frame, characterBodyEnvelope(partner.characterId as CharacterRole), 'partner');
+    const playerContext = buildArenaContext(run, frame, characterBodyEnvelope(player.characterId as CharacterRole), 'player');
+    return { ...partnerContext, playerVisibleRegions: playerContext.visibleRegions };
   }
   render(run: RunState, events: GameEvent[], now: number, shakeEnabled = true, active = true): void {
     if (events.some(event => event.type === 'hit' || event.type === 'partner-hit')) this.lastImpactMs = now;
@@ -148,7 +150,11 @@ export class GameScene {
     for (const projectile of run.projectiles) {
       let model = this.projectileModels.get(projectile.id);
       if (!model) {
-        model = new THREE.Mesh(new THREE.SphereGeometry(.16, 8, 6), new THREE.MeshBasicMaterial({ color: 0xff8c43 }));
+        if (projectile.kind === 'headrest') {
+          model = this.characterAssets.createHeadrest();
+          model.scale.setScalar(.55);
+          model.rotation.y = Math.atan2(projectile.direction.x, projectile.direction.depth);
+        } else model = new THREE.Mesh(new THREE.SphereGeometry(.16, 8, 6), new THREE.MeshBasicMaterial({ color: 0xff8c43 }));
         this.projectileModels.set(projectile.id, model);
         this.scene.add(model);
       }
@@ -156,7 +162,9 @@ export class GameScene {
     }
     for (const [id, model] of this.projectileModels) {
       if (run.projectiles.some(projectile => projectile.id === id)) continue;
-      this.scene.remove(model); model.geometry.dispose(); (model.material as THREE.Material).dispose(); this.projectileModels.delete(id);
+      this.scene.remove(model);
+      if (model instanceof THREE.Mesh) { model.geometry.dispose(); (model.material as THREE.Material).dispose(); }
+      this.projectileModels.delete(id);
     }
     this.effects.add(events, positions, now);
     this.effects.update(now);

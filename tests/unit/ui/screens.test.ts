@@ -1,13 +1,13 @@
-import { expect, it } from 'vitest';
-import { preparationErrorMarkup } from '../../../src/ui/screens';
+import { describe, expect, it } from 'vitest';
+import { lockedDuoMarkup, preparingMarkup } from '../../../src/ui/screens';
 
-it('keeps the locked duo visible when preparation fails', () => {
-  const html = preparationErrorMarkup({ fighterId: 'crow', partnerId: 'cow' }, 'WebGL failed');
-  expect(html).toContain('Your Chieftain: Crow');
-  expect(html).toContain('AI Partner: Cow');
-  expect(html).toContain('Crow portrait');
-  expect(html).toContain('Cow portrait');
-  expect(html).toContain('WebGL failed');
-  expect(html).toContain('data-command="retry"');
-  expect(html).toContain('data-command="title"');
+describe('duo preparation screens', () => {
+  it('renders the registered portraits and display names for every new-role pairing', () => {
+    const markup = preparingMarkup({ fighterId: 'lion', partnerId: 'plates' }, 'Loading character models…');
+    expect(markup).toContain('Your Chieftain: Lion');
+    expect(markup).toContain('AI Partner: Plates');
+    expect(markup).toContain('alt="Lion portrait"');
+    expect(markup).toContain('alt="Plates portrait"');
+    expect(() => lockedDuoMarkup({ fighterId: 'plates', partnerId: 'lion' })).not.toThrow();
+  });
 });

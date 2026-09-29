@@ -12,7 +12,7 @@ import { updatePickups } from '../../../src/game/pickups';
 
 function tap(kind: ActionRequest['kind']): ActionRequest { return { kind, sourcePointerId: -1, order: 0 }; }
 function grunt(id = 3, x = 1, depth = 0): EnemyState {
-  return { id, role: 'grunt', team: 'enemy', position: { x, depth }, facing: -1,
+  return { id, role: 'grunt', combatClass: 'normal', team: 'enemy', position: { x, depth }, facing: -1,
     hp: 120, maxHp: 120, action: { kind: 'idle', startedTick: 0, endTick: 0 },
     protectionUntilTick: 0, decisionReadyTick: 0, attackSlot: false, phase: 1 };
 }

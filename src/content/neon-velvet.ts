@@ -1,4 +1,11 @@
-import type { LevelDefinition } from './types';
+import type { EnemyDefinition, EnemyRole, LevelDefinition } from './types';
+import { tuning } from './tuning';
+export const enemyDefinitions: Readonly<Record<EnemyRole, EnemyDefinition>> = Object.freeze({
+  grunt: { role: 'grunt', combatClass: 'normal', hp: tuning.gruntHp },
+  zoner: { role: 'zoner', combatClass: 'normal', hp: tuning.zonerHp },
+  enforcer: { role: 'enforcer', combatClass: 'normal', hp: tuning.enforcerHp },
+  liam: { role: 'liam', combatClass: 'boss', hp: tuning.liamHp },
+});
 export const neonVelvet: LevelDefinition = {
   id: 'neon-velvet', areas: [
     { id: 'dance-floor', minX: 0, maxX: 16, minDepth: -3, maxDepth: 3, waves: [

@@ -1,14 +1,15 @@
-import type { GameEvent, RunState } from '../types';
+import type { EnemyState, GameEvent, RunState } from '../types';
 import { allocateAttackId } from '../run';
 import { assignAttackSlots } from './attack-slots';
 import { getPlayer } from '../selectors';
+import { enemyIsStunned } from '../status-effects';
 
 export function updateGrunts(run: RunState, events: GameEvent[]): void {
   assignAttackSlots(run);
   const cow = getPlayer(run);
   if (cow.hp <= 0) return;
-  for (const grunt of run.actors.filter(actor => actor.role === 'grunt').sort((a, b) => a.id - b.id)) {
-    if (grunt.hp <= 0) continue;
+  for (const grunt of run.actors.filter((actor): actor is EnemyState => actor.team === 'enemy' && actor.role === 'grunt').sort((a, b) => a.id - b.id)) {
+    if (grunt.hp <= 0 || enemyIsStunned(grunt, run.tick)) continue;
     if (!grunt.attackSlot) {
       grunt.position.depth = Math.max(-3, Math.min(3, grunt.position.depth + (grunt.id % 2 ? .02 : -.02)));
       continue;

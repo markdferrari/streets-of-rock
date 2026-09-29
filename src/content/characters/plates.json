@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "plates",
+  "displayName": "Plates",
+  "description": "A fast fighter with long reach and a flying headrest.",
+  "fightingStyle": "Fast and long-reaching",
+  "player": {
+    "maxHp": 300,
+    "moveSpeed": 4.2,
+    "light": [
+      { "windupTicks": 6, "activeTicks": 5, "recoveryTicks": 12, "damage": 10, "range": 2, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 6, "activeTicks": 5, "recoveryTicks": 12, "damage": 12, "range": 2, "depthTolerance": 0.45, "knockback": 0 },
+      { "windupTicks": 9, "activeTicks": 5, "recoveryTicks": 18, "damage": 18, "range": 2, "depthTolerance": 0.45, "knockback": 1.2 }
+    ],
+    "heavy": { "windupTicks": 12, "activeTicks": 6, "recoveryTicks": 22, "damage": 28, "range": 2.4, "depthTolerance": 0.45, "knockback": 1.2 },
+    "dodge": { "durationTicks": 18, "speed": 6, "invulnerabilityTicks": 12, "cooldownTicks": 54 },
+    "special": { "kind": "straightProjectile", "windupTicks": 12, "activeTicks": 1, "recoveryTicks": 24, "projectileKey": "headrest", "speed": 12, "maxDistance": 12, "damage": 50, "collisionRadius": 0.25 }
+  },
+  "partner": { "maxHp": 300, "moveSpeed": 4.2, "catchUpSpeed": 4.5, "supportDamage": 8, "supportCooldownTicks": 54, "animationKey": "plates-support" },
+  "presentation": { "modelKey": "plates", "portraitKey": "plates", "animationSetKey": "plates", "soundSetKey": "plates", "specialLabel": "Headrest Toss" }
+}

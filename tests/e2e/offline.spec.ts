@@ -38,6 +38,21 @@ test('a complete installed cache relaunches offline for both duos, results and r
   await page.getByRole('button', { name: 'Retry' }).click();
   await expect(page.locator('.overlay')).toBeHidden({ timeout: 10_000 });
   await expect(page.locator('.hud')).toContainText('Cow 500 / 500');
+  await page.evaluate(() => (window as unknown as { __sorTest: { defeatPlayer: () => void } }).__sorTest.defeatPlayer());
+  await expect(page.getByRole('heading', { name: 'Defeat' })).toBeVisible();
+  await page.getByRole('button', { name: 'Return to title' }).click();
+  await enterRun(page, 'Lion', 'Plates');
+  await expect(page.locator('.hud')).toContainText('Lion 500 / 500');
+  await page.evaluate(() => (window as unknown as { __sorTest: { defeatPlayer: () => void } }).__sorTest.defeatPlayer());
+  await expect(page.getByRole('heading', { name: 'Defeat' })).toBeVisible();
+  await page.getByRole('button', { name: 'Retry' }).click();
+  await expect(page.locator('.overlay')).toBeHidden({ timeout: 10_000 });
+  await expect(page.locator('.hud')).toContainText('Lion 500 / 500');
+  await page.evaluate(() => (window as unknown as { __sorTest: { defeatPlayer: () => void } }).__sorTest.defeatPlayer());
+  await expect(page.getByRole('heading', { name: 'Defeat' })).toBeVisible();
+  await page.getByRole('button', { name: 'Return to title' }).click();
+  await enterRun(page, 'Plates', 'Lion');
+  await expect(page.locator('.hud')).toContainText('Plates 300 / 300');
 });
 
 test('missing cached bytes never appear as offline ready', async ({ page }) => {
