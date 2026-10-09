@@ -65,8 +65,11 @@ sha256, uncompressed bytes and category `engine` or `content`.
 
 Entry URLs must be unique, normalized and traversal-free. Engine and pack URLs are
 immutable release URLs. Root index/manifest/icon entries may be revisioned stable URLs.
-The inventory is available at `releases/<buildId>/asset-inventory.json`; shell and
-worker share its expected digest. All required files must be covered. The inventory
+The inventory is available at `releases/<buildId>/asset-inventory.json`. The worker
+embeds its expected digest; the shell embeds only the buildId and inventory URL,
+then obtains verified cache status through the worker protocol. Do not embed the
+inventory digest in a shell whose bytes the inventory itself hashes. All required
+files must be covered. The inventory
 and worker are audited separately as content and included in reported budgets/totals.
 
 ## Budget accounting
@@ -168,6 +171,12 @@ Fail release audits on content budgets, unhashed engine exceptions, missing/mixe
 resources, absent portraits/clips/props/backdrops/audio, incomplete inventory, source
 asset leakage, test/diagnostic APIs or fixtures, and incorrect manifest identity.
 Run actual release smoke tests in addition to test exports.
+
+The final audit mode additionally requires intended-soundtrack confirmation and
+completed acceptance records for the exact release: requirement coverage, concept
+and in-game reviews, phone checks, character workflow exercises and five-player
+criteria. Missing or mismatched evidence fails final acceptance; ordinary development
+builds may still be generated while those reviews are pending.
 
 Exercise two releases from one origin with two old windows, including the real legacy
 worker fixture, loading/countdown/running/paused states, old saved values, failed
