@@ -1,0 +1,28 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/export.test.ts (7 tests | 1 failed) 25ms
+   × rejects missing, modified or unlisted shipped bytes without circular worker/inventory coverage 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/export.test.ts > rejects missing, modified or unlisted shipped bytes without circular worker/inventory coverage
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/export.test.ts:49:50
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  09:59:40
+   Duration  878ms (transform 103ms, setup 0ms, import 681ms, tests 25ms, environment 0ms)
+

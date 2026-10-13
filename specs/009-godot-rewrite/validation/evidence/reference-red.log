@@ -1,0 +1,72 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/reference.test.ts (4 tests | 4 failed) 15ms
+     × preserves event order and exact hit/target/outcome identities 9ms
+     × normalizes absent optionals to null without dropping array order 1ms
+     × uses tight relative continuous tolerance in both directions 1ms
+     × requires frame time, viewport, ArenaContext, ordered input and checkpoints 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/reference.test.ts > canonical replay contract > preserves event order and exact hit/target/outcome identities
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ tests/tooling/reference.test.ts:5:126
+      3| describe('canonical replay contract', () => {
+      4|  it('preserves event order and exact hit/target/outcome identities', (…
+      5|   expect(compare([{type:'hit',targetId:3},{type:'stun',targetId:4}],[{…
+       |                                                                                                                              ^
+      6|   for(const actual of [{targetId:4},{hp:100.00000001},{tick:1.00000000…
+      7|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/tooling/reference.test.ts > canonical replay contract > normalizes absent optionals to null without dropping array order
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ tests/tooling/reference.test.ts:10:36
+      8|  it('normalizes absent optionals to null without dropping array order'…
+      9|   expect(compare({actor:{targetId:null}},{actor:{}})).toEqual([]);
+     10|   expect(compare([1,2],[2,1])).not.toEqual([]);
+       |                                    ^
+     11|  });
+     12|  it('uses tight relative continuous tolerance in both directions', () …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/tooling/reference.test.ts > canonical replay contract > uses tight relative continuous tolerance in both directions
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ tests/tooling/reference.test.ts:14:63
+     12|  it('uses tight relative continuous tolerance in both directions', () …
+     13|   expect(compare({position:{x:1,depth:1000}},{position:{x:1+5e-10,dept…
+     14|   expect(compare({position:{x:1}},{position:{x:1+2e-9}})).not.toEqual(…
+       |                                                               ^
+     15|   expect(compare({position:{x:NaN}},{position:{x:NaN}})).not.toEqual([…
+     16|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/tooling/reference.test.ts > canonical replay contract > requires frame time, viewport, ArenaContext, ordered input and checkpoints
+AssertionError: expected [] to not deeply equal []
+
+Compared values have no visual difference.
+
+ ❯ tests/tooling/reference.test.ts:20:182
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  09:29:52
+   Duration  257ms (transform 38ms, setup 0ms, import 57ms, tests 15ms, environment 0ms)
+

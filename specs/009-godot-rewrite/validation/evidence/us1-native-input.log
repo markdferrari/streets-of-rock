@@ -1,0 +1,10 @@
+$ playwright test --config playwright.godot.config.ts --project chromium --grep "actual game preserves"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:529602) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-input.spec.ts:15:1 › actual game preserves simultaneous movement and action, with source-specific native cancellation (7.7s)
+
+  1 passed (8.5s)

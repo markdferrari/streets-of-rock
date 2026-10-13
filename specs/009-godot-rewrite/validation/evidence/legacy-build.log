@@ -1,0 +1,49 @@
+$ bun run typecheck && vite build && bun scripts/build-asset-inventory.ts
+$ tsc --noEmit
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 78 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/manifest.webmanifest             0.37 kB
+dist/index.html                       0.51 kB │ gzip:   0.31 kB
+dist/assets/headrest-C-4OlRa7.glb     8.29 kB
+dist/assets/portrait-B92U9d0_.png   236.25 kB
+dist/assets/cow-2cpQ7JWN.png        241.24 kB
+dist/assets/crow-B95rGtNT.png       242.16 kB
+dist/assets/portrait-CR32a3ph.png   249.14 kB
+dist/assets/character-BGGJH_PS.glb  305.47 kB
+dist/assets/cow-CcNmSbVS.glb        351.19 kB
+dist/assets/crow-BFA9MSW6.glb       429.48 kB
+dist/assets/character-BmOHghWE.glb  522.52 kB
+dist/assets/index-CZqfMy0i.css        7.52 kB │ gzip:   2.37 kB
+dist/assets/index-Cw-5R3qL.js       726.43 kB │ gzip: 186.23 kB
+
+✓ built in 181ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+
+PWA v1.3.0
+Building src/sw.ts service worker ("es" format)...
+vite v8.3.0 building client environment for production...
+
+ WARN  inlineDynamicImports option is deprecated, please use codeSplitting: false instead.
+
+transforming...
+✓ 66 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/sw.mjs  17.99 kB │ gzip: 6.15 kB
+
+✓ built in 22ms
+
+PWA v1.3.0
+mode      injectManifest
+format:   es
+precache  22 entries (7221.59 KiB)
+files generated
+  dist/sw.js
+Inventory 8a1f739e4d934900: 22 assets

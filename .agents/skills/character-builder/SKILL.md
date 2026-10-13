@@ -17,7 +17,7 @@ character ready. Keep player and AI partner profiles separate; AI partners do no
 player Specials. Preserve unrelated approved resources and report their hashes when the
 task requires preservation evidence.
 
-For asset generation, concept review, supported tools, validation commands, and the
-CreationReport format, read [the workflow reference](references/workflow.md).
+For asset generation, concept review, Godot import/playable checks, and the CreationReport
+format, read [the workflow reference](references/workflow.md).
 Report unavailable concept, playable, device, balance, or participant evidence as
 pending; command success does not establish visual or gameplay acceptance.

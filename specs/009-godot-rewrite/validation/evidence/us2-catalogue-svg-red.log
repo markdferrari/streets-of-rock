@@ -1,0 +1,46 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/backdrops.test.ts (4 tests | 3 failed) 16ms
+   × rejects wrong image sizes, external resources, scripts and animated or transparent roots 5ms
+   × requires exactly the four stable room mappings and safe locked wall/floor paths 1ms
+   × accounts for all eight decoded RGBA textures including the complete mip pyramid 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/backdrops.test.ts > rejects wrong image sizes, external resources, scripts and animated or transparent roots
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/tooling/backdrops.test.ts:7:412
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/tooling/backdrops.test.ts > requires exactly the four stable room mappings and safe locked wall/floor paths
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/tooling/backdrops.test.ts:11:329
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/tooling/backdrops.test.ts > accounts for all eight decoded RGBA textures including the complete mip pyramid
+AssertionError: expected +0 to be 55924048 // Object.is equality
+
+- Expected
++ Received
+
+- 55924048
++ 0
+
+ ❯ tests/tooling/backdrops.test.ts:14:127
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  3 failed | 25 passed (28)
+   Start at  15:18:11
+   Duration  1.06s (transform 851ms, setup 0ms, import 1.83s, tests 309ms, environment 1ms)
+
+error: script "test:platform" exited with code 1

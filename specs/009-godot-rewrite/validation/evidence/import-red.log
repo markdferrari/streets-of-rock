@@ -1,0 +1,150 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+[31m    [Failed]:  [0m[]
+      at line 10
+[31m    [Failed]:  [0m[VECTOR3(0.0, 0.0, 0.0)] expected to equal [VECTOR3(3.25, 0.0, -1.75)]:  
+      at line 16
+[31m    [Failed]:  [0m[VECTOR3(1.0, 1.0, 1.0)] expected to equal [VECTOR3(1.25, 1.25, 1.25)]:  
+      at line 17
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-1.5707963267949] +/- [0.00001]:  
+      at line 18
+[31m    [Failed]:  [0mExpected [<null>] to be anything but NULL:  
+      at line 19
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+[31m    [Failed] [0m
+      at line 30
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[31m    [Failed] [0m
+      at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 34
+[1m0/2 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/godot/presentation/test_import.gd
+[0m- test_imported_rig_has_all_semantic_clips_and_manual_pose
+[31m    [Failed]:  [0m[]
+          at line 10
+[31m    [Failed]:  [0m[VECTOR3(0.0, 0.0, 0.0)] expected to equal [VECTOR3(3.25, 0.0, -1.75)]:  
+          at line 16
+[31m    [Failed]:  [0m[VECTOR3(1.0, 1.0, 1.0)] expected to equal [VECTOR3(1.25, 1.25, 1.25)]:  
+          at line 17
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-1.5707963267949] +/- [0.00001]:  
+          at line 18
+[31m    [Failed]:  [0mExpected [<null>] to be anything but NULL:  
+          at line 19
+- test_missing_clip_blocks_readiness_and_released_instances_settle
+[31m    [Failed]:  [0m
+          at line 30
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+[31m    [Failed]:  [0m
+          at line 32
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 34
+
+Totals
+------
+Scripts               2
+Tests                 6
+Passing Tests         4
+Failing Tests         2
+Asserts           46/72
+Time              0.426s
+
+
+[31m---- 2 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

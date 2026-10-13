@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "name": "legacy",
+  "source": "tests/reference/releases/legacy",
+  "buildId": "184f564e58e31647",
+  "fileCount": 41,
+  "treeSha256": "2abcf3d1e1b0a1aaed7cbb509153e7c4c946061704d62e11586491a09ebf06b3"
+}

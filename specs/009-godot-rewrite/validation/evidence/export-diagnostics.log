@@ -1,0 +1,2 @@
+$ bun scripts/godot/export.ts diagnostics
+Web diagnostics: 850c87c7426374e0b074da96ab14afa6ac6a43675b6575ce2f98299840f21459; 1 pack(s), 5093770 content bytes, 39804840 verified engine bytes

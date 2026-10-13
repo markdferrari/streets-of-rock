@@ -1,0 +1,10 @@
+$ playwright test --config playwright.godot.config.ts godot-foundation --grep "cold offline" --project chromium
+[WebServer] $ bun scripts/preview.ts --dir dist-split --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:567654) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline (3.5s)
+
+  1 passed (4.0s)

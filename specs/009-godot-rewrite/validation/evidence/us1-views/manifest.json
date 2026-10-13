@@ -1,0 +1,707 @@
+[
+  {
+    "width": 667,
+    "height": 375,
+    "path": "specs/009-godot-rewrite/validation/evidence/us1-views/667x375.png",
+    "buildId": "fbb99a3fffa4e1881a12804797a4307655d7a5e75fd5682aa578f45df68d4575",
+    "snapshot": {
+      "acceptedMoves": [],
+      "bounds": {
+        "dodge": {
+          "height": 56,
+          "width": 56,
+          "x": 539,
+          "y": 307
+        },
+        "heavy": {
+          "height": 56,
+          "width": 56,
+          "x": 599,
+          "y": 249
+        },
+        "light": {
+          "height": 72,
+          "width": 72,
+          "x": 479,
+          "y": 241
+        },
+        "pause": {
+          "height": 44,
+          "width": 64,
+          "x": 591,
+          "y": 8
+        },
+        "special": {
+          "height": 56,
+          "width": 56,
+          "x": 539,
+          "y": 187
+        }
+      },
+      "camera": {
+        "anchorDepth": 0,
+        "anchorHeight": 1.55,
+        "anchorX": 8,
+        "aspect": 1.77866666666667,
+        "halfHeight": 6.36411002460102
+      },
+      "elapsedMs": 369,
+      "generation": 1,
+      "movement": {
+        "depth": 0,
+        "x": 0
+      },
+      "ownedInstances": 2,
+      "phase": "running",
+      "ready": true,
+      "run": {
+        "actors": [
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "characterId": "cow",
+            "comboDeadlineTick": 0,
+            "comboStep": 0,
+            "decisionReadyTick": 0,
+            "dodgeReadyTick": 0,
+            "facing": 1,
+            "hp": 500,
+            "id": 1,
+            "maxHp": 500,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6
+            },
+            "protectionUntilTick": 0,
+            "role": "player",
+            "specialMeter": 0,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "active": true,
+            "attackSlot": false,
+            "characterId": "crow",
+            "decisionReadyTick": 0,
+            "facing": 1,
+            "hp": 240,
+            "id": 2,
+            "intentState": {
+              "blockedDestination": null,
+              "blockedTicks": 0,
+              "destination": {
+                "depth": 0,
+                "x": 6.9
+              },
+              "intent": "engage",
+              "lastHorizontalFacing": 1,
+              "lastRecoveryTick": -120,
+              "lastResolvedPosition": {
+                "depth": 0,
+                "x": 0.106666666666666
+              },
+              "targetId": 3
+            },
+            "lastProgressTick": 16,
+            "maxHp": 240,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 0.106666666666666
+            },
+            "protectionUntilTick": 0,
+            "role": "partner",
+            "targetId": 3,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 121,
+            "facing": -1,
+            "hp": 120,
+            "id": 3,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6.9
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 121,
+            "facing": -1,
+            "hp": 120,
+            "id": 4,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 11
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "combatClass": "normal",
+            "decisionReadyTick": 121,
+            "facing": -1,
+            "hp": 120,
+            "id": 5,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0.32,
+              "x": 12
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          }
+        ],
+        "areaIndex": 0,
+        "attacks": [],
+        "duo": {
+          "fighterId": "cow",
+          "partnerId": "crow"
+        },
+        "encounter": {
+          "aliveEnemyIds": [
+            3,
+            4,
+            5
+          ],
+          "areaId": "dance-floor",
+          "cameraCenter": 8,
+          "status": "active",
+          "waveIndex": 0
+        },
+        "nextAttackId": 1,
+        "nextEntityId": 6,
+        "nextSpecialActivationId": 1,
+        "pendingSpecialDamage": [],
+        "pickups": [],
+        "projectiles": [],
+        "result": null,
+        "runId": 1,
+        "tables": [],
+        "tick": 17,
+        "waveIndex": 0
+      },
+      "selection": {
+        "fighterId": "cow",
+        "focusedId": "crow",
+        "locked": true,
+        "previewedId": "crow",
+        "step": "partner"
+      },
+      "settings": {
+        "effectsVolume": 0.8,
+        "musicVolume": 0.7,
+        "schemaVersion": 1,
+        "screenShake": true
+      }
+    }
+  },
+  {
+    "width": 844,
+    "height": 390,
+    "path": "specs/009-godot-rewrite/validation/evidence/us1-views/844x390.png",
+    "buildId": "fbb99a3fffa4e1881a12804797a4307655d7a5e75fd5682aa578f45df68d4575",
+    "snapshot": {
+      "acceptedMoves": [],
+      "bounds": {
+        "dodge": {
+          "height": 56,
+          "width": 56,
+          "x": 716,
+          "y": 322
+        },
+        "heavy": {
+          "height": 56,
+          "width": 56,
+          "x": 776,
+          "y": 264
+        },
+        "light": {
+          "height": 72,
+          "width": 72,
+          "x": 656,
+          "y": 256
+        },
+        "pause": {
+          "height": 44,
+          "width": 64,
+          "x": 768,
+          "y": 8
+        },
+        "special": {
+          "height": 56,
+          "width": 56,
+          "x": 716,
+          "y": 202
+        }
+      },
+      "camera": {
+        "anchorDepth": 0,
+        "anchorHeight": 1.55,
+        "anchorX": 8,
+        "aspect": 2.16410256410256,
+        "halfHeight": 5.16649430221781
+      },
+      "elapsedMs": 421,
+      "generation": 1,
+      "movement": {
+        "depth": 0,
+        "x": 0
+      },
+      "ownedInstances": 2,
+      "phase": "running",
+      "ready": true,
+      "run": {
+        "actors": [
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "characterId": "cow",
+            "comboDeadlineTick": 0,
+            "comboStep": 0,
+            "decisionReadyTick": 0,
+            "dodgeReadyTick": 0,
+            "facing": 1,
+            "hp": 500,
+            "id": 1,
+            "maxHp": 500,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6
+            },
+            "protectionUntilTick": 0,
+            "role": "player",
+            "specialMeter": 0,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "active": true,
+            "attackSlot": false,
+            "characterId": "crow",
+            "decisionReadyTick": 0,
+            "facing": 1,
+            "hp": 240,
+            "id": 2,
+            "intentState": {
+              "blockedDestination": null,
+              "blockedTicks": 0,
+              "destination": {
+                "depth": 0,
+                "x": 6.9
+              },
+              "intent": "engage",
+              "lastHorizontalFacing": 1,
+              "lastRecoveryTick": -120,
+              "lastResolvedPosition": {
+                "depth": -0.00839958943289442,
+                "x": 0.275830689334225
+              },
+              "targetId": 3
+            },
+            "lastProgressTick": 19,
+            "maxHp": 240,
+            "phase": 1,
+            "position": {
+              "depth": -0.00839958943289442,
+              "x": 0.275830689334225
+            },
+            "protectionUntilTick": 0,
+            "role": "partner",
+            "targetId": 3,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 3,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6.9
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 4,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 11
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 5,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0.36,
+              "x": 12
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          }
+        ],
+        "areaIndex": 0,
+        "attacks": [],
+        "duo": {
+          "fighterId": "cow",
+          "partnerId": "crow"
+        },
+        "encounter": {
+          "aliveEnemyIds": [
+            3,
+            4,
+            5
+          ],
+          "areaId": "dance-floor",
+          "cameraCenter": 8,
+          "status": "active",
+          "waveIndex": 0
+        },
+        "nextAttackId": 1,
+        "nextEntityId": 6,
+        "nextSpecialActivationId": 1,
+        "pendingSpecialDamage": [],
+        "pickups": [],
+        "projectiles": [],
+        "result": null,
+        "runId": 1,
+        "tables": [],
+        "tick": 20,
+        "waveIndex": 0
+      },
+      "selection": {
+        "fighterId": "cow",
+        "focusedId": "crow",
+        "locked": true,
+        "previewedId": "crow",
+        "step": "partner"
+      },
+      "settings": {
+        "effectsVolume": 0.8,
+        "musicVolume": 0.7,
+        "schemaVersion": 1,
+        "screenShake": true
+      }
+    }
+  },
+  {
+    "width": 915,
+    "height": 412,
+    "path": "specs/009-godot-rewrite/validation/evidence/us1-views/915x412.png",
+    "buildId": "fbb99a3fffa4e1881a12804797a4307655d7a5e75fd5682aa578f45df68d4575",
+    "snapshot": {
+      "acceptedMoves": [],
+      "bounds": {
+        "dodge": {
+          "height": 56,
+          "width": 56,
+          "x": 787,
+          "y": 344
+        },
+        "heavy": {
+          "height": 56,
+          "width": 56,
+          "x": 847,
+          "y": 286
+        },
+        "light": {
+          "height": 72,
+          "width": 72,
+          "x": 727,
+          "y": 278
+        },
+        "pause": {
+          "height": 44,
+          "width": 64,
+          "x": 839,
+          "y": 8
+        },
+        "special": {
+          "height": 56,
+          "width": 56,
+          "x": 787,
+          "y": 224
+        }
+      },
+      "camera": {
+        "anchorDepth": 0,
+        "anchorHeight": 1.55,
+        "anchorX": 8,
+        "aspect": 2.22087378640777,
+        "halfHeight": 5.06497010255097
+      },
+      "elapsedMs": 397,
+      "generation": 1,
+      "movement": {
+        "depth": 0,
+        "x": 0
+      },
+      "ownedInstances": 2,
+      "phase": "running",
+      "ready": true,
+      "run": {
+        "actors": [
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "characterId": "cow",
+            "comboDeadlineTick": 0,
+            "comboStep": 0,
+            "decisionReadyTick": 0,
+            "dodgeReadyTick": 0,
+            "facing": 1,
+            "hp": 500,
+            "id": 1,
+            "maxHp": 500,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6
+            },
+            "protectionUntilTick": 0,
+            "role": "player",
+            "specialMeter": 0,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "active": true,
+            "attackSlot": false,
+            "characterId": "crow",
+            "decisionReadyTick": 0,
+            "facing": 1,
+            "hp": 240,
+            "id": 2,
+            "intentState": {
+              "blockedDestination": null,
+              "blockedTicks": 0,
+              "destination": {
+                "depth": 0,
+                "x": 6.9
+              },
+              "intent": "engage",
+              "lastHorizontalFacing": 1,
+              "lastRecoveryTick": -120,
+              "lastResolvedPosition": {
+                "depth": -0.00847144392959461,
+                "x": 0.219164068224065
+              },
+              "targetId": 3
+            },
+            "lastProgressTick": 18,
+            "maxHp": 240,
+            "phase": 1,
+            "position": {
+              "depth": -0.00847144392959461,
+              "x": 0.219164068224065
+            },
+            "protectionUntilTick": 0,
+            "role": "partner",
+            "targetId": 3,
+            "team": "ally"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 3,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 6.9
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": true,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 4,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0,
+              "x": 11
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          },
+          {
+            "action": {
+              "endTick": 0,
+              "kind": "idle",
+              "startedTick": 0
+            },
+            "attackSlot": false,
+            "combatClass": "normal",
+            "decisionReadyTick": 122,
+            "facing": -1,
+            "hp": 120,
+            "id": 5,
+            "maxHp": 120,
+            "phase": 1,
+            "position": {
+              "depth": 0.34,
+              "x": 12
+            },
+            "protectionUntilTick": 0,
+            "role": "grunt",
+            "team": "enemy"
+          }
+        ],
+        "areaIndex": 0,
+        "attacks": [],
+        "duo": {
+          "fighterId": "cow",
+          "partnerId": "crow"
+        },
+        "encounter": {
+          "aliveEnemyIds": [
+            3,
+            4,
+            5
+          ],
+          "areaId": "dance-floor",
+          "cameraCenter": 8,
+          "status": "active",
+          "waveIndex": 0
+        },
+        "nextAttackId": 1,
+        "nextEntityId": 6,
+        "nextSpecialActivationId": 1,
+        "pendingSpecialDamage": [],
+        "pickups": [],
+        "projectiles": [],
+        "result": null,
+        "runId": 1,
+        "tables": [],
+        "tick": 19,
+        "waveIndex": 0
+      },
+      "selection": {
+        "fighterId": "cow",
+        "focusedId": "crow",
+        "locked": true,
+        "previewedId": "crow",
+        "step": "partner"
+      },
+      "settings": {
+        "effectsVolume": 0.8,
+        "musicVolume": 0.7,
+        "schemaVersion": 1,
+        "screenShake": true
+      }
+    }
+  }
+]

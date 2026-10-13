@@ -1,0 +1,92 @@
+$ bun run test:platform && bun run test:godot && bun run test:e2e:godot && bun run test:e2e:release
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+
+ Test Files  6 passed (6)
+      Tests  24 passed (24)
+   Start at  10:23:49
+   Duration  489ms (transform 221ms, setup 0ms, import 629ms, tests 138ms, environment 1ms)
+
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Scripts               3
+Tests                 8
+Passing Tests         8
+Asserts              81
+Time              0.453s
+
+
+[32m---- All tests passed! ----
+[0m
+$ playwright test --config playwright.godot.config.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 8 tests using 1 worker
+
+(node:501638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio (1.8s)
+  ✓  2 [chromium] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume (1.2s)
+  ✓  3 [chromium] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline (2.6s)
+  ✓  4 [chromium] › tests/e2e/godot-foundation.spec.ts:27:1 › native simultaneous touches, cancel and outside release clear their originating inputs (1.4s)
+(node:501873) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio (1.7s)
+  ✓  6 [webkit] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume (1.3s)
+  -  7 [webkit] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline
+  -  8 [webkit] › tests/e2e/godot-foundation.spec.ts:27:1 › native simultaneous touches, cancel and outside release clear their originating inputs
+
+  2 skipped
+  6 passed (20.3s)
+$ playwright test --config playwright.release.config.ts
+[WebServer] $ bun scripts/godot/export.ts release
+[WebServer] $ bun scripts/preview.ts --dir dist --host "127.0.0.1" --port "4182"
+
+Running 2 tests using 1 worker
+
+(node:502507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-release.spec.ts:2:1 › actual Release boots and query parameters cannot register test or diagnostics hooks (990ms)
+(node:502618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [webkit] › tests/e2e/godot-release.spec.ts:2:1 › actual Release boots and query parameters cannot register test or diagnostics hooks (1.2s)
+
+  2 passed (10.0s)

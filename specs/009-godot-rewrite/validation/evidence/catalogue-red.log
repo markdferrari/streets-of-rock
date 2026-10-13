@@ -1,0 +1,160 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+[31m    [Failed]:  [0m[]
+      at line 16
+[31m    [Failed]:  [0mARRAY([]) != ARRAY(["cow", "crow", "lion", "plates"]).
+    [] != ["cow", "crow", "lion", "plates"]  4 of 4 indexes do not match.  
+      at line 17
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "cow", "displayName": "Cow", "description": "A steady, powerful fighter.", "fightingStyle": "Balanced power", "player": { "maxHp": 500.0, "moveSpeed": 3.2, "light": [{ "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 12.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 14.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 11.0, "activeTicks": 6.0, "recoveryTicks": 20.0, "damage": 22.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 14.0, "activeTicks": 6.0, "recoveryTicks": 24.0, "damage": 30.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "areaStrike", "windupTicks": 6.0, "activeTicks": 6.0, "recoveryTicks": 21.0, "damage": 60.0, "range": 2.0, "depthTolerance": 2.0, "knockback": 1.5 } }, "partner": { "maxHp": 500.0, "moveSpeed": 3.2, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "cow-support" }, "presentation": { "modelKey": "cow", "portraitKey": "cow", "animationSetKey": "cow", "soundSetKey": "cow", "specialLabel": "Bovine Spin" } })]:  
+      at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "crow", "displayName": "Crow", "description": "A quick fighter with nimble attacks.", "fightingStyle": "Fast and agile", "player": { "maxHp": 240.0, "moveSpeed": 3.4, "light": [{ "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 10.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 12.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 11.0, "activeTicks": 6.0, "recoveryTicks": 20.0, "damage": 18.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 14.0, "activeTicks": 6.0, "recoveryTicks": 24.0, "damage": 26.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "areaStrike", "windupTicks": 6.0, "activeTicks": 6.0, "recoveryTicks": 21.0, "damage": 50.0, "range": 2.0, "depthTolerance": 2.0, "knockback": 1.5 } }, "partner": { "maxHp": 240.0, "moveSpeed": 3.4, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "crow-support" }, "presentation": { "modelKey": "crow", "portraitKey": "crow", "animationSetKey": "crow", "soundSetKey": "crow", "specialLabel": "Wing Spin" } })]:  
+      at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "lion", "displayName": "Lion", "description": "A slow, powerful brawler who ROARS to stop groups.", "fightingStyle": "Slow and powerful", "player": { "maxHp": 500.0, "moveSpeed": 2.6, "light": [{ "windupTicks": 12.0, "activeTicks": 8.0, "recoveryTicks": 20.0, "damage": 18.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 12.0, "activeTicks": 8.0, "recoveryTicks": 20.0, "damage": 22.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 16.0, "activeTicks": 8.0, "recoveryTicks": 26.0, "damage": 32.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 20.0, "activeTicks": 8.0, "recoveryTicks": 32.0, "damage": 44.0, "range": 1.8, "depthTolerance": 0.6, "knockback": 1.5 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "roar", "windupTicks": 18.0, "activeTicks": 1.0, "recoveryTicks": 30.0, "radius": 3.0, "stunTicks": 120.0, "bossDamage": 60.0 } }, "partner": { "maxHp": 500.0, "moveSpeed": 2.6, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "lion-support" }, "presentation": { "modelKey": "lion", "portraitKey": "lion", "animationSetKey": "lion", "soundSetKey": "lion", "specialLabel": "ROAR" } })]:  
+      at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "plates", "displayName": "Plates", "description": "A fast fighter with long reach and a flying headrest.", "fightingStyle": "Fast and long-reaching", "player": { "maxHp": 300.0, "moveSpeed": 4.2, "light": [{ "windupTicks": 6.0, "activeTicks": 5.0, "recoveryTicks": 12.0, "damage": 10.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 6.0, "activeTicks": 5.0, "recoveryTicks": 12.0, "damage": 12.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 9.0, "activeTicks": 5.0, "recoveryTicks": 18.0, "damage": 18.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 12.0, "activeTicks": 6.0, "recoveryTicks": 22.0, "damage": 28.0, "range": 2.4, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "straightProjectile", "windupTicks": 12.0, "activeTicks": 1.0, "recoveryTicks": 24.0, "projectileKey": "headrest", "speed": 12.0, "maxDistance": 12.0, "damage": 50.0, "collisionRadius": 0.25 } }, "partner": { "maxHp": 300.0, "moveSpeed": 4.2, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "plates-support" }, "presentation": { "modelKey": "plates", "portraitKey": "plates", "animationSetKey": "plates", "soundSetKey": "plates", "specialLabel": "Headrest Toss" } })]:  
+      at line 19
+* test_rejects_malformed_fields_with_actionable_paths
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed]:  [0m[]
+      at line 30
+[31m    [Failed] [0m
+      at line 34
+[31m    [Failed] [0m
+      at line 34
+[31m    [Failed] [0m
+      at line 34
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 44
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 47
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 50
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 53
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 56
+* test_distinct_duos_and_clip_keys
+[31m    [Failed] [0m
+      at line 62
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+      at line 63
+[1m0/4 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/godot/content/test_catalogue.gd
+[0m- test_shipped_catalogue_loads_unchanged_values_and_order
+[31m    [Failed]:  [0m[]
+          at line 16
+[31m    [Failed]:  [0mARRAY([]) != ARRAY(["cow", "crow", "lion", "plates"]).
+    [] != ["cow", "crow", "lion", "plates"]  4 of 4 indexes do not match.  
+          at line 17
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "cow", "displayName": "Cow", "description": "A steady, powerful fighter.", "fightingStyle": "Balanced power", "player": { "maxHp": 500.0, "moveSpeed": 3.2, "light": [{ "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 12.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 14.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 11.0, "activeTicks": 6.0, "recoveryTicks": 20.0, "damage": 22.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 14.0, "activeTicks": 6.0, "recoveryTicks": 24.0, "damage": 30.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "areaStrike", "windupTicks": 6.0, "activeTicks": 6.0, "recoveryTicks": 21.0, "damage": 60.0, "range": 2.0, "depthTolerance": 2.0, "knockback": 1.5 } }, "partner": { "maxHp": 500.0, "moveSpeed": 3.2, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "cow-support" }, "presentation": { "modelKey": "cow", "portraitKey": "cow", "animationSetKey": "cow", "soundSetKey": "cow", "specialLabel": "Bovine Spin" } })]:  
+          at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "crow", "displayName": "Crow", "description": "A quick fighter with nimble attacks.", "fightingStyle": "Fast and agile", "player": { "maxHp": 240.0, "moveSpeed": 3.4, "light": [{ "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 10.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 8.0, "activeTicks": 6.0, "recoveryTicks": 14.0, "damage": 12.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 11.0, "activeTicks": 6.0, "recoveryTicks": 20.0, "damage": 18.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 14.0, "activeTicks": 6.0, "recoveryTicks": 24.0, "damage": 26.0, "range": 1.3, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "areaStrike", "windupTicks": 6.0, "activeTicks": 6.0, "recoveryTicks": 21.0, "damage": 50.0, "range": 2.0, "depthTolerance": 2.0, "knockback": 1.5 } }, "partner": { "maxHp": 240.0, "moveSpeed": 3.4, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "crow-support" }, "presentation": { "modelKey": "crow", "portraitKey": "crow", "animationSetKey": "crow", "soundSetKey": "crow", "specialLabel": "Wing Spin" } })]:  
+          at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "lion", "displayName": "Lion", "description": "A slow, powerful brawler who ROARS to stop groups.", "fightingStyle": "Slow and powerful", "player": { "maxHp": 500.0, "moveSpeed": 2.6, "light": [{ "windupTicks": 12.0, "activeTicks": 8.0, "recoveryTicks": 20.0, "damage": 18.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 12.0, "activeTicks": 8.0, "recoveryTicks": 20.0, "damage": 22.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 16.0, "activeTicks": 8.0, "recoveryTicks": 26.0, "damage": 32.0, "range": 1.4, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 20.0, "activeTicks": 8.0, "recoveryTicks": 32.0, "damage": 44.0, "range": 1.8, "depthTolerance": 0.6, "knockback": 1.5 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "roar", "windupTicks": 18.0, "activeTicks": 1.0, "recoveryTicks": 30.0, "radius": 3.0, "stunTicks": 120.0, "bossDamage": 60.0 } }, "partner": { "maxHp": 500.0, "moveSpeed": 2.6, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "lion-support" }, "presentation": { "modelKey": "lion", "portraitKey": "lion", "animationSetKey": "lion", "soundSetKey": "lion", "specialLabel": "ROAR" } })]:  
+          at line 19
+[31m    [Failed]:  [0m[<null>] expected to equal [DICTIONARY({ "schemaVersion": 1.0, "id": "plates", "displayName": "Plates", "description": "A fast fighter with long reach and a flying headrest.", "fightingStyle": "Fast and long-reaching", "player": { "maxHp": 300.0, "moveSpeed": 4.2, "light": [{ "windupTicks": 6.0, "activeTicks": 5.0, "recoveryTicks": 12.0, "damage": 10.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 6.0, "activeTicks": 5.0, "recoveryTicks": 12.0, "damage": 12.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 0.0 }, { "windupTicks": 9.0, "activeTicks": 5.0, "recoveryTicks": 18.0, "damage": 18.0, "range": 2.0, "depthTolerance": 0.45, "knockback": 1.2 }], "heavy": { "windupTicks": 12.0, "activeTicks": 6.0, "recoveryTicks": 22.0, "damage": 28.0, "range": 2.4, "depthTolerance": 0.45, "knockback": 1.2 }, "dodge": { "durationTicks": 18.0, "speed": 6.0, "invulnerabilityTicks": 12.0, "cooldownTicks": 54.0 }, "special": { "kind": "straightProjectile", "windupTicks": 12.0, "activeTicks": 1.0, "recoveryTicks": 24.0, "projectileKey": "headrest", "speed": 12.0, "maxDistance": 12.0, "damage": 50.0, "collisionRadius": 0.25 } }, "partner": { "maxHp": 300.0, "moveSpeed": 4.2, "catchUpSpeed": 4.5, "supportDamage": 8.0, "supportCooldownTicks": 54.0, "animationKey": "plates-support" }, "presentation": { "modelKey": "plates", "portraitKey": "plates", "animationSetKey": "plates", "soundSetKey": "plates", "specialLabel": "Headrest Toss" } })]:  
+          at line 19
+- test_rejects_malformed_fields_with_actionable_paths
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m[]
+          at line 30
+[31m    [Failed]:  [0m
+          at line 34
+[31m    [Failed]:  [0m
+          at line 34
+[31m    [Failed]:  [0m
+          at line 34
+- test_rejects_schema_identity_move_timing_and_resource_constraints
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 41
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 44
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 47
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 50
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 53
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 56
+- test_distinct_duos_and_clip_keys
+[31m    [Failed]:  [0m
+          at line 62
+[31m    [Failed]:  [0m[0] expected to be > than [0]:  
+          at line 63
+
+Totals
+------
+Scripts               1
+Tests                 4
+Passing Tests      none
+Failing Tests         4
+Asserts            1/30
+Time              0.434s
+
+
+[31m---- 4 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

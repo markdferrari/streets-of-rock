@@ -1,0 +1,23 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/backdrops.test.ts (4 tests | 1 failed) 16ms
+   × rejects wrong image sizes, external resources, scripts and animated or transparent roots 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/backdrops.test.ts > rejects wrong image sizes, external resources, scripts and animated or transparent roots
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/tooling/backdrops.test.ts:7:658
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 27 passed (28)
+   Start at  15:38:05
+   Duration  996ms (transform 555ms, setup 0ms, import 1.46s, tests 297ms, environment 1ms)
+
+error: script "test:platform" exited with code 1

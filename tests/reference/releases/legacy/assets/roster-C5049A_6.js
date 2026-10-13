@@ -1,0 +1,1 @@
+import{t as e}from"./index-Dji3NPwN.js";var t=Array.from({length:12},(t,n)=>({...e[n%e.length],id:`fixture-${n+1}`,displayName:`Fixture ${n+1}`}));export{t as twelveCharacterRoster};

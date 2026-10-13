@@ -1,0 +1,35 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/backdrops.test.ts (6 tests | 1 failed) 24ms
+   × requires all eight actual final texture imports in a shipped pack, never concept substitutes 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/backdrops.test.ts > requires all eight actual final texture imports in a shipped pack, never concept substitutes
+AssertionError: expected [Function] to not throw an error but 'TypeError: (0 , __vite_ssr_import_2__…' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"TypeError: (0 , __vite_ssr_import_2__.auditImportedBackdrops) is not a function"
+
+ ❯ tests/tooling/backdrops.test.ts:22:48
+     20|  const catalogue=JSON.parse(readFileSync('content/backdrops.json','utf…
+     21|  const paths=catalogue.rooms.flatMap((room:any)=>['wall','floor'].map(…
+     22|  expect(()=>auditImportedBackdrops(paths)).not.toThrow();
+       |                                                ^
+     23|  expect(()=>auditImportedBackdrops(paths.slice(1))).toThrow(/required …
+     24|  expect(()=>auditImportedBackdrops(paths.map((path:string)=>path.repla…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 29 passed (30)
+   Start at  15:50:35
+   Duration  977ms (transform 745ms, setup 0ms, import 1.70s, tests 314ms, environment 1ms)
+
+error: script "test:platform" exited with code 1

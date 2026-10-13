@@ -1,0 +1,28 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/godot-setup.test.ts (4 tests | 1 failed) 15ms
+     × propagates process, parser, load and assertion failures 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/godot-setup.test.ts > pinned project-local Godot setup > propagates process, parser, load and assertion failures
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/tooling/godot-setup.test.ts:19:231
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  10:20:38
+   Duration  268ms (transform 40ms, setup 0ms, import 68ms, tests 15ms, environment 0ms)
+

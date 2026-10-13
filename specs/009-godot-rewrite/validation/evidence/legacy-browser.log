@@ -1,0 +1,9 @@
+$ playwright test
+[WebServer] $ VITE_TEST_MODE=1 bun run build
+[WebServer] $ bun run typecheck && vite build && bun scripts/build-asset-inventory.ts
+[WebServer] $ tsc --noEmit
+[WebServer] $ vite preview --host "127.0.0.1" --port "4173"
+[WebServer] error: script "preview" exited with code 1
+Error: Process from config.webServer was not able to start. Exit code: 1
+
+error: script "test:e2e" exited with code 1

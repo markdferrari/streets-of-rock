@@ -4,13 +4,17 @@
 
 ## Status and prerequisites
 
-This is the intended validation interface for implementation. The current repository
-still contains the JS game; the Godot project, new scripts and presets listed below
-must be delivered by the implementation tasks. Their presence here is not a test pass.
+The automated phase 2 foundation and phase 3 playable Godot loop are implemented
+on `009-godot-rewrite-phases-3-4`. See [foundation evidence](validation/foundation.md)
+and [US1 evidence](validation/us1.md). Phase 4 adds eight required illustrated
+panels following [concept approval](reviews/backdrop-concepts.md). The retained JS
+game remains available through legacy commands. Physical phone checks remain
+pending under T021.
 
-Use branch `009-godot-rewrite`, standard Godot 4.7.2, matching official web templates,
+Use a feature branch, standard Godot 4.7.2, matching official web templates,
 Bun 1.4.2, Node 24.21.0, Blender 5.2.2 LTS and Python 3.12.3. The editor is installed
-on the current host; web export templates are not. Pin GUT 9.7.1 and repository tool
+on the current host; locked web export templates are installed in `.tools/godot/4.7.2/`.
+GUT 9.7.1 is vendored with its MIT license. Use pinned repository tool
 dependencies. Physical validation needs iPhone 12/Safari, Pixel 6/Chrome, intended-track
 confirmation, visual reviewers and five first-time casual players.
 
@@ -20,15 +24,15 @@ identities and any skip or external dependency.
 
 ## Existing baseline commands
 
-These commands work with the existing project before the port:
+These commands validate the retained legacy runtime during the port:
 
 ```sh
 bun install --frozen-lockfile
-bun run typecheck
-bun run test:unit
-bun run test:e2e
-bun run build
-bun run audit:build
+bun run typecheck:legacy
+bun run test:legacy:unit
+bun run test:e2e:legacy
+bun run build:legacy
+bun scripts/audit-build.ts dist-legacy
 blender -noaudio --background --factory-startup --python-exit-code 1 --python tests/blender/run_tests.py
 ```
 
@@ -45,9 +49,9 @@ execution path; a bind failure is infrastructure failure, not a game regression.
 Record the earlier 167 passing unit/integration tests and timing-sensitive browser
 results as historical baseline only, then establish current evidence before cutover.
 
-## Planned setup and development commands
+## Setup and development commands
 
-After their implementation:
+The implemented setup and development interface is:
 
 ```sh
 bun install --frozen-lockfile
@@ -70,19 +74,27 @@ The preview wrapper accepts the shown directory/host/port flags and serves corre
 WASM/PCK MIME types. It must return errors for missing immutable resources.
 Godot editor play is useful development feedback; acceptance uses exported browsers.
 
-## Planned verification commands
+For a local review of final scenery, serve Web Test and open
+`http://127.0.0.1:4173/?review=rooms&room=0`. Choose any distinct duo normally;
+room values 0–3 start the entrance, bar, dance-floor and stage/VIP review fixture.
+Omit the query to play the normal journey. Review fixtures are physically absent
+from Release and Diagnostics. WASD/arrows move; J is Light, K Heavy, Space Dodge
+and L Special. The Godot HUD also accepts native touch/mouse controls.
+
+## Verification commands
 
 | Command | Expected outcome |
 | --- | --- |
 | bun run typecheck | Godot import/static script checks and retained TypeScript tooling checks pass; parser errors fail the command. |
 | bun run test:godot | GUT unit/integration tests pass with a nonzero process status on failure. |
 | bun run test:platform | Vitest browser-adapter, packaging and authoring-wrapper checks pass. |
-| bun run test:parity | Recorded legacy fixtures match Godot states/events and camera-dependent inputs within the runtime contract. |
+| bun run test:parity | Runs Godot against all 26 pinned-reference fixtures and compares 780 state/event/camera checkpoints. |
 | bun run test:unit | Runs test:godot and test:platform; includes still-unretired legacy suites during migration. |
-| bun run test:e2e | Builds Web Test and runs both configured browser projects against it. |
+| bun run test:e2e | Runs retained legacy journeys, Web Test foundation and actual Release smoke in both browser projects. |
 | bun run test:blender | Runs the existing Blender suite and propagates failures. |
-| bun run test | Runs all unit, parity, e2e and Blender gates, including still-active legacy suites. |
-| bun run build | Exports Web Release and packages a complete static dist release. |
+| bun run test | Runs current unit, parity, e2e and Blender gates, including retained legacy suites. |
+| bun run test:foundation | Runs tooling/platform, GUT, Web Test foundation and actual Release smoke gates. |
+| bun run build | Exports the playable Godot Web Release with required final scenery to static dist; product acceptance remains pending. |
 | bun run build:diagnostics | Exports read-only diagnostics build to dist-diagnostics. |
 | bun run audit:build | Checks release inventory, resources, budgets, engine exception and absent test/diagnostic hooks. |
 | bun run audit:build -- --final | Additionally requires actual intended soundtrack evidence and completed release evidence inputs. |
@@ -187,6 +199,13 @@ Record build ID, OS/browser, viewport/safe area, duo and settings for every proc
 
 ## Authoring and final acceptance
 
+For a phone on the same LAN, use `bun run preview -- --dir dist-test --host 0.0.0.0 --port 4173`
+and open `http://<computer-LAN-IP>:4173`. Plain LAN HTTP supports online gameplay
+with silent audio. Use a trusted HTTPS origin to test phone audio, offline caching
+and installed mode. Desktop `http://localhost:4173` supports the secure browser APIs.
+The loader selects Godot's silent driver when worklet audio is unavailable, keeping
+optional audio from blocking gameplay.
+
 Run full and per-character validation through the retained CLI, exercise Lion/Plates
 update/validate workflows, and record new reports plus unchanged unrelated-resource
 fingerprints. See the [authoring contract](contracts/authoring.md) for scoped commands.
@@ -194,6 +213,14 @@ fingerprints. See the [authoring contract](contracts/authoring.md) for scoped co
 Store actual outputs in this feature's validation/reviews/evidence directories during
 implementation. No created plan or passing document check marks runtime tests, intended
 soundtrack, concept approval, phone performance or player evaluation complete.
+
+The optional desktop native-input review runner is
+`bun scripts/godot/authoring-review.ts` after `bun run build:test`. It opens a private
+preview server, exercises Lion/Plates without state mutation, writes their outcome JSON
+and screenshots under this feature's reviews directory, then closes the server/browser.
+It is an automated gameplay exercise, not a human balance or physical-device review.
+For the diagnostics browser smoke, build diagnostics then run
+`SOR_SKIP_EXPORT=1 SOR_RELEASE_DIR=dist-diagnostics bunx playwright test --config playwright.release.config.ts --project=chromium`.
 
 Before cutover, require the coverage register, Godot/parity/browser/Blender suites,
 release export/audit and actual acceptance evidence. Remove superseded JS runtime/tests

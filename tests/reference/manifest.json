@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "referenceCommit": "58137537a7d4ef992bd27e3fdf7efe92e5e2add1",
+  "contentDigest": "58f7014897f718b7b7bb19b5b0eda96cf43f6b79792f4f1a0eeb553394c4f66f",
+  "views": [
+    {
+      "width": 667,
+      "height": 375
+    },
+    {
+      "width": 844,
+      "height": 390
+    },
+    {
+      "width": 915,
+      "height": 412
+    }
+  ],
+  "fixtures": [
+    {
+      "id": "duo-cow-crow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-cow-crow.json",
+      "sha256": "c14d4b80abb1fb14533445fe17aef073fedb2c7a75dc78aacdaf154011b0c4f3"
+    },
+    {
+      "id": "duo-cow-lion",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-cow-lion.json",
+      "sha256": "500e9a251855402160af85d249e0d569d8aa5c7202829ebd86275ccb17348022"
+    },
+    {
+      "id": "duo-cow-plates",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-cow-plates.json",
+      "sha256": "54dddec818e0cb750b32a0d5da4392e83a52973720faeabf03e4e4341dc5288c"
+    },
+    {
+      "id": "duo-crow-cow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-crow-cow.json",
+      "sha256": "fa69713a2326a61f9a91ea4e36a7b879b3874ed8e80947c8eff498f696eada5b"
+    },
+    {
+      "id": "duo-crow-lion",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-crow-lion.json",
+      "sha256": "b1e3eadede490f80a6b158575f33a32f2ed82d5b90125517288e7b824f5edaac"
+    },
+    {
+      "id": "duo-crow-plates",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-crow-plates.json",
+      "sha256": "f78b9b13454ddadf2528778ce97b2e88c57048bfdd416fe8b3e642a9bda7087d"
+    },
+    {
+      "id": "duo-lion-cow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-lion-cow.json",
+      "sha256": "5cf0ce75a76243e456ed688c9b25b7445c21c37c5103e43a12cdedb3605e34f4"
+    },
+    {
+      "id": "duo-lion-crow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-lion-crow.json",
+      "sha256": "c3ee3e295a9d0d6bf8566bdcd02fed36a2d808e60e215c04735e7ca9884bbb24"
+    },
+    {
+      "id": "duo-lion-plates",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-lion-plates.json",
+      "sha256": "8364cf73e66b23f3ee6fff579f06c2c91f2b2e6b484feb735dd636e28f179ae1"
+    },
+    {
+      "id": "duo-plates-cow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-plates-cow.json",
+      "sha256": "e96cdf5cbb6600997fe1282ce60c6f80dc6201ddd184a7ea235bcd1c9b80509b"
+    },
+    {
+      "id": "duo-plates-crow",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-plates-crow.json",
+      "sha256": "bff7a926c0448c25ed811c7f8b65881217d3af3b50c7646c0590526859924099"
+    },
+    {
+      "id": "duo-plates-lion",
+      "family": "selection/role/movement/light/heavy/dodge/meter/AI",
+      "path": "fixtures/duo-plates-lion.json",
+      "sha256": "6380ae2bfe2a2b676c997c370eeff1071eef23cb867ce266bc32626dba5ee4c6"
+    },
+    {
+      "id": "special-cow",
+      "family": "Special/status/projectile/protection/interruption",
+      "path": "fixtures/special-cow.json",
+      "sha256": "122d128ce15a420f4cc07e16f7a573c284e20c87453b6c1353e2feb88f0a8941"
+    },
+    {
+      "id": "special-crow",
+      "family": "Special/status/projectile/protection/interruption",
+      "path": "fixtures/special-crow.json",
+      "sha256": "e897acff750eddd905d99fd6891a5cac75e330359bb8010512748b46b4f57fd6"
+    },
+    {
+      "id": "special-lion",
+      "family": "Special/status/projectile/protection/interruption",
+      "path": "fixtures/special-lion.json",
+      "sha256": "c9c81d8196e3cda93cdc87d1d487f81bbaf442431739f3aa9b2292c7a9c6c8aa"
+    },
+    {
+      "id": "special-plates",
+      "family": "Special/status/projectile/protection/interruption",
+      "path": "fixtures/special-plates.json",
+      "sha256": "28e8f3ea6c929a051cc7f1abc4d63abf1684dd7a368940fb9a0c03c24855c5f6"
+    },
+    {
+      "id": "enemy-grunt",
+      "family": "enemy roles/bottle/charge/boss phases",
+      "path": "fixtures/enemy-grunt.json",
+      "sha256": "177ddb72cbb2839cea6322d9ad600941fcafcf57e56a45b5d6ff9d2a4134a2a2"
+    },
+    {
+      "id": "enemy-zoner",
+      "family": "enemy roles/bottle/charge/boss phases",
+      "path": "fixtures/enemy-zoner.json",
+      "sha256": "5658260a28fecba9c68ec65de641ca2baabc42aa1a86a8c96816394e578cfd27"
+    },
+    {
+      "id": "enemy-enforcer",
+      "family": "enemy roles/bottle/charge/boss phases",
+      "path": "fixtures/enemy-enforcer.json",
+      "sha256": "36249e452dd9b99ef5377916b9339d5ce8eca4b1bcacc87da6ed0b2137bd3533"
+    },
+    {
+      "id": "enemy-liam",
+      "family": "enemy roles/bottle/charge/boss phases",
+      "path": "fixtures/enemy-liam.json",
+      "sha256": "5607824a45e6a5f9d0f7c5e8eeb34fd7ffac143a0247a5a339d9c417e3b6f9e6"
+    },
+    {
+      "id": "visible-target-667",
+      "family": "camera/partner target/Headrest fixed aim/stable ties",
+      "path": "fixtures/visible-target-667.json",
+      "sha256": "cc8fbb23dc329884b6ef01e92722e381029e475a7cb987ab3cec3c440ffc75f7"
+    },
+    {
+      "id": "visible-target-844",
+      "family": "camera/partner target/Headrest fixed aim/stable ties",
+      "path": "fixtures/visible-target-844.json",
+      "sha256": "0e98cb6d21d7898698bcb166686aadb63176d825fcf36e27878b6666f9965009"
+    },
+    {
+      "id": "visible-target-915",
+      "family": "camera/partner target/Headrest fixed aim/stable ties",
+      "path": "fixtures/visible-target-915.json",
+      "sha256": "7b2f90e822dc0b3f010ec1c09fe510dc80df79384556f964e06fd029f6b30386"
+    },
+    {
+      "id": "tables-healing",
+      "family": "room bounds/waves/connectors/tables/pickups",
+      "path": "fixtures/tables-healing.json",
+      "sha256": "5f85d5fc1992148156590a1b5cf0488922e76b1dad899cb71b53129fd6e94840"
+    },
+    {
+      "id": "lethal-tie",
+      "family": "terminal defeat precedence/no later ticks",
+      "path": "fixtures/lethal-tie.json",
+      "sha256": "930411a065aafef541a8867b21412e64b8b7bf40891ad6ed12beaa213fc6ef16"
+    },
+    {
+      "id": "solo-stall-pause",
+      "family": "solo/fixed backlog/active pause/frame inputs",
+      "path": "fixtures/solo-stall-pause.json",
+      "sha256": "5d118e40667f05828ddf47b4d6e79e1d371fb7d7b56b57422a8efde6aa4aa695"
+    }
+  ],
+  "characterDigests": {
+    "cow": "efbbc9e8279272e358a90093d21c046a60f2d8437eb888c32d716cc5448231d8",
+    "crow": "d849db3f27dcc4df674714314a831acf82c09b30fdffbd7a466e91d977f71cc3",
+    "lion": "ae4fd6454d1bbb6d4d41404a88744d9ec2cd090b3515b89bf11b273c562e14f1",
+    "plates": "681e2e2c1d29d6a2e64fc2f12f40417642c153ae86e28f6faf31196b81cf114e"
+  }
+}

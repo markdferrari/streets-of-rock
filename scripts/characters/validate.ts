@@ -3,9 +3,12 @@ import { join, relative } from 'node:path';
 import { validateCharacterDefinitions, type CharacterDefinitionV1 } from '../../src/content/characters';
 import { validateCharacterResources, characterResourcePaths } from '../../src/presentation/character-assets';
 import { requiredCharacterClips } from '../../src/content/animation-clips';
+import { runGodot } from '../godot/setup';
+import { resolve } from 'node:path';
+import { existsSync } from 'node:fs';
 
 export async function validateFiles(root: string, characterId?: string, verifyResources = true): Promise<string> {
-  const directory = join(root, 'src/content/characters');
+  const directory = join(root, 'content/characters');
   const files = (await readdir(directory)).filter(file => file.endsWith('.json')).sort();
   const selected = characterId ? [`${characterId}.json`] : files;
   const definitions: unknown[] = [];
@@ -46,16 +49,22 @@ export async function validateFiles(root: string, characterId?: string, verifyRe
   return `${definitions.length} character definition${definitions.length === 1 ? '' : 's'} valid${verifyResources ? ' with bundled resources' : ''}`;
 }
 
-function parseArgs(args: string[]): { character?: string; root: string } {
-  let character: string | undefined;
+export function parseArgs(args: string[]): { character?: string; root: string; full: boolean } {
+  let character: string | undefined; let full = false;
   let root = process.cwd();
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === '--character') character = args[++i];
+    if (args[i] === '--character') {
+      character = args[++i];
+      if (!character || character.startsWith('--')) throw new Error('--character requires a character ID');
+    }
     else if (args[i] === '--root') root = args[++i]!;
+    else if (args[i] === '--full') full = true;
     else throw new Error(`Unknown argument: ${args[i]}`);
   }
+  if (full && character) throw new Error('--full cannot combine with --character');
+  if (args.includes('--root') && !root) throw new Error('--root requires a project directory');
   if (character && !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(character)) throw new Error(`Invalid character ID '${character}'; use lowercase kebab-case`);
-  return { character, root };
+  return { character, root, full };
 }
 
 export async function runValidate(args: string[] = [], root = process.cwd(), verifyResources = false): Promise<string> {
@@ -63,7 +72,21 @@ export async function runValidate(args: string[] = [], root = process.cwd(), ver
   return validateFiles(root === process.cwd() ? parsed.root : root, parsed.character, verifyResources);
 }
 
+export function runAuthoritativeValidate(args: string[] = []): string {
+  const parsed = parseArgs(args);
+  const root = resolve(parsed.root);
+  if (!existsSync(join(root, 'project.godot')) || !existsSync(join(root, 'game/tools/validate_content.gd'))) {
+    throw new Error('--root requires a Streets of Rock Godot project containing project.godot and game/tools/validate_content.gd; import its resources in the editor first');
+  }
+  const command = ['--headless', '--path', root, '--script', 'res://game/tools/validate_content.gd'];
+  command.push('--');
+  if (parsed.character) command.push('--character', parsed.character);
+  const result = runGodot(command);
+  if (result.status !== 0) throw new Error(result.output || 'Godot content validation failed');
+  return result.output.trim();
+}
+
 if (import.meta.main) {
-  try { console.log(await runValidate(process.argv.slice(2), process.cwd(), true)); }
+  try { console.log(runAuthoritativeValidate(process.argv.slice(2))); }
   catch (error) { console.error(`Character validation failed: ${error instanceof Error ? error.message : String(error)}`); process.exitCode = 1; }
 }

@@ -1,0 +1,160 @@
+{
+  "buildId": "184f564e58e31647",
+  "assets": [
+    {
+      "url": "assets/audio/brightside.mp3",
+      "revision": "90279f810f0b8624ebbf247a1e8676244e258b9898e8f2db1e7672cdd93d3fcb",
+      "bytes": 3688512
+    },
+    {
+      "url": "assets/audio/brightside.mp3.import",
+      "revision": "1d465780539f1c50b0f8215ef72d23231f9817e721cb7ef06b82bac68d755b6a",
+      "bytes": 378
+    },
+    {
+      "url": "assets/audio/music-placeholder.wav",
+      "revision": "38642eac25bf26e8c08d7a072157b118f320238d5b234073bbb8eee3e86ef812",
+      "bytes": 352844
+    },
+    {
+      "url": "assets/audio/music-placeholder.wav.import",
+      "revision": "07212587c7cb1c0f7da80ff4a93aba7c20c9398d7fdf21dd108f69cd9e9aea4d",
+      "bytes": 529
+    },
+    {
+      "url": "assets/audio/sfx-attack.wav",
+      "revision": "437fa7458da02ae76782a3f6cf0031d690ce3fef2df8b18b711743eaae9320da",
+      "bytes": 6660
+    },
+    {
+      "url": "assets/audio/sfx-attack.wav.import",
+      "revision": "de82b1ce4d1cdb8275b9b9f607e8387a40a9982886514782e671bd81e39417fd",
+      "bytes": 507
+    },
+    {
+      "url": "assets/audio/sfx-damage.wav",
+      "revision": "1b11415e7e6732a779142adc33159a1758d995adceb1dc16aadf772e7f78ca47",
+      "bytes": 6660
+    },
+    {
+      "url": "assets/audio/sfx-damage.wav.import",
+      "revision": "3cffea14b906d15c628a2f68535a804b27797a3193f16e8fb2fe247c2409696f",
+      "bytes": 508
+    },
+    {
+      "url": "assets/audio/sfx-hit.wav",
+      "revision": "dd904207e7b8cdfc1a1b01016d5a1f8ac493944a13e5eacc25dbd8e18e911d00",
+      "bytes": 6660
+    },
+    {
+      "url": "assets/audio/sfx-hit.wav.import",
+      "revision": "1508fad383c0b8acdc599766ce76cfa2454793eaa52b5b7cbc043b6b1edd4cfd",
+      "bytes": 499
+    },
+    {
+      "url": "assets/audio/sfx-pickup.wav",
+      "revision": "3c6f2cc30bf000ea2fce78990d57c1980545b79a5349e3d364379080039344d3",
+      "bytes": 6660
+    },
+    {
+      "url": "assets/audio/sfx-pickup.wav.import",
+      "revision": "f9684da96cb01039cc98df470487d58f695db189ae0b75bcefcebc96cfd63aca",
+      "bytes": 508
+    },
+    {
+      "url": "assets/audio/sfx-result.wav",
+      "revision": "3e0023c278607f7342190d96c2590bdebd791c20e316b92d387551530b250984",
+      "bytes": 6660
+    },
+    {
+      "url": "assets/audio/sfx-result.wav.import",
+      "revision": "9f8acfe30140c27f254cf0b3e1efb611236c1be294a51d11e872906870a4db02",
+      "bytes": 508
+    },
+    {
+      "url": "assets/character-BGGJH_PS.glb",
+      "revision": "3d489bfc1cf350205a3b8bb19aeab4e7a6759b51495c7b97cebb7522fa023d64",
+      "bytes": 305472
+    },
+    {
+      "url": "assets/character-BmOHghWE.glb",
+      "revision": "d82aa13c93b8bb055352a9dbe22ba3590e93827b5b5b3d9836d17e20b48a866d",
+      "bytes": 522528
+    },
+    {
+      "url": "assets/cow-2cpQ7JWN.png",
+      "revision": "8ad8ba6ff683e4d4f2017e81e0da11080d155726f732cbc84f6a80c66f98e0f8",
+      "bytes": 241241
+    },
+    {
+      "url": "assets/cow-CcNmSbVS.glb",
+      "revision": "9b8227157dc6439efebccf6867ddd1faef873af46f918685cf495af3509b8909",
+      "bytes": 351196
+    },
+    {
+      "url": "assets/crow-B95rGtNT.png",
+      "revision": "cc97225fe3e9674d3ab08c167579d1766972bd2513bd640c4d8f14a2faa23902",
+      "bytes": 242168
+    },
+    {
+      "url": "assets/crow-BFA9MSW6.glb",
+      "revision": "87b7af4b2c55d154e6756020381d7c98e1f6026ad8fcbac36bd50e27465eb4a8",
+      "bytes": 429484
+    },
+    {
+      "url": "assets/headrest-C-4OlRa7.glb",
+      "revision": "19ee568665ce47f91c8fc281b9639d778b7e1227a0f7816e43e814f1b84fdf6e",
+      "bytes": 8292
+    },
+    {
+      "url": "assets/icons/.gdignore",
+      "revision": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "url": "assets/icons/icon-maskable.svg",
+      "revision": "b51d5573688bd0dfc9224a8d8709713506250f7e659f57d3c2be9f03ae72116e",
+      "bytes": 357
+    },
+    {
+      "url": "assets/icons/icon.svg",
+      "revision": "c78b0a67096128d469525ef4058ed4655d9335db8b3385ad9a37508020c920c6",
+      "bytes": 365
+    },
+    {
+      "url": "assets/index-CZqfMy0i.css",
+      "revision": "3d17d65823ccd4881b16efa73c821ab524726d9b2327e886351d50989f47a76f",
+      "bytes": 7524
+    },
+    {
+      "url": "assets/index-Dji3NPwN.js",
+      "revision": "d51203dc24de44aee4c9488ebda2362e6f7eaccddfd81a2c5bc713ad1c4f1d37",
+      "bytes": 728946
+    },
+    {
+      "url": "assets/portrait-B92U9d0_.png",
+      "revision": "e8bbe01c430bf78e41fc925ba388466a5752594e2bbf4edd2c730e88f189700a",
+      "bytes": 236251
+    },
+    {
+      "url": "assets/portrait-CR32a3ph.png",
+      "revision": "3fd5a772ebdf5d5dcb26c6250c5b890a3b242cb05a8cc9db61d2042f82689874",
+      "bytes": 249147
+    },
+    {
+      "url": "assets/roster-C5049A_6.js",
+      "revision": "e64c536e0ad82a92de010cc37b5aefc5f40dd0da56c64253a5e9ddf12a06e355",
+      "bytes": 182
+    },
+    {
+      "url": "index.html",
+      "revision": "08a05a0d68ba93de62e7dc964b99f3013a9386d5f519fcd53bb5d3314bae9eaa",
+      "bytes": 515
+    },
+    {
+      "url": "manifest.webmanifest",
+      "revision": "24dd4e1732f5e381fc55c758f9f879b46d429fc8cbcc42d5221c96a49f4155b1",
+      "bytes": 370
+    }
+  ]
+}

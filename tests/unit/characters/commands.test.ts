@@ -7,12 +7,12 @@ import { runValidate } from '../../../scripts/characters/validate';
 import { runScaffold } from '../../../scripts/characters/scaffold';
 import { validateFiles } from '../../../scripts/characters/validate';
 import { characterResourcePaths } from '../../../src/presentation/character-assets';
-import cow from '../../../src/content/characters/cow.json';
-import crow from '../../../src/content/characters/crow.json';
+import cow from '../../../content/characters/cow.json';
+import crow from '../../../content/characters/crow.json';
 
 async function fixture() {
   const root = await mkdtemp(join(tmpdir(), 'sor-characters-'));
-  const dir = join(root, 'src/content/characters'); await mkdir(dir, { recursive: true });
+  const dir = join(root, 'content/characters'); await mkdir(dir, { recursive: true });
   await writeFile(join(dir, 'cow.json'), JSON.stringify(cow));
   await writeFile(join(dir, 'crow.json'), JSON.stringify(crow));
   return { root, dir };
@@ -57,13 +57,13 @@ describe('character authoring commands', () => {
     const brief = join(root, 'empty.md'); await writeFile(brief, '  ');
     await expect(runScaffold(['--id', '../escape', '--brief', brief], root)).rejects.toThrow(/kebab-case/i);
     await expect(runScaffold(['--id', 'draft', '--brief', brief], root)).rejects.toThrow(/brief.*empty/i);
-    expect(await readdir(join(root, 'src/content/characters'))).toEqual(['cow.json', 'crow.json']);
+    expect(await readdir(join(root, 'content/characters'))).toEqual(['cow.json', 'crow.json']);
   });
 
   it('reports a character-specific missing semantic clip without modifying unrelated definitions', async () => {
     const { root, dir } = await fixture();
     const unrelatedBefore = await hashFiles(dir, ['cow.json', 'crow.json']);
-    await writeFile(join(dir, 'lion.json'), JSON.stringify((await import('../../../src/content/characters/lion.json')).default));
+    await writeFile(join(dir, 'lion.json'), JSON.stringify((await import('../../../content/characters/lion.json')).default));
     const paths = characterResourcePaths.lion;
     const model = join(root, paths.model);
     await mkdir(join(model, '..'), { recursive: true });

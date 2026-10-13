@@ -8,7 +8,7 @@ import { chooseDuo } from './helpers/selection';
 test('a changed worker waits while two tabs stay open and never reloads a selected duo', async ({ browser, browserName }) => {
   test.skip(browserName === 'webkit', 'Natural two-tab worker update is exercised in Chromium; physical Safari update acceptance is pending.');
   const directory = await mkdtemp(join(tmpdir(), 'sor-update-'));
-  await cp(resolve('dist'), directory, { recursive: true });
+  await cp(resolve('dist-legacy'), directory, { recursive: true });
   const server = createServer(async (request, response) => {
     const pathname = decodeURIComponent(new URL(request.url ?? '/', 'http://localhost').pathname);
     const file = resolve(directory, `.${pathname === '/' ? '/index.html' : pathname}`);

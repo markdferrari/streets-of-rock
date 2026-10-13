@@ -1,0 +1,37 @@
+$ playwright test --config playwright.godot.config.ts --project chromium --grep "actual game semantic"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:533265) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action (7.0s)
+
+
+  1) [chromium] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "ERROR: Node not inside tree. Use look_at_from_position() instead.",
+    +   "ERROR: Node not inside tree. Use look_at_from_position() instead.",
+    + ]
+
+      12 |  await page.evaluate(()=>window.dispatchEvent(new Event('blur')));await expect.poll(()=>state(page).then(s=>s.phase)).toBe('paused');
+      13 |  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));expect((await state(page)).phase).toBe('paused');
+    > 14 |  await page.getByRole('button',{name:'Resume',exact:true}).focus();await page.keyboard.press('Enter');await expect.poll(()=>state(page).then(s=>s.phase)).toBe('running');expect(errors).toEqual([]);
+         |                                                                                                                                                                                          ^
+      15 | });
+      16 | test('actual game preserves simultaneous movement and action, with source-specific native cancellation',async({page,browserName})=>{
+      17 |  test.skip(browserName!=='chromium','Native multi-touch injection uses Chromium CDP; physical Safari is pending.');
+        at /home/mark/projects/streets-of-rock/tests/e2e/godot-input.spec.ts:14:186
+
+    Error Context: test-results/godot-input-actual-game-se-4362e-rd-produce-one-fresh-action-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action 
+error: script "test:e2e:godot" exited with code 1

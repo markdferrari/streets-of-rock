@@ -1,0 +1,27 @@
+$ playwright test --config playwright.godot.config.ts godot-backdrops godot-input
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 14 tests using 1 worker
+
+(node:564518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 667 (6.7s)
+  ✓   2 [chromium] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 844 (6.5s)
+  ✓   3 [chromium] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 915 (6.5s)
+  ✓   4 [chromium] › tests/e2e/godot-backdrops.spec.ts:20:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (15.5s)
+  ✓   5 [chromium] › tests/e2e/godot-backdrops.spec.ts:35:1 › local room review links preserve real selection and load the requested final scene (5.9s)
+  ✓   6 [chromium] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action (7.0s)
+  ✓   7 [chromium] › tests/e2e/godot-input.spec.ts:16:1 › actual game preserves simultaneous movement and action, with source-specific native cancellation (8.0s)
+(node:564993) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [webkit] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 667 (7.1s)
+  ✓   9 [webkit] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 844 (7.9s)
+  ✓  10 [webkit] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 915 (8.2s)
+  ✓  11 [webkit] › tests/e2e/godot-backdrops.spec.ts:20:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (14.8s)
+  ✓  12 [webkit] › tests/e2e/godot-backdrops.spec.ts:35:1 › local room review links preserve real selection and load the requested final scene (6.5s)
+  ✓  13 [webkit] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action (7.1s)
+  -  14 [webkit] › tests/e2e/godot-input.spec.ts:16:1 › actual game preserves simultaneous movement and action, with source-specific native cancellation
+
+  1 skipped
+  13 passed (1.9m)

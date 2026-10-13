@@ -1,0 +1,250 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_run_clock.gd
+[0m* test_constructors_all_duos_are_independent_and_role_correct
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+      at line 14
+* test_accumulator_first_frame_cap_pause_and_exact_boundary
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 26
+[31m    [Failed]:  [0m[0] expected to equal [5]:  
+      at line 27
+[31m    [Failed]:  [0m[0.0] expected to be > than [9000.0]:  
+      at line 28
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 31
+* test_wall_clock_no_five_minute_terminal_and_pause
+[31m    [Failed]:  [0m[0.0] expected to equal [360000.0]:  
+      at line 35
+[31m    [Failed]:  [0m[0.0] expected to equal [360000.0]:  
+      at line 37
+[31m    [Failed]:  [0m[0.0] expected to equal [360050.0]:  
+      at line 39
+* test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[31m    [Failed] [0m
+      at line 45
+[31m    [Failed]:  [0m[3] expected to equal [2]:  
+      at line 46
+[31m    [Failed]:  [0m[3] expected to equal [1]:  
+      at line 48
+[31m    [Failed] [0m
+      at line 51
+[1m0/4 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/godot/simulation/test_run_clock.gd
+[0m- test_constructors_all_duos_are_independent_and_role_correct
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+[31m    [Failed]:  [0m[<null>] expected to equal [0]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal [3]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [2]:  
+          at line 14
+- test_accumulator_first_frame_cap_pause_and_exact_boundary
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 26
+[31m    [Failed]:  [0m[0] expected to equal [5]:  
+          at line 27
+[31m    [Failed]:  [0m[0.0] expected to be > than [9000.0]:  
+          at line 28
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 31
+- test_wall_clock_no_five_minute_terminal_and_pause
+[31m    [Failed]:  [0m[0.0] expected to equal [360000.0]:  
+          at line 35
+[31m    [Failed]:  [0m[0.0] expected to equal [360000.0]:  
+          at line 37
+[31m    [Failed]:  [0m[0.0] expected to equal [360050.0]:  
+          at line 39
+- test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[31m    [Failed]:  [0m
+          at line 45
+[31m    [Failed]:  [0m[3] expected to equal [2]:  
+          at line 46
+[31m    [Failed]:  [0m[3] expected to equal [1]:  
+          at line 48
+[31m    [Failed]:  [0m
+          at line 51
+
+Totals
+------
+Scripts               4
+Tests                12
+Passing Tests         8
+Failing Tests         4
+Asserts           88/135
+Time              0.441s
+
+
+[31m---- 4 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

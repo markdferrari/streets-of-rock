@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/platform/cache-foundation.test.ts (2 tests | 1 failed) 54ms
+   × rejects an empty or duplicate required inventory instead of claiming offline readiness 7ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/platform/cache-foundation.test.ts > rejects an empty or duplicate required inventory instead of claiming offline readiness
+AssertionError: expected 'ready' to be 'error' // Object.is equality
+
+Expected: "error"
+Received: "ready"
+
+ ❯ tests/platform/cache-foundation.test.ts:12:59
+     10|
+     11| it('rejects an empty or duplicate required inventory instead of claimi…
+     12|  expect((await auditCached([],async()=>undefined)).state).toBe('error'…
+       |                                                           ^
+     13|  const entry={url:'engine.wasm',bytes:1,sha256:await digest(new Uint8A…
+     14|  expect((await auditCached([entry,entry],async()=>new Response(new Uin…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  09:46:28
+   Duration  262ms (transform 31ms, setup 0ms, import 45ms, tests 54ms, environment 0ms)
+

@@ -5,6 +5,7 @@ coverage/
 playwright-report/
 test-results/
 *.log
+!specs/009-godot-rewrite/validation/evidence/**/*.log
 .env*
 .DS_Store
 Thumbs.db
@@ -30,3 +31,13 @@ assets/characters/*/runtime/*.blend1
 assets/characters/*/runtime/*.blend2
 __pycache__/
 *.pyc
+
+# Godot generated data and project-local engine templates
+.godot/
+.tools/
+dist-test/
+dist-diagnostics/
+*.blend1
+*.blend2
+dist-legacy/
+dist-split/

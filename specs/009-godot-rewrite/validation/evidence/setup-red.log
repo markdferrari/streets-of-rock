@@ -1,0 +1,87 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/godot-setup.test.ts (4 tests | 4 failed) 16ms
+     × rejects editor/template version mismatches 8ms
+     × rejects corrupt bytes before extraction 2ms
+     × installs inside the project instead of a global template location 2ms
+     × propagates process, parser, load and assertion failures 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/godot-setup.test.ts > pinned project-local Godot setup > rejects editor/template version mismatches
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/godot-setup.test.ts:6:85
+      4| describe('pinned project-local Godot setup', () => {
+      5|  it('rejects editor/template version mismatches', () => {
+      6|   expect(() => validateVersions('4.7.1.stable.official.abc', '4.7.2.st…
+       |                                                                                     ^
+      7|   expect(() => validateVersions(lock.editorVersion, '4.7.1.stable', lo…
+      8|   expect(() => validateVersions(lock.editorVersion, '4.7.2.stable', lo…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/tooling/godot-setup.test.ts > pinned project-local Godot setup > rejects corrupt bytes before extraction
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/godot-setup.test.ts:11:82
+      9|  });
+     10|  it('rejects corrupt bytes before extraction', () => {
+     11|   expect(() => verifyChecksum(new Uint8Array([1]), sha256(new Uint8Arr…
+       |                                                                                  ^
+     12|   expect(() => verifyChecksum(new Uint8Array([1]), sha256(new Uint8Arr…
+     13|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/tooling/godot-setup.test.ts > pinned project-local Godot setup > installs inside the project instead of a global template location
+AssertionError: expected '' to be '/tmp/project/.tools/godot/4.7.2' // Object.is equality
+
+- Expected
++ Received
+
+- /tmp/project/.tools/godot/4.7.2
+
+ ❯ tests/tooling/godot-setup.test.ts:15:53
+     13|  });
+     14|  it('installs inside the project instead of a global template location…
+     15|   expect(templateDirectory('/tmp/project','4.7.2')).toBe('/tmp/project…
+       |                                                     ^
+     16|   expect(() => templateDirectory('/tmp/project','../escape')).toThrow(…
+     17|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/tooling/godot-setup.test.ts > pinned project-local Godot setup > propagates process, parser, load and assertion failures
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/tooling/godot-setup.test.ts:19:199
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  09:25:59
+   Duration  246ms (transform 31ms, setup 0ms, import 52ms, tests 16ms, environment 0ms)
+

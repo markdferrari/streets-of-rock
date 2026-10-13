@@ -30,19 +30,19 @@ record the dependency and continue unaffected implementation.
 
 **Goal**: Establish traceability, manual procedures and pinned tools without changing game behavior.
 
-- [ ] T001 Confirm branch and preserve current changes; inventory existing suites and map all 21 feature scenarios, FR-001–015, SC-001–009 and inherited PRD/feature acceptance obligations in `specs/009-godot-rewrite/validation/coverage.md`, distinguishing preserved behavior, missing specified behavior, corrections and pending evidence (FR-001, FR-014).
+- [X] T001 Confirm branch and preserve current changes; inventory existing suites and map all 21 feature scenarios, FR-001–015, SC-001–009 and inherited PRD/feature acceptance obligations in `specs/009-godot-rewrite/validation/coverage.md`, distinguishing preserved behavior, missing specified behavior, corrections and pending evidence (FR-001, FR-014).
 
-- [ ] T002 [P] Define build/device/evidence record fields and the phone, concept-before-art, accessibility, soundtrack and five-player procedures from quickstart in `specs/009-godot-rewrite/validation/procedures.md`; retain all PRD SC-001–011 thresholds and explicit pending dependencies before visual implementation (FR-014).
+- [X] T002 [P] Define build/device/evidence record fields and the phone, concept-before-art, accessibility, soundtrack and five-player procedures from quickstart in `specs/009-godot-rewrite/validation/procedures.md`; retain all PRD SC-001–011 thresholds and explicit pending dependencies before visual implementation (FR-014).
 
-- [ ] T003 [P] Record current legacy unit, browser, typecheck, build/audit and Blender results plus tooling versions in `specs/009-godot-rewrite/validation/baseline.md`; retain the pinned reference commit and report skips/timing failures without treating isolated reruns as a fully green suite (FR-001, FR-014).
+- [X] T003 [P] Record current legacy unit, browser, typecheck, build/audit and Blender results plus tooling versions in `specs/009-godot-rewrite/validation/baseline.md`; retain the pinned reference commit and report skips/timing failures without treating isolated reruns as a fully green suite (FR-001, FR-014).
 
-- [ ] T004 Add expected-failure tests for editor/template version mismatch, checksum rejection, project-local installation and runner failure propagation in `tests/tooling/godot-setup.test.ts` (FR-013, FR-014).
+- [X] T004 Add expected-failure tests for editor/template version mismatch, checksum rejection, project-local installation and runner failure propagation in `tests/tooling/godot-setup.test.ts` (FR-013, FR-014).
 
-- [ ] T005 Pin Godot 4.7.2/template origins and checksums in `godot-engine.lock.json`, add `scripts/godot/setup.ts`, and wire setup:godot plus pinned GUT 9.7.1, Workbox/workbox-build 7.4.1 and existing test tools through `package.json` and `bun.lock`; install templates into ignored `.tools/godot/4.7.2/` and keep addon origin/license in `addons/gut/README.vendor.md` (FR-013).
+- [X] T005 Pin Godot 4.7.2/template origins and checksums in `godot-engine.lock.json`, add `scripts/godot/setup.ts`, and wire setup:godot plus pinned GUT 9.7.1, Workbox/workbox-build 7.4.1 and existing test tools through `package.json` and `bun.lock`; install templates into ignored `.tools/godot/4.7.2/` and keep addon origin/license in `addons/gut/README.vendor.md` (FR-013).
 
-- [ ] T006 Create `project.godot`, `game/app/bootstrap.tscn` and `export_presets.cfg` with Compatibility, single-thread web, no extensions/generated PWA, no input emulation duplication and disabled automatic .blend imports; update `.gitignore` and appropriate `.gdignore` files without excluding runtime GLBs (FR-007, FR-013).
+- [X] T006 Create `project.godot`, `game/app/bootstrap.tscn` and `export_presets.cfg` with Compatibility, single-thread web, no extensions/generated PWA, no input emulation duplication and disabled automatic .blend imports; update `.gitignore` and appropriate `.gdignore` files without excluding runtime GLBs (FR-007, FR-013).
 
-- [ ] T007 Implement GUT/static-check/Blender runner wrappers in `scripts/godot/test.ts`, `scripts/godot/typecheck.ts` and `scripts/test-blender.ts`; surface script/load failures as nonzero exits, prove a deliberately failing assertion is detected, and record runner checks in `specs/009-godot-rewrite/validation/tooling.md` (FR-014).
+- [X] T007 Implement GUT/static-check/Blender runner wrappers in `scripts/godot/test.ts`, `scripts/godot/typecheck.ts` and `scripts/test-blender.ts`; surface script/load failures as nonzero exits, prove a deliberately failing assertion is detected, and record runner checks in `specs/009-godot-rewrite/validation/tooling.md` (FR-014).
 
 ## Phase 2: Foundational prerequisites
 
@@ -53,35 +53,40 @@ A demonstrated platform failure blocks the affected integration until corrected.
 
 ### Reference and shared content
 
-- [ ] T008 Write replay schema/comparator tests in `tests/tooling/reference.test.ts` covering ordered events, missing-to-null normalization, frame/viewport/ArenaContext inputs, exact discrete outcomes and continuous tolerance `1e-9 * max(1, abs(expected), abs(actual))`; mismatched hits/targets must fail (FR-001, FR-003, FR-005).
+- [X] T008 Write replay schema/comparator tests in `tests/tooling/reference.test.ts` covering ordered events, missing-to-null normalization, frame/viewport/ArenaContext inputs, exact discrete outcomes and continuous tolerance `1e-9 * max(1, abs(expected), abs(actual))`; mismatched hits/targets must fail (FR-001, FR-003, FR-005).
 
-- [ ] T009 Implement `scripts/reference/capture.ts` and `scripts/reference/compare.ts`, capture pinned-reference cases into `tests/reference/manifest.json` and `tests/reference/fixtures/`, and record matched 667x375, 844x390 and 915x412 views in `specs/009-godot-rewrite/validation/reference.md`; include all rule families, camera-dependent targets and stalled/paused frames (FR-001–007).
+- [X] T009 Implement `scripts/reference/capture.ts` and `scripts/reference/compare.ts`, capture pinned-reference cases into `tests/reference/manifest.json` and `tests/reference/fixtures/`, and record matched 667x375, 844x390 and 915x412 views in `specs/009-godot-rewrite/validation/reference.md`; include all rule families, camera-dependent targets and stalled/paused frames (FR-001–007).
 
-- [ ] T010 Write shared-catalogue/definition tests in `tests/godot/content/test_catalogue.gd` for unchanged shipped values, distinct roster IDs, resource/clip keys and malformed HP/speed/knockback plus other contract constraints; observe rejection and valid-loading failures before implementing (FR-004, FR-012).
+- [X] T010 Write shared-catalogue/definition tests in `tests/godot/content/test_catalogue.gd` for unchanged shipped values, distinct roster IDs, resource/clip keys and malformed HP/speed/knockback plus other contract constraints; observe rejection and valid-loading failures before implementing (FR-004, FR-012).
 
-- [ ] T011 Move the four JSON definitions unchanged to `content/characters/`, update `src/content/characters.ts` to the shared location, and extract `content/roster.json`, `content/resources.json`, `content/animation-clips.json`, `content/tuning.json` and `content/levels/neon-velvet.json`; preserve source values, units, order and body envelopes (FR-003–006, FR-012).
+- [X] T011 Move the four JSON definitions unchanged to `content/characters/`, update `src/content/characters.ts` to the shared location, and extract `content/roster.json`, `content/resources.json`, `content/animation-clips.json`, `content/tuning.json` and `content/levels/neon-velvet.json`; preserve source values, units, order and body envelopes (FR-003–006, FR-012).
 
-- [ ] T012 Implement typed catalogue loading and the authoritative definition validator in `game/content/catalogue.gd` and `game/content/validator.gd`, with immutable validated definitions and actionable field diagnostics; keep resource-independent validation headless and leave imported-resource validation explicit (FR-004, FR-012).
+- [X] T012 Implement typed catalogue loading and the authoritative definition validator in `game/content/catalogue.gd` and `game/content/validator.gd`, with immutable validated definitions and actionable field diagnostics; keep resource-independent validation headless and leave imported-resource validation explicit (FR-004, FR-012).
 
 ### Testable web foundation
 
-- [ ] T013 [P] Write export/inventory/pack tests in `tests/tooling/export.test.ts` for mode separation, canonical build identity, engine fingerprints, 30 MiB/16 MiB content limits, forced-small-cap splitting, ownership/remaps and load-before-reference order (FR-013, FR-015).
+- [X] T013 [P] Write export/inventory/pack tests in `tests/tooling/export.test.ts` for mode separation, canonical build identity, engine fingerprints, 30 MiB/16 MiB content limits, forced-small-cap splitting, ownership/remaps and load-before-reference order (FR-013, FR-015).
 
-- [ ] T014 [P] Write browser-foundation contract tests in `tests/platform/bridge.test.ts` and `tests/e2e/godot-foundation.spec.ts` for one physical/semantic activation, retained callback, touch cancellation/outside release, gesture audio, pause/explicit resume and complete engine/PCK offline reload (FR-007, FR-010–011).
+- [X] T014 [P] Write browser-foundation contract tests in `tests/platform/bridge.test.ts` and `tests/e2e/godot-foundation.spec.ts` for one physical/semantic activation, retained callback, touch cancellation/outside release, gesture audio, pause/explicit resume and complete engine/PCK offline reload (FR-007, FR-010–011).
 
-- [ ] T015 [P] Write import/manual-pose and scene-ownership tests in `tests/godot/presentation/test_import.gd` for one existing rigged fighter, semantic clips, scalar-to-render mapping and released instances; define fixture readiness independently of unproduced final backdrops (FR-007, FR-008).
+- [X] T015 [P] Write import/manual-pose and scene-ownership tests in `tests/godot/presentation/test_import.gd` for one existing rigged fighter, semantic clips, scalar-to-render mapping and released instances; define fixture readiness independently of unproduced final backdrops (FR-007, FR-008).
 
-- [ ] T016 Implement the three build modes and canonical identity/inventory staging in `scripts/godot/export.ts`, `scripts/build-asset-inventory.ts` and `web/runtime-loader.ts`; preload packs before bootstrap mounting, add deterministic category export ownership and forced-cap test fixture, and preserve exported basenames (FR-011, FR-013, FR-015).
+- [X] T016 Implement the three build modes and canonical identity/inventory staging in `scripts/godot/export.ts`, `scripts/build-asset-inventory.ts` and `web/runtime-loader.ts`; preload packs before bootstrap mounting, add deterministic category export ownership and forced-cap test fixture, and preserve exported basenames (FR-011, FR-013, FR-015).
 
-- [ ] T017 Implement a minimal versioned browser adapter and Godot bridge in `web/browser.ts`, `game/platform/browser_bridge.gd` and `web/shell.html`, with environment/raw-storage capability boundaries and boot retry; prove one real canvas Control plus semantic activation without JS gameplay logic (FR-007, FR-009–010).
+- [X] T017 Implement a minimal versioned browser adapter and Godot bridge in `web/browser.ts`, `game/platform/browser_bridge.gd` and `web/shell.html`, with environment/raw-storage capability boundaries and boot retry; prove one real canvas Control plus semantic activation without JS gameplay logic (FR-007, FR-009–010).
 
-- [ ] T018 Implement exact foundation precaching in `web/sw.ts` and `web/cache-client.ts` for immutable fixture release assets using root `/sw.js`, natural activation and worker-owned inventory digest; prove cold offline engine/pack launch without force activation or circular hashes (FR-011).
+- [X] T018 Implement exact foundation precaching in `web/sw.ts` and `web/cache-client.ts` for immutable fixture release assets using root `/sw.js`, natural activation and worker-owned inventory digest; prove cold offline engine/pack launch without force activation or circular hashes (FR-011).
 
-- [ ] T019 Implement the reusable import/pose/resource foundation in `game/presentation/character_view.gd` and `game/content/resource_store.gd`; wire a Web Test-only smoke scene at `tests/godot/fixtures/foundation.tscn` with real touch, audio and lifecycle handling, reusing the production boundary classes (FR-007, FR-010).
+- [X] T019 Implement the reusable import/pose/resource foundation in `game/presentation/character_view.gd` and `game/content/resource_store.gd`; wire a Web Test-only smoke scene at `tests/godot/fixtures/foundation.tscn` with real touch, audio and lifecycle handling, reusing the production boundary classes (FR-007, FR-010).
 
-- [ ] T020 Wire dev, preview, build, build:test, build:diagnostics and focused test commands in `package.json`, `scripts/preview.ts` and `playwright.config.ts`; serve correct MIME types and missing-resource errors and keep Web Test fixtures out of Release/Diagnostics (FR-013–014).
+- [X] T020 Wire dev, preview, build, build:test, build:diagnostics and focused test commands in `package.json`, `scripts/preview.ts` and `playwright.config.ts`; serve correct MIME types and missing-resource errors and keep Web Test fixtures out of Release/Diagnostics (FR-013–014).
 
 - [ ] T021 Run the automated foundation suite and attempt iPhone 12/Safari and Pixel 6/Chrome smoke procedures; record imported pose, touch, semantics, audio, explicit resume, offline loading, forced pack split and release fixture exclusion in `specs/009-godot-rewrite/validation/foundation.md`, with actual failures or missing devices visible (FR-007, FR-010–015).
+
+  Automated checkpoint passed on 2026-10-09, including actual Release/Web Test browser
+  exports and a forced two-pack cold offline launch. Physical iPhone/Pixel evidence is
+  unavailable; T021 remains unchecked under the manual-evidence rule above. See
+  [foundation evidence](validation/foundation.md) for results and device discovery attempts.
 
 **Checkpoint**: Automated foundation passes with runnable reference fixtures and shared
 content. Fixture scenery is allowed only for development/test increments; the final
@@ -96,49 +101,49 @@ AI targets, clocks and terminal results. Covers US1.1–6 and SC-001–002.
 
 ### Tests first
 
-- [ ] T022 [P] [US1] Add constructor, stable-ID/order, tick-stage, accumulator/backlog, first-frame, countdown and separate active-wall-clock cases in `tests/godot/simulation/test_run_clock.gd`; include pause, long stalls and no five-minute defeat (FR-003, FR-006).
+- [X] T022 [P] [US1] Add constructor, stable-ID/order, tick-stage, accumulator/backlog, first-frame, countdown and separate active-wall-clock cases in `tests/godot/simulation/test_run_clock.gd`; include pause, long stalls and no five-minute defeat (FR-003, FR-006).
 
-- [ ] T023 [P] [US1] Add movement/facing, single-buffer priority/expiry/cancel, exact move windows, hit-once/depth, damage/protection, meter and dodge cases in `tests/godot/simulation/test_combat.gd` (FR-003; US1.2).
+- [X] T023 [P] [US1] Add movement/facing, single-buffer priority/expiry/cancel, exact move windows, hit-once/depth, damage/protection, meter and dodge cases in `tests/godot/simulation/test_combat.gd` (FR-003; US1.2).
 
-- [ ] T024 [P] [US1] Add all character Special cases in `tests/godot/simulation/test_specials.gd`: area attacks, ROAR normal stun/boss damage, fixed nearest-visible Headrest aim/ties/swept interception/miss/expiry, interruption, no target and spend-once behavior (FR-004; US1.3).
+- [X] T024 [P] [US1] Add all character Special cases in `tests/godot/simulation/test_specials.gd`: area attacks, ROAR normal stun/boss damage, fixed nearest-visible Headrest aim/ties/swept interception/miss/expiry, interruption, no target and spend-once behavior (FR-004; US1.3).
 
-- [ ] T025 [P] [US1] Add grunt/zoner/enforcer/Liam and partner engage/regroup/recover/visibility cases in `tests/godot/simulation/test_ai.gd`, including camera-dependent targets, stable ties and released projectiles surviving stun (FR-005–006).
+- [X] T025 [P] [US1] Add grunt/zoner/enforcer/Liam and partner engage/regroup/recover/visibility cases in `tests/godot/simulation/test_ai.gd`, including camera-dependent targets, stable ties and released projectiles surviving stun (FR-005–006).
 
-- [ ] T026 [P] [US1] Add all room waves, boss phases, connectors, tables at (22,-2)/(28,2), single player-only healing drops, full-health consumption, solo continuation and lethal defeat precedence in `tests/godot/simulation/test_progression.gd` (FR-005–006; US1.4–5).
+- [X] T026 [P] [US1] Add all room waves, boss phases, connectors, tables at (22,-2)/(28,2), single player-only healing drops, full-health consumption, solo continuation and lethal defeat precedence in `tests/godot/simulation/test_progression.gd` (FR-005–006; US1.4–5).
 
-- [ ] T027 [P] [US1] Add selection, generation-safe readiness, countdown, retained-duo retry/home, late results full state-reset and contextual tutorial/legacy-attack-versus-Heavy cases in `tests/godot/app/test_session.gd`; missing visuals block with retry while audio/cache-only failures do not (FR-002, FR-006; US1.1, US1.6, US3.5).
+- [X] T027 [P] [US1] Add selection, generation-safe readiness, countdown, retained-duo retry/home, late results full state-reset and contextual tutorial/legacy-attack-versus-Heavy cases in `tests/godot/app/test_session.gd`; missing visuals block with retry while audio/cache-only failures do not (FR-002, FR-006; US1.1, US1.6, US3.5).
 
-- [ ] T028 [P] [US1] Add physical input tests in `tests/godot/input/test_input_controller.gd` and `tests/e2e/godot-input.spec.ts` for simultaneous movement/action, 60px fixed joystick/15% deadzone, source cancellation, drag threshold, held-key freshness and carried input (FR-002–003, FR-007).
+- [X] T028 [P] [US1] Add physical input tests in `tests/godot/input/test_input_controller.gd` and `tests/e2e/godot-input.spec.ts` for simultaneous movement/action, 60px fixed joystick/15% deadzone, source cancellation, drag threshold, held-key freshness and carried input (FR-002–003, FR-007).
 
-- [ ] T029 [P] [US1] Add camera/pose/HUD and twelve separately parameterized duo journeys in `tests/godot/presentation/test_camera.gd` and `tests/e2e/godot-duos.spec.ts`; use state-based waits and actual canvas interactions, plus deterministic timing assertions in headless tests (FR-002, FR-007; SC-001).
+- [X] T029 [P] [US1] Add camera/pose/HUD and twelve separately parameterized duo journeys in `tests/godot/presentation/test_camera.gd` and `tests/e2e/godot-duos.spec.ts`; use state-based waits and actual canvas interactions, plus deterministic timing assertions in headless tests (FR-002, FR-007; SC-001).
 
 ### Models, rules and integration
 
-- [ ] T030 [US1] Implement typed state/events and constructors in `game/simulation/run_state.gd`, `game/simulation/actor.gd` and `game/simulation/events.gd`; implement manual frame accumulator and active/countdown clocks in `game/app/clocks.gd` using scalar float64 values and original ordering (FR-003, FR-006).
+- [X] T030 [US1] Implement typed state/events and constructors in `game/simulation/run_state.gd`, `game/simulation/actor.gd` and `game/simulation/events.gd`; implement manual frame accumulator and active/countdown clocks in `game/app/clocks.gd` using scalar float64 values and original ordering (FR-003, FR-006).
 
-- [ ] T031 [US1] Implement action arbitration, movement, contact resolution and resource rules in `game/simulation/actions.gd`, `game/simulation/movement.gd` and `game/simulation/combat.gd`; port source tuning before refactoring and preserve terminal ordering (FR-003).
+- [X] T031 [US1] Implement action arbitration, movement, contact resolution and resource rules in `game/simulation/actions.gd`, `game/simulation/movement.gd` and `game/simulation/combat.gd`; port source tuning before refactoring and preserve terminal ordering (FR-003).
 
-- [ ] T032 [US1] Implement statuses, area/ROAR/Headrest Specials and both projectile families in `game/simulation/statuses.gd`, `game/simulation/specials.gd` and `game/simulation/projectiles.gd` to pass release/interruption/targeting tests (FR-004).
+- [X] T032 [US1] Implement statuses, area/ROAR/Headrest Specials and both projectile families in `game/simulation/statuses.gd`, `game/simulation/specials.gd` and `game/simulation/projectiles.gd` to pass release/interruption/targeting tests (FR-004).
 
-- [ ] T033 [US1] Implement scalar camera/envelope and legal/visible arena computation in `game/presentation/camera_math.gd` and `game/simulation/arena.gd`; preserve source frame ordering and supply explicit ArenaContext to rules (FR-005, FR-007).
+- [X] T033 [US1] Implement scalar camera/envelope and legal/visible arena computation in `game/presentation/camera_math.gd` and `game/simulation/arena.gd`; preserve source frame ordering and supply explicit ArenaContext to rules (FR-005, FR-007).
 
-- [ ] T034 [US1] Implement the three enemy roles, Liam phases and partner intent/recovery in `game/simulation/enemy_ai.gd` and `game/simulation/partner_ai.gd`, preserving ordering, role values, knockout and solo behavior (FR-005–006).
+- [X] T034 [US1] Implement the three enemy roles, Liam phases and partner intent/recovery in `game/simulation/enemy_ai.gd` and `game/simulation/partner_ai.gd`, preserving ordering, role values, knockout and solo behavior (FR-005–006).
 
-- [ ] T035 [US1] Implement encounter progression, tables/pickups, terminal resolution and ordered step orchestration in `game/simulation/encounters.gd`, `game/simulation/objects.gd` and `game/simulation/step.gd`; break after terminal with defeat precedence (FR-006).
+- [X] T035 [US1] Implement encounter progression, tables/pickups, terminal resolution and ordered step orchestration in `game/simulation/encounters.gd`, `game/simulation/objects.gd` and `game/simulation/step.gd`; break after terminal with defeat precedence (FR-006).
 
-- [ ] T036 [US1] Implement session/selection/readiness transitions in `game/app/run_session.gd` and `game/app/selection.gd`, including partial countdown preservation, stale-generation cleanup, safe explicit resume and retained-duo full retry reset (FR-002, FR-006).
+- [X] T036 [US1] Implement session/selection/readiness transitions in `game/app/run_session.gd` and `game/app/selection.gd`, including partial countdown preservation, stale-generation cleanup, safe explicit resume and retained-duo full retry reset (FR-002, FR-006).
 
-- [ ] T037 [US1] Implement Godot-owned touch/mouse/keyboard arbitration in `game/input/input_controller.gd` with source-specific cancel and geometry/lifecycle clearing; keep semantic keyboard intents on the sole bridge route (FR-002–003, FR-007).
+- [X] T037 [US1] Implement Godot-owned touch/mouse/keyboard arbitration in `game/input/input_controller.gd` with source-specific cancel and geometry/lifecycle clearing; keep semantic keyboard intents on the sole bridge route (FR-002–003, FR-007).
 
-- [ ] T038 [US1] Implement selection previews/stats, Godot HUD/combat controls, countdown, pause/settings and result/home/retry screens in `game/ui/selection_screen.gd`, `game/ui/combat_hud.gd` and `game/ui/session_screen.gd`; emit semantic descriptors for platform integration and keep settings usable while paused (FR-002, FR-006–007).
+- [X] T038 [US1] Implement selection previews/stats, Godot HUD/combat controls, countdown, pause/settings and result/home/retry screens in `game/ui/selection_screen.gd`, `game/ui/combat_hud.gd` and `game/ui/session_screen.gd`; emit semantic descriptors for platform integration and keep settings usable while paused (FR-002, FR-006–007).
 
-- [ ] T039 [US1] Integrate the complete world, camera, ally/enemy views, manual animations, shadows/telegraphs/effects and resource ownership in `game/presentation/world_view.gd` and `game/app/main.gd`; preserve ally scale 1.25, facing/pose and muted/no-shake feedback (FR-007).
+- [X] T039 [US1] Integrate the complete world, camera, ally/enemy views, manual animations, shadows/telegraphs/effects and resource ownership in `game/presentation/world_view.gd` and `game/app/main.gd`; preserve ally scale 1.25, facing/pose and muted/no-shake feedback (FR-007).
 
-- [ ] T040 [US1] Port contextual tutorial state and prompts in `game/ui/tutorial.gd`, preserving Heavy as separate from legacy attack completion; connect the shared persistence service when US3 lands (FR-006, FR-009).
+- [X] T040 [US1] Port contextual tutorial state and prompts in `game/ui/tutorial.gd`, preserving Heavy as separate from legacy attack completion; connect the shared persistence service when US3 lands (FR-006, FR-009).
 
-- [ ] T041 [US1] Implement canonical Godot replay and Web Test-only snapshots/fixtures/control bounds in `tests/godot/replay_runner.gd` and `game/platform/test_bridge.gd`; wire test:parity in `package.json`, and physically exclude test registration/resources from release (FR-001, FR-014).
+- [X] T041 [US1] Implement canonical Godot replay and Web Test-only snapshots/fixtures/control bounds in `tests/godot/replay_runner.gd` and `game/platform/test_bridge.gd`; wire test:parity in `package.json`, and physically exclude test registration/resources from release (FR-001, FR-014).
 
-- [ ] T042 [US1] Run all US1 suites/replays and matched visual checks, record all twelve duos/four solo outcomes and intentional spec corrections in `specs/009-godot-rewrite/validation/us1.md`, and update coverage without claiming unresolved browser/art/device acceptance (FR-001–007; SC-001–002).
+- [X] T042 [US1] Run all US1 suites/replays and matched visual checks, record all twelve duos/four solo outcomes and intentional spec corrections in `specs/009-godot-rewrite/validation/us1.md`, and update coverage without claiming unresolved browser/art/device acceptance (FR-001–007; SC-001–002).
 
 **Checkpoint**: Complete playable parity increment. Final scenery, browser reliability,
 physical acceptance and authoring are still required for the full product.
@@ -152,21 +157,27 @@ Concept approval precedes final art; final recognition uses five players (US2.1�
 
 ### Tests and concepts before final art
 
-- [ ] T043 [P] [US2] Add backdrop catalogue/SVG/import/budget tests in `tests/tooling/backdrops.test.ts` and `tests/godot/presentation/test_backdrops.gd`: exact four stable-ID mappings, eight image sizes, self-contained static SVGs, required preload and <=64 MiB decoded textures including mipmaps (FR-008, FR-015).
+- [X] T043 [P] [US2] Add backdrop catalogue/SVG/import/budget tests in `tests/tooling/backdrops.test.ts` and `tests/godot/presentation/test_backdrops.gd`: exact four stable-ID mappings, eight image sizes, self-contained static SVGs, required preload and <=64 MiB decoded textures including mipmaps (FR-008, FR-015).
 
-- [ ] T044 [P] [US2] Add transition/layout/GO regression cases in `tests/e2e/godot-backdrops.spec.ts` for camera margins/connectors, 90% view coverage, safe controls, reduced motion, no new interactions and no GO after terminal/reset (FR-007–008; US2.2–4).
+- [X] T044 [P] [US2] Add transition/layout/GO regression cases in `tests/e2e/godot-backdrops.spec.ts` for camera margins/connectors, 90% view coverage, safe controls, reduced motion, no new interactions and no GO after terminal/reset (FR-007–008; US2.2–4).
 
-- [ ] T045 [US2] Create four camera/HUD/character-composited concepts in `specs/009-godot-rewrite/reviews/backdrop-concepts.md` with referenced concept assets under `assets/backdrops/concepts/`; record actual reviewer decisions on feature 008 cues before producing final panels, leaving unresolved decisions pending (FR-008; US2.5).
+- [X] T045 [US2] Create four camera/HUD/character-composited concepts in `specs/009-godot-rewrite/reviews/backdrop-concepts.md` with referenced concept assets under `assets/backdrops/concepts/`; record actual reviewer decisions on feature 008 cues before producing final panels, leaving unresolved decisions pending (FR-008; US2.5).
 
 ### Art and scene integration
 
-- [ ] T046 [US2] After concept review, produce wall.svg (2048x1024) and floor.svg (1024x512) in each of `assets/backdrops/outside-entrance/`, `assets/backdrops/bar/`, `assets/backdrops/dance-floor/` and `assets/backdrops/stage-vip/`; preserve quiet floors, branding, rightward entrance and editable self-contained vector source (FR-008).
+- [X] T046 [US2] After concept review, produce wall.svg (2048x1024) and floor.svg (1024x512) in each of `assets/backdrops/outside-entrance/`, `assets/backdrops/bar/`, `assets/backdrops/dance-floor/` and `assets/backdrops/stage-vip/`; preserve quiet floors, branding, rightward entrance and editable self-contained vector source (FR-008).
 
-- [ ] T047 [US2] Implement `content/backdrops.json` and `game/presentation/backdrops.gd` with static opaque unlit panels, three connector/backing surfaces and camera margins; retain all visible room groups and unchanged gameplay collections (FR-008).
+- [X] T047 [US2] Implement `content/backdrops.json` and `game/presentation/backdrops.gd` with static opaque unlit panels, three connector/backing surfaces and camera margins; retain all visible room groups and unchanged gameplay collections (FR-008).
 
-- [ ] T048 [US2] Integrate actual all-eight-texture readiness and required-resource errors in `game/content/resource_store.gd`, and correct GO/layout/reduced-motion behavior in `game/ui/combat_hud.gd` only where tests identify differences; remove development scenery from production paths (FR-007–008).
+- [X] T048 [US2] Integrate actual all-eight-texture readiness and required-resource errors in `game/content/resource_store.gd`, and correct GO/layout/reduced-motion behavior in `game/ui/combat_hud.gd` only where tests identify differences; remove development scenery from production paths (FR-007–008).
 
-- [ ] T049 [US2] Run US2 tests and record four in-game reviews with busy scenes, all character silhouettes, telegraphs, controls, edges and transitions in `specs/009-godot-rewrite/reviews/backdrops-final.md`; retain actual approval/pending decisions and defer participant recognition to the final player evaluation (FR-008; US2.1–5).
+- [X] T049 [US2] Run US2 tests and record four in-game reviews with busy scenes, all character silhouettes, telegraphs, controls, edges and transitions in `specs/009-godot-rewrite/reviews/backdrops-final.md`; retain actual approval/pending decisions and defer participant recognition to the final player evaluation (FR-008; US2.1–5).
+
+Phase 4 implementation and actual technical scene reviews passed on 2026-10-09.
+Owner concept approval preceded final SVG production. See [US2 evidence](validation/us2.md)
+and [final reviews](reviews/backdrops-final.md). Reference-phone and five-player
+recognition acceptance remain pending for the later final evaluation; they are not
+claimed as completed by T049.
 
 ## Phase 5: US3 — Continue using the mobile browser game reliably (P1)
 
@@ -179,41 +190,45 @@ scenarios. Run on both phones in browser and installed modes where supported
 
 ### Tests first
 
-- [ ] T050 [P] [US3] Add storage compatibility/default/denial tests in `tests/godot/platform/test_persistence.gd` and `tests/platform/storage.test.ts` for the three exact keys/schemas, field fallback, strict better-victory replacement, canonical tutorial IDs and no transient saves (FR-009; US3.1–2).
+- [X] T050 [P] [US3] Add storage compatibility/default/denial tests in `tests/godot/platform/test_persistence.gd` and `tests/platform/storage.test.ts` for the three exact keys/schemas, field fallback, strict better-victory replacement, canonical tutorial IDs and no transient saves (FR-009; US3.1–2).
 
-- [ ] T051 [P] [US3] Add semantic projection tests in `tests/platform/semantics.test.ts` and `tests/e2e/godot-accessibility.spec.ts` for native roles/labels/ranges, focus without preview, roving twelve-entry fixture roster, modal restore/trap, stale generations, exactly-once intents and safe CSS bounds (FR-007, FR-010).
+- [X] T051 [P] [US3] Add semantic projection tests in `tests/platform/semantics.test.ts` and `tests/e2e/godot-accessibility.spec.ts` for native roles/labels/ranges, focus without preview, roving twelve-entry fixture roster, modal restore/trap, stale generations, exactly-once intents and safe CSS bounds (FR-007, FR-010).
 
-- [ ] T052 [P] [US3] Add lifecycle/audio tests in `tests/godot/platform/test_lifecycle_audio.gd` and `tests/e2e/godot-lifecycle.spec.ts` for hide/blur/portrait at every countdown numeral and during Specials, frozen effects/clocks, explicit resume, one streamed track/eight effect voices and silent fallback (FR-010; US3.2–3).
+- [X] T052 [P] [US3] Add lifecycle/audio tests in `tests/godot/platform/test_lifecycle_audio.gd` and `tests/e2e/godot-lifecycle.spec.ts` for hide/blur/portrait at every countdown numeral and during Specials, frozen effects/clocks, explicit resume, one streamed track/eight effect voices and silent fallback (FR-010; US3.2–3).
 
-- [ ] T053 [P] [US3] Add loading/context/resource-cycle cases in `tests/e2e/godot-loading.spec.ts` and `tests/godot/content/test_resource_store.gd`: missing models/clips/scenery, late success/error, retained duo retry, cache-only failure, recoverable context loss versus reload and ten-cycle stable ownership (FR-010–011, FR-013).
+- [X] T053 [P] [US3] Add loading/context/resource-cycle cases in `tests/e2e/godot-loading.spec.ts` and `tests/godot/content/test_resource_store.gd`: missing models/clips/scenery, late success/error, retained duo retry, cache-only failure, recoverable context loss versus reload and ten-cycle stable ownership (FR-010–011, FR-013).
 
-- [ ] T054 [P] [US3] Add worker protocol/repair tests in `tests/platform/cache.test.ts` for digest/length corruption, revision-aware keys, missing files, wrong versions/IDs, quota denial, serialized repair, request generations and 10s idle/120s total deadlines (FR-011).
+- [X] T054 [P] [US3] Add worker protocol/repair tests in `tests/platform/cache.test.ts` for digest/length corruption, revision-aware keys, missing files, wrong versions/IDs, quota denial, serialized repair, request generations and 10s idle/120s total deadlines (FR-011).
 
-- [ ] T055 [P] [US3] Add legacy/new-release two-window install/update/offline tests in `tests/e2e/godot-offline.spec.ts` with immutable fixtures under `tests/reference/releases/`; cover preparing/countdown/running/paused sessions, no forced takeover, complete roster/audio/room availability and old saved data (FR-009, FR-011; US3.4–6).
+- [X] T055 [P] [US3] Add legacy/new-release two-window install/update/offline tests in `tests/e2e/godot-offline.spec.ts` with immutable fixtures under `tests/reference/releases/`; cover preparing/countdown/running/paused sessions, no forced takeover, complete roster/audio/room availability and old saved data (FR-009, FR-011; US3.4–6).
 
-- [ ] T056 [P] [US3] Add full release audit and diagnostics isolation tests in `tests/tooling/release-audit.test.ts` and `tests/e2e/godot-release.spec.ts`, including engine exceptions, duplicate content, compressed/cached totals, missing resources, test-hook leakage and final evidence requirements (FR-013–015).
+- [X] T056 [P] [US3] Add full release audit and diagnostics isolation tests in `tests/tooling/release-audit.test.ts` and `tests/e2e/godot-release.spec.ts`, including engine exceptions, duplicate content, compressed/cached totals, missing resources, test-hook leakage and final evidence requirements (FR-013–015).
 
 ### Browser services and complete release
 
-- [ ] T057 [US3] Implement persistence validation/in-memory fallback and editor-only adapter in `game/platform/persistence.gd` and `game/platform/editor_platform.gd`; extend `web/browser.ts` with allowlisted raw storage, then connect settings/tutorial/best-result ownership to session and UI (FR-009).
+- [X] T057 [US3] Implement persistence validation/in-memory fallback and editor-only adapter in `game/platform/persistence.gd` and `game/platform/editor_platform.gd`; extend `web/browser.ts` with allowlisted raw storage, then connect settings/tutorial/best-result ownership to session and UI (FR-009).
 
-- [ ] T058 [US3] Implement native semantic mirroring in `web/semantics.ts` and Godot descriptor/focus decisions in `game/ui/semantics.gd`; retain DOM identity, live-region discipline, safe text insertion, pointer transparency and one keyboard/assistive route (FR-007, FR-010).
+- [X] T058 [US3] Implement native semantic mirroring in `web/semantics.ts` and Godot descriptor/focus decisions in `game/ui/semantics.gd`; retain DOM identity, live-region discipline, safe text insertion, pointer transparency and one keyboard/assistive route (FR-007, FR-010).
 
-- [ ] T059 [US3] Complete environment/safe-inset/reduced-motion/lifecycle bridge in `web/browser.ts` and `game/platform/lifecycle.gd`; integrate explicit resume, fresh inputs and context restoration/reload into `game/app/run_session.gd` and `web/shell.html` (FR-010).
+- [X] T059 [US3] Complete environment/safe-inset/reduced-motion/lifecycle bridge in `web/browser.ts` and `game/platform/lifecycle.gd`; integrate explicit resume, fresh inputs and context restoration/reload into `game/app/run_session.gd` and `web/shell.html` (FR-010).
 
-- [ ] T060 [US3] Implement one streamed music player and eight reusable sample effect voices in `game/platform/audio.gd`, connect real selection/Retry/Resume gestures synchronously including semantic callbacks, preserve pause position and restart on Retry with independent levels and silent fallback (FR-010).
+- [X] T060 [US3] Implement one streamed music player and eight reusable sample effect voices in `game/platform/audio.gd`, connect real selection/Retry/Resume gestures synchronously including semantic callbacks, preserve pause position and restart on Retry with independent levels and silent fallback (FR-010).
 
-- [ ] T061 [US3] Complete generation-safe resource preparation/coalescing and teardown in `game/content/resource_store.gd` and `game/presentation/world_view.gd`; require chosen visuals/all backdrops/first view before countdown and prove ten-cycle stable ownership (FR-010–011, FR-013).
+- [X] T061 [US3] Complete generation-safe resource preparation/coalescing and teardown in `game/content/resource_store.gd` and `game/presentation/world_view.gd`; require chosen visuals/all backdrops/first view before countdown and prove ten-cycle stable ownership (FR-010–011, FR-013).
 
-- [ ] T062 [US3] Complete worker digest/length verification, exact repair, timeout/progress, legacy CACHE_STATUS compatibility and app-owned cache cleanup in `web/sw.ts` and `web/cache-client.ts`; never claim readiness from a stored flag or clean old caches during install (FR-011).
+- [X] T062 [US3] Complete worker digest/length verification, exact repair, timeout/progress, legacy CACHE_STATUS compatibility and app-owned cache cleanup in `web/sw.ts` and `web/cache-client.ts`; never claim readiness from a stored flag or clean old caches during install (FR-011).
 
-- [ ] T063 [US3] Integrate separate runtime/offline readiness, actionable Retry and between-run close-all-windows update notices in `game/ui/readiness.gd` and `game/platform/browser_bridge.gd`; preserve nonblocking cache failure and no auto-reload (FR-011).
+- [X] T063 [US3] Integrate separate runtime/offline readiness, actionable Retry and between-run close-all-windows update notices in `game/ui/readiness.gd` and `game/platform/browser_bridge.gd`; preserve nonblocking cache failure and no auto-reload (FR-011).
 
-- [ ] T064 [US3] Complete `scripts/audit-build.ts` and export membership checks, covering official engine fingerprints, every pack/resource/remap, 30 MiB content/16 MiB files, duplicate bytes, inventory/worker totals and deterministic gzip/Brotli estimates; add --final evidence validation (FR-013–015).
+- [X] T064 [US3] Complete `scripts/audit-build.ts` and export membership checks, covering official engine fingerprints, every pack/resource/remap, 30 MiB content/16 MiB files, duplicate bytes, inventory/worker totals and deterministic gzip/Brotli estimates; add --final evidence validation (FR-013–015).
 
-- [ ] T065 [US3] Implement read-only frame/resource/render diagnostics in `game/platform/diagnostics.gd` and `web/diagnostics.ts`, restricted to Web Diagnostics; capture active frame intervals/rolling FPS/draw calls/triangles/owned counts with local JSON download and no telemetry (FR-013–014).
+- [X] T065 [US3] Implement read-only frame/resource/render diagnostics in `game/platform/diagnostics.gd` and `web/diagnostics.ts`, restricted to Web Diagnostics; capture active frame intervals/rolling FPS/draw calls/triangles/owned counts with local JSON download and no telemetry (FR-013–014).
 
 - [ ] T066 [US3] Run US3 browser/unit/release checks and actual phone storage/audio/lifecycle/VoiceOver/TalkBack/offline/installed/update procedures; record build/device versions, full-level outcomes, limitations and pending evidence in `specs/009-godot-rewrite/validation/us3.md` (FR-007, FR-009–015; SC-003–005, SC-009).
+
+Phase 5 implementation and automated verification passed on 2026-10-10.
+T066 remains open for physical phone/installed/accessibility/audio/full-run acceptance.
+See [US3 evidence](validation/us3.md); Chromium is not a Safari acceptance substitute.
 
 ## Phase 6: US4 — Continue creating and maintaining characters (P2)
 
@@ -224,21 +239,26 @@ unrelated fingerprints. Two actual review records are required (US4.1–3, SC-00
 
 ### Tests first
 
-- [ ] T067 [P] [US4] Add CLI/validator contract cases in `tests/tooling/character-cli.test.ts`: full/per-character/--root validation, imported missing clips, diagnostic/exit propagation, malformed definitions and unsupported mechanics; normal validation cannot skip assets (FR-012; US4.1–2).
+- [X] T067 [P] [US4] Add CLI/validator contract cases in `tests/tooling/character-cli.test.ts`: full/per-character/--root validation, imported missing clips, diagnostic/exit propagation, malformed definitions and unsupported mechanics; normal validation cannot skip assets (FR-012; US4.1–2).
 
-- [ ] T068 [P] [US4] Add scaffold preservation cases in `tests/tooling/character-scaffold.test.ts`: invalid brief, duplicate ID, existing output, incomplete draft, explicit --output-dir, active-feature default and unchanged unrelated fingerprints; preserve definition/report fields (FR-012; US4.2).
+- [X] T068 [P] [US4] Add scaffold preservation cases in `tests/tooling/character-scaffold.test.ts`: invalid brief, duplicate ID, existing output, incomplete draft, explicit --output-dir, active-feature default and unchanged unrelated fingerprints; preserve definition/report fields (FR-012; US4.2).
 
 ### Tooling and workflow
 
-- [ ] T069 [US4] Implement headless authoritative validation in `game/tools/validate_content.gd` and imported model/clip/prop checks in `game/content/validator.gd`; turn `scripts/characters/validate.ts` into a thin Bun adapter preserving existing CLI options (FR-012).
+- [X] T069 [US4] Implement headless authoritative validation in `game/tools/validate_content.gd` and imported model/clip/prop checks in `game/content/validator.gd`; turn `scripts/characters/validate.ts` into a thin Bun adapter preserving existing CLI options (FR-012).
 
-- [ ] T070 [US4] Update `scripts/characters/scaffold.ts` for explicit output scope and active SpecKit feature defaults; reject conflicts before mutation and retain incomplete nonregistered drafts with actionable reports (FR-012).
+- [X] T070 [US4] Update `scripts/characters/scaffold.ts` for explicit output scope and active SpecKit feature defaults; reject conflicts before mutation and retain incomplete nonregistered drafts with actionable reports (FR-012).
 
-- [ ] T071 [US4] Apply the skill-creator workflow to update `.agents/skills/character-builder/SKILL.md` and `.agents/skills/character-builder/references/workflow.md` with Godot import/validation/playable review commands; preserve scoped Blender options and document consistency validation (FR-012).
+- [X] T071 [US4] Apply the skill-creator workflow to update `.agents/skills/character-builder/SKILL.md` and `.agents/skills/character-builder/references/workflow.md` with Godot import/validation/playable review commands; preserve scoped Blender options and document consistency validation (FR-012).
 
-- [ ] T072 [US4] Run Blender and source/import validation, then actual Lion and Plates workflow/playable exercises; record commands, fingerprints, outputs and visual/gameplay/device review status in `specs/009-godot-rewrite/reviews/lion-godot.md` and `specs/009-godot-rewrite/reviews/plates-godot.md` without regenerating unrelated assets or relabeling historical reports (FR-012; SC-008).
+- [X] T072 [US4] Run Blender and source/import validation, then actual Lion and Plates workflow/playable exercises; record commands, fingerprints, outputs and visual/gameplay/device review status in `specs/009-godot-rewrite/reviews/lion-godot.md` and `specs/009-godot-rewrite/reviews/plates-godot.md` without regenerating unrelated assets or relabeling historical reports (FR-012; SC-008).
 
-- [ ] T073 [US4] Verify four-character integration and complete offline roster after the tooling changes, rerun rejection/preservation tests and reconcile US4.1–3 evidence in `specs/009-godot-rewrite/validation/us4.md`; keep unresolved playable reviews pending (FR-004, FR-011–012).
+- [X] T073 [US4] Verify four-character integration and complete offline roster after the tooling changes, rerun rejection/preservation tests and reconcile US4.1–3 evidence in `specs/009-godot-rewrite/validation/us4.md`; keep unresolved playable reviews pending (FR-004, FR-011–012).
+
+Phase 6 technical workflow exercises and preservation checks passed on 2026-10-10.
+Both new review records and unstaged native-input outcomes exist. Owner/device/human
+playable review and SC-008 remain pending, as required by T073; natural runs ended
+in defeat and do not establish full-level wins. See [US4 evidence](validation/us4.md).
 
 ## Phase 7: Cross-cutting validation and cutover
 

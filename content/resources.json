@@ -1,0 +1,85 @@
+{
+  "models": {
+    "cow": "assets/characters/cow-crow/runtime/cow.glb",
+    "crow": "assets/characters/cow-crow/runtime/crow.glb",
+    "lion": "assets/characters/lion/runtime/character.glb",
+    "plates": "assets/characters/plates/runtime/character.glb"
+  },
+  "portraits": {
+    "cow": "assets/characters/cow-crow/portraits/cow.png",
+    "crow": "assets/characters/cow-crow/portraits/crow.png",
+    "lion": "assets/characters/lion/portrait.png",
+    "plates": "assets/characters/plates/portrait.png"
+  },
+  "animationSets": {
+    "cow": "cow",
+    "crow": "crow",
+    "lion": "lion",
+    "plates": "plates"
+  },
+  "sounds": {
+    "cow": [
+      "public/assets/audio/sfx-attack.wav",
+      "public/assets/audio/sfx-hit.wav",
+      "public/assets/audio/sfx-damage.wav"
+    ],
+    "crow": [
+      "public/assets/audio/sfx-attack.wav",
+      "public/assets/audio/sfx-hit.wav",
+      "public/assets/audio/sfx-damage.wav"
+    ],
+    "lion": [
+      "public/assets/audio/sfx-attack.wav",
+      "public/assets/audio/sfx-hit.wav",
+      "public/assets/audio/sfx-damage.wav"
+    ],
+    "plates": [
+      "public/assets/audio/sfx-attack.wav",
+      "public/assets/audio/sfx-hit.wav",
+      "public/assets/audio/sfx-damage.wav"
+    ]
+  },
+  "props": {
+    "headrest": "assets/props/headrest/headrest.glb"
+  },
+  "supportAnimations": [
+    "cow-support",
+    "crow-support",
+    "lion-support",
+    "plates-support"
+  ],
+  "bodyEnvelopes": {
+    "cow": {
+      "minX": -1.7,
+      "maxX": 1.7,
+      "minY": 0,
+      "maxY": 3.1,
+      "minDepth": -1.7,
+      "maxDepth": 1.7
+    },
+    "crow": {
+      "minX": -1.7,
+      "maxX": 1.7,
+      "minY": 0,
+      "maxY": 2.6,
+      "minDepth": -1.7,
+      "maxDepth": 1.7
+    },
+    "lion": {
+      "minX": -1.9,
+      "maxX": 1.9,
+      "minY": 0,
+      "maxY": 2.5,
+      "minDepth": -1.6,
+      "maxDepth": 1.6
+    },
+    "plates": {
+      "minX": -1.7,
+      "maxX": 1.7,
+      "minY": 0,
+      "maxY": 2,
+      "minDepth": -1.4,
+      "maxDepth": 1.4
+    }
+  }
+}

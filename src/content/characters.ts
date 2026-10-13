@@ -1,8 +1,8 @@
 import { cowMoveTuning, tuning } from './tuning';
-import cowDefinition from './characters/cow.json';
-import crowDefinition from './characters/crow.json';
-import lionDefinition from './characters/lion.json';
-import platesDefinition from './characters/plates.json';
+import cowDefinition from '../../content/characters/cow.json';
+import crowDefinition from '../../content/characters/crow.json';
+import lionDefinition from '../../content/characters/lion.json';
+import platesDefinition from '../../content/characters/plates.json';
 
 export type CharacterId = string;
 export type CharacterAssetKey = 'cow' | 'crow' | 'lion' | 'plates';

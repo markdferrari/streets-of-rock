@@ -1,0 +1,59 @@
+$ playwright test --config playwright.godot.config.ts --project chromium --grep "real canvas|blur clears"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 2 tests using 1 worker
+
+(node:484458) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio (6.6s)
+(node:484654) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume (6.3s)
+
+
+  1) [chromium] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      4 | test('real canvas Control and semantic keyboard each activate exactly once with gesture audio',async({page})=>{
+      5 |  await page.locator('canvas').click({position:{x:700,y:310}});
+    > 6 |  await expect.poll(()=>snapshot(page).then(s=>s.activations)).toBe(1);
+        |                                                               ^
+      7 |  await page.getByRole('button',{name:'Activate',exact:true}).focus();await page.keyboard.press('Enter');
+      8 |  await expect.poll(()=>snapshot(page).then(s=>s.activations)).toBe(2);
+      9 |  expect((await snapshot(page)).semanticActivations).toBe(1);expect((await snapshot(page)).audioStarts).toBe(2);
+        at /home/mark/projects/streets-of-rock/tests/e2e/godot-foundation.spec.ts:6:63
+
+    Error Context: test-results/godot-foundation-real-canv-5f05f-tly-once-with-gesture-audio-chromium/error-context.md
+
+  2) [chromium] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      11 | test('blur clears input and returning requires explicit safe resume',async({page})=>{
+      12 |  await page.evaluate(()=>window.dispatchEvent(new Event('blur')));
+    > 13 |  await expect.poll(()=>snapshot(page).then(s=>s.paused)).toBe(true);
+         |                                                          ^
+      14 |  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));expect((await snapshot(page)).paused).toBe(true);
+      15 |  await page.getByRole('button',{name:'Resume',exact:true}).focus();await page.keyboard.press('Enter');
+      16 |  await expect.poll(()=>snapshot(page).then(s=>s.paused)).toBe(false);
+        at /home/mark/projects/streets-of-rock/tests/e2e/godot-foundation.spec.ts:13:58
+
+    Error Context: test-results/godot-foundation-blur-clea-58239-quires-explicit-safe-resume-chromium/error-context.md
+
+  2 failed
+    [chromium] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio 
+    [chromium] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume 
+error: script "test:e2e:godot" exited with code 1

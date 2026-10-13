@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/preview.test.ts (1 test | 1 failed) 11ms
+   × serves correct engine MIME types, errors for missing assets and confines traversal 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/preview.test.ts > serves correct engine MIME types, errors for missing assets and confines traversal
+AssertionError: expected 200 to be 404 // Object.is equality
+
+- Expected
++ Received
+
+- 404
++ 200
+
+ ❯ tests/tooling/preview.test.ts:8:116
+      6|   expect(serveFile(root,'/sor.wasm').headers['Content-Type']).toBe('ap…
+      7|   expect(serveFile(root,'/sor.pck').headers['Content-Type']).toBe('app…
+      8|   expect(serveFile(root,'/releases/id/missing.wasm').status).toBe(404)…
+       |                                                                                                                    ^
+      9|   expect(serveFile(root,'/../outside').status).toBe(403);expect(serveF…
+     10|   expect(serveFile(root,'/').body?.toString()).toBe('shell');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Start at  10:12:26
+   Duration  267ms (transform 35ms, setup 0ms, import 81ms, tests 11ms, environment 0ms)
+

@@ -1,0 +1,273 @@
+$ bun scripts/test-blender.ts
+test_new_character_sources_are_editable_and_inside_expected_envelopes (test_assets.CharacterAssetTests.test_new_character_sources_are_editable_and_inside_expected_envelopes) ... 00:00.640  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/lion/source.blend"
+00:00.668  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/lion/source.blend"
+00:00.700  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/plates/source.blend"
+00:00.716  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/plates/source.blend"
+ok
+test_two_saved_editable_characters (test_assets.CharacterAssetTests.test_two_saved_editable_characters) ... 00:01.562  blend            | Read blend: "/tmp/tmpfn2vxwgl/cow.blend"
+00:01.575  blend            | Read blend: "/tmp/tmpfn2vxwgl/crow.blend"
+ok
+test_blender_version_requirement (test_cli.CommandBoundaryTests.test_blender_version_requirement) ... ok
+test_character_portrait_preflight_is_scoped_to_requested_identity (test_cli.CommandBoundaryTests.test_character_portrait_preflight_is_scoped_to_requested_identity) ... ok
+test_character_scoped_preflight_never_claims_other_character_outputs (test_cli.CommandBoundaryTests.test_character_scoped_preflight_never_claims_other_character_outputs) ... ok
+test_duo_only_preflight_ignores_existing_individual_preview (test_cli.CommandBoundaryTests.test_duo_only_preflight_ignores_existing_individual_preview) ... ok
+test_generation_protects_existing_targets_and_unrelated_files (test_cli.CommandBoundaryTests.test_generation_protects_existing_targets_and_unrelated_files) ... ok
+test_invalid_character_ids_fail_before_output (test_cli.CommandBoundaryTests.test_invalid_character_ids_fail_before_output) ... ok
+test_missing_output_argument_fails (test_cli.CommandBoundaryTests.test_missing_output_argument_fails) ... usage: blender [-h] --output-dir OUTPUT_DIR [--overwrite]
+               [--character {cow,crow,lion,plates}]
+blender: error: the following arguments are required: --output-dir
+usage: blender [-h] --output-dir OUTPUT_DIR [--smoke] [--portraits]
+               [--only {cow,crow,duo}] [--character {cow,crow,lion,plates}]
+               [--overwrite]
+blender: error: the following arguments are required: --output-dir
+ok
+test_render_protects_existing_preview (test_cli.CommandBoundaryTests.test_render_protects_existing_preview) ... ok
+test_material_and_mesh_changes_survive_save_reopen_for_each_character (test_editability.EditabilityTests.test_material_and_mesh_changes_survive_save_reopen_for_each_character) ... 00:02.145  blend            | Read blend: "/tmp/tmpiom070d9/cow.blend"
+00:02.160  blend            | Read blend: "/tmp/tmpiom070d9/edited-cow.blend"
+00:02.171  blend            | Read blend: "/tmp/tmpiom070d9/crow.blend"
+00:02.183  blend            | Read blend: "/tmp/tmpiom070d9/edited-crow.blend"
+ok
+test_fixed_portrait_jobs_use_approved_sources_and_protect_outputs (test_portraits.PortraitTests.test_fixed_portrait_jobs_use_approved_sources_and_protect_outputs) ... ok
+test_portraits_render_as_square_images_from_saved_characters (test_portraits.PortraitTests.test_portraits_render_as_square_images_from_saved_characters) ... 00:02.733  blend            | Read blend: "/tmp/tmpjj7xlrxg/cow.blend"
+00:05.770  render           | Saved: '/tmp/tmpjj7xlrxg/portraits/cow.png'
+00:05.771  blend            | Read blend: "/tmp/tmpjj7xlrxg/crow.blend"
+00:08.396  render           | Saved: '/tmp/tmpjj7xlrxg/portraits/crow.png'
+00:08.455  blend            | Read blend: "/tmp/tmpjj7xlrxg/cow.blend"
+00:11.654  render           | Saved: '/tmp/tmpjj7xlrxg/portraits/cow.png'
+00:11.654  blend            | Read blend: "/tmp/tmpjj7xlrxg/crow.blend"
+00:14.463  render           | Saved: '/tmp/tmpjj7xlrxg/portraits/crow.png'
+ok
+test_comparison_scene_has_both_characters_cameras_and_lights (test_presentation.PresentationTests.test_comparison_scene_has_both_characters_cameras_and_lights) ... 00:15.093  blend            | Read blend: "/tmp/tmp0olug48h/comparison.blend"
+ok
+test_smoke_image_from_saved_scene (test_render.RenderTests.test_smoke_image_from_saved_scene) ... 00:15.685  blend            | Read blend: "/tmp/tmpsoribw95/comparison.blend"
+00:15.856  render           | Saved: '/tmp/tmpsoribw95/smoke/duo-neutral.png'
+ok
+test_both_reopen_with_rigid_bones_and_self_contained_animated_glbs (test_rig_export.RigExportTests.test_both_reopen_with_rigid_bones_and_self_contained_animated_glbs) ... 00:15.864  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/cow-crow/cow.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "edited-cow.blend"
+Info: Saved as "edited-crow.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow-rigged.blend"
+INFO Draco is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_meshopt_bridge.so
+09:31:46 | INFO: Starting glTF 2.0 export
+09:31:46 | INFO: Extracting primitive: Sphere.015
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.023
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.001
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.018
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.026
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.011
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.019
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.012
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.020
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.013
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.021
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.016
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.024
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.009
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Cone
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Cone.001
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.002
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.003
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.004
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.006
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.007
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.005
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.017
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.025
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.027
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.028
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.010
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.008
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.014
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere.022
+09:31:46 | INFO: Primitives created: 1
+09:31:46 | INFO: Extracting primitive: Sphere
+09:31:46 | INFO: Primitives created: 1
+09:31:47 | INFO: Finished glTF 2.0 export in 0.35490894317626953 s
+00:16.296  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/cow-crow/crow.blend"
+
+Info: Saved as "crow-rigged.blend"
+09:31:47 | INFO: Starting glTF 2.0 export
+09:31:47 | INFO: Extracting primitive: Cone
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.008
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.023
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.003
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Cone.001
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Cone.002
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Cone.003
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.006
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.021
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.010
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.025
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.005
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.007
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.022
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.001
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.002
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.014
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.029
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.009
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.024
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.004
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.012
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.013
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.011
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.027
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.028
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.026
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.016
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.017
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.018
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.019
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.020
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.031
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.032
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.033
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.034
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.035
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.015
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Extracting primitive: Sphere.030
+09:31:47 | INFO: Primitives created: 1
+09:31:47 | INFO: Finished glTF 2.0 export in 0.4414970874786377 s
+00:16.767  blend            | Read blend: "/tmp/tmpxhbnsxlo/cow-rigged.blend"
+00:16.781  blend            | Read blend: "/tmp/tmpxhbnsxlo/crow-rigged.blend"
+ok
+test_crow_special_pose_is_distinct_from_basic_attack (test_rig_export.RigExportTests.test_crow_special_pose_is_distinct_from_basic_attack) ... ok
+test_lion_and_plates_runtime_exports_cover_semantic_actions (test_rig_export.RigExportTests.test_lion_and_plates_runtime_exports_cover_semantic_actions) ... 00:16.799  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/lion/runtime/rigged.blend"
+00:16.815  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/characters/plates/runtime/rigged.blend"
+ok
+test_invalid_geometry_and_missing_presentation_rejected (test_validation.ValidationTests.test_invalid_geometry_and_missing_presentation_rejected) ... 00:17.407  blend            | Read blend: "/tmp/tmp7w9i8or4/crow.blend"
+00:19.291  blend            | Read blend: "/tmp/tmp7w9i8or4/comparison.blend"
+ok
+test_report_accepts_complete_scenes_and_rejects_damaged_scene (test_validation.ValidationTests.test_report_accepts_complete_scenes_and_rejects_damaged_scene) ... 00:22.479  blend            | Read blend: "/tmp/tmp11ukml0c/cow.blend"
+ok
+test_timeout_is_failure_even_if_probes_would_print_success (test_validation.ValidationTests.test_timeout_is_failure_even_if_probes_would_print_success) ... ok
+test_repeatability_and_full_set_preflight (test_workflow.WorkflowTests.test_repeatability_and_full_set_preflight) ... 00:25.457  blend            | Read blend: "/tmp/tmpk4v8in_3/cow.blend"
+00:25.466  blend            | Read blend: "/tmp/tmpnc3tpetu/cow.blend"
+00:25.474  blend            | Read blend: "/tmp/tmpk4v8in_3/crow.blend"
+00:25.482  blend            | Read blend: "/tmp/tmpnc3tpetu/crow.blend"
+00:25.491  blend            | Read blend: "/tmp/tmpk4v8in_3/comparison.blend"
+00:25.502  blend            | Read blend: "/tmp/tmpnc3tpetu/comparison.blend"
+ok
+test_scoped_new_character_generation_preserves_other_character_sources (test_workflow.WorkflowTests.test_scoped_new_character_generation_preserves_other_character_sources) ... ok
+test_smoke_render_does_not_change_saved_source (test_workflow.WorkflowTests.test_smoke_render_does_not_change_saved_source) ... 00:26.764  blend            | Read blend: "/tmp/tmpj67eoba3/comparison.blend"
+00:26.930  render           | Saved: '/tmp/tmpj67eoba3/smoke/duo-neutral.png'
+ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 26.290s
+
+OK
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"
+Info: Saved as "source.blend"
+Info: Saved as "cow.blend"
+Info: Saved as "crow.blend"
+Info: Saved as "comparison.blend"

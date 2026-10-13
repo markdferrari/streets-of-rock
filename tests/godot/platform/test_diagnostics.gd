@@ -1,0 +1,23 @@
+extends GutTest
+func test_fps_uses_the_latest_active_second_instead_of_the_entire_raw_buffer() -> void:
+ var metrics := preload("res://game/platform/diagnostics.gd").new()
+ add_child_autofree(metrics)
+ metrics.record(0, 1, 1)
+ for index in range(1, 21): metrics.record(index * 100, 1, 1)
+ for index in range(1, 101): metrics.record(2000 + index * 10, 1, 1)
+ assert_eq(metrics.snapshot().sampleCount, 120)
+ assert_almost_eq(metrics.snapshot().rollingFps, 100.0, 0.001)
+const Diagnostics = preload("res://game/platform/diagnostics.gd")
+func test_diagnostics_keep_bounded_local_frame_and_resource_samples() -> void:
+ var diagnostics: Node = autofree(Diagnostics.new())
+ for index in range(150): diagnostics.call("record", index * 16.5, 4, 17, true)
+ diagnostics.call("record", 3000.0, 4, 17, false)
+ diagnostics.call("record", 3016.5, 4, 17, true)
+ var result: Dictionary = diagnostics.call("snapshot")
+ assert_eq(result.schemaVersion, 1)
+ assert_eq(result.sampleCount, 120)
+ assert_almost_eq(result.rollingFps, 1000.0 / 16.5, 0.001)
+ assert_eq(result.ownedResources, 4)
+ assert_eq(result.ownedNodes, 17)
+ assert_true(result.has("drawCalls"))
+ assert_true(result.has("triangles"))
