@@ -1,5 +1,7 @@
 # Implementation Plan: Illustrated Bar and Nightclub Backdrops
 
+> **2026-10-13 planning revision:** Feature 010 supersedes the illustrated-panel implementation described below. Use [010 plan](../010-upgrade-game-artwork/plan.md) for actual 3D scenery and enemy artwork; retain applicable stable-area, gameplay-preservation and quality obligations. Do not build the old panels as a prerequisite for their replacement.
+
 **Branch**: `008-nightclub-backdrops` | **Date**: 2026-09-28 | **Spec**: [spec.md](spec.md)
 
 **Input**: `specs/008-nightclub-backdrops/spec.md`

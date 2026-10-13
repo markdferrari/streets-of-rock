@@ -1,5 +1,7 @@
 # Tasks: Godot Rewrite with Functional Parity
 
+> **2026-10-13 scope revision:** [Feature 010 plan](../010-upgrade-game-artwork/plan.md) supersedes illustrated-panel production and unchanged-enemy-art assumptions in the tasks below. Reconcile affected scenery/presentation/readiness tasks with 010 before implementation; do not build superseded SVG panels. Engine migration and unaffected parity/delivery work remain prerequisites. This notice does not mark any task complete.
+
 **Branch**: `009-godot-rewrite` | **Generated**: 2026-10-09
 **Input**: [spec](spec.md), [plan](plan.md), [research](research.md), [data model](data-model.md), [runtime](contracts/runtime.md), [browser](contracts/browser-platform.md), [delivery](contracts/delivery.md), [authoring](contracts/authoring.md), [quickstart](quickstart.md).
 

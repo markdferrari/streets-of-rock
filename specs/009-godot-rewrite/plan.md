@@ -1,5 +1,7 @@
 # Implementation Plan: Godot Rewrite with Functional Parity
 
+> **2026-10-13 planning revision:** [Feature 010 plan](../010-upgrade-game-artwork/plan.md) replaces this plan's illustrated-panel production and unchanged-enemy-presentation assumptions. Its room/enemy catalogues, 3D assets and clip/dependency readiness supersede the eight-image backdrop design. All other engine, functional-parity, browser and delivery requirements remain applicable.
+
 **Branch**: `009-godot-rewrite` | **Date**: 2026-10-09 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification in `specs/009-godot-rewrite/spec.md`.

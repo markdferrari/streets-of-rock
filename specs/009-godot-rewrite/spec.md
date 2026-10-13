@@ -1,5 +1,7 @@
 # Feature Specification: Godot Rewrite with Functional Parity
 
+> **2026-10-13 scope revision:** [Feature 010](../010-upgrade-game-artwork/spec.md) and PRD 2.6 supersede the illustrated scenery treatment and unchanged-enemy-art restriction with actual 3D scenery and distinct enemy characters. Retain all other applicable setting, gameplay, mobile and acceptance obligations. The original specification below is retained as historical scope; visual-parity references apply subject to this revision.
+
 **Feature Branch**: `009-godot-rewrite`
 
 **Created**: 2026-10-08

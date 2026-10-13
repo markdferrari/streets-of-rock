@@ -1,10 +1,10 @@
 # Streets of Rock — MVP Product Requirements
 
-**Version:** 2.5
+**Version:** 2.6
 
-**Status:** Agreed prototype scope; homepage, combat-view/partner, Lion/Plates and illustrated backdrop revisions specified, implementation acceptance pending
+**Status:** Agreed prototype scope; homepage, combat-view/partner, Lion/Plates and 3D scenery/enemy artwork revisions specified, implementation acceptance pending
 
-**Updated:** 2026-09-28
+**Updated:** 2026-10-13
 
 **Delivery:** Mobile browser and installable progressive web app (PWA)  
 **Working title:** Streets of Rock
@@ -32,7 +32,7 @@ Requirements identified by `FR`, `NFR`, and `SC` describe MVP obligations. Value
 ### Included
 
 - Four selectable characters, Cow, Crow, Lion and Plates: one player-controlled fighter and one different AI partner.
-- Simple stylized 3D characters with illustrated cartoon nightclub scenery and a fixed-angle, horizontally tracking camera.
+- Simple stylized 3D heroes and distinct animated enemy characters with actual 3D nightclub scenery and a fixed-angle, horizontally tracking camera.
 - Horizontal and depth movement, visible fixed joystick, three-hit Light combo, Heavy strike, Dodge, and a character-specific Special: Cow/Crow area attacks, Lion ROAR and Plates Headrest Throw.
 - Four connected combat areas, three common enemy roles, and a two-phase boss.
 - Two breakable tables and one deterministic healing-pickup type.
@@ -44,7 +44,7 @@ Requirements identified by `FR`, `NFR`, and `SC` describe MVP obligations. Value
 
 Further playable characters; additional move mechanics beyond the specified four-character actions; multiplayer; jumping and aerial combat; grapples; manually aimed directional special attacks; rear strikes; simultaneous-button gestures; collectible/equippable weapons; random loot; revives; team special cinematics; boss summons; additional levels; upgrades; accounts; leaderboards; remote analytics; monetization; native app distribution and Capacitor packaging.
 
-Production-quality art and an automated Blender pipeline are not acceptance requirements. The technical stack is selected during SpecKit planning.
+The bounded artwork upgrade in feature 010 is required: four furnished 3D settings, three distinct common enemy designs and Liam, with visual review and suitable free-asset reuse. Photorealistic production art and an automated Blender pipeline are not acceptance requirements. The technical stack is selected during SpecKit planning.
 
 ## 3. Player journey and session rules
 
@@ -129,7 +129,7 @@ Combat must remain beatable with the fighter alone. The fighter’s Special has 
 
 ### Combat view and AI partner revision
 
-[006-combat-view-partner](specs/006-combat-view-partner/spec.md) refines companion engagement, framing and progression. It supersedes earlier distance-tether/recovery assumptions, including feature 005's requirement to retain those old behaviors. Homepage selection remains a separate feature. Room dimensions, connections, combat abilities and encounter composition stay unchanged. New models, textures, lighting and effects remain deferred.
+[006-combat-view-partner](specs/006-combat-view-partner/spec.md) refines companion engagement, framing and progression. It supersedes earlier distance-tether/recovery assumptions, including feature 005's requirement to retain those old behaviors. Homepage selection remains a separate feature. Room dimensions, connections, combat abilities and encounter composition stay unchanged. Feature 010 subsequently authorizes scenery and enemy artwork changes; unrelated graphical upgrades remain deferred.
 
 | ID | Requirement |
 | --- | --- |
@@ -151,17 +151,20 @@ Combat must remain beatable with the fighter alone. The fighter’s Special has 
 
 ## 6. Bondi Beach level
 
-### Illustrated backdrop revision
+### 3D scenery and enemy artwork revision
 
-Feature 008 replaces prior room appearance/name descriptions with outside entrance → bar → dance floor → stage/VIP. It preserves encounter composition, room geometry, collision, fixed camera angle and progression. The two existing interactive tables remain in room 2. Existing character graphics remain unchanged.
+Feature 008 established outside entrance → bar → dance floor → stage/VIP. [Feature 010](specs/010-upgrade-game-artwork/spec.md) supersedes its illustrated treatment with actual 3D scenery and adds distinct enemy character artwork, as requested by the owner on 2026-10-13. It preserves encounter composition, playable room geometry, collision, fixed camera angle, progression and playable/partner character identities. The two existing interactive tables remain in room 2. Feature 009 visual parity is revised for scenery and enemies only; its engine direction and functional requirements remain applicable.
 
 | ID | Requirement |
 | --- | --- |
 | FR-056 | Provide four distinct rooms in order: outside nightclub entrance with frontage, sign, neon doorway, pavement, queue barriers and posters; bar with counter, bottle shelves, stools and booths; dance floor with DJ booth, speakers, overhead fixtures and coloured light pools; stage/VIP with curtains, seating, club branding and dramatic lighting. Align visual destinations with actual progression. |
-| FR-057 | Use coherent illustrated cartoon scenery with bold outlines, exaggerated shapes, shared palette/branding and depth. Keep detail quieter behind combat. Use mostly static lighting, no flashing/strobing and only optional subtle ambient motion. |
-| FR-058 | Preserve existing arena geometry/collision, encounters, interactive objects, progression, camera angle and character graphics. Decorative furniture/elevation stays outside movement paths and introduces no obstacles, accessible platforms, pickups, breakables or hazards. |
+| FR-057 | Use coherent stylized 3D scenery rendered during play, with volumetric major structures/props, exaggerated shapes, shared palette/branding and depth consistent with the heroes. Flat whole-room illustrations alone are insufficient. Keep detail quieter behind combat. Use mostly static lighting, no flashing/strobing and only optional subtle ambient motion. |
+| FR-058 | Preserve existing playable arena geometry/collision, encounters, interactive objects, progression, camera angle and playable/partner character identities. Enemy artwork changes under FR-061 without changing AI, damage, timing or reach. Decorative furniture/elevation stays outside movement paths and introduces no obstacles, accessible platforms, pickups, breakables or hazards. |
 | FR-059 | Preserve the large arena view and overlaid controls/HUD, readable actors/warnings/pickups and existing GO timing/direction. Fit supported landscape layouts/transitions without gaps or losing essential cues. Preserve muted/no-shake readability; reduced motion removes nonessential animation and pause freezes it. |
-| FR-060 | Review concepts for all four rooms before final production and final scenery during gameplay. Include required backdrops in complete offline caching, retain actionable loading failures, accurate readiness, retry and safe updates, and meet existing mobile performance/complete-build asset budgets. |
+| FR-060 | Review concepts for all four rooms before final production and final scenery during gameplay. Include required scenery and enemy artwork in complete offline caching, retain actionable loading failures, accurate readiness, retry and safe updates, and meet existing mobile performance/content budgets. Retain feature 009's 30 MiB game-content and 16 MiB per-content-file limits, with engine overhead reported separately alongside total compressed download and cached size. |
+| FR-061 | Give Raver Grunt, Bartender Zoner, Club Enforcer and Liam complete stylized 3D character designs fitting the venue and heroes. Distinguish roles and boss by silhouette, clothing or equipment rather than colour alone. Communicate supported idle, movement, facing, warning, attack, recovery, hit, stun and defeat states, and both boss phases. Align visible actions with existing timing, direction and reach; preserve independent enemy states, pause and full retry reset. |
+| FR-062 | Evaluate free assets first and reuse those suitable for the theme, animation, readability, mobile performance and game distribution. Record candidate decisions and original-art fallbacks. For every shipped third-party asset retain creator, source, asset/version identity, acquisition date, license evidence, adaptations and required credits; exclude unclear or incompatible permissions. Fulfill required attribution in the distributed game, available offline. No paid asset dependency is introduced. |
+| FR-063 | Review concepts for all three common enemy roles and Liam before final production, then review final in-game designs and every supported action/state alongside the four rooms. Record actual review and five-player results; missing asset, device or visual evidence remains pending. |
 
 ### Encounter sequence
 
@@ -206,7 +209,7 @@ This replaces the conflicting drink, pizza, kebab, and bottle lists. No random d
 
 | ID | Requirement |
 | --- | --- |
-| FR-032 | Use simple stylized 3D characters with illustrated cartoon scenery under FR-056–060, distinctive silhouettes, ground shadows, and clear attack poses. Cow wears a leather jacket; Crow wears an aviator jacket. Liam reads as a large club bouncer. |
+| FR-032 | Use simple stylized 3D characters and actual 3D scenery under FR-056–063, distinctive silhouettes, ground shadows, and clear attack poses. Cow wears a leather jacket; Crow wears an aviator jacket. Liam reads as a large club bouncer distinct from the common Enforcer. |
 | FR-033 | The venue conveys a scruffy neon rock-club atmosphere. Combat is cartoonish and non-graphic; visual effects must not obscure enemy telegraphs. |
 | FR-034 | Package an owner-supplied soundtrack as a replaceable development asset. Convert the supplied MP3 or other source file into a format supported by target browsers. Include the shipped music in offline caching. |
 | FR-035 | Activate audio through a deliberate selection or Retry interaction; begin the gameplay soundtrack when the run starts. Loop the soundtrack during play, pause it when gameplay pauses, and prevent overlapping music instances on retry. Audio failure must not block gameplay. |
@@ -330,13 +333,16 @@ As a player, I can inspect and select my duo before entering the level with the 
 - **AC-056:** Given both new characters, when running full cached/offline sessions on both reference phones, then required presentation/audio/results/retry and muted/safe-area/performance gates pass with correct interrupted stun/projectile timing and nonblocking audio/storage failure. (FR-054; NFR-001–009)
 - **AC-057:** Given each new character brief, when using the same creation skill, then definitions/assets/integration/tests and a playable review report result; invalid inputs or unsupported mechanics are reported, unrelated resources are preserved and outstanding checks are not called complete. (FR-051, FR-055)
 
-### Illustrated nightclub backdrop acceptance
+### 3D nightclub scenery and enemy artwork acceptance
 
 - **AC-058:** Given a new run, when progressing through rooms 1 and 2, then the exterior entrance and bar show their defining features and the entrance agrees with the actual route; existing room-2 interactive tables retain their rules. (FR-056, FR-058)
 - **AC-059:** Given rooms 3 and 4, when playing their encounters, then the dance floor and stage/VIP show their defining features, decorative elevations imply no usable route, and final victory shows no next-room cue. (FR-050, FR-056, FR-058)
-- **AC-060:** Given all four concepts and final in-game views, when reviewed, then the coherent illustrated treatment is approved while geometry, encounters, interactive objects and character graphics remain unchanged. (FR-057–058, FR-060)
+- **AC-060:** Given all four room concepts and final in-game views, when reviewed, then coherent actual 3D scenery is approved with every defining landmark, while playable geometry, encounters, interactive objects and playable/partner character identities remain unchanged. Enemy art follows FR-061. (FR-057–058, FR-060)
 - **AC-061:** Given busy combat, transitions and supported landscape views on both reference phones, when playing muted/no-shake or reduced motion, then essential cues/controls remain visible, scenery has no gaps, optional motion respects preferences/pause, and no flashing/strobing occurs. (FR-049–050, FR-057, FR-059)
-- **AC-062:** Given complete caching, when relaunching offline and finishing/retrying, then all backdrops/audio/results work on both reference phones; loading errors, interruption/resume, safe updates and full-run performance gates remain satisfied. (FR-060; NFR-001–009)
+- **AC-062:** Given complete caching, when relaunching offline and finishing/retrying, then all scenery, enemy characters, audio and results work on both reference phones; loading errors, interruption/resume, safe updates and full-run performance/content-budget gates remain satisfied. (FR-060; NFR-001–009)
+- **AC-063:** Given mixed waves and both Liam phases, when viewed at normal phone gameplay size, then all three common roles and the boss have distinct complete character designs and readable supported action/state presentation, with warnings, contact/release and recovery matching unchanged combat rules. Pause, stun where applicable, defeat and retry leave correct independent presentation states. (FR-058, FR-061)
+- **AC-064:** Given proposed free assets and the final shipped art, when reviewing selection and provenance records, then suitable candidates are reused, rejections/fallbacks are explained, each third-party asset has documented compatible permissions and adaptations, and required credits accompany the game offline. Missing required art offers actionable load retry and never starts an invisible enemy encounter. (FR-060, FR-062)
+- **AC-065:** Given concepts for four rooms and four enemy identities plus final gameplay evidence, when reviewing, then all eight concepts and eight final subjects have recorded outcomes, including all enemy actions and five-player setting/role recognition and artwork preference; unresolved evidence is explicitly pending. (FR-060, FR-063; SC-011–013)
 
 ## 10. Measurable prototype success
 
@@ -355,6 +361,8 @@ Conduct a formative playtest with five casual action players. Record results man
 | SC-009 | At least 4 of 5 first-time testers indicate the correct next-room direction within three seconds of the GO arrow appearing, without verbal coaching. |
 | SC-010 | At least 4 of 5 testers identify Lion as slower/stronger and Plates as faster/longer-reaching after trying both, without coaching. |
 | SC-011 | At least 4 of 5 testers correctly identify all four settings (outside entrance, bar, dance floor, stage/VIP) without location labels or verbal coaching. |
+| SC-012 | At least 4 of 5 testers distinguish the melee clubgoer, ranged bartender, charging security enemy and boss from normal gameplay views without enemy labels or colour-only cues, after encountering their behavior. |
+| SC-013 | At least 4 of 5 testers prefer the new artwork when shown matched before/after gameplay views of the scenery and enemies; retain separate responsiveness and readability ratings under SC-004. |
 
 For SC-007, start the two-minute window after the final relevant prompt with a reachable enemy and sufficient meter for Special; gameplay or a prepared encounter may provide these prerequisites.
 
@@ -408,7 +416,7 @@ Homepage selection is specified in [005-choose-your-fighter](specs/005-choose-yo
 
 Relax the tether rules and allow AI partner to be more attacking
 
-Variety in enemy characters + add models
+Enemy character artwork is specified in [010-upgrade-game-artwork](specs/010-upgrade-game-artwork/spec.md).
 
 Should be able to keep character config easily modifiable, maybe a config attributes file?
 Future roster: Virus, Rat, Squirrel, Big Mac, Salad Fingers, Slug, Worm, Panda, Fisherman, Trousers, Moleman, Grouchy Old Leinster Fan

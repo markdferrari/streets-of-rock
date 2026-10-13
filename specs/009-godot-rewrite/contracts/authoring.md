@@ -1,5 +1,7 @@
 # Character and Backdrop Authoring Contract
 
+> **2026-10-13 art revision:** The Backdrops section's eight-SVG production contract is superseded by [010 art content](../../010-upgrade-game-artwork/contracts/art-content.md). Use actual 3D rooms, enemy GLBs and complete imported dependency validation. Existing playable-character workflow and unrelated authoring requirements remain applicable.
+
 **Applies to:** feature 009 FR-004, FR-008, FR-012, FR-014–015.
 
 ## Shared definition and validation authority
