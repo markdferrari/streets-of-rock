@@ -1,0 +1,9 @@
+{
+ "schemaVersion": 1,
+ "rooms": [
+  {"roomId":"dance-floor","setting":"outside-entrance","wall":"assets/backdrops/outside-entrance/wall.svg","floor":"assets/backdrops/outside-entrance/floor.svg"},
+  {"roomId":"vip-lounge","setting":"bar","wall":"assets/backdrops/bar/wall.svg","floor":"assets/backdrops/bar/floor.svg"},
+  {"roomId":"backstage-corridor","setting":"dance-floor","wall":"assets/backdrops/dance-floor/wall.svg","floor":"assets/backdrops/dance-floor/floor.svg"},
+  {"roomId":"alley-exit","setting":"stage-vip","wall":"assets/backdrops/stage-vip/wall.svg","floor":"assets/backdrops/stage-vip/floor.svg"}
+ ]
+}

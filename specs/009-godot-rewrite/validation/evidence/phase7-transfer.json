@@ -1,0 +1,113 @@
+{
+  "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+  "environment": "Linux localhost preview; HTTP identity encoding; response-body bytes only, no header/TLS overhead",
+  "measuredAt": "2026-10-14T07:38:17.743Z",
+  "totalResponseBodyBytes": 45480570,
+  "missingImmutableStatus": 404,
+  "measurements": [
+    {
+      "path": "assets/icons/icon-maskable.svg",
+      "status": 200,
+      "bytes": 357,
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": "no-cache"
+    },
+    {
+      "path": "assets/icons/icon.svg",
+      "status": 200,
+      "bytes": 365,
+      "contentType": "image/svg+xml",
+      "contentEncoding": null,
+      "cacheControl": "no-cache"
+    },
+    {
+      "path": "index.html",
+      "status": 200,
+      "bytes": 1710,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "no-cache"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "status": 200,
+      "bytes": 392,
+      "contentType": "application/manifest+json",
+      "contentEncoding": null,
+      "cacheControl": "no-cache"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/asset-inventory.json",
+      "status": 200,
+      "bytes": 2908,
+      "contentType": "application/json",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/browser.js",
+      "status": 200,
+      "bytes": 19782,
+      "contentType": "text/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/index.html",
+      "status": 200,
+      "bytes": 1710,
+      "contentType": "text/html; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/sor.audio.position.worklet.js",
+      "status": 200,
+      "bytes": 2973,
+      "contentType": "text/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/sor.audio.worklet.js",
+      "status": 200,
+      "bytes": 7298,
+      "contentType": "text/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/sor.js",
+      "status": 200,
+      "bytes": 279815,
+      "contentType": "text/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/sor.pck",
+      "status": 200,
+      "bytes": 5572896,
+      "contentType": "application/octet-stream",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "releases/9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb/sor.wasm",
+      "status": 200,
+      "bytes": 39514754,
+      "contentType": "application/wasm",
+      "contentEncoding": null,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "bytes": 75610,
+      "contentType": "text/javascript; charset=utf-8",
+      "contentEncoding": null,
+      "cacheControl": "no-cache"
+    }
+  ]
+}

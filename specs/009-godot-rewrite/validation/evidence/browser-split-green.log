@@ -1,0 +1,11 @@
+$ playwright test --config playwright.godot.config.ts --project chromium --grep "complete immutable|native simultaneous"
+[WebServer] $ bun scripts/preview.ts --dir dist-split --host "127.0.0.1" --port "4181"
+
+Running 2 tests using 1 worker
+
+(node:502799) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline (3.2s)
+  ✓  2 [chromium] › tests/e2e/godot-foundation.spec.ts:27:1 › native simultaneous touches, cancel and outside release clear their originating inputs (1.7s)
+
+  2 passed (5.5s)

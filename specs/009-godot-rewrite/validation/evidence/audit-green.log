@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+
+ Test Files  1 passed (1)
+      Tests  7 passed (7)
+   Start at  10:00:25
+   Duration  865ms (transform 102ms, setup 0ms, import 677ms, tests 22ms, environment 0ms)
+

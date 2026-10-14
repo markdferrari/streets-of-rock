@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "name": "godot",
+  "source": "tests/reference/releases/godot",
+  "buildId": "0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803",
+  "fileCount": 13,
+  "treeSha256": "898372ee58b82c064903a2b173ff33b1ab9dd41279149653f87e6ba27d5e41f5"
+}

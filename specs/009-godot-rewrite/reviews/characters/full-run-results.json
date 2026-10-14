@@ -1,0 +1,31 @@
+[
+  {
+    "fighter": "lion",
+    "partner": "plates",
+    "buildId": "7c422b69793d3f551e038e6cf8bb23589a1197169638ae148bce5fb3b0460416",
+    "outcome": "defeat",
+    "rooms": [
+      0,
+      1
+    ],
+    "elapsedMs": 124619,
+    "wallMs": 123656,
+    "hp": 0,
+    "runTick": 7412,
+    "method": "Read-only snapshots; native WASD/Heavy/Special input only, no fixture commands or state changes."
+  },
+  {
+    "fighter": "plates",
+    "partner": "lion",
+    "buildId": "7c422b69793d3f551e038e6cf8bb23589a1197169638ae148bce5fb3b0460416",
+    "outcome": "defeat",
+    "rooms": [
+      0
+    ],
+    "elapsedMs": 69129,
+    "wallMs": 68083,
+    "hp": 0,
+    "runTick": 4061,
+    "method": "Read-only snapshots; native WASD/Heavy/Special input only, no fixture commands or state changes."
+  }
+]

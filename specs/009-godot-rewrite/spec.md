@@ -6,7 +6,7 @@
 
 **Created**: 2026-10-08
 
-**Status**: Draft — specification ready for technical planning; implementation and acceptance pending
+**Status**: Implemented — technical cutover; manual acceptance waived by explicit owner decision
 
 **Input**: Rewrite Streets of Rock using Godot, preserving existing functional behavior and mobile-web delivery, and completing all committed specifications. The owner confirmed mobile web/PWA delivery, limited browser-integration JavaScript, close visual matching, inclusion of unfinished specifications, and a separate allowance for engine download overhead.
 
@@ -208,3 +208,16 @@ and setting recognition. Passing automated checks alone is not full acceptance.
 - Intended soundtrack confirmation, visual reviews, reference devices and five participants are acceptance dependencies. Missing evidence remains pending.
 - The engine-overhead allowance is authorized; content limits and performance obligations remain. Existing technical budgets not explicitly revised remain planning constraints.
 - Work proceeds on a feature branch with test-first implementation. Documentation-only specification validation neither requires new runtime tests nor marks inherited acceptance tasks complete.
+
+## Owner cutover amendment — 2026-10-14
+
+The owner explicitly instructed “waive manual acceptance gates and proceed with cutover”.
+For this feature, missing phone smoke/platform/performance/installed/offline/update
+measurements and five-first-time-player evaluation are closed as **waived/unverified**,
+with their original criteria preserved for future evaluation. They need not block
+retirement of the JS reference runtime. Automated replacement coverage, exact parity,
+all remaining suites, release smoke, size/resource/engine audits and truthful records
+remain required. Final auditing may accept the four documented manual waiver categories
+only when the owner decision and evidence references match the actual release.
+See [the exact exception](validation/manual-waiver.md) and [cutover](validation/cutover.md).
+This amendment does not assert that unperformed measurements passed.

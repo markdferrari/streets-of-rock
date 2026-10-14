@@ -1,0 +1,10 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+
+ Test Files  7 passed (7)
+      Tests  28 passed (28)
+   Start at  15:38:34
+   Duration  658ms (transform 399ms, setup 0ms, import 931ms, tests 176ms, environment 1ms)
+

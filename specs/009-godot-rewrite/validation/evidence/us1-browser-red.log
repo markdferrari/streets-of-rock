@@ -1,0 +1,29 @@
+$ playwright test --config playwright.godot.config.ts --project chromium --grep "cow with crow:" --timeout "8000"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:518912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/godot-duos.spec.ts:6:72 › cow with crow: canvas selection, actions, defeat, retained retry and home (1.5s)
+
+
+  1) [chromium] › tests/e2e/godot-duos.spec.ts:6:72 › cow with crow: canvas selection, actions, defeat, retained retry and home 
+
+    Error: page.evaluate: TypeError: _sorTest.snapshot is not a function
+        at eval (eval at evaluate (:311:30), <anonymous>:3:92)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at eval (eval at evaluate (:311:30), <anonymous>:3:92)
+        at UtilityScript.evaluate (<anonymous>:313:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at game (/home/mark/projects/streets-of-rock/tests/e2e/godot-duos.spec.ts:3:42)
+        at /home/mark/projects/streets-of-rock/tests/e2e/godot-duos.spec.ts:5:117
+        at selectDuo (/home/mark/projects/streets-of-rock/tests/e2e/godot-duos.spec.ts:5:95)
+        at /home/mark/projects/streets-of-rock/tests/e2e/godot-duos.spec.ts:7:53
+
+    Error Context: test-results/godot-duos-cow-with-crow-c-43e82-eat-retained-retry-and-home-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/godot-duos.spec.ts:6:72 › cow with crow: canvas selection, actions, defeat, retained retry and home 
+error: script "test:e2e:godot" exited with code 1

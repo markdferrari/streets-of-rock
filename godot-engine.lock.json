@@ -1,0 +1,37 @@
+{
+  "version": "4.7.2",
+  "editorVersion": "4.7.2.stable.official.ed1daf0bf",
+  "editorOrigin": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64.zip",
+  "editorArchiveSha256": "cadd3204e728a35d3f13adb7fd0d7902636b79f6b95c40c265eb73b6c35329e4",
+  "editorSha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e",
+  "templates": {
+    "url": "https://github.com/godotengine/godot-builds/releases/download/4.7.2-stable/Godot_v4.7.2-stable_export_templates.tpz",
+    "sha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011",
+    "sha512": "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079",
+    "files": {
+      "version.txt": "38885c88f75abbc797a1db7559719800279a00cfb9fa8b2e2868a7f6f84bad2e",
+      "web_nothreads_debug.zip": "08962aefef811b603541d7951ac67ef00413aad2d978855183c28adee98f626a",
+      "web_nothreads_release.zip": "d3ee2f08cef0cf3cf6678a6355a92a8db48ccdd35cbd2e8bfd5f0e8a0b4032a0"
+    },
+    "engineDebug": {
+      "godot.js": "ffc3898b59fba6f5af0c02f76e5ee526cc061e65c7d2d6f4f98186876cea15c4",
+      "godot.wasm": "11ea19645368f8e73cf337b59cfd7ceeb4ebb51f7a3bbf77d1a5c3ddfedbc522",
+      "godot.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "godot.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "godot.service.worker.js": "c72e9a688cd06978be343fd8481130e89dd81439267e1cfd8aef8343ea9f4139"
+    },
+    "engineRelease": {
+      "godot.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "godot.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "godot.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "godot.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "godot.service.worker.js": "c72e9a688cd06978be343fd8481130e89dd81439267e1cfd8aef8343ea9f4139"
+    }
+  },
+  "gut": {
+    "version": "9.7.1",
+    "url": "https://github.com/bitwes/Gut/archive/refs/tags/v9.7.1.tar.gz",
+    "sha256": "6da99c4e9228d9bec3fb4bd1730a487770a989f0f511dac82a2897a964613385",
+    "license": "MIT"
+  }
+}

@@ -1,0 +1,126 @@
+$ bun run test:e2e:legacy && bun run test:e2e:godot && bun run test:e2e:release
+$ playwright test
+[WebServer] $ VITE_TEST_MODE=1 bun run build:legacy
+[WebServer] $ bun run typecheck:legacy && vite build --outDir dist-legacy && bun scripts/build-asset-inventory.ts dist-legacy
+[WebServer] $ tsc --noEmit
+[WebServer] (node:678128) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] [plugin builtin:vite-reporter] 
+[WebServer] (!) Some chunks are larger than 500 kB after minification. Consider:
+[WebServer] - Using dynamic import() to code-split the application
+[WebServer] - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+[WebServer] - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[WebServer] 
+[WebServer]  WARN  inlineDynamicImports option is deprecated, please use codeSplitting: false instead.
+[WebServer] 
+[WebServer] $ vite preview --outDir dist-legacy --host "127.0.0.1" --port "4173"
+[WebServer] (node:678172) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 86 tests using 1 worker
+
+(node:678206) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/audio.spec.ts:6:1 › rejected media playback never blocks a selected duo from entering combat (4.1s)
+  ✓   2 [chromium] › tests/e2e/characters.spec.ts:6:1 › loads the rigged partners before a run and can retry after defeat (7.7s)
+  ✓   3 [chromium] › tests/e2e/characters.spec.ts:21:1 › explains preview loading failure and retries successfully (357ms)
+  -   4 [chromium] › tests/e2e/combat-capture.spec.ts:9:3 › capture four combat rooms at 844x390
+  -   5 [chromium] › tests/e2e/combat-capture.spec.ts:9:3 › capture four combat rooms at 915x412
+  ✓   6 [chromium] › tests/e2e/combat-view.spec.ts:5:3 › room-fit combat view fills 844x390 while controls stay over the scene (4.1s)
+  ✓   7 [chromium] › tests/e2e/combat-view.spec.ts:5:3 › room-fit combat view fills 915x412 while controls stay over the scene (4.1s)
+  ✓   8 [chromium] › tests/e2e/countdown.spec.ts:6:1 › does not advance the run during countdown and retains a numeral across interruption (5.3s)
+  ✓   9 [chromium] › tests/e2e/countdown.spec.ts:25:1 › retry preserves the Crow-player duo with a new zero-tick countdown; homepage clears it (7.7s)
+  ✓  10 [chromium] › tests/e2e/countdown.spec.ts:45:1 › Crow is controlled while Cow supports, with Crow moves and meter in the HUD (4.2s)
+  -  11 [chromium] › tests/e2e/diagnostics.spec.ts:6:1 › diagnostics build samples active run frames and exports locally
+  ✓  12 [chromium] › tests/e2e/fighter-selection.spec.ts:5:1 › homepage compares named fighters and confirms only after a second activation (434ms)
+  ✓  13 [chromium] › tests/e2e/fighter-selection.spec.ts:27:1 › keyboard focus is visible but does not preview; repeated Enter cannot confirm (261ms)
+  ✓  14 [chromium] › tests/e2e/fighter-selection.spec.ts:42:1 › Space uses fresh presses and a failed preview blocks confirmation until Retry (294ms)
+  ✓  15 [chromium] › tests/e2e/fighter-selection.spec.ts:62:1 › touch activation previews and confirms with separate taps (397ms)
+  ✓  16 [chromium] › tests/e2e/four-character-selection.spec.ts:5:1 › all four identities can be selected in every ordered distinct duo (9.2s)
+  ✓  17 [chromium] › tests/e2e/level.spec.ts:6:1 › starts the four-area level and retries after defeat with fresh heroes (7.7s)
+  ✓  18 [chromium] › tests/e2e/offline.spec.ts:6:1 › a complete installed cache relaunches offline for both duos, results and retry (26.9s)
+  ✓  19 [chromium] › tests/e2e/offline.spec.ts:59:1 › missing cached bytes never appear as offline ready (370ms)
+  ✓  20 [chromium] › tests/e2e/partner-behaviour.spec.ts:7:3 › Cow player keeps a naturally moving partner engaged during separation (4.1s)
+  ✓  21 [chromium] › tests/e2e/partner-behaviour.spec.ts:7:3 › Crow player keeps a naturally moving partner engaged during separation (4.1s)
+  ✓  22 [chromium] › tests/e2e/partner-selection.spec.ts:3:1 › either fighter needs a separate partner preview and confirmation (838ms)
+  ✓  23 [chromium] › tests/e2e/partner-selection.spec.ts:22:1 › Back restores the fighter as a preview requiring a fresh confirmation (527ms)
+  ✓  24 [chromium] › tests/e2e/partner-selection.spec.ts:34:1 › a held confirmation key cannot choose the partner across steps (265ms)
+  ✓  25 [chromium] › tests/e2e/progression.spec.ts:6:1 › one noninteractive directional GO cue follows room clearance, pause and entry (4.6s)
+  ✓  26 [chromium] › tests/e2e/progression.spec.ts:30:1 › GO follows all three exits and never appears after the final boss (4.8s)
+  ✓  27 [chromium] › tests/e2e/selection-accessibility.spec.ts:4:1 › twelve-entry test roster remains keyboard reachable and scrollable (115ms)
+  ✓  28 [chromium] › tests/e2e/selection-accessibility.spec.ts:18:1 › dragging a tile does not choose it and visible controls meet 44-pixel targets (155ms)
+  ✓  29 [chromium] › tests/e2e/selection-accessibility.spec.ts:35:1 › portrait orientation waits for landscape and explicit Resume before launch (5.2s)
+  ✓  30 [chromium] › tests/e2e/selection-accessibility.spec.ts:48:1 › cancelled touch leaves the fighter unselected and reduced-motion preview remains usable (315ms)
+  ✓  31 [chromium] › tests/e2e/settings.spec.ts:6:1 › homepage settings persist without previewing or confirming a fighter (290ms)
+  ✓  32 [chromium] › tests/e2e/settings.spec.ts:25:1 › paused settings return focus to pause without resuming the run (4.2s)
+  ✓  33 [chromium] › tests/e2e/touch-combat.spec.ts:11:1 › shows a fixed joystick and labelled diamond before movement (4.0s)
+  ✓  34 [chromium] › tests/e2e/touch-combat.spec.ts:34:1 › starts an encounter, attacks and moves with the touch controls, and pauses explicitly (4.4s)
+  ✓  35 [chromium] › tests/e2e/touch-combat.spec.ts:54:1 › releases movement and gives feedback for an unavailable special (4.3s)
+  ✓  36 [chromium] › tests/e2e/touch-combat.spec.ts:74:1 › shows meter gain after a damaging attack (4.3s)
+  ✓  37 [chromium] › tests/e2e/touch-combat.spec.ts:86:1 › continues the combo with a timely second tap (6.6s)
+  ✓  38 [chromium] › tests/e2e/touch-combat.spec.ts:100:1 › uses the Heavy button for one committed strike (10.0s)
+  ✓  39 [chromium] › tests/e2e/touch-combat.spec.ts:116:1 › teaches Heavy independently of legacy Light completion (8.9s)
+  ✓  40 [chromium] › tests/e2e/touch-combat.spec.ts:130:1 › shows Dodge cooldown and Special meter on the buttons (4.2s)
+  ✓  41 [chromium] › tests/e2e/touch-combat.spec.ts:139:1 › pauses on lost focus and requires explicit Resume (4.3s)
+  ✓  42 [chromium] › tests/e2e/touch-combat.spec.ts:150:1 › shows a rotate prompt and waits for Resume after returning to landscape (4.0s)
+  ✓  43 [chromium] › tests/e2e/update-worker.spec.ts:8:1 › a changed worker waits while two tabs stay open and never reloads a selected duo (4.4s)
+(node:681315) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  44 [webkit] › tests/e2e/audio.spec.ts:6:1 › rejected media playback never blocks a selected duo from entering combat (5.1s)
+  ✓  45 [webkit] › tests/e2e/characters.spec.ts:6:1 › loads the rigged partners before a run and can retry after defeat (7.8s)
+  ✓  46 [webkit] › tests/e2e/characters.spec.ts:21:1 › explains preview loading failure and retries successfully (691ms)
+  -  47 [webkit] › tests/e2e/combat-capture.spec.ts:9:3 › capture four combat rooms at 844x390
+  -  48 [webkit] › tests/e2e/combat-capture.spec.ts:9:3 › capture four combat rooms at 915x412
+  ✓  49 [webkit] › tests/e2e/combat-view.spec.ts:5:3 › room-fit combat view fills 844x390 while controls stay over the scene (4.2s)
+  ✓  50 [webkit] › tests/e2e/combat-view.spec.ts:5:3 › room-fit combat view fills 915x412 while controls stay over the scene (4.3s)
+  ✓  51 [webkit] › tests/e2e/countdown.spec.ts:6:1 › does not advance the run during countdown and retains a numeral across interruption (5.5s)
+  ✓  52 [webkit] › tests/e2e/countdown.spec.ts:25:1 › retry preserves the Crow-player duo with a new zero-tick countdown; homepage clears it (7.9s)
+  ✓  53 [webkit] › tests/e2e/countdown.spec.ts:45:1 › Crow is controlled while Cow supports, with Crow moves and meter in the HUD (4.5s)
+  -  54 [webkit] › tests/e2e/diagnostics.spec.ts:6:1 › diagnostics build samples active run frames and exports locally
+  ✓  55 [webkit] › tests/e2e/fighter-selection.spec.ts:5:1 › homepage compares named fighters and confirms only after a second activation (749ms)
+  ✓  56 [webkit] › tests/e2e/fighter-selection.spec.ts:27:1 › keyboard focus is visible but does not preview; repeated Enter cannot confirm (473ms)
+  ✓  57 [webkit] › tests/e2e/fighter-selection.spec.ts:42:1 › Space uses fresh presses and a failed preview blocks confirmation until Retry (580ms)
+  ✓  58 [webkit] › tests/e2e/fighter-selection.spec.ts:62:1 › touch activation previews and confirms with separate taps (629ms)
+  ✓  59 [webkit] › tests/e2e/four-character-selection.spec.ts:5:1 › all four identities can be selected in every ordered distinct duo (7.5s)
+  ✓  60 [webkit] › tests/e2e/level.spec.ts:6:1 › starts the four-area level and retries after defeat with fresh heroes (7.8s)
+  -  61 [webkit] › tests/e2e/offline.spec.ts:6:1 › a complete installed cache relaunches offline for both duos, results and retry
+  ✓  62 [webkit] › tests/e2e/offline.spec.ts:59:1 › missing cached bytes never appear as offline ready (470ms)
+  ✓  63 [webkit] › tests/e2e/partner-behaviour.spec.ts:7:3 › Cow player keeps a naturally moving partner engaged during separation (4.3s)
+  ✓  64 [webkit] › tests/e2e/partner-behaviour.spec.ts:7:3 › Crow player keeps a naturally moving partner engaged during separation (4.3s)
+  ✓  65 [webkit] › tests/e2e/partner-selection.spec.ts:3:1 › either fighter needs a separate partner preview and confirmation (927ms)
+  ✓  66 [webkit] › tests/e2e/partner-selection.spec.ts:22:1 › Back restores the fighter as a preview requiring a fresh confirmation (771ms)
+  ✓  67 [webkit] › tests/e2e/partner-selection.spec.ts:34:1 › a held confirmation key cannot choose the partner across steps (440ms)
+  ✓  68 [webkit] › tests/e2e/progression.spec.ts:6:1 › one noninteractive directional GO cue follows room clearance, pause and entry (4.7s)
+  ✓  69 [webkit] › tests/e2e/progression.spec.ts:30:1 › GO follows all three exits and never appears after the final boss (4.7s)
+  ✓  70 [webkit] › tests/e2e/selection-accessibility.spec.ts:4:1 › twelve-entry test roster remains keyboard reachable and scrollable (262ms)
+  ✓  71 [webkit] › tests/e2e/selection-accessibility.spec.ts:18:1 › dragging a tile does not choose it and visible controls meet 44-pixel targets (292ms)
+  ✓  72 [webkit] › tests/e2e/selection-accessibility.spec.ts:35:1 › portrait orientation waits for landscape and explicit Resume before launch (5.4s)
+  ✓  73 [webkit] › tests/e2e/selection-accessibility.spec.ts:48:1 › cancelled touch leaves the fighter unselected and reduced-motion preview remains usable (562ms)
+  ✓  74 [webkit] › tests/e2e/settings.spec.ts:6:1 › homepage settings persist without previewing or confirming a fighter (546ms)
+  ✓  75 [webkit] › tests/e2e/settings.spec.ts:25:1 › paused settings return focus to pause without resuming the run (4.5s)
+  ✓  76 [webkit] › tests/e2e/touch-combat.spec.ts:11:1 › shows a fixed joystick and labelled diamond before movement (4.3s)
+  ✓  77 [webkit] › tests/e2e/touch-combat.spec.ts:34:1 › starts an encounter, attacks and moves with the touch controls, and pauses explicitly (4.6s)
+  ✓  78 [webkit] › tests/e2e/touch-combat.spec.ts:54:1 › releases movement and gives feedback for an unavailable special (4.4s)
+  ✓  79 [webkit] › tests/e2e/touch-combat.spec.ts:74:1 › shows meter gain after a damaging attack (4.5s)
+  ✓  80 [webkit] › tests/e2e/touch-combat.spec.ts:86:1 › continues the combo with a timely second tap (4.8s)
+  ✓  81 [webkit] › tests/e2e/touch-combat.spec.ts:100:1 › uses the Heavy button for one committed strike (5.0s)
+  ✓  82 [webkit] › tests/e2e/touch-combat.spec.ts:116:1 › teaches Heavy independently of legacy Light completion (8.2s)
+  ✓  83 [webkit] › tests/e2e/touch-combat.spec.ts:130:1 › shows Dodge cooldown and Special meter on the buttons (4.3s)
+  ✓  84 [webkit] › tests/e2e/touch-combat.spec.ts:139:1 › pauses on lost focus and requires explicit Resume (4.3s)
+  ✓  85 [webkit] › tests/e2e/touch-combat.spec.ts:150:1 › shows a rotate prompt and waits for Resume after returning to landscape (4.2s)
+  -  86 [webkit] › tests/e2e/update-worker.spec.ts:8:1 › a changed worker waits while two tabs stay open and never reloads a selected duo
+
+  8 skipped
+  78 passed (5.3m)
+$ playwright test --config playwright.godot.config.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 94 tests using 1 worker
+
+(node:686245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/godot-accessibility.spec.ts:11:1 › roster has a single tab stop; focus does not preview and arrows move focus (1.5s)
+  ✓   2 [chromium] › tests/e2e/godot-accessibility.spec.ts:22:1 › a twelve-entry semantic roster keeps one tab stop and supports wraparound focus (1.2s)
+  ✓   3 [chromium] › tests/e2e/godot-accessibility.spec.ts:31:1 › settings expose a trapped dialog and native volume ranges with stable identity (1.9s)
+  ✓   4 [chromium] › tests/e2e/godot-backdrops.spec.ts:8:94 › all four settings retain camera, safe controls and static scenery at 667 (6.4s)

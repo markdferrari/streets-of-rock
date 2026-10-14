@@ -1,0 +1,12 @@
+ERROR: Unable to retrieve device list!
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 002: ID 046d:c542 Logitech, Inc. M185 compact wireless mouse
+Bus 001 Device 003: ID 0bda:4853 Realtek Semiconductor Corp. Bluetooth Radio
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 13d3:54bf IMC Networks Integrated Camera
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 007 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 008 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub

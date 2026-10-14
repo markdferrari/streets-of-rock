@@ -1,0 +1,88 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/platform/bridge.test.ts (4 tests | 4 failed) 18ms
+     × retains callback for synchronous semantic gesture and rejects stale or disabled activation 11ms
+     × reports interruption and safe return without auto-resume, then unregisters listeners 1ms
+     × keeps raw persistence behind three keys with denial fallback 2ms
+     × rejects unsupported protocol and invalid geometry 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/platform/bridge.test.ts > versioned browser capability boundary > retains callback for synchronous semantic gesture and rejects stale or disabled activation
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/platform/bridge.test.ts:10:53
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/platform/bridge.test.ts > versioned browser capability boundary > reports interruption and safe return without auto-resume, then unregisters listeners
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/platform/bridge.test.ts:14:101
+     12|  });
+     13|  it('reports interruption and safe return without auto-resume, then un…
+     14|   const f=fixture();f.adapter.initialize(json=>f.events.push(JSON.pars…
+       |                                                                                                     ^
+     15|   f.change({visible:false});f.change({visible:true});
+     16|   expect(f.events.filter(e=>e.type==='environment').map(e=>e.environme…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/platform/bridge.test.ts > versioned browser capability boundary > keeps raw persistence behind three keys with denial fallback
+AssertionError: expected undefined to be 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa…' // Object.is equality
+
+- Expected:
+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
++ Received:
+undefined
+
+ ❯ tests/platform/bridge.test.ts:20:90
+     18|  });
+     19|  it('keeps raw persistence behind three keys with denial fallback',()=…
+     20|   const f=fixture();const snapshot=f.adapter.initialize(()=>{});expect…
+       |                                                                                          ^
+     21|   expect(f.adapter.readStored('arbitrary').ok).toBe(false);expect(f.ad…
+     22|   f.deny();expect(f.adapter.readStored('sor.settings.v1').ok).toBe(fal…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/platform/bridge.test.ts > versioned browser capability boundary > rejects unsupported protocol and invalid geometry
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/platform/bridge.test.ts:25:64
+     23|  });
+     24|  it('rejects unsupported protocol and invalid geometry',()=>{
+     25|   const f=fixture();expect(()=>f.adapter.initialize(()=>{},2)).toThrow…
+       |                                                                ^
+     26|   f.change({width:0});expect(()=>f.adapter.initialize(()=>{})).toThrow…
+     27|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed (4)
+   Start at  09:39:27
+   Duration  245ms (transform 35ms, setup 0ms, import 52ms, tests 18ms, environment 0ms)
+

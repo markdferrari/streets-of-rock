@@ -1,0 +1,18 @@
+$ bun scripts/test-blender.ts --self-test-failure
+runTest (__main__.IntentionalFailure.runTest) ... FAIL
+
+======================================================================
+FAIL: runTest (__main__.IntentionalFailure.runTest)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mark/projects/streets-of-rock/tests/blender/run_tests.py", line 11, in runTest
+    self.assertTrue(False, 'runner must propagate this failure')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : runner must propagate this failure
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (failures=1)
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+error: script "test:blender" exited with code 1

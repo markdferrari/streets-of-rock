@@ -1,0 +1,534 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_camera.gd
+[0m* test_source_camera_frames_all_reference_layouts
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  667: anchorX
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  667: anchorHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [6.74662668665667] +/- [0.000000001]:  667: halfHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.77866666666667] +/- [0.000000001]:  667: aspect
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  844: anchorX
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  844: anchorHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [5.54502369668247] +/- [0.000000001]:  844: halfHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [2.16410256410256] +/- [0.000000001]:  844: aspect
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  915: anchorX
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  915: anchorHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [5.40327868852459] +/- [0.000000001]:  915: halfHeight
+      at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [2.22087378640777] +/- [0.000000001]:  915: aspect
+      at line 13
+[1m0/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_ai.gd
+[0m* test_roles_begin_telegraphs_and_boss_changes_phase
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 10
+[31m    [Failed] [0m
+      at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 10
+[31m    [Failed] [0m
+      at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 10
+[31m    [Failed] [0m
+      at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 10
+[31m    [Failed] [0m
+      at line 11
+[31m    [Failed]:  [0m[1] expected to equal [2]:  
+      at line 13
+[31m    [Failed]:  [0m[<null>] expected to equal ["shockwave"]:  
+      at line 14
+* test_partner_fights_without_meter_and_knockout_stays_inactive
+[31m    [Failed]:  [0m[<null>] expected to equal ["support"]:  
+      at line 25
+[31m    [Failed]:  [0m[180.0] expected to equal [170.0]:  
+      at line 26
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+      at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+      at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+      at line 31
+* test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+      at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+      at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 45
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+      at line 51
+* test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+      at line 60
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+      at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+      at line 74
+[1m0/7 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_combat.gd
+[0m* test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+      at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+      at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+      at line 31
+* test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+      at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+      at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 45
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+      at line 51
+* test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+      at line 60
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+      at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+      at line 74
+[1m0/5 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_progression.gd
+[0m* test_all_waves_tables_connectors_and_terminal_no_later_tick
+[31m    [Failed]:  [0m[0] expected to equal [3]:  
+      at line 6
+[31m    [Failed]:  [0m[0] expected to equal [3]:  
+      at line 12
+[31m    [Failed]:  [0m[0] expected to equal [4]:  
+      at line 12
+[31m    [Failed]:  [0mARRAY([]) != ARRAY([{ "x": 22.0, "depth": -2.0 }, { "x": 28.0, "depth": 2.0 }]).
+    [] != [{ "x": 22.0, "depth": -2.0 }, { "x": 28...h": 2.0 }]  2 of 2 indexes do not match.  
+      at line 14
+[31m    [Failed]:  [0m[0] expected to equal [4]:  
+      at line 12
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal ["defeat"]:  
+      at line 19
+* test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+      at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+      at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+      at line 31
+* test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+      at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+      at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 45
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+      at line 51
+* test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+      at line 60
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+      at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+      at line 74
+[1m0/6 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_run_clock.gd
+[0m* test_constructors_all_duos_are_independent_and_role_correct
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_accumulator_first_frame_cap_pause_and_exact_boundary
+* test_wall_clock_no_five_minute_terminal_and_pause
+* test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_specials.gd
+[0m* test_four_specials_spend_once_and_release_correct_family
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 14
+[31m    [Failed]:  [0m[120.0] expected to be < than [120.0]:  
+      at line 17
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 14
+[31m    [Failed]:  [0m[120.0] expected to be < than [120.0]:  
+      at line 17
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 14
+[31m    [Failed] [0m
+      at line 15
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+      at line 14
+[31m    [Failed] [0m
+      at line 16
+* test_headrest_no_visible_target_retains_meter
+* test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+      at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+      at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+      at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+      at line 31
+* test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+      at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+      at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+      at line 45
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+      at line 51
+* test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+      at line 60
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+      at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+      at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+      at line 74
+[1m1/7 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/godot/presentation/test_camera.gd
+[0m- test_source_camera_frames_all_reference_layouts
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  667: anchorX
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  667: anchorHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [6.74662668665667] +/- [0.000000001]:  667: halfHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.77866666666667] +/- [0.000000001]:  667: aspect
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  844: anchorX
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  844: anchorHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [5.54502369668247] +/- [0.000000001]:  844: halfHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [2.16410256410256] +/- [0.000000001]:  844: aspect
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [8.0] +/- [0.000000001]:  915: anchorX
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [1.25] +/- [0.000000001]:  915: anchorHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [5.40327868852459] +/- [0.000000001]:  915: halfHeight
+          at line 13
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [2.22087378640777] +/- [0.000000001]:  915: aspect
+          at line 13
+[4m
+res://tests/godot/simulation/test_ai.gd
+[0m- test_roles_begin_telegraphs_and_boss_changes_phase
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 10
+[31m    [Failed]:  [0m
+          at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 10
+[31m    [Failed]:  [0m
+          at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 10
+[31m    [Failed]:  [0m
+          at line 11
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 10
+[31m    [Failed]:  [0m
+          at line 11
+[31m    [Failed]:  [0m[1] expected to equal [2]:  
+          at line 13
+[31m    [Failed]:  [0m[<null>] expected to equal ["shockwave"]:  
+          at line 14
+- test_partner_fights_without_meter_and_knockout_stays_inactive
+[31m    [Failed]:  [0m[<null>] expected to equal ["support"]:  
+          at line 25
+[31m    [Failed]:  [0m[180.0] expected to equal [170.0]:  
+          at line 26
+- test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+          at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+          at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+          at line 31
+- test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+          at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+          at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 45
+- test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+          at line 51
+- test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+          at line 60
+- test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+          at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+          at line 74
+[4m
+res://tests/godot/simulation/test_combat.gd
+[0m- test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+          at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+          at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+          at line 31
+- test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+          at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+          at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 45
+- test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+          at line 51
+- test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+          at line 60
+- test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+          at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+          at line 74
+[4m
+res://tests/godot/simulation/test_progression.gd
+[0m- test_all_waves_tables_connectors_and_terminal_no_later_tick
+[31m    [Failed]:  [0m[0] expected to equal [3]:  
+          at line 6
+[31m    [Failed]:  [0m[0] expected to equal [3]:  
+          at line 12
+[31m    [Failed]:  [0m[0] expected to equal [4]:  
+          at line 12
+[31m    [Failed]:  [0mARRAY([]) != ARRAY([{ "x": 22.0, "depth": -2.0 }, { "x": 28.0, "depth": 2.0 }]).
+    [] != [{ "x": 22.0, "depth": -2.0 }, { "x": 28...h": 2.0 }]  2 of 2 indexes do not match.  
+          at line 14
+[31m    [Failed]:  [0m[0] expected to equal [4]:  
+          at line 12
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 12
+[31m    [Failed]:  [0m[<null>] expected to equal ["defeat"]:  
+          at line 19
+- test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+          at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+          at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+          at line 31
+- test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+          at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+          at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 45
+- test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+          at line 51
+- test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+          at line 60
+- test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+          at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+          at line 74
+[4m
+res://tests/godot/simulation/test_specials.gd
+[0m- test_four_specials_spend_once_and_release_correct_family
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 14
+[31m    [Failed]:  [0m[120.0] expected to be < than [120.0]:  
+          at line 17
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 14
+[31m    [Failed]:  [0m[120.0] expected to be < than [120.0]:  
+          at line 17
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 14
+[31m    [Failed]:  [0m
+          at line 15
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 13
+[31m    [Failed]:  [0m[0] expected to equal [1]:  
+          at line 14
+[31m    [Failed]:  [0m
+          at line 16
+- test_light_windows_hit_once_meter_and_combo_buffer
+[31m    [Failed]:  [0m["idle"] expected to equal ["windup"]:  
+          at line 23
+[31m    [Failed]:  [0m[120.0] expected to equal [108.0]:  
+          at line 27
+[31m    [Failed]:  [0m[0.0] expected to equal [10.0]:  
+          at line 28
+[31m    [Failed]:  [0m[<null>] expected to equal ["light2"]:  
+          at line 31
+- test_dodge_direction_protection_and_cooldown
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 36
+[31m    [Failed]:  [0m[0] expected to equal [12]:  
+          at line 37
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [-0.1] +/- [0.000000000001]:  
+          at line 39
+[31m    [Failed]:  [0m["idle"] expected to equal ["dodge"]:  
+          at line 45
+- test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+[31m    [Failed]:  [0m[0.00000000000000000000] expected to equal [0.05666666666667] +/- [0.000000000001]:  
+          at line 51
+- test_unavailable_preserves_single_buffer_and_source_cancel
+[31m    [Failed]:  [0m[<null>] expected to equal ["light"]:  
+          at line 60
+- test_same_sample_priority_and_expiry_never_cancel_recovery
+[31m    [Failed]:  [0m[<null>] expected to equal ["special"]:  
+          at line 69
+[31m    [Failed]:  [0m[100] expected to equal [0]:  
+          at line 70
+[31m    [Failed]:  [0m["recovery"] expected to equal ["idle"]:  
+          at line 74
+
+Totals
+------
+Warnings             13
+
+Scripts               9
+Tests                38
+Passing Tests        13
+Failing Tests        25
+Asserts           258/353
+Time              0.489s
+
+
+[31m---- 25 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

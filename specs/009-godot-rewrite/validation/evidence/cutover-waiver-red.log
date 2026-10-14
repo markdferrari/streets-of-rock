@@ -1,0 +1,59 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/release-audit.test.ts (8 tests | 2 failed) 28ms
+     × accepts documented manual waivers without reporting a measured pass 7ms
+     × rejects undocumented, stale or changed waiver decisions 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > explicit owner waiver of manual acceptance > accepts documented manual waivers without reporting a measured pass
+AssertionError: expected [Function] to not throw an error but 'Error: Final evidence phones must be …' was thrown
+
+- Expected:
+undefined
+
++ Received:
+"Error: Final evidence phones must be pass before --final"
+
+ ❯ tests/tooling/release-audit.test.ts:85:75
+     83|     record.manualWaiver = { approvedBy: 'owner', buildId: record.build…
+     84|     for (const key of ['phones', 'performance', 'playtest', 'offlineUp…
+     85|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+       |                                                                           ^
+     86|     expect(record.statuses.performance).toBe('waived');
+     87|     record.statuses.soundtrack = 'waived';
+ ❯ withFinalEvidence tests/tooling/release-audit.test.ts:44:9
+ ❯ tests/tooling/release-audit.test.ts:80:83
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > explicit owner waiver of manual acceptance > rejects undocumented, stale or changed waiver decisions
+AssertionError: expected [Function] to throw error matching /waiver.*owner/i but got 'Final evidence phones must be pass be…'
+
+- Expected:
+/waiver.*owner/i
+
++ Received:
+"Final evidence phones must be pass before --final"
+
+ ❯ tests/tooling/release-audit.test.ts:92:71
+     90|   it('rejects undocumented, stale or changed waiver decisions', () => …
+     91|     record.statuses.phones = 'waived';
+     92|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+       |                                                                       ^
+     93|     writeFileSync(join(root, 'waiver.md'), 'approved');
+     94|     record.manualWaiver = { approvedBy: 'owner', buildId: 'b'.repeat(6…
+ ❯ withFinalEvidence tests/tooling/release-audit.test.ts:44:9
+ ❯ tests/tooling/release-audit.test.ts:90:71
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  2 failed | 57 passed (59)
+   Start at  09:02:19
+   Duration  2.21s (transform 1.66s, setup 0ms, import 3.77s, tests 2.26s, environment 3ms)
+
+error: script "test:platform" exited with code 1

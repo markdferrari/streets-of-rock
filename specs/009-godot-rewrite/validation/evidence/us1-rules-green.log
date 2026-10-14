@@ -1,0 +1,115 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_camera.gd
+[0m* test_source_camera_frames_all_reference_layouts
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_ai.gd
+[0m* test_roles_begin_telegraphs_and_boss_changes_phase
+* test_partner_fights_without_meter_and_knockout_stays_inactive
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_combat.gd
+[0m* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m5/5 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_progression.gd
+[0m* test_all_waves_tables_connectors_and_terminal_no_later_tick
+* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m6/6 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_run_clock.gd
+[0m* test_constructors_all_duos_are_independent_and_role_correct
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_accumulator_first_frame_cap_pause_and_exact_boundary
+* test_wall_clock_no_five_minute_terminal_and_pause
+* test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_specials.gd
+[0m* test_four_specials_spend_once_and_release_correct_family
+* test_headrest_no_visible_target_retains_meter
+* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m7/7 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Warnings             13
+
+Scripts               9
+Tests                38
+Passing Tests        38
+Asserts             353
+Time              0.483s
+
+
+[32m---- All tests passed! ----
+[0m

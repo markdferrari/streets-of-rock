@@ -1,0 +1,3 @@
+$ bun scripts/audit-build.ts
+Build audit passed: 22 precached assets, 7.05 MiB.
+Intended soundtrack evidence remains pending final acceptance.

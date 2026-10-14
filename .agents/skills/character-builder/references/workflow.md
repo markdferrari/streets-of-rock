@@ -22,6 +22,10 @@ rigged scene, runtime GLB, portrait, and all required semantic clips. Validate t
 envelope and all clips before integrating readiness. Keep standalone props separate from
 fighter meshes.
 
+Keep generation scoped with `--character <id>` and `--output-dir <path>`; choose
+`--only` or `--portraits` only when that output scope matches the requested work. Do not
+regenerate unrelated identities to satisfy a validation request.
+
 ## Runtime and verification
 
 For supported behavior, add a failing test for observable behavior, then implement the
@@ -30,11 +34,17 @@ bars/previews, ordinary AI support, bundled inventory/cache, action animation an
 where the new identity requires them. Retain Cow/Crow regressions and test role swaps,
 retry, loss handling, and offline readiness.
 
-Run the relevant Bun, browser, and Blender checks from the feature quickstart. Do not call
+Run `bun scripts/characters/validate.ts --character <id>` for an imported, per-character
+Godot check, or omit `--character` to validate the full roster. This invokes the pinned
+headless Godot validator and checks definitions, source files, imported models, clips,
+portraits, and required props. Run `bun run build:test` to verify the browser export.
+Exercise the actual fighter in the browser selection flow and a full playable run; record
+the build ID and distinguish observed gameplay from static validation. Then run the
+relevant Bun, browser, and Blender checks from the active feature quickstart. Do not call
 missing device, full-run performance, intended-soundtrack, or player-study evidence a
 pass. Record commands, outcomes, build identity, affected resources, unrelated-resource
-hashes, concept decision, playable review, and unresolved evidence under
-`specs/007-lion-plates-characters/reviews/<id>.md`.
+hashes, concept decision, playable review, and unresolved evidence under the active
+feature's review directory, such as `specs/009-godot-rewrite/reviews/<id>-godot.md`.
 
 ## Creation report
 

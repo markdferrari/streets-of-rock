@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "buildId": "0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803",
+  "mode": "release",
+  "engine": {
+    "version": "4.7.2",
+    "templateSha256": "f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011"
+  },
+  "entrypoint": "index.html",
+  "packMountOrder": [
+    "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.pck"
+  ],
+  "entries": [
+    {
+      "url": "assets/icons/icon-maskable.svg",
+      "sha256": "b51d5573688bd0dfc9224a8d8709713506250f7e659f57d3c2be9f03ae72116e",
+      "bytes": 357,
+      "category": "content"
+    },
+    {
+      "url": "assets/icons/icon.svg",
+      "sha256": "c78b0a67096128d469525ef4058ed4655d9335db8b3385ad9a37508020c920c6",
+      "bytes": 365,
+      "category": "content"
+    },
+    {
+      "url": "index.html",
+      "sha256": "7aeb8a43e6ede32f13c722b2ba0621bb44f622762c0d11d1476221b64a3f71d6",
+      "bytes": 1710,
+      "category": "content"
+    },
+    {
+      "url": "manifest.webmanifest",
+      "sha256": "f04f477ef560faf86d300aa30c5eba971e416ae382775842bdd4e74ecd820a5a",
+      "bytes": 392,
+      "category": "content"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/browser.js",
+      "sha256": "55432a048a10584557a51c335fd8a5c3555e242b8ae17051a41108d2811a498c",
+      "bytes": 18554,
+      "category": "content"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/index.html",
+      "sha256": "7aeb8a43e6ede32f13c722b2ba0621bb44f622762c0d11d1476221b64a3f71d6",
+      "bytes": 1710,
+      "category": "content"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.audio.position.worklet.js",
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "bytes": 2973,
+      "category": "engine"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.audio.worklet.js",
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "bytes": 7298,
+      "category": "engine"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.js",
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+      "bytes": 279815,
+      "category": "engine"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.pck",
+      "sha256": "daf8a1ce6e834e65162352c898549eba0e0717495be4d4de09b85deb5e18ed52",
+      "bytes": 5572176,
+      "category": "content"
+    },
+    {
+      "url": "releases/0930123c68d675c10e7284821b9c33333200df24d2fbbefff15642966f043803/sor.wasm",
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+      "bytes": 39514754,
+      "category": "engine"
+    }
+  ]
+}

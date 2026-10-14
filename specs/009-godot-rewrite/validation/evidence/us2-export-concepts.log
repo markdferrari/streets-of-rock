@@ -1,0 +1,2 @@
+$ bun scripts/godot/export.ts test
+Web test: 29e942f74c6bea4c9d18329d62b5c2139375f7c41eb68f17bbbb885001f19db2; 1 pack(s), 5405673 content bytes, 38228054 verified engine bytes

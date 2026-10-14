@@ -1,0 +1,40 @@
+$ bun scripts/godot/test.ts --self-test-failure
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://.tmp/gut-failure-m7VS4x/test_failure.gd
+[0m* test_runner_propagates_failure
+[31m    [Failed]:  [0mrunner must propagate this deliberate assertion failure
+      at line 3
+[1m0/1 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://.tmp/gut-failure-m7VS4x/test_failure.gd
+[0m- test_runner_propagates_failure
+[31m    [Failed]:  [0mrunner must propagate this deliberate assertion failure
+          at line 3
+
+Totals
+------
+Scripts               1
+Tests                 1
+Passing Tests      none
+Failing Tests         1
+Asserts             0/1
+Time              0.466s
+
+
+[31m---- 1 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

@@ -1,0 +1,2 @@
+$ bun scripts/audit-build.ts
+Foundation audit passed: c27f0c246f92db58067b25ffd53a5a01f1318b41e419e4a3628e5292dfff9e0a, 4.94 MiB content, 37.96 MiB verified engine. Full game/device/art acceptance remains pending.

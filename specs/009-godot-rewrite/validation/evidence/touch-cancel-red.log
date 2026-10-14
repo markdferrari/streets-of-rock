@@ -1,0 +1,40 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/platform/bridge.test.ts (5 tests | 1 failed) 17ms
+   × forwards native touch cancellation without translating actions or guessing pointer IDs 9ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/platform/bridge.test.ts > forwards native touch cancellation without translating actions or guessing pointer IDs
+AssertionError: expected [] to deeply equal [ { type: 'touchCancel', …(1) } ]
+
+- Expected
++ Received
+
+- [
+-   {
+-     "indices": [
+-       7,
+-     ],
+-     "type": "touchCancel",
+-   },
+- ]
++ []
+
+ ❯ tests/platform/bridge.test.ts:33:17
+     31|  const adapter=new BrowserAdapter({environment:()=>environment,read:()…
+     32|  adapter.initialize(json=>events.push(JSON.parse(json)));cancel?.([7]);
+     33|  expect(events).toEqual([{type:'touchCancel',indices:[7]}]);
+       |                 ^
+     34| });
+     35|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 passed (5)
+   Start at  10:00:55
+   Duration  259ms (transform 49ms, setup 0ms, import 66ms, tests 17ms, environment 0ms)
+

@@ -1,0 +1,130 @@
+{
+  "sourceCommit": "ddca43f",
+  "buildId": "8a1f739e4d934900",
+  "directory": ".tools/cutover/legacy-release",
+  "archive": ".tools/cutover/legacy-release.tar.gz",
+  "archiveSha256": "934909320a05631b4c8014ae12f9349d002ef18457fe59fa5ea5f8342b2410bd",
+  "packagingNote": "Excluded unused Godot-generated .import editor metadata from the archived Vite output; original asset/worker bytes retained.",
+  "files": [
+    {
+      "path": "asset-inventory.json",
+      "bytes": 3624,
+      "sha256": "c6cf11c82dd812023dbf0a7c9041b1b2bdedfa249210e8aae2fe23af213e3654"
+    },
+    {
+      "path": "assets/audio/brightside.mp3",
+      "bytes": 3688512,
+      "sha256": "90279f810f0b8624ebbf247a1e8676244e258b9898e8f2db1e7672cdd93d3fcb"
+    },
+    {
+      "path": "assets/audio/music-placeholder.wav",
+      "bytes": 352844,
+      "sha256": "38642eac25bf26e8c08d7a072157b118f320238d5b234073bbb8eee3e86ef812"
+    },
+    {
+      "path": "assets/audio/sfx-attack.wav",
+      "bytes": 6660,
+      "sha256": "437fa7458da02ae76782a3f6cf0031d690ce3fef2df8b18b711743eaae9320da"
+    },
+    {
+      "path": "assets/audio/sfx-damage.wav",
+      "bytes": 6660,
+      "sha256": "1b11415e7e6732a779142adc33159a1758d995adceb1dc16aadf772e7f78ca47"
+    },
+    {
+      "path": "assets/audio/sfx-hit.wav",
+      "bytes": 6660,
+      "sha256": "dd904207e7b8cdfc1a1b01016d5a1f8ac493944a13e5eacc25dbd8e18e911d00"
+    },
+    {
+      "path": "assets/audio/sfx-pickup.wav",
+      "bytes": 6660,
+      "sha256": "3c6f2cc30bf000ea2fce78990d57c1980545b79a5349e3d364379080039344d3"
+    },
+    {
+      "path": "assets/audio/sfx-result.wav",
+      "bytes": 6660,
+      "sha256": "3e0023c278607f7342190d96c2590bdebd791c20e316b92d387551530b250984"
+    },
+    {
+      "path": "assets/character-BGGJH_PS.glb",
+      "bytes": 305472,
+      "sha256": "3d489bfc1cf350205a3b8bb19aeab4e7a6759b51495c7b97cebb7522fa023d64"
+    },
+    {
+      "path": "assets/character-BmOHghWE.glb",
+      "bytes": 522528,
+      "sha256": "d82aa13c93b8bb055352a9dbe22ba3590e93827b5b5b3d9836d17e20b48a866d"
+    },
+    {
+      "path": "assets/cow-2cpQ7JWN.png",
+      "bytes": 241241,
+      "sha256": "8ad8ba6ff683e4d4f2017e81e0da11080d155726f732cbc84f6a80c66f98e0f8"
+    },
+    {
+      "path": "assets/cow-CcNmSbVS.glb",
+      "bytes": 351196,
+      "sha256": "9b8227157dc6439efebccf6867ddd1faef873af46f918685cf495af3509b8909"
+    },
+    {
+      "path": "assets/crow-B95rGtNT.png",
+      "bytes": 242168,
+      "sha256": "cc97225fe3e9674d3ab08c167579d1766972bd2513bd640c4d8f14a2faa23902"
+    },
+    {
+      "path": "assets/crow-BFA9MSW6.glb",
+      "bytes": 429484,
+      "sha256": "87b7af4b2c55d154e6756020381d7c98e1f6026ad8fcbac36bd50e27465eb4a8"
+    },
+    {
+      "path": "assets/headrest-C-4OlRa7.glb",
+      "bytes": 8292,
+      "sha256": "19ee568665ce47f91c8fc281b9639d778b7e1227a0f7816e43e814f1b84fdf6e"
+    },
+    {
+      "path": "assets/icons/icon-maskable.svg",
+      "bytes": 357,
+      "sha256": "b51d5573688bd0dfc9224a8d8709713506250f7e659f57d3c2be9f03ae72116e"
+    },
+    {
+      "path": "assets/icons/icon.svg",
+      "bytes": 365,
+      "sha256": "c78b0a67096128d469525ef4058ed4655d9335db8b3385ad9a37508020c920c6"
+    },
+    {
+      "path": "assets/index-CZqfMy0i.css",
+      "bytes": 7524,
+      "sha256": "3d17d65823ccd4881b16efa73c821ab524726d9b2327e886351d50989f47a76f"
+    },
+    {
+      "path": "assets/index-Cw-5R3qL.js",
+      "bytes": 726433,
+      "sha256": "1c1d161341fa58f28bb5e433ef6f11cc8e08b5bcce980c0509857d5e12d7c33a"
+    },
+    {
+      "path": "assets/portrait-B92U9d0_.png",
+      "bytes": 236251,
+      "sha256": "e8bbe01c430bf78e41fc925ba388466a5752594e2bbf4edd2c730e88f189700a"
+    },
+    {
+      "path": "assets/portrait-CR32a3ph.png",
+      "bytes": 249147,
+      "sha256": "3fd5a772ebdf5d5dcb26c6250c5b890a3b242cb05a8cc9db61d2042f82689874"
+    },
+    {
+      "path": "index.html",
+      "bytes": 515,
+      "sha256": "ab455e50a2c1b3c2667cad2ea84662df9ddbca5a114f9638cbabcb21a363c935"
+    },
+    {
+      "path": "manifest.webmanifest",
+      "bytes": 370,
+      "sha256": "24dd4e1732f5e381fc55c758f9f879b46d429fc8cbcc42d5221c96a49f4155b1"
+    },
+    {
+      "path": "sw.js",
+      "bytes": 19246,
+      "sha256": "8a1f739e4d934900d8443a4e3075d56273c30b7bb12e156735432ff309f9e4e5"
+    }
+  ]
+}

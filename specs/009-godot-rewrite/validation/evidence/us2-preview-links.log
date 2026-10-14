@@ -1,0 +1,4 @@
+$ playwright test --config playwright.godot.config.ts godot-backdrops --grep "local room review" --project chromium
+Error: http://127.0.0.1:4181 is already used, make sure that nothing is running on the port/url or set reuseExistingServer:true in config.webServer.
+
+error: script "test:e2e:godot" exited with code 1

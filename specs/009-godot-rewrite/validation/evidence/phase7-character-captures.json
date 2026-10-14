@@ -1,0 +1,28 @@
+{
+  "buildId": "7e2d5cd7d5fb7e1758fed73a1806989d187565918bb364f3cdaf0a5f2497f3b0",
+  "mode": "test",
+  "captures": [
+    {
+      "fighter": "lion",
+      "path": "specs/009-godot-rewrite/validation/evidence/phase7-lion-webkit.png",
+      "sha256": "1049dbdea5ec073510f10ccd1c2049cde77f8aebb6fa03bc7d8c67843a1e4990",
+      "browser": "Playwright WebKit",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "procedure": "Godot character-workflow browser test: native moves plus staged meter and terminal state, not natural full-level victory"
+    },
+    {
+      "fighter": "plates",
+      "path": "specs/009-godot-rewrite/validation/evidence/phase7-plates-webkit.png",
+      "sha256": "bc4116d543670cba6a1c293be63e6d18d6d623df1272ff6fbd78b00851e82815",
+      "browser": "Playwright WebKit",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "procedure": "Godot character-workflow browser test: native moves plus staged meter and terminal state, not natural full-level victory"
+    }
+  ]
+}

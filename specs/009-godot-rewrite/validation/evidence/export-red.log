@@ -1,0 +1,120 @@
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/export.test.ts (6 tests | 6 failed) 19ms
+     × separates three modes and excludes debug fixtures from release 11ms
+     × canonical identity includes sorted payload, mode, engine and shell without circular metadata 1ms
+     × splits only at resource boundaries with shared dependencies mounted first 1ms
+     × rejects conflicting ownership and unresolved imported-resource remaps 2ms
+     × preloads every pack before engine start using preserved virtual basenames 1ms
+     × enforces content budgets and byte-verified engine exceptions 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > separates three modes and excludes debug fixtures from release
+AssertionError: expected { preset: '', dir: '', debug: false } to deeply equal { preset: 'Web Release', …(2) }
+
+- Expected
++ Received
+
+  {
+    "debug": false,
+-   "dir": "dist",
+-   "preset": "Web Release",
++   "dir": "",
++   "preset": "",
+  }
+
+ ❯ tests/tooling/export.test.ts:7:33
+      5| describe('web export contract',()=>{
+      6|  it('separates three modes and excludes debug fixtures from release',(…
+      7|   expect(modeConfig('release')).toEqual({preset:'Web Release',dir:'dis…
+       |                                 ^
+      8|   expect(modeConfig('test')).toEqual({preset:'Web Test',dir:'dist-test…
+      9|   expect(modeConfig('diagnostics')).toEqual({preset:'Web Diagnostics',…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > canonical identity includes sorted payload, mode, engine and shell without circular metadata
+AssertionError: expected '' to match /^[a-f0-9]{64}$/
+
+- Expected:
+/^[a-f0-9]{64}$/
+
++ Received:
+""
+
+ ❯ tests/tooling/export.test.ts:13:37
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > splits only at resource boundaries with shared dependencies mounted first
+AssertionError: expected 0 to be greater than 1
+ ❯ tests/tooling/export.test.ts:19:37
+     17|  it('splits only at resource boundaries with shared dependencies mount…
+     18|   const packs=planPacks([{path:'shared',bytes:2,group:'shared'},{path:…
+     19|   expect(Object.keys(packs).length).toBeGreaterThan(1);
+       |                                     ^
+     20|   expect(Object.values(packs).flat().sort()).toEqual(['cow','crow','sh…
+     21|   expect(Object.values(packs)[0]).toContain('shared');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > rejects conflicting ownership and unresolved imported-resource remaps
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/export.test.ts:26:78
+     24|  });
+     25|  it('rejects conflicting ownership and unresolved imported-resource re…
+     26|   expect(()=>auditOwnership({main:{'res://cow':'a'},cow:{'res://cow':'…
+       |                                                                              ^
+     27|   expect(()=>auditOwnership({main:{'res://cow.import':'a'}},{'res://co…
+     28|   expect(()=>auditOwnership({main:{'res://cow.import':'a'},cow:{'res:/…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > preloads every pack before engine start using preserved virtual basenames
+AssertionError: expected [] to deeply equal [ 'init:releases/id/sor', …(2) ]
+
+- Expected
++ Received
+
+- [
+-   "init:releases/id/sor",
+-   "load:releases/id/sor.pck:sor.pck",
+-   "load:releases/id/cow.pck:cow.pck",
+- ]
++ []
+
+ ❯ tests/tooling/export.test.ts:33:28
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  tests/tooling/export.test.ts > web export contract > enforces content budgets and byte-verified engine exceptions
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/export.test.ts:39:54
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed (6)
+   Start at  09:38:47
+   Duration  289ms (transform 58ms, setup 0ms, import 85ms, tests 19ms, environment 0ms)
+

@@ -1,0 +1,16 @@
+$ playwright test --config playwright.godot.config.ts --grep "actual game"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 4 tests using 1 worker
+
+(node:537135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action (6.8s)
+  ✓  2 [chromium] › tests/e2e/godot-input.spec.ts:16:1 › actual game preserves simultaneous movement and action, with source-specific native cancellation (6.2s)
+(node:537309) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/e2e/godot-input.spec.ts:4:1 › actual game semantic selection and held keyboard produce one fresh action (6.1s)
+  -  4 [webkit] › tests/e2e/godot-input.spec.ts:16:1 › actual game preserves simultaneous movement and action, with source-specific native cancellation
+
+  1 skipped
+  3 passed (20.4s)

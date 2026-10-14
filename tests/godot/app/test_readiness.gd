@@ -1,0 +1,17 @@
+extends GutTest
+const Readiness = preload("res://game/ui/readiness.gd")
+func test_runtime_and_offline_readiness_are_separate_and_update_waits_for_between_runs() -> void:
+ var state := Readiness.new()
+ state.set_runtime_ready()
+ assert_eq(state.runtime, "ready")
+ assert_eq(state.offline, "checking")
+ state.cache_status({"state":"error","buildId":"abc","missing":["pack.pck"],"corrupt":["audio.wav"],"error":"quota"})
+ assert_eq(state.runtime, "ready")
+ assert_eq(state.offline, "incomplete")
+ assert_eq(state.missing, ["pack.pck", "audio.wav"])
+ assert_string_contains(state.status_text("running"), "incomplete")
+ state.set_update_waiting(true)
+ assert_eq(state.status_text("running"), "Offline cache incomplete. Retry the cache check when online.")
+ assert_string_contains(state.status_text("selecting"), "Close all game windows")
+ state.cache_status({"state":"ready","buildId":"a".repeat(64),"missing":[],"corrupt":[]})
+ assert_eq(state.offline, "ready")
