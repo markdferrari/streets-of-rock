@@ -1,0 +1,9 @@
+test_attack_hips_cannot_lunge_beyond_simulation_owned_position (test_enemy_exports.EnemyExportTests.test_attack_hips_cannot_lunge_beyond_simulation_owned_position) ... ok
+test_clips_skin_materials_bindings_and_self_contained_exports (test_enemy_exports.EnemyExportTests.test_clips_skin_materials_bindings_and_self_contained_exports) ... ok
+test_heroes_and_acquired_animation_sources_remain_unchanged (test_enemy_exports.EnemyExportTests.test_heroes_and_acquired_animation_sources_remain_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.031s
+
+OK
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)

@@ -1,0 +1,422 @@
+[
+  {
+    "subject": "exterior",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/exterior.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "b6f92fdb1fe975c8eba88872652409f852a592a4c3c48bfb61b99fc23f766d28",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Frontage/sign/door/pavement/queue/posters have 3D blockout locations. Light spill and scruffy surface dressing still need refinement; doorway route alignment needs actual venue integration.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [
+      "frontage",
+      "club-sign",
+      "neon-doorway",
+      "light-spill",
+      "pavement",
+      "queue-barriers",
+      "event-posters"
+    ],
+    "requiredActions": [],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "bar",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/bar.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "fead7b06abba15d0612b8797916cf59f5988daab7709b4263a81dd6abe131077",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Continuous counter/shelves/stools and reused sofa read as a bar arrangement; sofa is only a booth-seat candidate. Warm lighting/booth enclosure and interactive-table visual distinction need final review.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [
+      "long-counter",
+      "bottle-shelves",
+      "stools",
+      "booths",
+      "warm-light",
+      "neon-accents"
+    ],
+    "requiredActions": [],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "dance-floor",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/dance-floor.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "6661ff844056ac039e9fb2256b7bcffe9efcd37fe857a52c5963657815c500c6",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Booth/speaker/truss/fixtures/static coloured pools shown; final lighting/materials and all connector/camera-edge coverage still need runtime validation.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [
+      "dance-floor",
+      "dj-booth",
+      "large-speakers",
+      "overhead-fixtures",
+      "coloured-light-pools"
+    ],
+    "requiredActions": [],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "stage-vip",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/stage-vip.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "39547833cd281656ceafbb81ad4c22496fc5495065bc4bb9d7f4148a2a94d87d",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Curtain folds/backdrop/branding/stage and reused side sofas shown. Dramatic lighting and material finish pending; decorative stage is not walkable.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [
+      "curtains",
+      "stage-backdrop",
+      "vip-seating",
+      "club-branding",
+      "dramatic-light"
+    ],
+    "requiredActions": [],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "grunt",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/grunt.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "41d407e698261831e984491b2d03ba40af6aa2d0f331be45acc6ac7a9b2cf325",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Mohawk and vest suggest a small mobile patron. Rounded blockout only; compare/adapt the free Punk rig before final choice. All required animation states are missing.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [],
+    "requiredActions": [
+      "Idle",
+      "Move",
+      "Hurt",
+      "Defeated",
+      "Stunned",
+      "grunt.windup",
+      "grunt.active",
+      "grunt.recovery"
+    ],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "zoner",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/zoner.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "1bd4b14a5a52b4a3e7ed18be68efd386f4bfe3a7c1351dd533fc1a498f4e7fe5",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Apron/bow tie/bottle suggest staff; body needs final silhouette/hand work. Compare/adapt free Suit rig. All states and projectile-release alignment are missing.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [],
+    "requiredActions": [
+      "Idle",
+      "Move",
+      "Hurt",
+      "Defeated",
+      "Stunned",
+      "throw.windup",
+      "throw.active",
+      "throw.recovery"
+    ],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "enforcer",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/enforcer.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "3ada04e1d021b5f31ffa22e4c087ad5963fa5a1cd1c22f402a9b7de99d0c46b5",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Wide vest/crew cut suggest security. Avoid relying on small SEC text for recognition; final outfit/rig/charge coverage is missing.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [],
+    "requiredActions": [
+      "Idle",
+      "Move",
+      "Hurt",
+      "Defeated",
+      "Stunned",
+      "charge.windup",
+      "charge.active",
+      "charge.recovery"
+    ],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  },
+  {
+    "subject": "liam",
+    "stage": "concept",
+    "result": "pass",
+    "reviewer": null,
+    "capture": "specs/010-upgrade-game-artwork/reviews/concepts/liam.png",
+    "source": "reviews/source/create_concepts.py",
+    "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
+    "date": "2026-10-14",
+    "sourceCommit": "71f148a412bf39e1b50855ed7901736a3eb0990b",
+    "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda",
+    "assetPath": "specs/010-upgrade-game-artwork/reviews/concepts/concepts.blend",
+    "assetSha256": "a0266c1c256c8207305ad543f3afda08d2d3441e2098d936cdafc4e6470a04df",
+    "captureSha256": "a51ccbf596a18edc7d50c2365aeb64bdb955e558d9cfe6ceb0f0c9e6232b6a1c",
+    "buildId": null,
+    "context": {
+      "renderer": "Blender 5.2.2 LTS / Cycles",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": "Orthographic; baseline halfHeight 4.21011058451817, aspect 844/390; baseline camera offset (0,8,12), local room center",
+      "hud": "Projected labels at inherited control positions, not actual runtime controls",
+      "settings": "static, no strobing; shared palette; unchanged imported hero references"
+    },
+    "technicalReviewer": "Codex",
+    "findings": "Oversized shoulders/coat lapels/light hair/rope differ geometrically from Enforcer. White block hair needs shaping; phase-two styling and every action/state are missing.",
+    "ownerReview": {
+      "reviewer": "owner",
+      "result": "pass",
+      "date": "2026-10-14",
+      "findings": [
+        "Owner: \"I like the images\"; approved proceeding after KayKit reuse assessment. Appearance direction approved; technical refinements and final gameplay reviews remain outstanding."
+      ]
+    },
+    "requiredLandmarks": [],
+    "requiredActions": [
+      "Idle",
+      "Move",
+      "Hurt",
+      "Defeated",
+      "close.windup",
+      "close.active",
+      "close.recovery",
+      "rope.windup",
+      "rope.active",
+      "rope.recovery",
+      "shockwave.windup",
+      "shockwave.active",
+      "shockwave.recovery"
+    ],
+    "actionCoverage": [],
+    "unresolvedDependencies": [
+      "Owner appearance review",
+      "Final production/import/export",
+      "Actual phone/camera/HUD gameplay review"
+    ]
+  }
+]

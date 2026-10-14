@@ -60,12 +60,19 @@ import {readLock,runGodot,verifyInstalled,type ToolLock} from './setup';
 import {auditFoundationInventory,type FoundationInventory} from '../build-asset-inventory';
 function files(dir:string):string[]{return readdirSync(dir,{withFileTypes:true}).filter(e=>e.name!=='.gdignore').flatMap(e=>e.isDirectory()?files(join(dir,e.name)):[join(dir,e.name)]).sort();}
 function bundle(entry:string,out:string,defines:Record<string,unknown>={}){const args=['build',entry,'--target','browser','--format',entry.endsWith('/sw.ts')?'iife':'esm','--outfile',out,...Object.entries(defines).flatMap(([k,v])=>['--define',`${k}=${JSON.stringify(v)}`])];const result=spawnSync('bun',args,{encoding:'utf8'});if(result.status!==0)throw new Error(result.stderr);}
+export function runtimeContentDefinitions(paths:string[]):string[]{
+ return paths.filter(path=>path.endsWith('.json') && path !== 'content/art-provenance.json');
+}
+export function webTestFixtureFiles(paths:string[]):string[]{
+ return paths.filter(path=>/\.(gd|tscn|bin|json)$/.test(path));
+}
 function sources(mode:Mode):Record<string,string[]> {
- const resources=JSON.parse(readFileSync('content/resources.json','utf8'));const groups:Record<string,string[]>={main:[...files('game').filter(n=>/\.(gd|tscn)$/.test(n)&&(mode==='test'||n!=='game/platform/test_bridge.gd')&&(mode==='diagnostics'||n!=='game/platform/diagnostics.gd')),...files('content').filter(n=>n.endsWith('.json'))],shared:Object.values(resources.props)};
+ const resources=JSON.parse(readFileSync('content/resources.json','utf8'));const groups:Record<string,string[]>={main:[...files('game').filter(n=>/\.(gd|tscn)$/.test(n)&&(mode==='test'||n!=='game/platform/test_bridge.gd')&&(mode==='diagnostics'||n!=='game/platform/diagnostics.gd')),...runtimeContentDefinitions(files('content'))],shared:Object.values(resources.props)};
  for(const id of ['cow','crow','lion','plates'])groups[id]=[resources.models[id],resources.portraits[id]];
+ for(const [id,entry] of Object.entries(resources.art??{}) as [string,{path:string}][])groups[id]=[entry.path];
  for(const room of JSON.parse(readFileSync('content/backdrops.json','utf8')).rooms)groups[room.setting]=[room.wall,room.floor];
  groups.audio=files('public/assets/audio').filter(n=>/\.(mp3|wav|ogg)$/.test(n));
- if(mode==='test'){groups.main!.push(...files('tests/godot/fixtures').filter(n=>/\.(gd|tscn|bin)$/.test(n)));groups.backdrops=files('assets/backdrops/concepts').filter(n=>n.endsWith('.svg'));}
+ if(mode==='test'){groups.main!.push(...webTestFixtureFiles(files('tests/godot/fixtures')));groups.backdrops=files('assets/backdrops/concepts').filter(n=>n.endsWith('.svg'));}
  return groups;
 }
 function normalizePacks(stage:string,packs:string[],cap:number):void {

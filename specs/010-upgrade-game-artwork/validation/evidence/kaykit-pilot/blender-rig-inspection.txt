@@ -1,0 +1,28 @@
+11:09:56 | INFO: Data are loaded, start creating Blender stuff
+11:09:56 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:09:56 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:09:56 | INFO: Blender create Mesh node Mannequin_Body
+11:09:56 | INFO: Blender create Mesh node Mannequin_Head
+11:09:56 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:09:56 | INFO: Blender create Mesh node Mannequin_LegRight
+11:09:56 | INFO: glTF import finished in 0.22s
+ARM Rig_Medium [0.0, 0.0, 0.0] [0.0, 0.0, 0.0] [1.0, 1.0, 1.0]
+BONES [('root', (0.0, 0.0, 0.0), (0.0, 0.0, 0.406)), ('hips', (0.0, 0.0, 0.406), (0.0, 0.0, 0.598)), ('upperleg.l', (0.171, 0.0, 0.519), (0.171, -0.008, 0.292)), ('lowerleg.l', (0.171, -0.008, 0.292), (0.171, 0.019, 0.145)), ('foot.l', (0.171, 0.019, 0.145), (0.171, -0.096, 0.026)), ('toes.l', (0.171, -0.096, 0.026), (0.171, -0.262, 0.026)), ('spine', (0.0, 0.0, 0.598), (0.0, 0.0, 0.973)), ('chest', (0.0, 0.0, 0.973), (0.0, 0.0, 1.224)), ('head', (0.0, 0.0, 1.241), (0.0, 0.0, 1.492)), ('upperarm.l', (0.212, -0.0, 1.107), (0.454, 0.014, 1.107)), ('lowerarm.l', (0.454, 0.014, 1.107), (0.713, -0.0, 1.107)), ('wrist.l', (0.713, -0.0, 1.107), (0.787, -0.0, 1.107)), ('hand.l', (0.787, -0.0, 1.107), (0.899, -0.0, 1.107)), ('handslot.l', (0.883, -0.0, 1.049), (0.883, -0.112, 1.049)), ('upperarm.r', (-0.212, -0.0, 1.107), (-0.454, 0.014, 1.107)), ('lowerarm.r', (-0.454, 0.014, 1.107), (-0.713, -0.0, 1.107)), ('wrist.r', (-0.713, -0.0, 1.107), (-0.787, -0.0, 1.107)), ('hand.r', (-0.787, -0.0, 1.107), (-0.899, -0.0, 1.107)), ('handslot.r', (-0.883, -0.0, 1.049), (-0.883, -0.112, 1.049)), ('upperleg.r', (-0.171, 0.0, 0.519), (-0.171, -0.008, 0.292)), ('lowerleg.r', (-0.171, -0.008, 0.292), (-0.171, 0.019, 0.145)), ('foot.r', (-0.171, 0.019, 0.145), (-0.171, -0.096, 0.026)), ('toes.r', (-0.171, -0.096, 0.026), (-0.171, -0.262, 0.026))]
+ACTION Death_A [0.0, 19.200000762939453] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Death_A_Pose [0.0, 0.0] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Death_B [0.0, 63.20000457763672] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Death_B_Pose [0.0, 0.0] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Hit_A [0.0, 16.0] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Hit_B [0.0, 20.799999237060547] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Idle_A [0.0, 25.60000228881836] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Idle_B [0.0, 51.20000457763672] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Interact [0.0, 31.19999885559082] slots [('OBRig_Medium', 'OBJECT')]
+ACTION PickUp [0.0, 31.19999885559082] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Spawn_Air [0.0, 31.19999885559082] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Spawn_Ground [0.0, 31.19999885559082] slots [('OBRig_Medium', 'OBJECT')]
+ACTION T-Pose [0.0, 0.0] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Throw [0.0, 32.79999923706055] slots [('OBRig_Medium', 'OBJECT')]
+ACTION Use_Item [0.0, 38.400001525878906] slots [('OBRig_Medium', 'OBJECT')]
+Active Death_A
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

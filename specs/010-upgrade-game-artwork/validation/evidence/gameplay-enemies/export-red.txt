@@ -1,0 +1,37 @@
+$ playwright test --config playwright.godot.config.ts artwork-gameplay-enemies.spec.ts --project chromium
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:42117) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (12.9s)
+
+
+  1) [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "running"
+    Received: "error"
+
+    Call Log:
+    - Timeout 10000ms exceeded while waiting on the predicate
+
+       at helpers/godot.ts:14
+
+      12 |  await expect.poll(()=>game(page).then(state=>[state.selection.step,state.selection.previewedId])).toEqual(['partner',partner]);
+      13 |  await canvasControl(page,`character-${partner}`);
+    > 14 |  await expect.poll(()=>game(page).then(state=>state?.phase),{timeout:10000}).toBe('running');
+         |                                                                              ^
+      15 | }
+      16 |
+        at selectDuo (/home/mark/projects/godot/streets-of-rock/tests/e2e/helpers/godot.ts:14:78)
+        at /home/mark/projects/godot/streets-of-rock/tests/e2e/artwork-gameplay-enemies.spec.ts:6:53
+
+    Error Context: test-results/artwork-gameplay-enemies-n-79fd6-h-frozen-poses-while-paused-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused 
+error: script "test:e2e:godot" exited with code 1

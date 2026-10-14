@@ -12,4 +12,4 @@
 
 The revised-control runtime contract supersedes original MVP joystick/input clauses. The original MVP still has unfinished audio, PWA cache, complete offline replay, device performance, soundtrack, and five-player gates. Desktop browser tests and documentation do not satisfy those gates. No new backend or runtime package was introduced; the release remains a static build compatible with the planned AWS hosting path.
 
-Open feature tasks: T031 (two phones), T033 (complete-level balance/solo run), T034 (offline/audio when MVP delivery is ready), T035 (phone performance), and T036 (five-player evaluation). Keep them open until actual results are recorded. Original MVP unfinished tasks remain in `specs/001-neon-velvet-mvp/tasks.md`.
+Open feature tasks: T031 (two phones), T033 (complete-level balance/solo run), T034 (offline/audio when MVP delivery is ready), T035 (phone performance), and T036 (five-player evaluation). Keep them open until actual results are recorded. Original MVP unfinished tasks remain in `specs/001-bondi-beach-mvp/tasks.md`.

@@ -1,0 +1,10 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+
+ Test Files  15 passed (15)
+      Tests  61 passed (61)
+   Start at  11:32:56
+   Duration  2.77s (transform 1.58s, setup 0ms, import 3.74s, tests 3.07s, environment 3ms)
+

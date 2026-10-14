@@ -1,0 +1,53 @@
+{
+  "id": "kaykit-dungeon-1.1",
+  "name": "KayKit Dungeon Asset Pack",
+  "creator": "Kay Lousberg",
+  "version": "1.1",
+  "acquisitionDate": "2026-10-14",
+  "acquisitionMethod": "Exact files copied from owner-provided KayKit_DungeonRemastered_1.1_FREE pack in the parent workspace; no network acquisition.",
+  "licenseId": "CC0-1.0",
+  "licenseEvidencePaths": [
+    "assets/art-sources/kaykit-dungeon-1.1/License.txt"
+  ],
+  "evidenceSha256": {
+    "assets/art-sources/kaykit-dungeon-1.1/License.txt": "3ad9bfddc7e218841ee558f6c462369230021192183a29e5ed1793942c752290"
+  },
+  "acquiredPath": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.gltf",
+  "sha256": "0cd643e227fdb4369dd1cf85d34c58e6b6b605336c73384eb192d21cd6b98bd3",
+  "files": [
+    {
+      "path": "assets/art-sources/kaykit-dungeon-1.1/License.txt",
+      "sha256": "3ad9bfddc7e218841ee558f6c462369230021192183a29e5ed1793942c752290",
+      "bytes": 1374
+    },
+    {
+      "path": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.bin",
+      "sha256": "e82b591d9efb83c7bfc438c031ff865cb125dd54ddd1599d497c2d7fb6e25c99",
+      "bytes": 8256
+    },
+    {
+      "path": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.gltf",
+      "sha256": "0cd643e227fdb4369dd1cf85d34c58e6b6b605336c73384eb192d21cd6b98bd3",
+      "bytes": 3062
+    },
+    {
+      "path": "assets/art-sources/kaykit-dungeon-1.1/dungeon_texture.png",
+      "sha256": "ceb331d6ed53273da5e26808560bca8496f8f6ebc12d83b570c0e317560f1d03",
+      "bytes": 17047
+    }
+  ],
+  "permissions": {
+    "commercial": true,
+    "modification": true,
+    "gameDistribution": true,
+    "purchaseCost": 0,
+    "recurringFee": 0,
+    "basis": "Exact creator-supplied CC0 license retained."
+  },
+  "attributionText": "Kay Lousberg \u2014 KayKit Dungeon Asset Pack 1.1 \u2014 CC0 1.0",
+  "requiredNotices": [],
+  "status": "accepted",
+  "reviewer": "Codex local source inspection",
+  "reviewDate": "2026-10-14",
+  "assessment": "Only green bottle selected for the review pilot; source geometry and texture retained, exported as an embedded GLB."
+}

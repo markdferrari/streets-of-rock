@@ -1,7 +1,7 @@
 # Revised Controls Runtime and Player Contract
 
 **Version:** 1, scoped to feature 002.
-**Related:** [Specification](../spec.md), [data model](../data-model.md), [MVP runtime contract](../../001-neon-velvet-mvp/contracts/runtime.md).
+**Related:** [Specification](../spec.md), [data model](../data-model.md), [MVP runtime contract](../../001-bondi-beach-mvp/contracts/runtime.md).
 
 This contract supersedes the joystick, action-button, and input-frame portions of the MVP runtime contract. Other MVP screens, terminal precedence, audio, storage, offline, and delivery contracts retain their requirements. There is no new public network API.
 

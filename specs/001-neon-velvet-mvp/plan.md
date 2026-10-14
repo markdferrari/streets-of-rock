@@ -1,8 +1,8 @@
 # Implementation Plan: Bondi Beach Mobile Game MVP
 
-**Branch**: `001-neon-velvet-mvp` | **Date**: 2026-09-26 | **Spec**: [spec.md](spec.md)
+**Branch**: `001-bondi-beach-mvp` | **Date**: 2026-09-26 | **Spec**: [spec.md](spec.md)
 
-**Input**: Feature specification at `specs/001-neon-velvet-mvp/spec.md`.
+**Input**: Feature specification at `specs/001-bondi-beach-mvp/spec.md`.
 **Status**: Phase 0 research and Phase 1 design complete; implementation and runtime validation pending.
 
 ## Summary
@@ -66,7 +66,7 @@ Small entity counts justify direct array iteration and simple collision checks.
 | Test-first implementation | PASS: no implementation authorized before failing behavior tests | PASS: pure fixed-step model, Vitest/Playwright commands, manual procedures, and regression boundaries defined |
 | Mobile-web reliability | PASS: offline/audio/lifecycle/storage requirements in spec | PASS: full precache, range handling, build audit, storage fallback, and natural worker activation defined |
 | Focused scope and measured quality | PASS: one level, no native/backend work | PASS: minimal dependencies, asset budgets, repeatable frame timing, and five-player evaluation retained |
-| Delivery discipline | PASS: already on 001-neon-velvet-mvp; preserve existing spec | PASS: all existing tests before conventional commits, traceable evidence, and explicit unperformed hardware/asset acceptance |
+| Delivery discipline | PASS: already on 001-bondi-beach-mvp; preserve existing spec | PASS: all existing tests before conventional commits, traceable evidence, and explicit unperformed hardware/asset acceptance |
 
 These are design-compliance passes, not runtime test results. No constitution exceptions or
 unresolved technical clarifications remain. Owner soundtrack and reference-device access are
@@ -77,7 +77,7 @@ delivery dependencies, not reasons to weaken acceptance.
 ### Documentation (this feature)
 
 ```text
-specs/001-neon-velvet-mvp/
+specs/001-bondi-beach-mvp/
 ├── spec.md
 ├── plan.md
 ├── research.md

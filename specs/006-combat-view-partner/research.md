@@ -6,7 +6,7 @@ Date: 2026-09-28. Repository inspection is the source of truth. Delegated camera
 
 **Decision:** Replace fixed camera span with orthographic room-envelope fitting, retaining the view direction and existing geometry.
 
-**Rationale:** `src/ui/styles.css` already stretches game, scene host and canvas to the viewport with absolute overlays. `src/presentation/scene.ts` fixes vertical span at 12 world units; a 16-unit room therefore occupies a limited horizontal fraction on wide phones. Floors are 16×8 while walkable depth is -3..3 (`environments.ts`, `neon-velvet.ts`). Fit the walkable footprint plus hero body envelope, then compare projected floor area in matched captures. Enlarging DOM alone changes nothing.
+**Rationale:** `src/ui/styles.css` already stretches game, scene host and canvas to the viewport with absolute overlays. `src/presentation/scene.ts` fixes vertical span at 12 world units; a 16-unit room therefore occupies a limited horizontal fraction on wide phones. Floors are 16×8 while walkable depth is -3..3 (`environments.ts`, `bondi-beach.ts`). Fit the walkable footprint plus hero body envelope, then compare projected floor area in matched captures. Enlarging DOM alone changes nothing.
 
 **Alternatives considered:** Bigger room meshes violate unchanged geometry. Camera tilt changes violate fixed-angle presentation. Stretching the image distorts graphics. Cropping around the player risks off-screen partner/enemies; fit the room, preserving visibility instead.
 

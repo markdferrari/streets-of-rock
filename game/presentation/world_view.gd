@@ -1,4 +1,5 @@
 extends Node3D
+const EnemyView = preload("res://game/presentation/enemy_view.gd")
 const View = preload("res://game/presentation/character_view.gd")
 const CameraMath = preload("res://game/presentation/camera_math.gd")
 const Arena = preload("res://game/simulation/arena.gd")
@@ -6,6 +7,14 @@ const Backdrops = preload("res://game/presentation/backdrops.gd")
 var store: RefCounted
 var content: RefCounted
 var models: Dictionary = {}
+var actor_instances: Dictionary = {}
+var enemy_snapshots: Dictionary = {}
+var enemy_previous: Dictionary = {}
+var enemy_ticks: Dictionary = {}
+var defeat_retire_ticks: Dictionary = {}
+var retired_enemy_ids: Dictionary = {}
+var owned_projectiles: Dictionary = {}
+var errors: Array[String] = []
 var instances: Array = []
 var objects: Dictionary = {}
 var projectile_models: Dictionary = {}
@@ -98,11 +107,22 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
  camera.look_at(Vector3(frame.anchorX + offset, frame.anchorHeight, 0))
  var current_ids: Array = run.actors.map(func(actor: Dictionary) -> Variant: return actor.id)
  for id in models.keys():
-  if not id in current_ids:
-   models[id].queue_free()
-   models.erase(id)
-   previous_positions.erase(id)
+  if models[id] is EnemyView and (not id in current_ids or enemy_snapshots.get(id, {}).get("hp", 1) <= 0):
+   if not defeat_retire_ticks.has(id):
+    defeat_retire_ticks[id] = run.tick + content.enemy_presentations[enemy_snapshots[id].role].defeatHoldTicks
+   if run.tick >= defeat_retire_ticks[id]:
+    retired_enemy_ids[id] = true
+    retire_actor(id)
+    continue
+   if not id in current_ids:
+    var defeated: Dictionary = enemy_snapshots[id].duplicate(true)
+    defeated.hp = 0
+    models[id].apply_snapshot(defeated, defeated, run.tick)
+    models[id].visible = true
+  elif not id in current_ids: retire_actor(id)
  for actor in run.actors:
+  if actor.hp <= 0 and retired_enemy_ids.has(actor.id): continue
+  if actor.hp > 0: retired_enemy_ids.erase(actor.id)
   if not models.has(actor.id):
    var model: Node3D
    if actor.team == "ally":
@@ -111,6 +131,33 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
     var instance: Node3D = store.create(actor.characterId)
     instances.append(instance)
     model.attach(instance)
+    actor_instances[actor.id] = [instance]
+   elif content.enemy_presentations.has(actor.role):
+    var definition: Dictionary = content.enemy_presentations[actor.role]
+    var rig: Node3D = store.create(definition.sceneResourceId)
+    if rig == null:
+     errors.assign([actor.role + ": enemy rig not prepared; retry loading artwork"])
+     return
+    model = EnemyView.new()
+    add_child(model)
+    var rig_id := rig.get_instance_id()
+    if not model.attach(rig, definition):
+     errors.assign(model.errors)
+     store.owned.erase(rig_id)
+     model.queue_free()
+     return
+    instances.append(rig)
+    actor_instances[actor.id] = [rig]
+    if actor.role == "zoner":
+     var prop: Node3D = store.create("prop.bottle")
+     if prop == null:
+      errors.assign(["zoner: bottle not prepared; retry loading artwork"])
+      retire_actor(actor.id)
+      model.queue_free()
+      return
+     instances.append(prop)
+     actor_instances[actor.id].append(prop)
+     model.attach_prop(prop)
    else: model = enemy_model(actor)
    var shadow := CylinderMesh.new()
    shadow.top_radius = 0.48
@@ -123,6 +170,20 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
   var previous: Dictionary = previous_positions.get(actor.id, actor.position)
   var moving: bool = sqrt(pow(actor.position.x - previous.x, 2) + pow(actor.position.depth - previous.depth, 2)) > 0.001
   previous_positions[actor.id] = actor.position.duplicate()
+  if model is EnemyView:
+   if actor.hp <= 0:
+    if not defeat_retire_ticks.has(actor.id): defeat_retire_ticks[actor.id] = run.tick + content.enemy_presentations[actor.role].defeatHoldTicks
+    if run.tick >= defeat_retire_ticks[actor.id]:
+     retired_enemy_ids[actor.id] = true
+     retire_actor(actor.id)
+     continue
+   if enemy_ticks.get(actor.id, -1) != run.tick:
+    enemy_previous[actor.id] = enemy_snapshots.get(actor.id, actor).duplicate(true)
+    enemy_ticks[actor.id] = run.tick
+   enemy_snapshots[actor.id] = actor.duplicate(true)
+   if not model.apply_snapshot(actor, enemy_previous[actor.id], run.tick): errors.assign(model.errors)
+   model.visible = true
+   continue
   model.visible = actor.hp > 0 or actor.team == "ally"
   var pose := body_pose("knockedOut" if actor.hp <= 0 else actor.action.kind, actor.action.get("moveId", ""))
   if actor.team == "ally":
@@ -158,6 +219,13 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
     instance.rotation.y = atan2(projectile.direction.x, projectile.direction.depth)
     add_child(instance)
     projectile_models[projectile.id] = instance
+   elif store.templates.has("prop.bottle"):
+    var bottle: Node3D = store.create("prop.bottle")
+    bottle.scale = Vector3.ONE * 0.6
+    add_child(bottle)
+    instances.append(bottle)
+    owned_projectiles[projectile.id] = bottle
+    projectile_models[projectile.id] = bottle
    else:
     var sphere := SphereMesh.new()
     sphere.radius = 0.16
@@ -166,7 +234,11 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
   projectile_models[projectile.id].position = Vector3(projectile.position.x, 0.7, projectile.position.depth)
  for id in projectile_models.keys():
   if not id in projectile_ids:
-   projectile_models[id].queue_free()
+   if owned_projectiles.has(id):
+    instances.erase(owned_projectiles[id])
+    store.release(owned_projectiles[id])
+    owned_projectiles.erase(id)
+   else: projectile_models[id].queue_free()
    projectile_models.erase(id)
  for event in events:
   if event.type in ["hit", "partner-hit"]: last_impact = active_ms
@@ -185,7 +257,33 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
   if active_ms >= effect.expires:
    effect.node.queue_free()
    effects.erase(effect)
+func retire_actor(id: int) -> void:
+ if actor_instances.has(id):
+  var owned: Array = actor_instances[id].duplicate()
+  owned.reverse()
+  for instance in owned:
+   instances.erase(instance)
+   store.release(instance)
+  actor_instances.erase(id)
+ if models.has(id):
+  models[id].queue_free()
+  models.erase(id)
+ previous_positions.erase(id)
+ enemy_snapshots.erase(id)
+ enemy_previous.erase(id)
+ enemy_ticks.erase(id)
+ defeat_retire_ticks.erase(id)
+func enemy_art_snapshot() -> Dictionary:
+ var poses: Dictionary = {}
+ var owned := owned_projectiles.size()
+ for id in models:
+  if models[id] is EnemyView:
+   owned += actor_instances.get(id, []).size()
+   poses[str(id)] = {"role":models[id].definition.role,"pose":models[id].last_pose,"retiring":defeat_retire_ticks.has(id)}
+ return {"views":poses,"ownedInstances":owned,"errors":errors}
 func dispose() -> void:
+ for id in models.keys(): retire_actor(id)
  for instance in instances: store.release(instance)
  instances.clear()
+ owned_projectiles.clear()
  queue_free()

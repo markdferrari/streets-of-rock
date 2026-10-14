@@ -1,0 +1,23 @@
+$ playwright test --config playwright.godot.config.ts --project webkit --grep "all three actual|lion Special freezes through portrait|normal encounters" --repeat-each "3"
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 9 tests using 1 worker
+
+(node:58641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (7.2s)
+  ✓  2 [webkit] › tests/e2e/godot-backdrops.spec.ts:19:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (14.5s)
+  ✓  3 [webkit] › tests/e2e/godot-lifecycle.spec.ts:31:131 › lion Special freezes through portrait interruption until explicit resume (7.3s)
+(node:59189) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (7.6s)
+  ✓  5 [webkit] › tests/e2e/godot-backdrops.spec.ts:19:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (14.6s)
+  ✓  6 [webkit] › tests/e2e/godot-lifecycle.spec.ts:31:131 › lion Special freezes through portrait interruption until explicit resume (7.9s)
+(node:59599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (6.8s)
+  ✓  8 [webkit] › tests/e2e/godot-backdrops.spec.ts:19:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (14.8s)
+  ✓  9 [webkit] › tests/e2e/godot-lifecycle.spec.ts:31:131 › lion Special freezes through portrait interruption until explicit resume (7.3s)
+
+  9 passed (1.8m)

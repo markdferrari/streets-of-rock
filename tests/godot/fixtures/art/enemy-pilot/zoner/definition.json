@@ -1,0 +1,87 @@
+{
+  "role": "zoner",
+  "sceneResourceId": "pilot.zoner",
+  "sourceRecordIds": [
+    "kaykit-character-animations-1.1",
+    "enemy-pilot-original"
+  ],
+  "transform": {
+    "scale": 1.0,
+    "footOffset": 0.0,
+    "facingCorrection": 0.0
+  },
+  "visualEnvelope": {
+    "width": 2.5,
+    "height": 2.5,
+    "depth": 2.5
+  },
+  "allowedMoveIds": [
+    "throw"
+  ],
+  "clipBindings": {
+    "Idle": {
+      "clipName": "Idle_A",
+      "startSeconds": 0.0,
+      "endSeconds": 1.0666666666666667,
+      "loop": true
+    },
+    "Move": {
+      "clipName": "Running_A",
+      "startSeconds": 0.0,
+      "endSeconds": 0.8,
+      "loop": true
+    },
+    "Hurt": {
+      "clipName": "Hit_A",
+      "startSeconds": 0.0,
+      "endSeconds": 0.6666666666666666,
+      "loop": false
+    },
+    "Stunned": {
+      "clipName": "Hit_A",
+      "startSeconds": 0.0,
+      "endSeconds": 0.6666666666666666,
+      "loop": true,
+      "fixedSampleSeconds": 0.3
+    },
+    "Defeated": {
+      "clipName": "Death_A",
+      "startSeconds": 0.0,
+      "endSeconds": 0.8,
+      "loop": false,
+      "fixedSampleSeconds": 0.8
+    },
+    "throw.windup": {
+      "clipName": "Throw",
+      "startSeconds": 0,
+      "endSeconds": 0.7,
+      "loop": false
+    },
+    "throw.active": {
+      "clipName": "Throw",
+      "startSeconds": 0.7,
+      "endSeconds": 0.84,
+      "loop": false
+    },
+    "throw.recovery": {
+      "clipName": "Throw",
+      "startSeconds": 0.84,
+      "endSeconds": 1.3666666666666667,
+      "loop": false
+    }
+  },
+  "defeatHoldTicks": 21,
+  "reviewSubjectId": "zoner",
+  "status": "prototype",
+  "sourcePath": "tests/godot/fixtures/art/enemy-pilot/zoner/source/character.blend",
+  "runtimePath": "tests/godot/fixtures/art/enemy-pilot/zoner/runtime/character.glb",
+  "sourceSha256": "8822878ebeed62c64d2e1ab9a0f6dd773ab1078002d518fa4e3b646d6251f617",
+  "runtimeSha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+  "exporter": "5.2.2 LTS",
+  "adaptations": [
+    "Original club outfit/mesh on KayKit Medium skeleton",
+    "Retain only five selected animation clips",
+    "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+    "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
+  ]
+}

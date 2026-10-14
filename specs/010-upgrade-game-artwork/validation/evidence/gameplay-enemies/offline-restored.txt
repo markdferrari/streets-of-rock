@@ -1,0 +1,10 @@
+$ playwright test --config playwright.godot.config.ts godot-offline.spec.ts --project chromium --grep "immutable legacy"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:72067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-offline.spec.ts:71:1 › immutable legacy release waits in two windows, then the complete Godot release plays offline (16.9s)
+
+  1 passed (17.5s)

@@ -14,7 +14,7 @@ Date: 2026-09-28. Repository inspection and delegated renderer/platform research
 
 **Decision:** Keep simulation IDs `dance-floor`, `vip-lounge`, `backstage-corridor`, `alley-exit`; map them explicitly to outside entrance, bar, dance floor, stage/VIP in a presentation definition. Keep tables at (22,-2) and (28,2), all bounds/waves and Liam placement unchanged.
 
-**Rationale:** `src/content/neon-velvet.ts`, run and encounter logic already use these IDs. Cosmetic renaming must not accidentally relocate encounters or confuse room 1 with the new visual dance floor in room 3.
+**Rationale:** `src/content/bondi-beach.ts`, run and encounter logic already use these IDs. Cosmetic renaming must not accidentally relocate encounters or confuse room 1 with the new visual dance floor in room 3.
 
 **Alternatives considered:** Renaming simulation IDs requires unnecessary migration across game/tests. Reordering actual areas violates the feature scope.
 

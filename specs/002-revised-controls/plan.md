@@ -50,7 +50,7 @@ specs/002-revised-controls/
     └── requirements.md
 ```
 
-`tasks.md` is generated in the next SpecKit phase. The existing `specs/001-neon-velvet-mvp/` plan and tasks remain the MVP baseline; control-specific clauses in its runtime contract are superseded by this feature contract. During task generation, mark affected MVP control tasks as replaced or dependent on feature 002, and refresh their acceptance mapping without erasing unfinished unrelated work.
+`tasks.md` is generated in the next SpecKit phase. The existing `specs/001-bondi-beach-mvp/` plan and tasks remain the MVP baseline; control-specific clauses in its runtime contract are superseded by this feature contract. During task generation, mark affected MVP control tasks as replaced or dependent on feature 002, and refresh their acceptance mapping without erasing unfinished unrelated work.
 
 ### Source Code (repository root)
 

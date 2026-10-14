@@ -82,7 +82,7 @@ src/content/tuning.ts              # provisional behavioral/framing parameters
  tests/e2e/                       # reference viewport, lifecycle and role journeys
 ```
 
-**Structure Decision**: Extend current boundaries after 005 integration. Pure numeric arena/camera helpers cannot import Three, DOM or browser clocks. Presentation applies their results; simulation receives explicit viewport geometry. No world data edits in `src/content/neon-velvet.ts` or new environment meshes are required.
+**Structure Decision**: Extend current boundaries after 005 integration. Pure numeric arena/camera helpers cannot import Three, DOM or browser clocks. Presentation applies their results; simulation receives explicit viewport geometry. No world data edits in `src/content/bondi-beach.ts` or new environment meshes are required.
 
 ## Design
 

@@ -12,7 +12,17 @@ the root Godot project. Templates are verified and installed project-locally.
 
 For browser development run `bun run build:test`, then
 `bun run preview -- --dir dist-test --host 127.0.0.1 --port 4173`.
+Open `http://127.0.0.1:4173/` to play the normal game. The approved KayKit-driven
+Grunt and bartender rigs now appear during encounters: Grunts in the first wave,
+and bartenders from the second wave. `/?fixture=enemy-art` opens the separate
+motion review. Enforcer/Liam artwork and furnished rooms are still in progress;
+see [feature 010 gameplay integration](specs/010-upgrade-game-artwork/reviews/gameplay-enemies.md).
+
 For a production artifact run `bun run build` and `bun run audit:build`.
+To play that build on another device on your local network, run
+`bun run preview -- --dir dist --host 0.0.0.0 --port 4173`, then open
+`http://<your-computer-IP>:4173/` on the other device. `hostname -I` lists the
+computer's network addresses.
 `bun run build:diagnostics` creates the isolated read-only diagnostics artifact.
 
 Run `bun run typecheck` and `bun run test` for the full current checks: Godot units, browser/tooling, parity, both browser projects and Blender.

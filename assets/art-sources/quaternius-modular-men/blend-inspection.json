@@ -1,0 +1,729 @@
+{
+  "source": "Humans_Master.blend",
+  "sha256": "25252b3fb5d48b59f2b2dafeb0fd61af0c3ea652254b39cec02fc752be0123f4",
+  "blenderVersion": "5.2.2 LTS",
+  "actions": [
+    {
+      "name": "Death",
+      "frameRange": [
+        0.0,
+        32.0
+      ]
+    },
+    {
+      "name": "Gun_Shoot",
+      "frameRange": [
+        0.0,
+        18.0
+      ]
+    },
+    {
+      "name": "HitRecieve",
+      "frameRange": [
+        0.0,
+        17.0
+      ]
+    },
+    {
+      "name": "HitRecieve_2",
+      "frameRange": [
+        0.0,
+        17.0
+      ]
+    },
+    {
+      "name": "Idle",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Idle_Gun",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Idle_Gun_Pointing",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Idle_Gun_Shoot",
+      "frameRange": [
+        0.0,
+        20.0
+      ]
+    },
+    {
+      "name": "Idle_Neutral",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Idle_Sword",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    },
+    {
+      "name": "Interact",
+      "frameRange": [
+        0.0,
+        38.0
+      ]
+    },
+    {
+      "name": "Kick_Left",
+      "frameRange": [
+        0.0,
+        28.0
+      ]
+    },
+    {
+      "name": "Kick_Right",
+      "frameRange": [
+        0.0,
+        28.0
+      ]
+    },
+    {
+      "name": "Punch_Left",
+      "frameRange": [
+        0.0,
+        25.0
+      ]
+    },
+    {
+      "name": "Punch_Right",
+      "frameRange": [
+        0.0,
+        25.0
+      ]
+    },
+    {
+      "name": "Roll",
+      "frameRange": [
+        0.0,
+        40.0
+      ]
+    },
+    {
+      "name": "Run",
+      "frameRange": [
+        0.0,
+        24.0
+      ]
+    },
+    {
+      "name": "Run_Back",
+      "frameRange": [
+        0.0,
+        25.0
+      ]
+    },
+    {
+      "name": "Run_Left",
+      "frameRange": [
+        0.0,
+        24.0
+      ]
+    },
+    {
+      "name": "Run_Right",
+      "frameRange": [
+        0.0,
+        24.0
+      ]
+    },
+    {
+      "name": "Run_Shoot",
+      "frameRange": [
+        0.0,
+        25.0
+      ]
+    },
+    {
+      "name": "Sword_Slash",
+      "frameRange": [
+        0.0,
+        31.0
+      ]
+    },
+    {
+      "name": "Walk",
+      "frameRange": [
+        0.0,
+        40.0
+      ]
+    },
+    {
+      "name": "Wave",
+      "frameRange": [
+        0.0,
+        50.0
+      ]
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Adventurer_Body",
+      "vertices": 1766,
+      "polygons": 1788,
+      "materials": [
+        "Skin",
+        "Green",
+        "LightGreen"
+      ]
+    },
+    {
+      "name": "Adventurer_Feet",
+      "vertices": 122,
+      "polygons": 117,
+      "materials": [
+        "Grey",
+        "Black"
+      ]
+    },
+    {
+      "name": "Adventurer_Head",
+      "vertices": 1944,
+      "polygons": 1871,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Hair",
+        "Eye"
+      ]
+    },
+    {
+      "name": "Adventurer_Legs",
+      "vertices": 216,
+      "polygons": 212,
+      "materials": [
+        "Brown",
+        "Brown2"
+      ]
+    },
+    {
+      "name": "Backpack",
+      "vertices": 963,
+      "polygons": 888,
+      "materials": [
+        "Brown",
+        "LightGreen",
+        "Gold",
+        "Green"
+      ]
+    },
+    {
+      "name": "Beach_Body",
+      "vertices": 714,
+      "polygons": 704,
+      "materials": [
+        "Skin",
+        "LightBrown"
+      ]
+    },
+    {
+      "name": "Beach_Feet",
+      "vertices": 176,
+      "polygons": 178,
+      "materials": [
+        "Skin",
+        "Red_Dark",
+        "White"
+      ]
+    },
+    {
+      "name": "Beach_Head",
+      "vertices": 1221,
+      "polygons": 1175,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Eye",
+        "Hair",
+        "Earrings"
+      ]
+    },
+    {
+      "name": "Beach_Legs",
+      "vertices": 227,
+      "polygons": 210,
+      "materials": [
+        "Skin",
+        "Red_Dark",
+        "White"
+      ]
+    },
+    {
+      "name": "Casual2_Body",
+      "vertices": 722,
+      "polygons": 710,
+      "materials": [
+        "Skin",
+        "LightBrown"
+      ]
+    },
+    {
+      "name": "Casual2_Feet",
+      "vertices": 140,
+      "polygons": 138,
+      "materials": [
+        "Red_Dark",
+        "White"
+      ]
+    },
+    {
+      "name": "Casual2_Head",
+      "vertices": 910,
+      "polygons": 867,
+      "materials": [
+        "Skin",
+        "Skin_Darker",
+        "Eyebrows",
+        "Hair",
+        "Eye"
+      ]
+    },
+    {
+      "name": "Casual2_Legs",
+      "vertices": 194,
+      "polygons": 190,
+      "materials": [
+        "LightBlue"
+      ]
+    },
+    {
+      "name": "Casual_Body",
+      "vertices": 785,
+      "polygons": 771,
+      "materials": [
+        "Skin",
+        "Purple"
+      ]
+    },
+    {
+      "name": "Casual_Feet",
+      "vertices": 130,
+      "polygons": 128,
+      "materials": [
+        "Purple",
+        "White"
+      ]
+    },
+    {
+      "name": "Casual_Head",
+      "vertices": 1014,
+      "polygons": 974,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Eye",
+        "Hair"
+      ]
+    },
+    {
+      "name": "Casual_Legs",
+      "vertices": 209,
+      "polygons": 192,
+      "materials": [
+        "Skin",
+        "LightBlue"
+      ]
+    },
+    {
+      "name": "Farmer_Body",
+      "vertices": 862,
+      "polygons": 849,
+      "materials": [
+        "Skin",
+        "LightBlue",
+        "Brown",
+        "Beige"
+      ]
+    },
+    {
+      "name": "Farmer_Feet",
+      "vertices": 102,
+      "polygons": 96,
+      "materials": [
+        "Brown",
+        "Brown2"
+      ]
+    },
+    {
+      "name": "Farmer_Head",
+      "vertices": 440,
+      "polygons": 403,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Beige",
+        "Red",
+        "Eye"
+      ]
+    },
+    {
+      "name": "Farmer_Pants",
+      "vertices": 239,
+      "polygons": 236,
+      "materials": [
+        "LightBlue"
+      ]
+    },
+    {
+      "name": "Horse_Head",
+      "vertices": 385,
+      "polygons": 384,
+      "materials": [
+        "Brown",
+        "Brown2",
+        "Eyebrows",
+        "Black",
+        "Muzzle",
+        "White",
+        "Eye"
+      ]
+    },
+    {
+      "name": "King_Body",
+      "vertices": 1232,
+      "polygons": 1204,
+      "materials": [
+        "Skin",
+        "Blue",
+        "Metal",
+        "Beige",
+        "Metal_Dark"
+      ]
+    },
+    {
+      "name": "King_Feet",
+      "vertices": 159,
+      "polygons": 152,
+      "materials": [
+        "Metal"
+      ]
+    },
+    {
+      "name": "King_Head",
+      "vertices": 2055,
+      "polygons": 2004,
+      "materials": [
+        "Skin",
+        "Hair_White",
+        "Gold",
+        "Eye"
+      ]
+    },
+    {
+      "name": "King_Legs",
+      "vertices": 468,
+      "polygons": 455,
+      "materials": [
+        "DarkBrown",
+        "Metal",
+        "Metal_Dark"
+      ]
+    },
+    {
+      "name": "Pistol",
+      "vertices": 580,
+      "polygons": 487,
+      "materials": [
+        "DarkBrown",
+        "Grey",
+        "Metal",
+        "Black"
+      ]
+    },
+    {
+      "name": "Punk_Body",
+      "vertices": 763,
+      "polygons": 749,
+      "materials": [
+        "Skin",
+        "White",
+        "Black"
+      ]
+    },
+    {
+      "name": "Punk_Feet",
+      "vertices": 140,
+      "polygons": 138,
+      "materials": [
+        "Skin",
+        "Black"
+      ]
+    },
+    {
+      "name": "Punk_Head",
+      "vertices": 666,
+      "polygons": 631,
+      "materials": [
+        "Skin",
+        "Eye",
+        "Eyebrows",
+        "Red_Dark",
+        "Red",
+        "Earrings"
+      ]
+    },
+    {
+      "name": "Punk_Legs",
+      "vertices": 197,
+      "polygons": 186,
+      "materials": [
+        "Skin",
+        "LightBlue"
+      ]
+    },
+    {
+      "name": "SpaceSuit_Body",
+      "vertices": 1058,
+      "polygons": 1017,
+      "materials": [
+        "SciFi_Light",
+        "SciFi_Light_Accent",
+        "SciFi_Main",
+        "SciFi_MainDark"
+      ]
+    },
+    {
+      "name": "SpaceSuit_Feet",
+      "vertices": 146,
+      "polygons": 141,
+      "materials": [
+        "SciFi_Light_Accent",
+        "SciFi_Light"
+      ]
+    },
+    {
+      "name": "SpaceSuit_Head",
+      "vertices": 2582,
+      "polygons": 2319,
+      "materials": [
+        "SciFi_Light",
+        "SciFi_Light_Accent",
+        "SciFi_Main",
+        "Grey"
+      ]
+    },
+    {
+      "name": "SpaceSuit_Legs",
+      "vertices": 287,
+      "polygons": 283,
+      "materials": [
+        "SciFi_Main",
+        "SciFi_Light",
+        "SciFi_Light_Accent",
+        "SciFi_MainDark"
+      ]
+    },
+    {
+      "name": "Suit_Body",
+      "vertices": 751,
+      "polygons": 743,
+      "materials": [
+        "Skin",
+        "Tie",
+        "Suit",
+        "White"
+      ]
+    },
+    {
+      "name": "Suit_Feet",
+      "vertices": 138,
+      "polygons": 132,
+      "materials": [
+        "Black"
+      ]
+    },
+    {
+      "name": "Suit_Head",
+      "vertices": 1327,
+      "polygons": 1223,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Hair",
+        "Eye"
+      ]
+    },
+    {
+      "name": "Suit_Legs",
+      "vertices": 194,
+      "polygons": 190,
+      "materials": [
+        "Suit"
+      ]
+    },
+    {
+      "name": "Swat_Body",
+      "vertices": 796,
+      "polygons": 786,
+      "materials": [
+        "Skin",
+        "Swat",
+        "Swat_Black"
+      ]
+    },
+    {
+      "name": "Swat_Feet",
+      "vertices": 142,
+      "polygons": 137,
+      "materials": [
+        "Swat_Black"
+      ]
+    },
+    {
+      "name": "Swat_Head",
+      "vertices": 1211,
+      "polygons": 1135,
+      "materials": [
+        "Swat_Black",
+        "Swat",
+        "Visor"
+      ]
+    },
+    {
+      "name": "Swat_Legs",
+      "vertices": 461,
+      "polygons": 450,
+      "materials": [
+        "Swat",
+        "Swat_Black"
+      ]
+    },
+    {
+      "name": "Sword",
+      "vertices": 438,
+      "polygons": 444,
+      "materials": [
+        "Metal_Dark",
+        "Gold",
+        "Brown",
+        "Metal"
+      ]
+    },
+    {
+      "name": "Worker_Body",
+      "vertices": 776,
+      "polygons": 764,
+      "materials": [
+        "Skin",
+        "Worker_Yellow",
+        "Worker_Vest",
+        "LightBrown"
+      ]
+    },
+    {
+      "name": "Worker_Feet",
+      "vertices": 122,
+      "polygons": 116,
+      "materials": [
+        "Grey",
+        "Black"
+      ]
+    },
+    {
+      "name": "Worker_Head",
+      "vertices": 508,
+      "polygons": 467,
+      "materials": [
+        "Skin",
+        "Eyebrows",
+        "Worker_Yellow",
+        "Moustache",
+        "Eye"
+      ]
+    },
+    {
+      "name": "Worker_Legs",
+      "vertices": 216,
+      "polygons": 212,
+      "materials": [
+        "Brown",
+        "Brown2"
+      ]
+    }
+  ],
+  "armatures": [
+    {
+      "name": "CharacterArmature",
+      "bones": [
+        "Root",
+        "Body",
+        "Hips",
+        "Abdomen",
+        "Torso",
+        "Chest",
+        "Neck",
+        "Head",
+        "Shoulder.L",
+        "UpperArm.L",
+        "LowerArm.L",
+        "Wrist.L",
+        "Index1.L",
+        "Index2.L",
+        "Index3.L",
+        "Index4.L",
+        "Middle1.L",
+        "Middle2.L",
+        "Middle3.L",
+        "Middle4.L",
+        "Ring1.L",
+        "Ring2.L",
+        "Ring3.L",
+        "Ring4.L",
+        "Pinky1.L",
+        "Pinky2.L",
+        "Pinky3.L",
+        "Pinky4.L",
+        "Thumb1.L",
+        "Thumb2.L",
+        "Thumb3.L",
+        "Shoulder.R",
+        "UpperArm.R",
+        "LowerArm.R",
+        "Wrist.R",
+        "Index1.R",
+        "Index2.R",
+        "Index3.R",
+        "Index4.R",
+        "Middle1.R",
+        "Middle2.R",
+        "Middle3.R",
+        "Middle4.R",
+        "Ring1.R",
+        "Ring2.R",
+        "Ring3.R",
+        "Ring4.R",
+        "Pinky1.R",
+        "Pinky2.R",
+        "Pinky3.R",
+        "Pinky4.R",
+        "Thumb1.R",
+        "Thumb2.R",
+        "Thumb3.R",
+        "UpperLeg.L",
+        "LowerLeg.L",
+        "UpperLeg.R",
+        "LowerLeg.R",
+        "Foot.L",
+        "PT.L",
+        "Foot.R",
+        "PT.R"
+      ]
+    }
+  ]
+}

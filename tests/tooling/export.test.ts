@@ -1,5 +1,5 @@
 import {describe,expect,it} from 'vitest';
-import {buildIdentity,modeConfig,planPacks,auditOwnership} from '../../scripts/godot/export';
+import {buildIdentity,modeConfig,planPacks,auditOwnership,runtimeContentDefinitions,webTestFixtureFiles} from '../../scripts/godot/export';
 import {startRuntime,supportsWorkletAudio} from '../../web/runtime-loader';
 import {auditFoundationInventory,type FoundationInventory} from '../../scripts/build-asset-inventory';
 describe('web export contract',()=>{
@@ -58,4 +58,12 @@ it('rejects missing, modified or unlisted shipped bytes without circular worker/
  expect(()=>verifyFoundationFiles(inventory,{'index.html':new TextEncoder().encode('modified')})).toThrow(/digest|bytes/i);
  expect(()=>verifyFoundationFiles(inventory,{'index.html':bytes,'unlisted.js':bytes})).toThrow(/unlisted/i);
  expect(()=>verifyFoundationFiles(inventory,{'index.html':bytes,'sw.js':bytes,[`releases/${inventory.buildId}/asset-inventory.json`]:bytes})).not.toThrow();
+});
+
+it('keeps editable art provenance out of shipped content while retaining runtime definitions',()=>{
+ expect(runtimeContentDefinitions(['content/roster.json','content/art-provenance.json','content/rooms.json','content/enemy-presentations.json','content/tuning.json','content/readme.md'])).toEqual(['content/roster.json','content/rooms.json','content/enemy-presentations.json','content/tuning.json']);
+});
+
+it('packages runtime pilot definition fixtures while excluding editable Blender source',()=>{
+ expect(webTestFixtureFiles(['tests/godot/fixtures/art/representative.tscn','tests/godot/fixtures/art/enemy_review.gd','tests/godot/fixtures/art/enemy-pilot/definitions.json','tests/godot/fixtures/art/enemy-pilot/grunt/source/character.blend'])).toEqual(['tests/godot/fixtures/art/representative.tscn','tests/godot/fixtures/art/enemy_review.gd','tests/godot/fixtures/art/enemy-pilot/definitions.json']);
 });

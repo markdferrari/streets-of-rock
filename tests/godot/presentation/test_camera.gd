@@ -16,6 +16,7 @@ func test_world_retires_removed_actor_models_without_leaking_owned_rigs() -> voi
  assert_true(content.load_catalogue())
  var store = load("res://game/content/resource_store.gd").new()
  for id in ["cow", "crow"]: assert_true(store.prepare(id, "res://" + content.resources.models[id], content.clips[id]))
+ assert_true(store.prepare_enemies(content), str(store.errors))
  var state = load("res://game/simulation/run_state.gd")
  var run: Dictionary = state.create_run(1, {"fighterId": "cow", "partnerId": "crow"}, content)
  var actor = load("res://game/simulation/actor.gd")
@@ -27,6 +28,9 @@ func test_world_retires_removed_actor_models_without_leaking_owned_rigs() -> voi
  assert_eq(world.models.size(), 3)
  run.actors.resize(2)
  world.render(run, [], {"width": 844.0, "height": 390.0}, 0, 0, false, false)
+ assert_eq(world.models.size(), 3, "removed enemy holds decorative defeat pose")
+ run.tick += 21
+ world.render(run, [], {"width":844.0,"height":390.0}, 0, 0, false, false)
  assert_eq(world.models.size(), 2)
  world.dispose()
  assert_eq(store.live_count(), 0)

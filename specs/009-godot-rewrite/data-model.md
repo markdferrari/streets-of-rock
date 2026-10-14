@@ -25,7 +25,7 @@ editable character catalogue. Add these declarative records:
 | --- | --- | --- |
 | Roster | Ordered character IDs: cow, crow, lion, plates | Unique known IDs; fixture rosters belong only to test exports. |
 | Resource manifest | Model/portrait/animation/sound/prop keys mapped to res paths; per-character body envelope and semantic clip list | Relative project paths only; known keys; no executable definitions or remote resources. |
-| LevelDefinition | id, ordered areas with id/minX/maxX/minDepth/maxDepth and ordered spawn waves; room-2 table positions | Copy current `neon-velvet.ts` values exactly; preserve stable area IDs and all three connectors. |
+| LevelDefinition | id, ordered areas with id/minX/maxX/minDepth/maxDepth and ordered spawn waves; room-2 table positions | Copy current `bondi-beach.ts` values exactly; preserve stable area IDs and all three connectors. |
 | Tuning | Existing scalar combat/AI values and move tables not owned by character definitions | Copy current values, preserving units and integer tick semantics. Remove redundant tables only after callers and parity tests prove them unnecessary. |
 | BackdropDefinition | Stable areaId, visualId, wallKey, floorKey, image dimensions, landmark rectangles, onward direction | Exactly four mappings below; eight self-contained static images; visual-only data. |
 

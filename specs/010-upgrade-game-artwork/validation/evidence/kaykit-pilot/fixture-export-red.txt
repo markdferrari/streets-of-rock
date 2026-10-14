@@ -1,0 +1,33 @@
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/tooling/export.test.ts (10 tests | 1 failed) 32ms
+   × packages runtime pilot definition fixtures while excluding editable Blender source 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/export.test.ts > packages runtime pilot definition fixtures while excluding editable Blender source
+AssertionError: expected [ …(2) ] to deeply equal [ …(3) ]
+
+- Expected
++ Received
+
+  [
+    "tests/godot/fixtures/art/representative.tscn",
+    "tests/godot/fixtures/art/enemy_review.gd",
+-   "tests/godot/fixtures/art/enemy-pilot/definitions.json",
+  ]
+
+ ❯ tests/tooling/export.test.ts:68:247
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  1 failed | 60 passed (61)
+   Start at  11:32:02
+   Duration  2.84s (transform 1.65s, setup 0ms, import 3.73s, tests 3.23s, environment 3ms)
+
+error: script "test:platform" exited with code 1

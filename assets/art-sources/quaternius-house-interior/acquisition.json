@@ -1,0 +1,18 @@
+{
+  "id": "quaternius-house-interior",
+  "sourceUrl": "https://quaternius.com/packs/ultimatehomeinterior.html",
+  "version": "June 2020 page; sampled Blender v2.79",
+  "acquisitionDate": "2026-10-14",
+  "sha256": "808b0303766ea2ef7c9952a64e43ecaafd6b8f61b534ebea91279a96ea0ca6cc",
+  "acquiredPath": "assets/art-sources/quaternius-house-interior/Curtains_Double.blend",
+  "licenseEvidencePaths": [
+    "assets/art-sources/quaternius-house-interior/License.txt",
+    "assets/art-sources/quaternius-house-interior/source-page.html"
+  ],
+  "evidenceSha256": {
+    "assets/art-sources/quaternius-house-interior/License.txt": "83d8959f9fc56353ed571fbe2dc52e4bcd64508e2399501cd45ac2ce3df0bf8c",
+    "assets/art-sources/quaternius-house-interior/source-page.html": "8898fce4d6994ef6fe7c447752b90f4361f62d286cf9c10b553def8829087f9b"
+  },
+  "inventoryPath": "assets/art-sources/quaternius-house-interior/blend-inspection.json",
+  "downloadUrl": "https://drive.google.com/uc?export=download&id=1Q04vfnIiGL1sF469c3jsbaLJNBy8-1h1"
+}

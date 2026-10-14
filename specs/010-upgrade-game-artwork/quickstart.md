@@ -4,7 +4,7 @@
 
 ## Current status and prerequisites
 
-This is an implementation validation guide, not a report of tests already run. At planning time the tracked application is Three.js; feature 009's Godot project and commands are not integrated. Untracked `.godot/`, `.tools/` or `dist-*` outputs do not satisfy that prerequisite. Use feature branch `010-upgrade-game-artwork` and preserve unrelated local changes.
+The planning-time application was Three.js. After the feature 009 merge, the tracked runtime is Godot; see [source audit](validation/prerequisites.md) and [actual baseline evidence](validation/baseline.md). New art validation commands below remain proposed. Untracked `.godot/`, `.tools/` or `dist-*` outputs do not satisfy source prerequisites. Use feature branch `010-upgrade-game-artwork` and preserve unrelated local changes.
 
 Use feature 009's pinned Godot 4.7.2 and matching locked standard web templates, Compatibility/single-thread export, Bun 1.4.2, Node 24.21.0, Blender 5.2.2 LTS, Python 3.12.3, GUT 9.7.1 and the repository's pinned browser tooling. Do not auto-upgrade tools during art validation. Physical acceptance needs iPhone 12/Safari, Pixel 6/Chrome, the intended soundtrack, owner concept/gameplay review and five casual players.
 
@@ -12,7 +12,7 @@ Before runtime integration, verify the actual checked-in Godot project, read-onl
 
 ## Existing baseline checks
 
-Run from repository root; these commands exist before the migration:
+Run from repository root; these inherited commands are active after the migration:
 
 ```sh
 bun install --frozen-lockfile
@@ -122,3 +122,8 @@ Record separate responsiveness and readability ratings (at least four score each
 ## Completion evidence
 
 Store real outputs under `specs/010-upgrade-game-artwork/validation/` and `reviews/` during implementation, linked by the [evidence data model](data-model.md). Require all 13 local FRs, their scenarios and seven success criteria to map to current test/review evidence. Preserve 009's remaining obligations; artwork completion does not automatically establish full migration or MVP acceptance. Planning neither deploys nor commits a build.
+
+
+## Available KayKit motion review
+
+The two-character review pilot is implemented; see [controls, captures and exact scope](reviews/kaykit-pilot.md). Build with `bun run build:test`, serve `dist-test` using the preview command above, then open `/?fixture=enemy-art`. It uses real AI phase/projectile timing while keeping the pilot out of Web Release. The approved Grunt and bartender rigs now appear on the normal `/` gameplay route; see [gameplay captures and instructions](reviews/gameplay-enemies.md). Remaining enemy roles, furnished rooms and final feature acceptance remain pending.

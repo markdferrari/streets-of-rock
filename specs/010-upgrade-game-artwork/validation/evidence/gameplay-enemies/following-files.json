@@ -1,0 +1,8 @@
+{
+  "game/simulation/enemy_ai.gd": "37fd8252e6c12d35eae320c73c09f5af13b1dc14d2508d0b7442f15b3ec783a6",
+  "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+  "scripts/godot/parity.ts": "5fc8f7cb910707e1563ece0af0aeda8b0e7d647af241c90f83a10c882fe62f88",
+  "tests/godot/simulation/test_enemy_following.gd": "e3a7bbf06e85697bd799c09b44a707a4523438833d1721fd95418f1ba49885ef",
+  "tests/e2e/artwork-gameplay-enemies.spec.ts": "3b2adf8a79b6c2f481b98e5540b098dac71757254b066508af8e99042d8f5da0",
+  "tests/reference/feature-010/manifest.json": "9beedbbee9873cdfae5728c00c4ded642529ba526ad1698eebb983e681d11bc4"
+}

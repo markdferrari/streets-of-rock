@@ -2,7 +2,7 @@
 
 **Checked**: 2026-10-13
 **Feature**: [Specification](spec.md)
-**Status**: Initial source-page assessment only. No assets downloaded, selected or integrated.
+**Status**: Original research below is historical. On 2026-10-14 T005 inspected actual Kenney archives and Quaternius master/sample files; see [source records](../../content/art-provenance.json), [retained evidence](../../assets/art-sources/README.md) and [concept drafts](reviews/concepts.md). Final runtime art is not integrated.
 
 The sources below are the creators' own pages. They advertise the listed packs as CC0. Their suitability for this game is an assessment to test during planning and concept review, not a verified claim that they contain every needed prop or combat action.
 
@@ -24,3 +24,11 @@ Selection procedure for planning:
 5. Reuse suitable candidates; record why alternatives were rejected. Create or adapt missing venue details and actions as original work. Do not introduce purchases or select a mismatched pack solely because it is free.
 
 These are leads for the feature's planning phase, not a completed asset inventory or runtime validation record.
+
+## Actual inspection update — 2026-10-14
+
+Furniture archive is version 2.0 (140 GLBs), city 2.1 (41 GLBs). Creator folder downloads yielded the modular master (48 mesh objects, one 62-bone armature, 24 named actions) and a representative static curtains source; these are loose source files, not verified full Quaternius archives. Kenney furniture is accepted as a reusable source; city and residential alternatives are rejected for current scope; modular characters remain a candidate pending style comparison and required animation adaptation. All four retained licenses state CC0 1.0. No runtime assets, clip bindings or owner approvals are claimed.
+
+## KayKit review — 2026-10-14
+
+Owner-supplied local KayKit packs were inspected after the initial candidate work. [Detailed assessment](kaykit-assessment.md) recommends Character Animations 1.1 as the main enemy motion source, with Dungeon bar props and RPG Tools rope bundles as supplemental candidates. Fifteen selected Medium/Large clips were actually imported and sampled on compatible targets in Godot. This extends the earlier shortlist; it does not mark final source selections, rig adaptations or feature tasks complete.

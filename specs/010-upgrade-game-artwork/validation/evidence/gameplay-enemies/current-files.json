@@ -1,0 +1,24 @@
+{
+  "files": {
+    "content/resources.json": "7eb3ba91ae55557b68d821edd071f62be1d48c43dbfa068d8ec3e646ea12edfc",
+    "content/enemy-presentations.json": "3986a3338abdca35823c7f685ea181d5347df520e69625ef1f9dd496d63834c2",
+    "game/app/main.gd": "a1c213e99b96cee4f6865d433b396be105f38cba758bbe85e574696a46d35d1c",
+    "game/content/catalogue.gd": "ad65e795de16cb4a80e182ac99135a68d7be4632800d2d214fa59d37991c13d5",
+    "game/content/art_catalog.gd": "b5ec57c2d55a2f53a5cfe702ee868b17f25b9573992c8a5cbebe7e349a840e24",
+    "game/content/resource_store.gd": "929e31c493ebf0618287e271e391d21cb2df2f4c1be5ff9df7ea1a95f3af0383",
+    "game/presentation/world_view.gd": "f712b8adbc9184fe785ec7da9d2f760f335194a3990dbf0189e1524fae651eac",
+    "game/presentation/enemy_view.gd": "bc840753f04f3ff62d515211a6aef144d4b58140f81dfb37566e1c9875b1f91a",
+    "game/presentation/enemy_pose.gd": "9660d92229c2726be8ae6a3c92da4e2f7655c2497fe2f76deb3d5dc0ed3fb536",
+    "game/platform/gesture_button.gd": "b575a505e78280a41675cf46478be06a46cd687321c1533cefd505e1869bc4d0",
+    "game/ui/session_screen.gd": "9285a7483c4fa43cf188ade0778b33d095898fbb6a6c473aeda5943c3eab114b",
+    "scripts/godot/export.ts": "96353b23009b26df3156ab43dec6f8908b01b6c7c07f965c7e9247d38579afb1",
+    "assets/enemies/shared/outfit.tres": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025",
+    "assets/enemies/grunt/runtime/character.glb.import": "824fa7d66b7c6818f74743639db1b2a7eeb781265b5c147ef4d895c05b5cbf9e",
+    "assets/enemies/grunt/runtime/character.glb": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1",
+    "assets/enemies/grunt/source/character.blend": "56c50fd7482fa9257287c4c0b379b1df6e075bcb378b91928fd8e8a7ac9159cd",
+    "assets/enemies/zoner/runtime/character.glb.import": "b662ea28d6ede8b77fcfdc08b7c9157c8886369856cfa7f7e5dc7cbf879e688d",
+    "assets/enemies/zoner/runtime/character.glb": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+    "assets/enemies/zoner/source/character.blend": "8822878ebeed62c64d2e1ab9a0f6dd773ab1078002d518fa4e3b646d6251f617",
+    "assets/props/bottle/bottle.glb": "308f317e903d3d2c91efe0965af68efd8819421aa9d48e084b4d948748eda4aa"
+  }
+}

@@ -1,8 +1,7 @@
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 const ids=['cow','crow','lion','plates'];
-export const game=async(page:Page)=>page.evaluate(()=>(window as any).__sorTest?.snapshot());
-export async function canvasControl(page:Page,id:string){const s=await game(page);const b=s.bounds[id];await page.locator('canvas').click({position:{x:b.x+b.width/2,y:b.y+b.height/2}});}
-export async function selectDuo(page:Page,fighter:string,partner:string){await page.goto('/');await expect.poll(()=>game(page).then(s=>s?.phase)).toBe('selecting');for(const id of [fighter,fighter,partner,partner])await canvasControl(page,`character-${id}`);await expect.poll(()=>game(page).then(s=>s?.phase),{timeout:10000}).toBe('running');}
+import {game,canvasControl,selectDuo} from './helpers/godot';
+export {game,canvasControl,selectDuo};
 for(const fighter of ids)for(const partner of ids)if(fighter!==partner)test(`${fighter} with ${partner}: canvas selection, actions, defeat, retained retry and home`,async({page})=>{
  await page.setViewportSize({width:844,height:390});await selectDuo(page,fighter,partner);
  expect((await game(page)).run.duo).toEqual({fighterId:fighter,partnerId:partner});

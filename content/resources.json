@@ -40,7 +40,8 @@
     ]
   },
   "props": {
-    "headrest": "assets/props/headrest/headrest.glb"
+    "headrest": "assets/props/headrest/headrest.glb",
+    "bottle": "assets/props/bottle/bottle.glb"
   },
   "supportAnimations": [
     "cow-support",
@@ -80,6 +81,24 @@
       "maxY": 2,
       "minDepth": -1.4,
       "maxDepth": 1.4
+    }
+  },
+  "art": {
+    "enemy.grunt": {
+      "path": "assets/enemies/grunt/runtime/character.glb",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "dependencyIds": []
+    },
+    "enemy.zoner": {
+      "path": "assets/enemies/zoner/runtime/character.glb",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "dependencyIds": []
     }
   }
 }

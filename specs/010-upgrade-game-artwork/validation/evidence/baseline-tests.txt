@@ -1,0 +1,474 @@
+$ bun run test:unit && bun run test:parity && bun run test:e2e && bun run test:blender
+$ bun run test:platform && bun run test:godot
+$ vitest run tests/tooling tests/platform
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+
+ Test Files  15 passed (15)
+      Tests  59 passed (59)
+   Start at  09:28:01
+   Duration  2.73s (transform 1.63s, setup 0ms, import 3.73s, tests 3.10s, environment 4ms)
+
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/app/test_readiness.gd
+[0m* test_runtime_and_offline_readiness_are_separate_and_update_waits_for_between_runs
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/app/test_session.gd
+[0m* test_two_step_selection_focus_no_preview_duplicate_and_back
+* test_generation_safe_readiness_interrupt_partial_countdown_retry_and_home
+* test_legacy_attack_does_not_complete_heavy_and_dodge_is_contextual
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/content/test_resource_store.gd
+[0m* test_required_model_clip_and_backdrop_failures_block_readiness_actionably
+* test_ten_prepare_render_retry_teardown_cycles_leave_no_owned_rig_instances
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/input/test_input_controller.gd
+[0m* test_fixed_sixty_radius_deadzone_and_simultaneous_action
+* test_keyboard_freshness_cancel_geometry_and_carried_input
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_diagnostics.gd
+[0m* test_fps_uses_the_latest_active_second_instead_of_the_entire_raw_buffer
+* test_diagnostics_keep_bounded_local_frame_and_resource_samples
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_editor_platform.gd
+[0m* test_editor_adapter_keeps_allowlisted_values_in_memory_and_reports_geometry
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/platform/test_lifecycle_audio.gd
+[0m* test_visibility_focus_portrait_and_context_require_explicit_safe_resume
+* test_audio_uses_one_stream_and_eight_reusable_voices_and_preserves_pause
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_persistence.gd
+[0m* test_settings_fallback_validation_and_storage_denial_remain_playable
+* test_best_result_replaces_only_strictly_better_victories
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_tutorial_uses_only_canonical_ids_and_transient_state_is_not_saved
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_backdrops.gd
+[0m* test_required_preload_is_atomic_and_reports_missing_or_wrong_import
+* test_static_room_panels_cover_all_rooms_connectors_and_backing_without_colliders
+* test_stable_room_mappings_and_exact_eight_resources
+* test_decoded_budget_includes_mipmaps
+* test_actual_final_and_concept_imports_keep_exact_sizes_opacity_and_mipmaps
+* test_actual_final_required_preload_builds_world_and_survives_retry_reuse
+* test_actual_panel_extents_cover_fitted_camera_edges_and_all_three_connectors
+* test_go_avoids_pause_overlay_controls_and_safe_insets_and_is_suppressed_on_result
+[1m8/8 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_camera.gd
+[0m* test_source_camera_frames_all_reference_layouts
+* test_world_retires_removed_actor_models_without_leaking_owned_rigs
+* test_combat_control_sizes_and_diamond_positions_match_retained_touch_layout
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_ai.gd
+[0m* test_roles_begin_telegraphs_and_boss_changes_phase
+* test_partner_fights_without_meter_and_knockout_stays_inactive
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_partner_visibility_stable_target_and_blocked_recovery_only
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_combat.gd
+[0m* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m5/5 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_progression.gd
+[0m* test_all_waves_tables_connectors_and_terminal_no_later_tick
+* test_full_health_pickup_consumption_player_only_and_break_once
+* test_tick_order_terminal_break_and_four_solo_terminal_outcomes
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_run_clock.gd
+[0m* test_constructors_all_duos_are_independent_and_role_correct
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_accumulator_first_frame_cap_pause_and_exact_boundary
+* test_wall_clock_no_five_minute_terminal_and_pause
+* test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_specials.gd
+[0m* test_four_specials_spend_once_and_release_correct_family
+* test_headrest_no_visible_target_retains_meter
+* test_roar_cancels_normal_attacks_leaves_bottles_and_damages_only_boss
+* test_headrest_fixed_aim_ties_interception_protection_and_expiry
+[1m4/4 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Warnings             14
+
+Scripts              18
+Tests                54
+Passing Tests        54
+Asserts             753
+Time              0.887s
+
+
+[32m---- All tests passed! ----
+[0m
+$ bun scripts/godot/parity.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Replayed 26 fixtures in Godot
+PASS duo-cow-crow: 30 exact state/event/camera frames
+PASS duo-cow-lion: 30 exact state/event/camera frames
+PASS duo-cow-plates: 30 exact state/event/camera frames
+PASS duo-crow-cow: 30 exact state/event/camera frames
+PASS duo-crow-lion: 30 exact state/event/camera frames
+PASS duo-crow-plates: 30 exact state/event/camera frames
+PASS duo-lion-cow: 30 exact state/event/camera frames
+PASS duo-lion-crow: 30 exact state/event/camera frames
+PASS duo-lion-plates: 30 exact state/event/camera frames
+PASS duo-plates-cow: 30 exact state/event/camera frames
+PASS duo-plates-crow: 30 exact state/event/camera frames
+PASS duo-plates-lion: 30 exact state/event/camera frames
+PASS special-cow: 30 exact state/event/camera frames
+PASS special-crow: 30 exact state/event/camera frames
+PASS special-lion: 30 exact state/event/camera frames
+PASS special-plates: 30 exact state/event/camera frames
+PASS enemy-grunt: 30 exact state/event/camera frames
+PASS enemy-zoner: 30 exact state/event/camera frames
+PASS enemy-enforcer: 30 exact state/event/camera frames
+PASS enemy-liam: 30 exact state/event/camera frames
+PASS visible-target-667: 30 exact state/event/camera frames
+PASS visible-target-844: 30 exact state/event/camera frames
+PASS visible-target-915: 30 exact state/event/camera frames
+PASS tables-healing: 30 exact state/event/camera frames
+PASS lethal-tie: 30 exact state/event/camera frames
+PASS solo-stall-pause: 30 exact state/event/camera frames
+All 26 reference fixtures match; no discrete outcome tolerance.
+$ bun run test:e2e:godot && bun run test:e2e:release
+$ playwright test --config playwright.godot.config.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] 84 | export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:string):Promise<FoundationInventory> {
+[WebServer] 85 |  const lock=readLock();verifyInstalled();if(cap>16*1024*1024)throw new Error('Content cap cannot exceed 16 MiB');
+[WebServer] 86 |  const backdropDecodedBytes=auditBackdrops();
+[WebServer] 87 |  const config=modeConfig(mode);if(outputDir){if(!/^dist(?:-[a-z0-9-]+)?$/.test(outputDir))throw new Error('Output directory must be a dist directory');config.dir=outputDir;}
+[WebServer] 88 |  const stage=resolve(`.tools/staging/${config.dir}`);rmSync(stage,{recursive:true,force:true});mkdirSync(join(stage,'raw'),{recursive:true});
+[WebServer] 89 |  const importResult=runGodot(['--headless','--path','.','--log-file','.tmp/export-import.log','--import']);if(importResult.status)throw new Error(importResult.output);
+[WebServer]                                                                                                                                                  ^
+[WebServer] error: Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+[WebServer] 
+[WebServer] [   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[WebServer] [   0% ] first_scan_filesystem | Scanning file structure...
+[WebServer] [  16% ] first_scan_filesystem | Loading global class names...
+[WebServer] [  33% ] first_scan_filesystem | Verifying GDExtensions...
+[WebServer] [  50% ] first_scan_filesystem | Creating autoload scripts...
+[WebServer] [  66% ] first_scan_filesystem | Initializing plugins...
+[WebServer] [  83% ] first_scan_filesystem | Starting file scan...
+[WebServer] [ DONE ] first_scan_filesystem
+[WebServer] 
+[WebServer] [   0% ] update_scripts_classes | Started Registering global classes... (150 steps)
+[WebServer] [   0% ] update_scripts_classes | 
+[WebServer] [   0% ] update_scripts_classes | 
+[WebServer] [   1% ] update_scripts_classes | 
+[WebServer] [   1% ] update_scripts_classes | 
+[WebServer] [   2% ] update_scripts_classes | 
+[WebServer] [   3% ] update_scripts_classes | 
+[WebServer] [   3% ] update_scripts_classes | 
+[WebServer] [   4% ] update_scripts_classes | 
+[WebServer] [   5% ] update_scripts_classes | 
+[WebServer] [   5% ] update_scripts_classes | 
+[WebServer] [   6% ] update_scripts_classes | 
+[WebServer] [   7% ] update_scripts_classes | 
+[WebServer] [   7% ] update_scripts_classes | 
+[WebServer] [   8% ] update_scripts_classes | 
+[WebServer] [   9% ] update_scripts_classes | 
+[WebServer] [   9% ] update_scripts_classes | 
+[WebServer] [  10% ] update_scripts_classes | 
+[WebServer] [  11% ] update_scripts_classes | 
+[WebServer] [  11% ] update_scripts_classes | 
+[WebServer] [  12% ] update_scripts_classes | 
+[WebServer] [  13% ] update_scripts_classes | 
+[WebServer] [  13% ] update_scripts_classes | 
+[WebServer] [  14% ] update_scripts_classes | 
+[WebServer] [  15% ] update_scripts_classes | 
+[WebServer] [  15% ] update_scripts_classes | 
+[WebServer] [  16% ] update_scripts_classes | 
+[WebServer] [  17% ] update_scripts_classes | 
+[WebServer] [  17% ] update_scripts_classes | 
+[WebServer] [  18% ] update_scripts_classes | 
+[WebServer] [  19% ] update_scripts_classes | 
+[WebServer] [  19% ] update_scripts_classes | 
+[WebServer] [  20% ] update_scripts_classes | 
+[WebServer] [  21% ] update_scripts_classes | 
+[WebServer] [  21% ] update_scripts_classes | 
+[WebServer] [  22% ] update_scripts_classes | 
+[WebServer] [  23% ] update_scripts_classes | 
+[WebServer] [  23% ] update_scripts_classes | 
+[WebServer] [  24% ] update_scripts_classes | 
+[WebServer] [  25% ] update_scripts_classes | 
+[WebServer] [  25% ] update_scripts_classes | GutErrorTracker
+[WebServer] [  26% ] update_scripts_classes | 
+[WebServer] [  27% ] update_scripts_classes | 
+[WebServer] [  27% ] update_scripts_classes | GutMain
+[WebServer] [  28% ] update_scripts_classes | 
+[WebServer] [  29% ] update_scripts_classes | 
+[WebServer] [  29% ] update_scripts_classes | 
+[WebServer] [  30% ] update_scripts_classes | GutConstants
+[WebServer] [  31% ] update_scripts_classes | 
+[WebServer] [  31% ] update_scripts_classes | 
+[WebServer] [  32% ] update_scripts_classes | 
+[WebServer] [  33% ] update_scripts_classes | 
+[WebServer] [  33% ] update_scripts_classes | 
+[WebServer] [  34% ] update_scripts_classes | GutTrackedError
+[WebServer] [  35% ] update_scripts_classes | 
+[WebServer] [  35% ] update_scripts_classes | GutHookScript
+[WebServer] [  36% ] update_scripts_classes | 
+[WebServer] [  37% ] update_scripts_classes | GutInputFactory
+[WebServer] [  37% ] update_scripts_classes | GutInputSender
+[WebServer] [  38% ] update_scripts_classes | 
+[WebServer] [  39% ] update_scripts_classes | 
+[WebServer] [  39% ] update_scripts_classes | 
+[WebServer] [  40% ] update_scripts_classes | 
+[WebServer] [  41% ] update_scripts_classes | 
+[WebServer] [  41% ] update_scripts_classes | 
+[WebServer] [  42% ] update_scripts_classes | 
+[WebServer] [  43% ] update_scripts_classes | 
+[WebServer] [  43% ] update_scripts_classes | 
+[WebServer] [  44% ] update_scripts_classes | 
+[WebServer] [  45% ] update_scripts_classes | 
+[WebServer] [  45% ] update_scripts_classes | 
+[WebServer] [  46% ] update_scripts_classes | 
+[WebServer] [  47% ] update_scripts_classes | 
+[WebServer] [  47% ] update_scripts_classes | GutStringUtils
+[WebServer] [  48% ] update_scripts_classes | 
+[WebServer] [  49% ] update_scripts_classes | 
+[WebServer] [  49% ] update_scripts_classes | 
+[WebServer] [  50% ] update_scripts_classes | 
+[WebServer] [  50% ] update_scripts_classes | GutTest
+[WebServer] [  51% ] update_scripts_classes | 
+[WebServer] [  52% ] update_scripts_classes | 
+[WebServer] [  52% ] update_scripts_classes | 
+[WebServer] [  53% ] update_scripts_classes | 
+[WebServer] [  54% ] update_scripts_classes | GutUtils
+[WebServer] [  54% ] update_scripts_classes | 
+[WebServer] [  55% ] update_scripts_classes | 
+[WebServer] [  56% ] update_scripts_classes | 
+[WebServer] [  56% ] update_scripts_classes | 
+[WebServer] [  57% ] update_scripts_classes | 
+[WebServer] [  58% ] update_scripts_classes | 
+[WebServer] [  58% ] update_scripts_classes | 
+[WebServer] [  59% ] update_scripts_classes | 
+[WebServer] [  60% ] update_scripts_classes | 
+[WebServer] [  60% ] update_scripts_classes | 
+[WebServer] [  61% ] update_scripts_classes | 
+[WebServer] [  62% ] update_scripts_classes | 
+[WebServer] [  62% ] update_scripts_classes | 
+[WebServer] [  63% ] update_scripts_classes | 
+[WebServer] [  64% ] update_scripts_classes | 
+[WebServer] [  64% ] update_scripts_classes | 
+[WebServer] [  65% ] update_scripts_classes | 
+[WebServer] [  66% ] update_scripts_classes | 
+[WebServer] [  66% ] update_scripts_classes | 
+[WebServer] [  67% ] update_scripts_classes | 
+[WebServer] [  68% ] update_scripts_classes | 
+[WebServer] [  68% ] update_scripts_classes | 
+[WebServer] [  69% ] update_scripts_classes | 
+[WebServer] [  70% ] update_scripts_classes | 
+[WebServer] [  70% ] update_scripts_classes | 
+[WebServer] [  71% ] update_scripts_classes | 
+[WebServer] [  72% ] update_scripts_classes | 
+[WebServer] [  72% ] update_scripts_classes | 
+[WebServer] [  73% ] update_scripts_classes | 
+[WebServer] [  74% ] update_scripts_classes | 
+[WebServer] [  74% ] update_scripts_classes | 
+[WebServer] [  75% ] update_scripts_classes | 
+[WebServer] [  76% ] update_scripts_classes | 
+[WebServer] [  76% ] update_scripts_classes | 
+[WebServer] [  77% ] update_scripts_classes | 
+[WebServer] [  78% ] update_scripts_classes | 
+[WebServer] [  78% ] update_scripts_classes | 
+[WebServer] [  79% ] update_scripts_classes | 
+[WebServer] [  80% ] update_scripts_classes | 
+[WebServer] [  80% ] update_scripts_classes | 
+[WebServer] [  81% ] update_scripts_classes | 
+[WebServer] [  82% ] update_scripts_classes | 
+[WebServer] [  82% ] update_scripts_classes | 
+[WebServer] [  83% ] update_scripts_classes | 
+[WebServer] [  84% ] update_scripts_classes | 
+[WebServer] [  84% ] update_scripts_classes | 
+[WebServer] [  85% ] update_scripts_classes | 
+[WebServer] [  86% ] update_scripts_classes | 
+[WebServer] [  86% ] update_scripts_classes | 
+[WebServer] [  87% ] update_scripts_classes | 
+[WebServer] [  88% ] update_scripts_classes | 
+[WebServer] [  88% ] update_scripts_classes | 
+[WebServer] [  89% ] update_scripts_classes | 
+[WebServer] [  90% ] update_scripts_classes | 
+[WebServer] [  90% ] update_scripts_classes | 
+[WebServer] [  91% ] update_scripts_classes | 
+[WebServer] [  92% ] update_scripts_classes | 
+[WebServer] [  92% ] update_scripts_classes | 
+[WebServer] [  93% ] update_scripts_classes | 
+[WebServer] [  94% ] update_scripts_classes | 
+[WebServer] [  94% ] update_scripts_classes | 
+[WebServer] [  95% ] update_scripts_classes | 
+[WebServer] [  96% ] update_scripts_classes | 
+[WebServer] [  96% ] update_scripts_classes | 
+[WebServer] [  97% ] update_scripts_classes | 
+[WebServer] [  98% ] update_scripts_classes | 
+[WebServer] [  98% ] update_scripts_classes | 
+[WebServer] [ DONE ] update_scripts_classes
+[WebServer] 
+[WebServer] [   0% ] _update_scan_actions | Started Scanning actions... (58 steps)
+[WebServer] [   0% ] _update_scan_actions | AnonymousPro-Bold.ttf
+[WebServer] [   1% ] _update_scan_actions | AnonymousPro-BoldItalic.ttf
+[WebServer] [   3% ] _update_scan_actions | AnonymousPro-Italic.ttf
+[WebServer] [   5% ] _update_scan_actions | AnonymousPro-Regular.ttf
+[WebServer] [   6% ] _update_scan_actions | CourierPrime-Bold.ttf
+[WebServer] [   8% ] _update_scan_actions | CourierPrime-BoldItalic.ttf
+[WebServer] [  10% ] _update_scan_actions | CourierPrime-Italic.ttf
+[WebServer] [  11% ] _update_scan_actions | CourierPrime-Regular.ttf
+[WebServer] [  13% ] _update_scan_actions | LobsterTwo-Bold.ttf
+[WebServer] [  15% ] _update_scan_actions | LobsterTwo-BoldItalic.ttf
+[WebServer] [  16% ] _update_scan_actions | LobsterTwo-Italic.ttf
+[WebServer] [  18% ] _update_scan_actions | LobsterTwo-Regular.ttf
+[WebServer] [  20% ] _update_scan_actions | arrow.png
+[WebServer] [  22% ] _update_scan_actions | play.png
+[WebServer] [  23% ] _update_scan_actions | eyey.png
+[WebServer] [  25% ] _update_scan_actions | Folder.svg
+[WebServer] [  27% ] _update_scan_actions | green.png
+[WebServer] [  28% ] _update_scan_actions | GutIconV2_base.png
+[WebServer] [  30% ] _update_scan_actions | GutIconV2_no_shine.png
+[WebServer] [  32% ] _update_scan_actions | HSplitContainer.svg
+[WebServer] [  33% ] _update_scan_actions | red.png
+[WebServer] [  35% ] _update_scan_actions | Script.svg
+[WebServer] [  37% ] _update_scan_actions | VSplitContainer.svg
+[WebServer] [  38% ] _update_scan_actions | yellow.png
+[WebServer] [  40% ] _update_scan_actions | icon.png
+[WebServer] [  42% ] _update_scan_actions | source_code_pro.fnt
+[WebServer] [  44% ] _update_scan_actions | floor.svg
+[WebServer] [  45% ] _update_scan_actions | wall.svg
+[WebServer] [  47% ] _update_scan_actions | floor.svg
+[WebServer] [  49% ] _update_scan_actions | wall.svg
+[WebServer] [  50% ] _update_scan_actions | floor.svg
+[WebServer] [  52% ] _update_scan_actions | wall.svg
+[WebServer] [  54% ] _update_scan_actions | floor.svg
+[WebServer] [  55% ] _update_scan_actions | wall.svg
+[WebServer] [  57% ] _update_scan_actions | floor.svg
+[WebServer] [  59% ] _update_scan_actions | wall.svg
+[WebServer] [  61% ] _update_scan_actions | floor.svg
+[WebServer] [  62% ] _update_scan_actions | wall.svg
+[WebServer] [  64% ] _update_scan_actions | floor.svg
+[WebServer] [  66% ] _update_scan_actions | wall.svg
+[WebServer] [  67% ] _update_scan_actions | floor.svg
+[WebServer] [  69% ] _update_scan_actions | wall.svg
+[WebServer] [  71% ] _update_scan_actions | cow.png
+[WebServer] [  72% ] _update_scan_actions | crow.png
+[WebServer] [  74% ] _update_scan_actions | cow.glb
+[WebServer] [  76% ] _update_scan_actions | crow.glb
+[WebServer] [  77% ] _update_scan_actions | character.glb
+[WebServer] [  79% ] _update_scan_actions | portrait.png
+[WebServer] [  81% ] _update_scan_actions | character.glb
+[WebServer] [  83% ] _update_scan_actions | portrait.png
+[WebServer] [  84% ] _update_scan_actions | headrest.glb
+[WebServer] [  86% ] _update_scan_actions | brightside.mp3
+[WebServer] [  88% ] _update_scan_actions | music-placeholder.wav
+[WebServer] [  89% ] _update_scan_actions | sfx-attack.wav
+[WebServer] [  91% ] _update_scan_actions | sfx-damage.wav
+[WebServer] [  93% ] _update_scan_actions | sfx-hit.wav
+[WebServer] [  94% ] _update_scan_actions | sfx-pickup.wav
+[WebServer] [  96% ] _update_scan_actions | sfx-result.wav
+[WebServer] [ DONE ] _update_scan_actions
+[WebServer] 
+[WebServer] [   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[WebServer] [   0% ] loading_editor_layout | Loading editor layout...
+[WebServer] [  16% ] loading_editor_layout | Loading docks...
+[WebServer] [  33% ] loading_editor_layout | Reopening scenes...
+[WebServer] [  50% ] loading_editor_layout | Loading central editor layout...
+[WebServer] [  66% ] loading_editor_layout | Loading plugin window layout...
+[WebServer] [  83% ] loading_editor_layout | Editor layout ready.
+[WebServer] [ DONE ] loading_editor_layout
+[WebServer] 
+[WebServer] ERROR: Condition "_sock == -1" is true. Returning: FAILED
+[WebServer]    at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+[WebServer] ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+[WebServer]    at: listen (core/io/tcp_server.cpp:56)
+[WebServer] ERROR: Condition "_sock == -1" is true. Returning: FAILED
+[WebServer]    at: _inet_open (drivers/unix/net_socket_unix.cpp:288)
+[WebServer] ERROR: Condition "err != OK" is true. Returning: ERR_CANT_CREATE
+[WebServer]    at: listen (core/io/tcp_server.cpp:56)
+[WebServer] 
+[WebServer]       at exportWeb (/home/mark/projects/streets-of-rock/scripts/godot/export.ts:89:141)
+[WebServer]       at /home/mark/projects/streets-of-rock/scripts/godot/export.ts:150:183
+[WebServer] 
+[WebServer] Bun v1.4.2 (Linux x64)
+[WebServer] error: script "build:test" exited with code 1
+Error: Process from config.webServer was not able to start. Exit code: 1
+
+error: script "test:e2e:godot" exited with code 1
+error: script "test:e2e" exited with code 1
+error: script "test" exited with code 1

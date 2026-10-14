@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "baselineManifestSha256": "d2ff4741e2099a0aeee1caa14d34fb9b2ce21987c2d4df8ad0acea130decb31b",
+  "reason": "Owner requested Grunts to turn with movement and pursue up/down, and enemy throws to be easier to dodge. Normalized two-axis Grunt pursuit changes partner targets and melee timing; Zoners now record aimPosition at warning and release toward it. All other comparison rules remain exact.",
+  "fixtures": [
+    {
+      "id": "duo-cow-crow",
+      "path": "feature-010/duo-cow-crow.json",
+      "baselineSha256": "c14d4b80abb1fb14533445fe17aef073fedb2c7a75dc78aacdaf154011b0c4f3",
+      "sha256": "e4a2f2501bb6c082bc7897c41d0489cac48f29962d5f3554852629583c63941b"
+    },
+    {
+      "id": "duo-cow-lion",
+      "path": "feature-010/duo-cow-lion.json",
+      "baselineSha256": "500e9a251855402160af85d249e0d569d8aa5c7202829ebd86275ccb17348022",
+      "sha256": "95d7aa385c5873efa1506c8f2428d7891e8041a9b6bdd3aa576ca1e5010e3540"
+    },
+    {
+      "id": "duo-cow-plates",
+      "path": "feature-010/duo-cow-plates.json",
+      "baselineSha256": "54dddec818e0cb750b32a0d5da4392e83a52973720faeabf03e4e4341dc5288c",
+      "sha256": "7482e67c38e95d5a3fe9e48ad91747ac3b7f825bada2a61a8dffa7db75202e4d"
+    },
+    {
+      "id": "duo-crow-cow",
+      "path": "feature-010/duo-crow-cow.json",
+      "baselineSha256": "fa69713a2326a61f9a91ea4e36a7b879b3874ed8e80947c8eff498f696eada5b",
+      "sha256": "1c9b2c4123797a811dbcaee38727b50310057514a316d6cb9da724724397f83b"
+    },
+    {
+      "id": "duo-crow-lion",
+      "path": "feature-010/duo-crow-lion.json",
+      "baselineSha256": "b1e3eadede490f80a6b158575f33a32f2ed82d5b90125517288e7b824f5edaac",
+      "sha256": "6470d169c4bead06595944c91df41e402bf971a4f66e2d86cce7f695f6aba967"
+    },
+    {
+      "id": "duo-crow-plates",
+      "path": "feature-010/duo-crow-plates.json",
+      "baselineSha256": "f78b9b13454ddadf2528778ce97b2e88c57048bfdd416fe8b3e642a9bda7087d",
+      "sha256": "d2837eefc92ce8696f152717c5a61acf2d5cac56cfce74c174e59a8fe05dcfb5"
+    },
+    {
+      "id": "duo-lion-cow",
+      "path": "feature-010/duo-lion-cow.json",
+      "baselineSha256": "5cf0ce75a76243e456ed688c9b25b7445c21c37c5103e43a12cdedb3605e34f4",
+      "sha256": "94c750683e1b93ede1f1f9fab1e64fdf5534c2b582263dc48bba5956cad1ba32"
+    },
+    {
+      "id": "duo-lion-crow",
+      "path": "feature-010/duo-lion-crow.json",
+      "baselineSha256": "c3ee3e295a9d0d6bf8566bdcd02fed36a2d808e60e215c04735e7ca9884bbb24",
+      "sha256": "6c176aaa921ce86356e177373e3859e53e496b752d8643158e4c3d9686bbb60e"
+    },
+    {
+      "id": "duo-lion-plates",
+      "path": "feature-010/duo-lion-plates.json",
+      "baselineSha256": "8364cf73e66b23f3ee6fff579f06c2c91f2b2e6b484feb735dd636e28f179ae1",
+      "sha256": "82705f745ac60f80688afae7a80ccb08587a343b5e3dc950c2f30167aaf0d785"
+    },
+    {
+      "id": "duo-plates-cow",
+      "path": "feature-010/duo-plates-cow.json",
+      "baselineSha256": "e96cdf5cbb6600997fe1282ce60c6f80dc6201ddd184a7ea235bcd1c9b80509b",
+      "sha256": "cf14b3f2bf4accd8852242c64c3880c78811f5a5a1f6b7ae94f8e824c8f73ebc"
+    },
+    {
+      "id": "duo-plates-crow",
+      "path": "feature-010/duo-plates-crow.json",
+      "baselineSha256": "bff7a926c0448c25ed811c7f8b65881217d3af3b50c7646c0590526859924099",
+      "sha256": "81dcb3cdfd6d99d23d85c7e0bc26299f09e0ed29e6486d044c8915f25cc4bf9e"
+    },
+    {
+      "id": "duo-plates-lion",
+      "path": "feature-010/duo-plates-lion.json",
+      "baselineSha256": "6380ae2bfe2a2b676c997c370eeff1071eef23cb867ce266bc32626dba5ee4c6",
+      "sha256": "04f143d8458e132b4b8d8647e28feb55cae3fef164cf76c5bc4842a9bf604aa5"
+    },
+    {
+      "id": "enemy-zoner",
+      "path": "feature-010/enemy-zoner.json",
+      "baselineSha256": "5658260a28fecba9c68ec65de641ca2baabc42aa1a86a8c96816394e578cfd27",
+      "sha256": "c097b46bc95c4e48bf80521ed4da908261e6a9cf459bce99041a1c5ecd95cb9a"
+    },
+    {
+      "id": "visible-target-667",
+      "path": "feature-010/visible-target-667.json",
+      "baselineSha256": "cc8fbb23dc329884b6ef01e92722e381029e475a7cb987ab3cec3c440ffc75f7",
+      "sha256": "789373a3fd131b6003c97a9231621b5a69c60dcc4d000982295334ad2bf1a160"
+    },
+    {
+      "id": "visible-target-844",
+      "path": "feature-010/visible-target-844.json",
+      "baselineSha256": "0e98cb6d21d7898698bcb166686aadb63176d825fcf36e27878b6666f9965009",
+      "sha256": "82dbe45c062304c53da4277e4304549923d6cb7ccef67eaa6c2f0a6aa7be6003"
+    },
+    {
+      "id": "visible-target-915",
+      "path": "feature-010/visible-target-915.json",
+      "baselineSha256": "7b2f90e822dc0b3f010ec1c09fe510dc80df79384556f964e06fd029f6b30386",
+      "sha256": "a69b62c59da3be2fc8a65e88f52f2fa1d7e4766197b35f3cd5f3827455bff36f"
+    },
+    {
+      "id": "tables-healing",
+      "path": "feature-010/tables-healing.json",
+      "baselineSha256": "5f85d5fc1992148156590a1b5cf0488922e76b1dad899cb71b53129fd6e94840",
+      "sha256": "791c8838552f05b6f394c2bc9c3dd643a58cdeea25b3cc145deacc4937f16f56"
+    },
+    {
+      "id": "solo-stall-pause",
+      "path": "feature-010/solo-stall-pause.json",
+      "baselineSha256": "5d118e40667f05828ddf47b4d6e79e1d371fb7d7b56b57422a8efde6aa4aa695",
+      "sha256": "f0b6cfe6fa8c0842d11aa53eee760d8ccccb42f5a419cf17f2c26e633a98abef"
+    }
+  ]
+}

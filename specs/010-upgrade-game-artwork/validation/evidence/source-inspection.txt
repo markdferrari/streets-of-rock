@@ -1,0 +1,7 @@
+00:00.277  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/art-sources/quaternius-house-interior/Curtains_Double.blend"
+00:00.280  blend.doversion  | WARNING Region type 4 missing in space type "Info" (id: 7) - removing region
+00:00.284  blend            | Read blend: "/home/mark/projects/streets-of-rock/assets/art-sources/quaternius-modular-men/Humans_Master.blend"
+quaternius-house-interior 1 meshes 0 actions 0 armatures
+quaternius-modular-men 48 meshes 24 actions 1 armatures
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

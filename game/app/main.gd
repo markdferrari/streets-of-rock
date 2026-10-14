@@ -121,6 +121,7 @@ func prepare_view(generation: int) -> void:
   var definition: Dictionary = content.definitions[id]
   if not store.prepare(id, "res://" + content.resources.models[definition.presentation.modelKey], content.clips[definition.presentation.animationSetKey]): readiness_error += "\n".join(store.errors) + "\n"
  if not store.prepare_backdrops(backdrop_catalogue): readiness_error += "\n".join(store.errors)
+ if not store.prepare_enemies(content): readiness_error += "\n".join(store.errors)
  if not readiness_error.is_empty():
   readiness.set_runtime_error(readiness_error)
   session.failed(generation, readiness_error)
@@ -131,6 +132,12 @@ func prepare_view(generation: int) -> void:
  add_child(prepared_world)
  prepared_world.initialize(store, content)
  prepared_world.render(prepared_run, [], viewport(), 0, 0, false, environment.reducedMotion)
+ if not prepared_world.errors.is_empty():
+  readiness_error = "\n".join(prepared_world.errors)
+  prepared_world.dispose()
+  readiness.set_runtime_error(readiness_error)
+  session.failed(generation, readiness_error)
+  return
  if not session.prepared(generation, prepared_run, now()):
   prepared_world.dispose()
   return

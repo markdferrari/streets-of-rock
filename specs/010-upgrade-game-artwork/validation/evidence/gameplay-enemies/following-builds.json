@@ -1,0 +1,37 @@
+{
+  "protectedHeroFilesUnchanged": 29,
+  "exportConfigsRestored": {
+    "project.godot": true,
+    "export_presets.cfg": true
+  },
+  "builds": {
+    "test": {
+      "buildId": "7434893dde55bef2cfabbb31ff9d111c224bc8a288729d502ecc48abd10c5b80",
+      "contentBytes": 6804075,
+      "packs": [
+        "sor.pck"
+      ],
+      "includedRuntimeImports": [
+        "res://assets/enemies/grunt/runtime/character.glb.import",
+        "res://assets/enemies/zoner/runtime/character.glb.import",
+        "res://assets/props/bottle/bottle.glb.import"
+      ],
+      "forbiddenEntries": [],
+      "inventoryDigest": "4ab75815963a20e872baac9e49b1d331a958f6cd54725fa3f7e5eea972b5fc08"
+    },
+    "release": {
+      "buildId": "263d83bd4b2ca361543125ee05362545f6f8e387e3bae8679cfeca586bec8ff4",
+      "contentBytes": 6004686,
+      "packs": [
+        "sor.pck"
+      ],
+      "includedRuntimeImports": [
+        "res://assets/enemies/grunt/runtime/character.glb.import",
+        "res://assets/enemies/zoner/runtime/character.glb.import",
+        "res://assets/props/bottle/bottle.glb.import"
+      ],
+      "forbiddenEntries": [],
+      "inventoryDigest": "e03e6ea9a3b8628ecab7d70704574c933e4aee968d3f8e4c6b526fc69de10037"
+    }
+  }
+}

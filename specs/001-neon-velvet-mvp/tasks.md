@@ -26,7 +26,7 @@ unchecked while independent work proceeds; final acceptance requires that eviden
 
 - Tasks use checkbox, sequential Tnnn ID, optional [P], required [USn] inside story phases, and exact repository-relative paths.
 - [P] marks disjoint-file work within a named batch after its prerequisite phase completes.
-- Evidence lives in specs/001-neon-velvet-mvp/validation/; ignored test-results/ can hold large raw traces referenced by the records.
+- Evidence lives in specs/001-bondi-beach-mvp/validation/; ignored test-results/ can hold large raw traces referenced by the records.
 - Exact gameplay defaults come from data-model.md; changes require regression/playtest evidence.
 - Source paths below are implementation targets; no application code is created by task generation.
 
@@ -38,7 +38,7 @@ unchecked while independent work proceeds; final acceptance requires that eviden
 - [X] T002 Configure strict TypeScript and browser/worker build targets in tsconfig.json, vite.config.ts, and index.html; create the planned source directories and root static entry with ordinary-development worker registration disabled (NFR-001, NFR-005).
 - [X] T003 Configure Vitest and Chromium/WebKit Playwright in vitest.config.ts, playwright.config.ts, and package.json; provide runnable development/build/test-build/diagnostics/preview scripts for early story checks and production-preview tests without substituting Bun's test runner; complete asset/precache audits in US4 (constitution III; runtime contract).
 - [X] T004 Add generated-output ignores in .gitignore and Bun instructions in README.md; confirm bun install --frozen-lockfile reproduces the initial lock and tool CLIs start, without describing an empty suite as passing (constitution III; AGENTS.md).
-- [X] T005 Define pre-implementation manual procedures and the requirements/evidence register in specs/001-neon-velvet-mvp/validation/procedures.md and specs/001-neon-velvet-mvp/validation/coverage.md, covering AC-001 through AC-034, SC-001 through SC-006, device versions, supplied music, and future AWS-origin checks.
+- [X] T005 Define pre-implementation manual procedures and the requirements/evidence register in specs/001-bondi-beach-mvp/validation/procedures.md and specs/001-bondi-beach-mvp/validation/coverage.md, covering AC-001 through AC-034, SC-001 through SC-006, device versions, supplied music, and future AWS-origin checks.
 
 **Checkpoint**: Tooling and evidence conventions are available. Full packaging scripts are
 completed under US4 before offline acceptance.
@@ -84,8 +84,8 @@ covers real touch ergonomics and readable feedback.
 - [X] T024 [US1] Implement contextual movement/attack/dodge/special prompts in src/ui/tutorial.ts, completing each only after a valid action; retain a storage boundary until persistence arrives in US3 (FR-006; AC-001).
 - [X] T025 [US1] Compose the training encounter in src/main.ts, src/app/game-app.ts, and src/content/training.ts; connect simulation, presentation, inputs, clock, and manual Pause/Resume that clears commands (FR-006 through FR-019; runtime contract).
 - [X] T026 [US1] Add and run failing-then-passing browser regressions in tests/e2e/touch-combat.spec.ts and tests/fixtures/browser.ts for input clearing, control overlap, combo/meter feedback, and prompts; fix integration defects at their owning modules (AC-001 through AC-007, AC-022 through AC-024).
-- [ ] T027 [US1] Execute first-encounter touch/readability checks on available reference phones and record versions and early frame observations in specs/001-neon-velvet-mvp/validation/us1-device.md; leave unavailable device evidence pending (AC-001, AC-002, AC-022 through AC-024; NFR-002, NFR-003).
-- [X] T028 [US1] Run all existing automated tests and applicable type/build checks; record results and remaining manual gates in specs/001-neon-velvet-mvp/validation/us1-results.md without claiming the entire MVP is complete (US1; constitution III).
+- [ ] T027 [US1] Execute first-encounter touch/readability checks on available reference phones and record versions and early frame observations in specs/001-bondi-beach-mvp/validation/us1-device.md; leave unavailable device evidence pending (AC-001, AC-002, AC-022 through AC-024; NFR-002, NFR-003).
+- [X] T028 [US1] Run all existing automated tests and applicable type/build checks; record results and remaining manual gates in specs/001-bondi-beach-mvp/validation/us1-results.md without claiming the entire MVP is complete (US1; constitution III).
 
 **Checkpoint**: First playable increment. US2 can begin after the code and automated checks
 pass; missing phone evidence remains an open final gate.
@@ -109,7 +109,7 @@ loss, solo victory, simultaneous lethal damage, waves, pickups, and reset.
 - [X] T033 [US2] Implement Crow targeting, follow/recovery, basic attacks, and knockout in src/game/ai/crow.ts; pass T029 and emit visible partner-status events (FR-020 through FR-025).
 - [X] T034 [US2] Implement zoner retreat/throwing, enforcer charge/recovery, and projectile lifecycle in src/game/ai/zoner.ts, src/game/ai/enforcer.ts, and src/game/projectiles.ts with swept collision and shared slots (T030; FR-018, FR-028, FR-029).
 - [X] T035 [US2] Implement Liam's rope/close attacks, half-health transition, and timed-dodge shockwave in src/game/ai/liam.ts; pass T030 without jumps, grabs, or summons (FR-030; AC-011).
-- [X] T036 [US2] Define all four areas, initial waves, walkable transitions, and two VIP tables in src/content/neon-velvet.ts; validate content and preserve provisional encounter compositions (FR-026 through FR-031).
+- [X] T036 [US2] Define all four areas, initial waves, walkable transitions, and two VIP tables in src/content/bondi-beach.ts; validate content and preserve provisional encounter compositions (FR-026 through FR-031).
 - [X] T037 [US2] Implement entry, wave spawning, alive-enemy tracking, camera-lock state, and GO/unlock in src/game/encounters.ts; pass progression tests, ignoring tables/pickups/Crow for enemy-clear conditions (FR-026 through FR-028; AC-008).
 - [X] T038 [US2] Implement Cow-only table damage, one drink per table, capped/contact healing, and reset in src/game/pickups.ts; pass T031 including full-health consumption and inactive actors (FR-031; AC-012, AC-013, AC-028).
 - [ ] T039 [US2] Integrate all AI, projectiles, encounters, pickups, and terminal ordering in src/game/step.ts and src/game/run.ts; pass simultaneous-death and solo-victory cases before emitting results (FR-002, FR-003, FR-022, FR-023, FR-027; AC-009 through AC-012).
@@ -119,7 +119,7 @@ loss, solo victory, simultaneous lethal damage, waves, pickups, and reset.
 - [ ] T043 [US2] Implement validated best-time storage in src/platform/best-result.ts with failure fallback and no writes from failed/equal/slower runs; wire result timing in src/app/game-app.ts (T032; FR-005; NFR-008; AC-029).
 - [ ] T044 [US2] Write and observe failing repeated-retry resource tests in tests/integration/presentation/resources.test.ts and full-level browser cases in tests/e2e/level.spec.ts, proving fresh state, single results, and stable transient ownership (FR-002 through FR-005; AC-008 through AC-014, AC-025 through AC-029).
 - [ ] T045 [US2] Implement transient cleanup/shared resources in src/presentation/resources.ts and reset/disposal in src/app/game-app.ts; fix full-level integration until T044 passes (FR-002, FR-004; AC-012).
-- [ ] T046 [US2] Execute full-level checks including solo victory after Crow falls; record area timings and outcomes in specs/001-neon-velvet-mvp/validation/us2-results.md and leave unperformed manual checks pending (AC-008 through AC-014, AC-025 through AC-029).
+- [ ] T046 [US2] Execute full-level checks including solo victory after Crow falls; record area timings and outcomes in specs/001-bondi-beach-mvp/validation/us2-results.md and leave unperformed manual checks pending (AC-008 through AC-014, AC-025 through AC-029).
 
 **Checkpoint**: Complete level and result paths work. Mobile reliability, final audio/art,
 offline packaging, and player acceptance still follow.
@@ -151,9 +151,9 @@ the complete level on both phones establishes final visual/performance evidence.
 - [ ] T059 [US3] Implement local frame recording/export in src/app/diagnostics.ts and src/ui/diagnostics.ts; pass T051, gate diagnostics by build mode, and exclude combat mutation or telemetry (NFR-002, NFR-009; SC-006).
 - [ ] T060 [US3] Connect audio/settings/lifecycle/diagnostics in src/app/game-app.ts, including soundtrack restart from Retry gestures, terminal audio, and clean resource reuse; pass US3 integration tests (FR-035 through FR-037; NFR-004, NFR-008).
 - [ ] T061 [US3] Add and run browser regressions in tests/e2e/mobile-reliability.spec.ts for pause/resume, portrait/resize, reload, rejected audio, muted cues, settings corruption/persistence, and context loss; fix behavior at owning modules (AC-015 through AC-018, AC-030 through AC-032, AC-034).
-- [ ] T062 [US3] Execute touch, audio, presentation, lifecycle, and settings procedures on both phones and record per-scenario evidence in specs/001-neon-velvet-mvp/validation/us3-device.md (AC-015 through AC-018, AC-030 through AC-032, AC-034).
-- [ ] T063 [US3] Measure warmed-up full runs on both phones, record rolling-window/stall results in specs/001-neon-velvet-mvp/validation/performance.md, and optimize affected presentation modules until the documented 30 fps minimum passes (NFR-002; SC-006).
-- [ ] T064 [US3] Run all existing tests/type checks and reconcile results in specs/001-neon-velvet-mvp/validation/us3-results.md; track missing track/phone evidence and require final-release rechecks after US4 packaging (US3; constitution III/V).
+- [ ] T062 [US3] Execute touch, audio, presentation, lifecycle, and settings procedures on both phones and record per-scenario evidence in specs/001-bondi-beach-mvp/validation/us3-device.md (AC-015 through AC-018, AC-030 through AC-032, AC-034).
+- [ ] T063 [US3] Measure warmed-up full runs on both phones, record rolling-window/stall results in specs/001-bondi-beach-mvp/validation/performance.md, and optimize affected presentation modules until the documented 30 fps minimum passes (NFR-002; SC-006).
+- [ ] T064 [US3] Run all existing tests/type checks and reconcile results in specs/001-bondi-beach-mvp/validation/us3-results.md; track missing track/phone evidence and require final-release rechecks after US4 packaging (US3; constitution III/V).
 
 **Checkpoint**: Mobile reliability is implemented and evidenced where assets/hardware are
 available; final cached-release rechecks remain mandatory.
@@ -184,9 +184,9 @@ offline relaunch, full completion/retry with music, and two-version update valid
 - [ ] T075 [US4] Add installation guidance, offline status/retry, and title/results-only close-all update notice in src/ui/offline.ts and src/app/game-app.ts; failed offline preparation alone cannot block loaded online play (FR-001; NFR-005 through NFR-007; AC-020, AC-033).
 - [ ] T076 [US4] Run worker/media/offline/update suites including deletion/corruption, interrupted caching, denied storage, full relaunch, two clients, and music after retry; resolve failures in tests/e2e/offline.spec.ts, tests/e2e/updates.spec.ts, and owning modules (AC-019 through AC-021, AC-033, AC-034).
 - [ ] T077 [US4] Validate static-root output with scripts/audit-build.ts and document future S3/CloudFront headers, content types, missing-asset errors, range handling, and safe publication in README.md; this task does not provision or deploy AWS resources (NFR-005 through NFR-007, NFR-009; AWS clarification).
-- [ ] T078 [US4] Execute offline relaunch/completion/retry with the intended soundtrack and installed mode where supported on both phones; record cache repair and multi-window update evidence in specs/001-neon-velvet-mvp/validation/us4-device.md (AC-019 through AC-021, AC-033, AC-034).
-- [ ] T079 [US4] Run frozen Bun install, all tests, type checking, release build, and release audit; record reproducibility, asset identity/size, and no-test-controls evidence in specs/001-neon-velvet-mvp/validation/us4-results.md (NFR-005 through NFR-009).
-- [ ] T080 [US4] Repeat US3 audio/lifecycle/performance checks against the final cached release and reconcile specs/001-neon-velvet-mvp/validation/coverage.md; keep missing-phone/track entries pending (AC-015 through AC-021, AC-030 through AC-034; SC-005, SC-006).
+- [ ] T078 [US4] Execute offline relaunch/completion/retry with the intended soundtrack and installed mode where supported on both phones; record cache repair and multi-window update evidence in specs/001-bondi-beach-mvp/validation/us4-device.md (AC-019 through AC-021, AC-033, AC-034).
+- [ ] T079 [US4] Run frozen Bun install, all tests, type checking, release build, and release audit; record reproducibility, asset identity/size, and no-test-controls evidence in specs/001-bondi-beach-mvp/validation/us4-results.md (NFR-005 through NFR-009).
+- [ ] T080 [US4] Repeat US3 audio/lifecycle/performance checks against the final cached release and reconcile specs/001-bondi-beach-mvp/validation/coverage.md; keep missing-phone/track entries pending (AC-015 through AC-021, AC-030 through AC-034; SC-005, SC-006).
 
 **Checkpoint**: All required stories are implemented. Offline acceptance needs actual cached
 runs; static compatibility does not imply AWS has been provisioned.
@@ -195,12 +195,12 @@ runs; static compatibility does not imply AWS has been provisioned.
 
 **Purpose**: Establish all measurable outcomes on the accepted release.
 
-- [ ] T081 Record the five-casual-player evaluation in specs/001-neon-velvet-mvp/validation/playtest.md with learning time, up to three attempts, first successful active duration, Crow survival, and separate responsiveness/readability ratings (SC-001 through SC-004).
-- [ ] T082 Tune existing values in src/content/tuning.ts and src/content/neon-velvet.ts from playtest evidence; write regressions before behavioral fixes and record changes/re-evaluation in specs/001-neon-velvet-mvp/validation/playtest.md until all player targets pass, including solo viability (SC-001 through SC-004; FR-023, FR-025).
-- [ ] T083 Re-run affected tests/device/offline/performance checks after final tuning/assets and close the 34-scenario register in specs/001-neon-velvet-mvp/validation/coverage.md; record final build/track identity without closing unperformed checks (SC-005, SC-006).
-- [ ] T084 Update README.md and specs/001-neon-velvet-mvp/quickstart.md to match implemented Bun commands, controls, asset replacement, limitations, static release handling, and future AWS checks; reconcile spec/plan changes if required (constitution I; NFR-005).
-- [ ] T085 Run the complete frozen-install/test/typecheck/release-build/audit sequence and record exact commands/results in specs/001-neon-velvet-mvp/validation/final.md; confirm feature-branch and conventional-commit rules before any commit (constitution III; AGENTS.md).
-- [ ] T086 Record the final acceptance decision and remaining dependencies in specs/001-neon-velvet-mvp/validation/final.md; accept only when SC-001 through SC-006 and all four stories have actual passing evidence.
+- [ ] T081 Record the five-casual-player evaluation in specs/001-bondi-beach-mvp/validation/playtest.md with learning time, up to three attempts, first successful active duration, Crow survival, and separate responsiveness/readability ratings (SC-001 through SC-004).
+- [ ] T082 Tune existing values in src/content/tuning.ts and src/content/bondi-beach.ts from playtest evidence; write regressions before behavioral fixes and record changes/re-evaluation in specs/001-bondi-beach-mvp/validation/playtest.md until all player targets pass, including solo viability (SC-001 through SC-004; FR-023, FR-025).
+- [ ] T083 Re-run affected tests/device/offline/performance checks after final tuning/assets and close the 34-scenario register in specs/001-bondi-beach-mvp/validation/coverage.md; record final build/track identity without closing unperformed checks (SC-005, SC-006).
+- [ ] T084 Update README.md and specs/001-bondi-beach-mvp/quickstart.md to match implemented Bun commands, controls, asset replacement, limitations, static release handling, and future AWS checks; reconcile spec/plan changes if required (constitution I; NFR-005).
+- [ ] T085 Run the complete frozen-install/test/typecheck/release-build/audit sequence and record exact commands/results in specs/001-bondi-beach-mvp/validation/final.md; confirm feature-branch and conventional-commit rules before any commit (constitution III; AGENTS.md).
+- [ ] T086 Record the final acceptance decision and remaining dependencies in specs/001-bondi-beach-mvp/validation/final.md; accept only when SC-001 through SC-006 and all four stories have actual passing evidence.
 
 ## Dependencies and Execution Order
 

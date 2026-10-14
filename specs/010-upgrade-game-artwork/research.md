@@ -16,7 +16,7 @@
 
 **Decision:** Map visual rooms onto existing stable area IDs. Keep movement, collisions, attack timing, AI, camera equations, tables and waves unchanged. Presentation reads snapshots/events and never emits gameplay hits or movement.
 
-**Evidence:** `src/content/neon-velvet.ts` defines `dance-floor` [0,16], `vip-lounge` [18,34], `backstage-corridor` [36,52], `alley-exit` [54,70], all at depth [-3,3]. The visual mapping is exterior, bar, dance floor, stage/VIP respectively. Tables remain at (22,-2) and (28,2). `src/presentation/scene.ts` uses x/y/depth -> x/height/z, a fixed camera offset and primitive enemy figures. `src/game/status-effects.ts` represents stun separately from actions and forces stunned normal enemies to idle; Liam is immune. `src/game/ai/liam.ts` transitions phases without adding a new invulnerable cutscene or interrupting attacks.
+**Evidence:** `src/content/bondi-beach.ts` defines `dance-floor` [0,16], `vip-lounge` [18,34], `backstage-corridor` [36,52], `alley-exit` [54,70], all at depth [-3,3]. The visual mapping is exterior, bar, dance floor, stage/VIP respectively. Tables remain at (22,-2) and (28,2). `src/presentation/scene.ts` uses x/y/depth -> x/height/z, a fixed camera offset and primitive enemy figures. `src/game/status-effects.ts` represents stun separately from actions and forces stunned normal enemies to idle; Liam is immune. `src/game/ai/liam.ts` transitions phases without adding a new invulnerable cutscene or interrupting attacks.
 
 **Rationale:** These values influence reachability, visibility, Specials and progression. Renaming visual locations must not change gameplay identity.
 

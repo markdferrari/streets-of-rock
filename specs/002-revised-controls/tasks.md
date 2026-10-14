@@ -6,7 +6,7 @@
 
 **Tests**: The constitution and `AGENTS.md` require test-first implementation. For every automatable change, write a meaningful failing test, observe the expected failure, implement, then run the affected tests and the full suite before committing. Documentation changes receive a consistency review. Reference-phone, offline, performance, and five-player observations are separate acceptance evidence.
 
-**Organization**: Phases follow the three P1 user stories in the feature spec. Tasks cite feature acceptance scenarios (`CTRL-AC-*`) and PRD requirements. Existing MVP work remains in `specs/001-neon-velvet-mvp/tasks.md`; this feature replaces only its old control behavior. A completed story is an independently demonstrable increment, not full MVP acceptance.
+**Organization**: Phases follow the three P1 user stories in the feature spec. Tasks cite feature acceptance scenarios (`CTRL-AC-*`) and PRD requirements. Existing MVP work remains in `specs/001-bondi-beach-mvp/tasks.md`; this feature replaces only its old control behavior. A completed story is an independently demonstrable increment, not full MVP acceptance.
 
 ## Phase 1: Setup (Existing Project Baseline)
 
@@ -15,7 +15,7 @@
 - [X] T001 Record the active feature branch, clean/dirty state, pinned Bun/package versions, and current test baseline in specs/002-revised-controls/validation/baseline.md; do not work or commit on `main` (AGENTS.md).
 - [X] T002 Reproduce and diagnose the old `Dodge attacks` and `Special 10%` failures in tests/e2e/touch-combat.spec.ts using the current full-level opening; repair scenario setup and assertions so they prove intended tutorial/meter behavior, preserving real failures (FR-006, FR-014; MVP AC-001, AC-006).
 - [X] T003 Run `bun run typecheck`, `PLAYWRIGHT_BROWSERS_PATH=$PWD/.playwright-browsers bun run test`, and `bun run build`; record outputs in specs/002-revised-controls/validation/baseline.md and require a fully passing suite before the first conventional milestone commit (AGENTS.md, constitution III).
-- [X] T004 Update the superseded joystick, `InputFrame`, and Playing-control clauses in specs/001-neon-velvet-mvp/contracts/runtime.md to point to specs/002-revised-controls/contracts/controls.md, and annotate affected completed MVP control tasks in specs/001-neon-velvet-mvp/tasks.md as historical without erasing unrelated unfinished MVP tasks (FR-009, FR-038–040).
+- [X] T004 Update the superseded joystick, `InputFrame`, and Playing-control clauses in specs/001-bondi-beach-mvp/contracts/runtime.md to point to specs/002-revised-controls/contracts/controls.md, and annotate affected completed MVP control tasks in specs/001-bondi-beach-mvp/tasks.md as historical without erasing unrelated unfinished MVP tasks (FR-009, FR-038–040).
 
 **Checkpoint**: Baseline tests pass, documentation points to the revised control contract, and the active branch is safe for implementation.
 

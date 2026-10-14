@@ -9,6 +9,7 @@ var labels: Dictionary = {}
 var descriptors: Array = []
 var control_bounds: Dictionary = {}
 var render_key: String = ""
+var state_key: String = ""
 var modal: bool = false
 var focused_id: String = ""
 func _ready() -> void: mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -75,9 +76,18 @@ func render(session: RefCounted, content: RefCounted, environment: Dictionary, s
  if session.phase == "selecting" and not modal: focused_id = "character-" + str(session.selection.focusedId)
  var key: String = str([session.phase, session.selection, width, height, environment.safeInsets, modal])
  var changed: bool = key != render_key
+ var pending_gestures: Dictionary = {}
  if changed:
+  # Cache/readiness updates can redraw an identical screen between pointer down
+  # and pointer up. Keep that gesture only when its logical UI and bounds match.
+  if key == state_key:
+   for id in controls:
+    var control: Button = controls[id]
+    if not control.disabled and control.is_visible_in_tree() and not control.sources.is_empty():
+     pending_gestures[id] = {"bounds":control.get_global_rect(),"sources":control.sources.duplicate(true)}
   clear_ui()
   render_key = key
+  state_key = key
   if session.phase == "selecting":
    label("brand", "STREETS OF ROCK", Rect2(20, 12, width - 40, 32), 22, Color("f8bb54"))
    label("title", Selection.title(session.selection), Rect2(20, 48, width - 40, 42), 26)
@@ -159,6 +169,9 @@ func render(session: RefCounted, content: RefCounted, environment: Dictionary, s
  if modal:
   if labels.has("music"): labels.music.text = "Music " + str(round(settings.musicVolume * 100)) + "%"
   if labels.has("effects"): labels.effects.text = "Effects " + str(round(settings.effectsVolume * 100)) + "%"
+ for id in pending_gestures:
+  if controls.has(id) and not controls[id].disabled and controls[id].get_global_rect() == pending_gestures[id].bounds:
+   controls[id].sources = pending_gestures[id].sources
  return changed
 var joystick_visible: bool = false
 var joystick_center: Vector2 = Vector2.ZERO

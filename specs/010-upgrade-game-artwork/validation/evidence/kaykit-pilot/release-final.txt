@@ -1,0 +1,19 @@
+$ playwright test --config playwright.release.config.ts
+[WebServer] $ bun scripts/godot/export.ts release
+[WebServer] $ bun scripts/preview.ts --dir dist --host "127.0.0.1" --port "4182"
+
+Running 6 tests using 1 worker
+
+(node:33857) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-release.spec.ts:3:1 › plain HTTP LAN origin boots and plays without secure audio or service workers (6.2s)
+  ✓  2 [chromium] › tests/e2e/godot-release.spec.ts:21:1 › actual Release boots and query parameters cannot register test or diagnostics hooks (6.9s)
+  -  3 [chromium] › tests/e2e/godot-release.spec.ts:32:1 › Web Diagnostics downloads a bounded structured report after active gameplay
+(node:34005) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  4 [webkit] › tests/e2e/godot-release.spec.ts:3:1 › plain HTTP LAN origin boots and plays without secure audio or service workers
+  ✓  5 [webkit] › tests/e2e/godot-release.spec.ts:21:1 › actual Release boots and query parameters cannot register test or diagnostics hooks (5.9s)
+  -  6 [webkit] › tests/e2e/godot-release.spec.ts:32:1 › Web Diagnostics downloads a bounded structured report after active gameplay
+
+  3 skipped
+  3 passed (27.2s)

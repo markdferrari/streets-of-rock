@@ -1,0 +1,28 @@
+$ playwright test --config playwright.godot.config.ts artwork-enemy-pilot.spec.ts godot-backdrops.spec.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 16 tests using 1 worker
+
+(node:29295) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:11:1 › actual imported skins sample real AI phase boundaries and release the bottle on the simulation tick (2.5s)
+  ✓   2 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:21:1 › pilot controls switch facing and authored states; pause freezes actual samples (5.8s)
+  ✓   3 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:29:1 › pilot stays usable at the supported landscape widths and records review captures (3.2s)
+  ✓   4 [chromium] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 667 (6.4s)
+  ✓   5 [chromium] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 844 (6.4s)
+  ✓   6 [chromium] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 915 (7.0s)
+  ✓   7 [chromium] › tests/e2e/godot-backdrops.spec.ts:19:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (16.3s)
+  ✓   8 [chromium] › tests/e2e/godot-backdrops.spec.ts:34:1 › local room review links preserve real selection and load the requested final scene (6.1s)
+(node:30984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:11:1 › actual imported skins sample real AI phase boundaries and release the bottle on the simulation tick (1.8s)
+  ✓  10 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:21:1 › pilot controls switch facing and authored states; pause freezes actual samples (3.6s)
+  ✓  11 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:29:1 › pilot stays usable at the supported landscape widths and records review captures (2.4s)
+  ✓  12 [webkit] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 667 (7.0s)
+  ✓  13 [webkit] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 844 (7.3s)
+  ✓  14 [webkit] › tests/e2e/godot-backdrops.spec.ts:7:94 › all four settings retain camera, safe controls and static scenery at 915 (7.3s)
+  ✓  15 [webkit] › tests/e2e/godot-backdrops.spec.ts:19:1 › all three actual clearance/connector transitions preserve GO rules, waves and retry (15.2s)
+  ✓  16 [webkit] › tests/e2e/godot-backdrops.spec.ts:34:1 › local room review links preserve real selection and load the requested final scene (8.4s)
+
+  16 passed (1.9m)

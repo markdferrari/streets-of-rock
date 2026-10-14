@@ -1,0 +1,104 @@
+[
+  {
+    "path": "project.godot",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "a6190241c109a6a5a78996c826c788bf02815026",
+    "workingSha256": "ad2276b2ec4466b349caa9abf7d65d06ed9b09b9f1f580176ae56c636474c0ed"
+  },
+  {
+    "path": "export_presets.cfg",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "cb83f0fe10906ce891b603a8ab0e63df1e861660",
+    "workingSha256": "c107246408bc9ebbfa724536ed1f60648ec7da873e27af64bb41275e786aa2fc"
+  },
+  {
+    "path": "godot-engine.lock.json",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "8053d022192ba89a265905809601f31dbde94104",
+    "workingSha256": "7464c58081f7fab3ddfb3d18b14f719b64fae1f5a1d36cef7625cb7f0ce0c568"
+  },
+  {
+    "path": "addons/gut/README.vendor.md",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "ceff0b14c99dcfb80fe833f18cf5b7d88e7f0327",
+    "workingSha256": "12e5e4e83ee89b85e252bda1220ea48768388ece9f93c233856e3e7f93c44545"
+  },
+  {
+    "path": "game/app/main.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "0fdfca1d432af216b6ae5f30f56c83461327e4e6",
+    "workingSha256": "4d0a3b5a4843b325dd91026cdef0beb5fb636d22042b280b4d16c37024663cb6"
+  },
+  {
+    "path": "game/app/run_session.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "851510b58aa7f8d7b31a30fadc9ad71ef7d004da",
+    "workingSha256": "04b590ab6c4565b30ef6eaefc8fbcf0f5505c60f86be42f07bf730d59729fbc7"
+  },
+  {
+    "path": "game/app/clocks.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "19912bb9dbe5ae5adbf8c047df8e2a06f44fc950",
+    "workingSha256": "4fdd6f878fa1f30e9002dda8bbc127c499a0f2a7872ffda729cd61b551444505"
+  },
+  {
+    "path": "game/presentation/world_view.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "ee7be548a004be9b8e7e468a7ada22864071237b",
+    "workingSha256": "53669e61f3101d55827e961a34907da851bb9bc0ec28d8f35446b99b77060b2c"
+  },
+  {
+    "path": "game/presentation/character_view.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "28952ac297cd6e22d79c44478af512973bbe04ba",
+    "workingSha256": "eb5722e12ed4c0bb283f02f4df42c03b2ed3ccb15014af8b10a12a8b8bc7126d"
+  },
+  {
+    "path": "game/presentation/camera_math.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "967e7f0a0b7948415357e799a89e8f58fae37596",
+    "workingSha256": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c"
+  },
+  {
+    "path": "game/simulation/arena.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "9fdb89b9bb2e38723b65463bdae9debb192e865b",
+    "workingSha256": "8c8a06c7cd2ba114fd9a806c70face7847df18b472669d903391f32ca5d9342a"
+  },
+  {
+    "path": "game/content/resource_store.gd",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "ad2d479475bda988a48e7688fac1726b52897cee",
+    "workingSha256": "8b6e4d74301ca596e7b38f36d3ccc5c906603aa006d0e1c0cb4713952e33a8c5"
+  },
+  {
+    "path": "scripts/godot/export.ts",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "338bf5adad08fdfacca412386e918a458e8ac30c",
+    "workingSha256": "6856405396a8aa9d5bafe51ddb27fcf749b334c306d32fb6fc66d5a6e41e6731"
+  },
+  {
+    "path": "scripts/godot/test.ts",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "71e53d2587354d7ca5e148499ec9ca7cd5d7bbf0",
+    "workingSha256": "713ad1b8a98cf0f52c7cd96db719426df141689f147514cdbb6fe99880288ceb"
+  },
+  {
+    "path": "web/sw.ts",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "514f555d2d3b489c0b530b5deeb42727b3c0bbfc",
+    "workingSha256": "f17bc18100eb4b21824b3d1fb2d17ea641ec8254587c41213fb52636905e65b6"
+  },
+  {
+    "path": "web/cache-client.ts",
+    "lastChangedCommit": "ddca43f808afd818b31a39228543c5a19434beee",
+    "trackedBlob": "bfbd01146b0aed7230281eab72ceb086bf25033b",
+    "workingSha256": "f221711b71b900fae3c6ff66cd569fb6b8fb10ce907bbf3f1670805bb21df96b"
+  },
+  {
+    "path": "package.json",
+    "lastChangedCommit": "549930b17cb46f7ab84eaf18b01b1359fe9d6565",
+    "trackedBlob": "01df1815b34c262f925da59cf39321e668d08cfd",
+    "workingSha256": "a7dc579ed1ea9a350662ff77ae68f57aa73000df374b0b492cbf22178b1379e8"
+  }
+]

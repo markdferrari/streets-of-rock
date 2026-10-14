@@ -1,0 +1,31 @@
+$ bun scripts/godot/parity.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Replayed 26 fixtures in Godot
+PASS duo-cow-crow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-cow-lion: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-cow-plates: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-crow-cow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-crow-lion: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-crow-plates: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-lion-cow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-lion-crow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-lion-plates: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-plates-cow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-plates-crow: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS duo-plates-lion: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS special-cow: 30 exact state/event/camera frames (original baseline)
+PASS special-crow: 30 exact state/event/camera frames (original baseline)
+PASS special-lion: 30 exact state/event/camera frames (original baseline)
+PASS special-plates: 30 exact state/event/camera frames (original baseline)
+PASS enemy-grunt: 30 exact state/event/camera frames (original baseline)
+PASS enemy-zoner: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS enemy-enforcer: 30 exact state/event/camera frames (original baseline)
+PASS enemy-liam: 30 exact state/event/camera frames (original baseline)
+PASS visible-target-667: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS visible-target-844: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS visible-target-915: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS tables-healing: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+PASS lethal-tie: 30 exact state/event/camera frames (original baseline)
+PASS solo-stall-pause: 30 exact state/event/camera frames (requested feature 010 gameplay revision)
+All 26 current-rule fixtures match; 18 explicit gameplay revisions, original baseline retained; no discrete outcome tolerance.

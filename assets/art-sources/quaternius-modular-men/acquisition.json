@@ -1,0 +1,18 @@
+{
+  "id": "quaternius-modular-men",
+  "sourceUrl": "https://quaternius.com/packs/ultimatemodularcharacters.html",
+  "version": "February 2022 page; Blender master v3.00",
+  "acquisitionDate": "2026-10-14",
+  "sha256": "25252b3fb5d48b59f2b2dafeb0fd61af0c3ea652254b39cec02fc752be0123f4",
+  "acquiredPath": "assets/art-sources/quaternius-modular-men/Humans_Master.blend",
+  "licenseEvidencePaths": [
+    "assets/art-sources/quaternius-modular-men/License.txt",
+    "assets/art-sources/quaternius-modular-men/source-page.html"
+  ],
+  "evidenceSha256": {
+    "assets/art-sources/quaternius-modular-men/License.txt": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe",
+    "assets/art-sources/quaternius-modular-men/source-page.html": "6650b8049ec4bb5c107affe09ccb9dacf88951ea0838d89d0174e0f300d515f8"
+  },
+  "inventoryPath": "assets/art-sources/quaternius-modular-men/blend-inspection.json",
+  "downloadUrl": "https://drive.google.com/uc?export=download&id=1B9DlH0SacSiAlAdnk_Ra9tA0sEpkNAtT"
+}

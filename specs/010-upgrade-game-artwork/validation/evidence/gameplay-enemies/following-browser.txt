@@ -1,0 +1,18 @@
+$ playwright test --config playwright.godot.config.ts artwork-gameplay-enemies.spec.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 6 tests using 1 worker
+
+(node:75253) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (8.0s)
+  ✓  2 [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:17:1 › Grunts pursue both axes and the rendered running pose turns with them (6.3s)
+  ✓  3 [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:32:1 › bartender bottles follow the warned aim after the player moves (7.0s)
+(node:75466) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (6.8s)
+  ✓  5 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:17:1 › Grunts pursue both axes and the rendered running pose turns with them (7.2s)
+  ✓  6 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:32:1 › bartender bottles follow the warned aim after the player moves (7.9s)
+
+  6 passed (1.0m)

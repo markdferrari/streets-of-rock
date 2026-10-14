@@ -1,7 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
-const snapshot=(page:Page)=>page.evaluate(()=>(window as any).__sorTest?.snapshot());
-async function control(page:Page,id:string){const b=(await snapshot(page)).bounds[id];await page.locator('canvas').click({position:{x:b.x+b.width/2,y:b.y+b.height/2}});}
-async function select(page:Page,url='/'){await page.goto(url);await expect.poll(()=>snapshot(page).then(s=>s?.phase)).toBe('selecting');for(const id of ['cow','cow','plates','plates'])await control(page,`character-${id}`);await expect.poll(()=>snapshot(page).then(s=>s.phase),{timeout:10000}).toBe('running');}
+import {game as snapshot,canvasControl as control,selectDuo} from './helpers/godot';
+async function select(page:Page,url='/'){await selectDuo(page,'cow','plates',url);}
 async function command(page:Page,name:string,value?:unknown){await page.evaluate(({name,value})=>(window as any).__sorTest.command(name,value),{name,value});}
 const ids=['dance-floor','vip-lounge','backstage-corridor','alley-exit'];
 function overlaps(a:any,b:any){return a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;}

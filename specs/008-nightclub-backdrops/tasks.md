@@ -17,7 +17,7 @@ All four concepts must be prepared and reviewed before final artwork production.
 
 - [ ] T001 Verify branch and integrate the tracked prerequisites in `specs/005-choose-your-fighter/tasks.md` and `specs/006-combat-view-partner/tasks.md`: role/session readiness generations, full cache inventory/worker/audit, diagnostics, shared CameraFrame and GO; record actual status in `specs/008-nightclub-backdrops/validation.md` without duplicating their systems or closing their outstanding acceptance tasks. (FR-006–011, FR-013)
 - [ ] T002 Install locked dependencies and browser binaries using the commands in `specs/008-nightclub-backdrops/quickstart.md`; run existing suites/build checks from `package.json` and `tests/blender/run_tests.py` and record versions, baseline results and existing failures in `specs/008-nightclub-backdrops/validation.md`. (FR-006, FR-013)
-- [ ] T003 Create the FR-001–013, all sixteen story scenarios and SC-001–006 evidence matrix in `specs/008-nightclub-backdrops/validation.md`; define concept, in-game, phone, offline, performance and five-tester procedures before art work, and capture baseline bounds/waves/table positions from `src/content/neon-velvet.ts` plus matched 006 camera views. (FR-006, FR-012–013)
+- [ ] T003 Create the FR-001–013, all sixteen story scenarios and SC-001–006 evidence matrix in `specs/008-nightclub-backdrops/validation.md`; define concept, in-game, phone, offline, performance and five-tester procedures before art work, and capture baseline bounds/waves/table positions from `src/content/bondi-beach.ts` plus matched 006 camera views. (FR-006, FR-012–013)
 
 ## Phase 2: Shared foundation
 

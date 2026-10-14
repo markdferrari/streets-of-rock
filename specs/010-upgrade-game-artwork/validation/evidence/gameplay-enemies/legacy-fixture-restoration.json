@@ -1,0 +1,7 @@
+{
+  "path": "tests/reference/releases/legacy/assets/index-Dji3NPwN.js",
+  "recordedSha256": "d51203dc24de44aee4c9488ebda2362e6f7eaccddfd81a2c5bc713ad1c4f1d37",
+  "modifiedSha256": "041688a5866c925e39b5d8fb4bb03cfc7f0b86519f97b62701dd7686a625dae8",
+  "backup": "legacy-index-modified.js.txt",
+  "reason": "Frozen historical fixture level ID changed from neon-velvet to bondi-beach, invalidating its declared tree fingerprint; preserve the altered bundle and restore recorded fixture bytes."
+}

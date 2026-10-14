@@ -1,0 +1,18 @@
+{
+  "source": "Curtains_Double.blend",
+  "sha256": "808b0303766ea2ef7c9952a64e43ecaafd6b8f61b534ebea91279a96ea0ca6cc",
+  "blenderVersion": "5.2.2 LTS",
+  "actions": [],
+  "meshes": [
+    {
+      "name": "Curtains_Double",
+      "vertices": 208,
+      "polygons": 160,
+      "materials": [
+        "LightMetal",
+        "Couch_Blue"
+      ]
+    }
+  ],
+  "armatures": []
+}

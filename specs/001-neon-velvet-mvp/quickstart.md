@@ -6,7 +6,7 @@ as passed until the app and tests exist.
 
 ## Prerequisites
 
-- Work on `001-neon-velvet-mvp` or an authorized feature branch, never main.
+- Work on `001-bondi-beach-mvp` or an authorized feature branch, never main.
 - Node 24.21.0, Bun 1.4.2, and the exact locked dependencies in [plan](plan.md).
   Bun manages dependencies and scripts; Node remains available for the selected tool CLIs.
 - Playwright browser binaries and their system dependencies for Chromium and WebKit.
@@ -156,7 +156,7 @@ can be validated without an AWS account or provisioned resources.
 
 ## Evidence and completion
 
-Keep concise acceptance records in `specs/001-neon-velvet-mvp/validation/` when validation runs:
+Keep concise acceptance records in `specs/001-bondi-beach-mvp/validation/` when validation runs:
 commands/results, scenario coverage, build/asset identities, device versions, frame summary,
 and anonymized player results. Large raw traces may stay in ignored `test-results/` with
 retained artifact locations referenced by the record. No personal player details are needed.

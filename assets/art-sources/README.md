@@ -1,0 +1,5 @@
+# Inspected authoring inputs (feature 010 T005)
+
+Acquired 2026-10-14. These are evaluation/source inputs, not runtime resources. `.gdignore` excludes this entire directory from Godot import. Production export uses explicit source groups and does not include this directory. Per-source acquisition/inventory records retain exact hashes, creators, versions and evidence. Kenney archives are retained verbatim. Quaternius publishes loose Drive files rather than a single pack archive; retained folder listings and downloaded representative/master files establish the inspected scope, not a claim that every file in Drive was downloaded.
+
+Selection/status authority: `content/art-provenance.json`. CC0 permission was reviewed using exact pack license plus https://creativecommons.org/publicdomain/zero/1.0/. Third-party licenses remain attached. Accepted furniture is a source decision, not completed final art/import/mobile validation. Original fallback: code-authored club frontage/signage/queue, bottles/DJ/speakers/curtains/branding and required enemy-specific actions. Enemy master remains a candidate until comparison/animation adaptation is resolved.

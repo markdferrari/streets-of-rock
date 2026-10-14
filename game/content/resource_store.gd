@@ -1,10 +1,32 @@
 extends RefCounted
 const Backdrops = preload("res://game/presentation/backdrops.gd")
+const Art = preload("res://game/content/art_catalog.gd")
 var owned: Dictionary = {}
 var templates: Dictionary = {}
 var errors: Array[String] = []
 var backdrop_textures: Dictionary = {}
 var backdrop_decoded_bytes: int = 0
+
+func prepare_enemies(content: RefCounted) -> bool:
+ var failures: Array[String] = []
+ for definition in content.enemy_presentations.values():
+  var key: String = definition.sceneResourceId
+  var path: String = "res://" + content.resources.art[key].path
+  var clips: Array = []
+  for binding in definition.clipBindings.values():
+   if not binding.clipName in clips: clips.append(binding.clipName)
+  if not prepare(key, path, clips):
+   failures.append_array(errors)
+   continue
+  var probe: Node3D = templates[key].instantiate()
+  var inspected := Art.inspect_enemy(probe, definition)
+  probe.free()
+  if not inspected.is_empty():
+   templates.erase(key)
+   failures.append_array(inspected)
+ if not prepare("prop.bottle", "res://" + content.resources.props.bottle, []): failures.append_array(errors)
+ errors = failures
+ return errors.is_empty()
 
 func prepare_backdrops(catalogue: Dictionary, resolve_texture: Callable = Callable()) -> bool:
  errors = Backdrops.validate(catalogue)

@@ -17,7 +17,7 @@ Preserve the existing specification/design edits. This feature does not reimplem
 
 - [X] T001 Confirm branch/toolchain and create `specs/006-combat-view-partner/validation.md` with feature requirement/scenario coverage, baseline commands, pending hardware/track/player dependencies, and the manual procedures from `specs/006-combat-view-partner/quickstart.md` (FR-001–012).
 - [X] T002 Integrate the completed 005 selected-role/session/platform work using `specs/005-choose-your-fighter/tasks.md` as its authoritative prerequisite list; verify `src/game/selectors.ts`, `src/game/ai/partner.ts`, `src/app/session.ts`, `src/platform/pwa.ts` and the enhanced `scripts/audit-build.ts`, recording actual readiness in `specs/006-combat-view-partner/validation.md`. Do not mark missing prerequisite code as present; use 005 tasks for unfinished work (FR-005, FR-012).
-- [ ] T003 Capture the integrated 005 baseline before camera changes: matched four-room screenshots at 844×390, 915×412 and actual phone sizes, projected floor coverage, actor positions and `src/content/neon-velvet.ts` bounds/spawns; save captures under `specs/006-combat-view-partner/evidence/baseline/` and commands/tool versions/results in `specs/006-combat-view-partner/validation.md` (FR-006–008; SC-003).
+- [ ] T003 Capture the integrated 005 baseline before camera changes: matched four-room screenshots at 844×390, 915×412 and actual phone sizes, projected floor coverage, actor positions and `src/content/bondi-beach.ts` bounds/spawns; save captures under `specs/006-combat-view-partner/evidence/baseline/` and commands/tool versions/results in `specs/006-combat-view-partner/validation.md` (FR-006–008; SC-003).
 
 ## Phase 2: Foundational — Shared Camera and Arena Context
 

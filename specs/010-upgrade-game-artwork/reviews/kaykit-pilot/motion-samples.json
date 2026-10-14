@@ -1,0 +1,1094 @@
+[
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "idle",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Idle_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.321428571428571,
+        "semantic": "Idle",
+        "timeSeconds": 0.342857142857143
+      },
+      "zoner": {
+        "clipName": "Idle_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.321428571428571,
+        "semantic": "Idle",
+        "timeSeconds": 0.342857142857143
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 37
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "move",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Running_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.321428571428571,
+        "semantic": "Move",
+        "timeSeconds": 0.257142857142857
+      },
+      "zoner": {
+        "clipName": "Running_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.321428571428571,
+        "semantic": "Move",
+        "timeSeconds": 0.257142857142857
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 37
+  },
+  {
+    "bottleVisible": false,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "attacks",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Melee_Unarmed_Attack_Punch_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.740740740740741,
+        "semantic": "grunt.windup",
+        "timeSeconds": 0.348148148148148
+      },
+      "zoner": {
+        "clipName": "Throw",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.893939393939394,
+        "semantic": "throw.recovery",
+        "timeSeconds": 1.31080808080808
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [
+      {
+        "phase": "active",
+        "sampleSeconds": 0.7,
+        "tick": 40
+      }
+    ],
+    "render": {
+      "draws": 98,
+      "primitives": 20800
+    },
+    "rigCount": 2,
+    "tick": 105
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "stun",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Hit_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.357142857142857,
+        "semantic": "Stunned",
+        "timeSeconds": 0.3
+      },
+      "zoner": {
+        "clipName": "Hit_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.357142857142857,
+        "semantic": "Stunned",
+        "timeSeconds": 0.3
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20918
+    },
+    "rigCount": 2,
+    "tick": 38
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "hurt",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Hit_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.666666666666667,
+        "semantic": "Hurt",
+        "timeSeconds": 0.444444444444444
+      },
+      "zoner": {
+        "clipName": "Hit_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 0.666666666666667,
+        "semantic": "Hurt",
+        "timeSeconds": 0.444444444444444
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 30
+  },
+  {
+    "bottleVisible": false,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": 1,
+    "mode": "defeat",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Death_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 1,
+        "semantic": "Defeated",
+        "timeSeconds": 0.8
+      },
+      "zoner": {
+        "clipName": "Death_A",
+        "facing": 1,
+        "phase2": false,
+        "sample": 1,
+        "semantic": "Defeated",
+        "timeSeconds": 0.8
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 98,
+      "primitives": 20778
+    },
+    "rigCount": 2,
+    "tick": 37
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "idle",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Idle_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.392857142857143,
+        "semantic": "Idle",
+        "timeSeconds": 0.419047619047619
+      },
+      "zoner": {
+        "clipName": "Idle_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.392857142857143,
+        "semantic": "Idle",
+        "timeSeconds": 0.419047619047619
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 39
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "move",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Running_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.392857142857143,
+        "semantic": "Move",
+        "timeSeconds": 0.314285714285714
+      },
+      "zoner": {
+        "clipName": "Running_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.392857142857143,
+        "semantic": "Move",
+        "timeSeconds": 0.314285714285714
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 39
+  },
+  {
+    "bottleVisible": false,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "attacks",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Melee_Unarmed_Attack_Punch_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.703703703703704,
+        "semantic": "grunt.windup",
+        "timeSeconds": 0.330740740740741
+      },
+      "zoner": {
+        "clipName": "Throw",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.878787878787879,
+        "semantic": "throw.recovery",
+        "timeSeconds": 1.30282828282828
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [
+      {
+        "phase": "active",
+        "sampleSeconds": 0.7,
+        "tick": 40
+      }
+    ],
+    "render": {
+      "draws": 98,
+      "primitives": 20800
+    },
+    "rigCount": 2,
+    "tick": 104
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "stun",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Hit_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.357142857142857,
+        "semantic": "Stunned",
+        "timeSeconds": 0.3
+      },
+      "zoner": {
+        "clipName": "Hit_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.357142857142857,
+        "semantic": "Stunned",
+        "timeSeconds": 0.3
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20918
+    },
+    "rigCount": 2,
+    "tick": 38
+  },
+  {
+    "bottleVisible": true,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "hurt",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Hit_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.777777777777778,
+        "semantic": "Hurt",
+        "timeSeconds": 0.518518518518518
+      },
+      "zoner": {
+        "clipName": "Hit_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 0.777777777777778,
+        "semantic": "Hurt",
+        "timeSeconds": 0.518518518518518
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 99,
+      "primitives": 20906
+    },
+    "rigCount": 2,
+    "tick": 35
+  },
+  {
+    "bottleVisible": false,
+    "buttons": {
+      "attack": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 194.222229003906,
+        "y": 340
+      },
+      "defeat": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 649.777770996094,
+        "y": 340
+      },
+      "face": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 103.111114501953,
+        "y": 340
+      },
+      "hurt": {
+        "height": 44,
+        "width": 85.1111450195312,
+        "x": 558.666687011719,
+        "y": 340
+      },
+      "idle": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 285.333343505859,
+        "y": 340
+      },
+      "move": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 376.444458007812,
+        "y": 340
+      },
+      "pause": {
+        "height": 44,
+        "width": 85.1111145019531,
+        "x": 12,
+        "y": 340
+      },
+      "reset": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 740.888916015625,
+        "y": 340
+      },
+      "stun": {
+        "height": 44,
+        "width": 85.111083984375,
+        "x": 467.555541992188,
+        "y": 340
+      }
+    },
+    "errors": [],
+    "facing": -1,
+    "mode": "defeat",
+    "paused": true,
+    "poses": {
+      "grunt": {
+        "clipName": "Death_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 1,
+        "semantic": "Defeated",
+        "timeSeconds": 0.8
+      },
+      "zoner": {
+        "clipName": "Death_A",
+        "facing": -1,
+        "phase2": false,
+        "sample": 1,
+        "semantic": "Defeated",
+        "timeSeconds": 0.8
+      }
+    },
+    "projectileCount": 0,
+    "ready": true,
+    "releases": [],
+    "render": {
+      "draws": 98,
+      "primitives": 20778
+    },
+    "rigCount": 2,
+    "tick": 35
+  }
+]

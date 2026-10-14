@@ -1,0 +1,590 @@
+[
+  {
+    "id": "duo-cow-crow",
+    "differences": 503,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[22].events: array length/type differs",
+      "$[23].events: array length/type differs",
+      "$[26].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-cow-lion",
+    "differences": 550,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].events[].tick",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events[].actorId",
+      "$[].events[].targetId",
+      "$[].events[].type",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].events: array length/type differs",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[12].events[0].tick: expected 59, actual 58",
+      "$[23].events[0].actorId: expected 2, actual 4",
+      "$[23].events[0].targetId: expected 3, actual null",
+      "$[23].events[0].type: expected \"partner-hit\", actual \"enemy-warning\"",
+      "$[27].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-cow-plates",
+    "differences": 507,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[20].events: array length/type differs",
+      "$[23].events: array length/type differs",
+      "$[25].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-crow-cow",
+    "differences": 564,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].events[].tick",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].specialMeter",
+      "$[].state.attacks[].hitTargetIds: array length/type differs",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[11].events[0].tick: expected 53, actual 52",
+      "$[22].events: array length/type differs",
+      "$[23].events: array length/type differs",
+      "$[26].events: array length/type differs",
+      "$[27].events: array length/type differs",
+      "$[28].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-crow-lion",
+    "differences": 550,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].events[].tick",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events[].actorId",
+      "$[].events[].targetId",
+      "$[].events[].type",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].events: array length/type differs",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[12].events[0].tick: expected 59, actual 58",
+      "$[23].events[0].actorId: expected 2, actual 4",
+      "$[23].events[0].targetId: expected 3, actual null",
+      "$[23].events[0].type: expected \"partner-hit\", actual \"enemy-warning\"",
+      "$[27].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-crow-plates",
+    "differences": 508,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[20].events: array length/type differs",
+      "$[23].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-lion-cow",
+    "differences": 466,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].events[].tick",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[11].events[0].tick: expected 53, actual 52",
+      "$[22].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[26].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-lion-crow",
+    "differences": 430,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[22].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[26].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-lion-plates",
+    "differences": 423,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].arena.frame.anchorHeight",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[20].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[25].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-plates-cow",
+    "differences": 595,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].events[].tick",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].specialMeter",
+      "$[].state.attacks[].hitTargetIds: array length/type differs",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[11].events[0].tick: expected 53, actual 52",
+      "$[22].events: array length/type differs",
+      "$[23].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[27].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-plates-crow",
+    "differences": 546,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId"
+    ],
+    "eventDifferences": [
+      "$[22].events: array length/type differs",
+      "$[23].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "duo-plates-lion",
+    "differences": 542,
+    "fields": [
+      "$[].state.actors[].intentState.destination.depth",
+      "$[].state.actors[].intentState.destination.x",
+      "$[].state.actors[].intentState.lastResolvedPosition.depth",
+      "$[].state.actors[].intentState.lastResolvedPosition.x",
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].arena.frame.halfHeight",
+      "$[].arena.visibleRegions[].minX",
+      "$[].arena.visibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].maxX",
+      "$[].arena.playerVisibleRegions[].minX",
+      "$[].state.actors[].lastProgressTick",
+      "$[].state.actors[].facing",
+      "$[].state.actors[].intentState.lastHorizontalFacing",
+      "$[].arena.frame.anchorHeight",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].decisionReadyTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].intentState.targetId",
+      "$[].state.actors[].targetId",
+      "$[].state.actors[].specialMeter",
+      "$[].state.attacks[].hitTargetIds: array length/type differs"
+    ],
+    "eventDifferences": [
+      "$[23].events: array length/type differs",
+      "$[24].events: array length/type differs",
+      "$[25].events: array length/type differs",
+      "$[27].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  },
+  {
+    "id": "special-cow",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "special-crow",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "special-lion",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "special-plates",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "enemy-grunt",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "enemy-zoner",
+    "differences": 13,
+    "fields": [
+      "$[].state.actors[].action.aimPosition"
+    ],
+    "eventDifferences": []
+  },
+  {
+    "id": "enemy-enforcer",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "enemy-liam",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "visible-target-667",
+    "differences": 13,
+    "fields": [
+      "$[].state.actors[].action.aimPosition"
+    ],
+    "eventDifferences": []
+  },
+  {
+    "id": "visible-target-844",
+    "differences": 13,
+    "fields": [
+      "$[].state.actors[].action.aimPosition"
+    ],
+    "eventDifferences": []
+  },
+  {
+    "id": "visible-target-915",
+    "differences": 13,
+    "fields": [
+      "$[].state.actors[].action.aimPosition"
+    ],
+    "eventDifferences": []
+  },
+  {
+    "id": "tables-healing",
+    "differences": 136,
+    "fields": [
+      "$[].state.actors[].action.aimPosition",
+      "$[].state.projectiles[].position.depth",
+      "$[].state.projectiles[].position.x",
+      "$[].state.projectiles[].previousPosition.depth",
+      "$[].state.projectiles[].previousPosition.x",
+      "$[].state.projectiles[].velocity.depth",
+      "$[].state.projectiles[].velocity.x"
+    ],
+    "eventDifferences": []
+  },
+  {
+    "id": "lethal-tie",
+    "differences": 0,
+    "fields": [],
+    "eventDifferences": []
+  },
+  {
+    "id": "solo-stall-pause",
+    "differences": 167,
+    "fields": [
+      "$[].state.actors[].position.depth",
+      "$[].state.actors[].position.x",
+      "$[].events: array length/type differs",
+      "$[].state.actors[].action.endTick",
+      "$[].state.actors[].action.kind",
+      "$[].state.actors[].action.moveId",
+      "$[].state.actors[].action.startedTick",
+      "$[].state.actors[].hp",
+      "$[].state.actors[].protectionUntilTick",
+      "$[].state.attacks: array length/type differs",
+      "$[].state.nextAttackId",
+      "$[].state.actors[].specialMeter",
+      "$[].state.attacks[].hitTargetIds: array length/type differs",
+      "$[].state.attacks[].id"
+    ],
+    "eventDifferences": [
+      "$[23].events: array length/type differs",
+      "$[28].events: array length/type differs",
+      "$[29].events: array length/type differs"
+    ]
+  }
+]

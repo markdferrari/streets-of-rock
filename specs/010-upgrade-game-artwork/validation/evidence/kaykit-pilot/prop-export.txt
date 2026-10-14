@@ -1,0 +1,13 @@
+11:30:03 | INFO: Data are loaded, start creating Blender stuff
+11:30:03 | INFO: Blender create Mesh node bottle_A_green
+11:30:03 | INFO: glTF import finished in 0.08s
+INFO Draco is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_meshopt_bridge.so
+11:30:03 | INFO: Starting glTF 2.0 export
+11:30:03 | INFO: Extracting primitive: bottle_A_green
+11:30:03 | INFO: Primitives created: 1
+11:30:03 | INFO: Finished glTF 2.0 export in 0.03827476501464844 s
+
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

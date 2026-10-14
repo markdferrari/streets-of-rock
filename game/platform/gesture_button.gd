@@ -15,7 +15,7 @@ func _input(event: InputEvent) -> void:
  handle_event(event)
 
 func handle_event(event: InputEvent) -> void:
- if disabled:
+ if disabled or not is_visible_in_tree():
   cancel_all()
   return
  var source: int = -1

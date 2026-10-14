@@ -3,13 +3,13 @@
 **Branch**: `010-upgrade-game-artwork` | **Date**: 2026-10-13 | **Spec**: [spec.md](spec.md)
 
 **Input**: `specs/010-upgrade-game-artwork/spec.md`
-**Status**: Phase 0 research and Phase 1 design complete; runtime foundation, asset production and acceptance pending.
+**Status**: Research/design and concept direction approved; Grunt/Zoner KayKit motion pilot implemented. Shared validation/production integration and final acceptance remain incomplete; see [current progress](validation/progress.md).
 
 ## Summary
 
 Replace the venue's placeholder scenery with four furnished 3D settings and replace enemy placeholders with distinct animated Grunt, Zoner, Enforcer and Liam designs. Reuse suitable free art after inspecting its actual contents and license, preserve the cartoon heroes and all combat rules, and retain mobile-web/offline quality.
 
-Implement on feature 009's approved Godot foundation using explicit GLB exports, room scenes, a validated enemy-presentation catalogue and simulation-driven pose sampling. The current tracked runtime is still Three.js; Godot integration is an explicit prerequisite, not an assumed completed migration. Independent concept, provenance and asset preparation can start first. [Research](research.md) records decisions, repository evidence, alternatives and primary sources.
+Implement on feature 009's approved Godot foundation using explicit GLB exports, room scenes, a validated enemy-presentation catalogue and simulation-driven pose sampling. At planning time the tracked runtime was Three.js. The 2026-10-14 merge supplies Godot source; [implementation audit](validation/prerequisites.md) verifies its boundaries and records command evidence. Godot integration remains an explicit validated prerequisite. Independent concept, provenance and asset preparation can start first. [Research](research.md) records decisions, repository evidence, alternatives and primary sources.
 
 ## Technical Context
 
@@ -172,3 +172,8 @@ Document validation passed: required template fields, all 13 requirement mapping
 ## Complexity Tracking
 
 No constitutional violations or exceptions. The inherited stock-engine size allowance remains explicit; it never exempts game artwork. No additional framework, backend or general authoring pipeline is introduced.
+
+
+## Owner-requested gameplay extension (2026-10-14)
+
+After approving the Grunt/Zoner previews and trying normal encounters, the owner requested correct turning, up/down Grunt pursuit and less accurate thrown objects. These explicit instructions extend the artwork-only scope for those behaviors: normalized two-axis Grunt pursuit with movement facing, and Zoner target position locked at warning start. The original attack timings and projectile speed remain. Versioned current-rule replay checkpoints preserve the frozen legacy baseline and exact comparison rules.

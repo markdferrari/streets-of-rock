@@ -1,0 +1,2 @@
+$ bun scripts/godot/export.ts release
+Web release: 9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb; 1 pack(s), 5675730 content bytes, 39804840 verified engine bytes

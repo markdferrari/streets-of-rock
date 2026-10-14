@@ -21,7 +21,7 @@ Feature 005's `src/game/selectors.ts`, `src/game/ai/partner.ts`, `src/app/sessio
 
 ## Baseline capture (T003)
 
-Before camera edits, the view used the fixed `(0, 8, 12)` offset, orthographic half-height 6 and room-centre/doorway interpolation. Walkable room x bounds are `[0,16]`, `[18,34]`, `[36,52]`, `[54,70]`; all rooms use depth `[-3,3]`. The three gaps are two units wide. Waves and spawns remain in `src/content/neon-velvet.ts`. Matched baseline and framing browser captures exist at 844×390 and 915×412. Actual phone-size captures are pending, so T003 stays open.
+Before camera edits, the view used the fixed `(0, 8, 12)` offset, orthographic half-height 6 and room-centre/doorway interpolation. Walkable room x bounds are `[0,16]`, `[18,34]`, `[36,52]`, `[54,70]`; all rooms use depth `[-3,3]`. The three gaps are two units wide. Waves and spawns remain in `src/content/bondi-beach.ts`. Matched baseline and framing browser captures exist at 844×390 and 915×412. Actual phone-size captures are pending, so T003 stays open.
 
 ## Validation Results (2026-09-29)
 

@@ -1,5 +1,6 @@
 extends RefCounted
 const Validator = preload("res://game/content/validator.gd")
+const Art = preload("res://game/content/art_catalog.gd")
 
 var definitions: Dictionary = {}
 var errors: Array[String] = []
@@ -8,6 +9,7 @@ var resources: Dictionary = {}
 var clips: Dictionary = {}
 var tuning: Dictionary = {}
 var level: Dictionary = {}
+var enemy_presentations: Dictionary = {}
 
 func read_json(path: String) -> Variant:
  var parser := JSON.new()
@@ -32,11 +34,12 @@ static func freeze(value: Variant) -> void:
 func load_catalogue(base: String = "res://content") -> bool:
  errors.clear()
  definitions = {}
+ enemy_presentations = {}
  var ids: Variant = read_json(base + "/roster.json")
  var assets: Variant = read_json(base + "/resources.json")
  var animations: Variant = read_json(base + "/animation-clips.json")
  var values: Variant = read_json(base + "/tuning.json")
- var rooms: Variant = read_json(base + "/levels/neon-velvet.json")
+ var rooms: Variant = read_json(base + "/levels/bondi-beach.json")
  if not ids is Array or not assets is Dictionary or not animations is Dictionary or not values is Dictionary or not rooms is Dictionary:
   errors.append(base + ": malformed catalogue records")
   return false
@@ -45,6 +48,20 @@ func load_catalogue(base: String = "res://content") -> bool:
  clips = animations
  tuning = values
  level = rooms
+ var enemy_document: Variant = read_json(base + "/enemy-presentations.json")
+ if not enemy_document is Dictionary or enemy_document.get("schemaVersion") != 1 or not enemy_document.get("enemies") is Array or not enemy_document.get("sources") is Array:
+  errors.append(base + "/enemy-presentations.json: versioned enemy/source arrays required")
+ else:
+  var sources: Dictionary = {}
+  for source in enemy_document.sources:
+   if source is Dictionary and source.get("id") is String: sources[source.id] = source
+  for enemy in enemy_document.enemies:
+   errors.append_array(Art.validate_enemy_definition(enemy, resources.get("art", {}), sources))
+   if enemy is Dictionary and enemy.get("role") is String:
+    if enemy_presentations.has(enemy.role): errors.append("enemy-presentations: duplicate role " + enemy.role)
+    else: enemy_presentations[enemy.role] = enemy
+  for role in ["grunt", "zoner"]:
+   if not enemy_presentations.has(role): errors.append("enemy-presentations: required approved rig " + role + " missing")
  for id in roster:
   if not id is String or definitions.has(id):
    errors.append(base + "/roster.json: duplicate/invalid identity " + str(id))
@@ -66,6 +83,6 @@ func load_catalogue(base: String = "res://content") -> bool:
  if not errors.is_empty():
   definitions.clear()
   return false
- for value in [definitions, roster, resources, clips, tuning, level]:
+ for value in [definitions, roster, resources, clips, tuning, level, enemy_presentations]:
   freeze(value)
  return true

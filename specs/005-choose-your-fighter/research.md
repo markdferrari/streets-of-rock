@@ -40,7 +40,7 @@ Date: 2026-09-27. All technical questions identified during planning are resolve
 
 **Rationale:** `vite.config.ts` currently has no PWA plugin, `src/main.ts` only creates GameApp, there is no settings/audio adapter, and `scripts/audit-build.ts` only checks index.html. The approved FR-014 cannot pass without these prerequisites. Full-build caching must include portraits, both extended GLBs, all level assets, fonts if any, and bundled audio. Cache success and runtime readiness are separate: playback rejection never blocks gameplay, but incomplete caching cannot show offline-ready.
 
-**Alternatives considered:** Deferring these prerequisites would leave mandatory feature acceptance incomplete. Automatically refreshing a waiting worker risks replacing an active build in another tab. The plugin documents prompt-style registration and explicit update callbacks; our choice retains the stricter natural-waiting policy from the project's earlier research instead of invoking its refresh callback. See [Vite PWA update guide](https://vite-pwa-org.netlify.app/guide/prompt-for-update.html) and [baseline research](../001-neon-velvet-mvp/research.md).
+**Alternatives considered:** Deferring these prerequisites would leave mandatory feature acceptance incomplete. Automatically refreshing a waiting worker risks replacing an active build in another tab. The plugin documents prompt-style registration and explicit update callbacks; our choice retains the stricter natural-waiting policy from the project's earlier research instead of invoking its refresh callback. See [Vite PWA update guide](https://vite-pwa-org.netlify.app/guide/prompt-for-update.html) and [baseline research](../001-bondi-beach-mvp/research.md).
 
 ## R6. Testing and evidence
 

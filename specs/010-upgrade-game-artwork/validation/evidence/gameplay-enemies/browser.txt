@@ -1,0 +1,16 @@
+$ playwright test --config playwright.godot.config.ts artwork-gameplay-enemies.spec.ts godot-loading.spec.ts
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 4 tests using 1 worker
+
+(node:42416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (8.1s)
+  ✓  2 [chromium] › tests/e2e/godot-loading.spec.ts:3:1 › ten retained-duo retry cycles release every old rig and reuse shared imports (51.5s)
+(node:43485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/e2e/artwork-gameplay-enemies.spec.ts:4:1 › normal encounters render approved Grunt and bartender rigs with frozen poses while paused (7.4s)
+  ✓  4 [webkit] › tests/e2e/godot-loading.spec.ts:3:1 › ten retained-duo retry cycles release every old rig and reuse shared imports (48.4s)
+
+  4 passed (2.1m)

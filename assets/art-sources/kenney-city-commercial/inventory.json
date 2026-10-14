@@ -1,0 +1,1469 @@
+{
+  "archiveSha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+  "files": [
+    {
+      "path": "License.txt",
+      "bytes": 708,
+      "sha256": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69"
+    },
+    {
+      "path": "Models/FBX format/building-a.fbx",
+      "bytes": 56672,
+      "sha256": "3d383bdeb0ea180b703b92cd07ecdb01d6222703a378580437528868437c612d"
+    },
+    {
+      "path": "Models/FBX format/building-b.fbx",
+      "bytes": 56096,
+      "sha256": "26b153451c6ea1400e14cff0a6ce8411f0b114127b3081a29ad5ded98896b050"
+    },
+    {
+      "path": "Models/FBX format/building-c.fbx",
+      "bytes": 57920,
+      "sha256": "557d52cde0289365a1ca7e0d32c595122e98f031923219b46ae196a78d97b975"
+    },
+    {
+      "path": "Models/FBX format/building-d.fbx",
+      "bytes": 56320,
+      "sha256": "9176e712840f116f3837ccf861045b28048ceac545f09717486856ebf79ffc27"
+    },
+    {
+      "path": "Models/FBX format/building-e.fbx",
+      "bytes": 64192,
+      "sha256": "09f9e92134d8e00e9a7e14c6e2ea62e201f1fe8605edfa668ba0eeb52049550c"
+    },
+    {
+      "path": "Models/FBX format/building-f.fbx",
+      "bytes": 71216,
+      "sha256": "d64a64ee4718b0f76778861bca9a971ac1f12f5c190dae7dbc07b5e42591a894"
+    },
+    {
+      "path": "Models/FBX format/building-g.fbx",
+      "bytes": 73536,
+      "sha256": "ba972159cb1ff78ad2bf28011367167be6c7ff2cde66c6d58a0faede585897c2"
+    },
+    {
+      "path": "Models/FBX format/building-h.fbx",
+      "bytes": 62960,
+      "sha256": "4f6554d76944938cccb9b32c62f510123bb735784f8296011c9fb4507450ae1c"
+    },
+    {
+      "path": "Models/FBX format/building-i.fbx",
+      "bytes": 85424,
+      "sha256": "4e849bdbdda605b82087ada6cd730cd15565c886abc7566ea6f7a1b348317fc1"
+    },
+    {
+      "path": "Models/FBX format/building-j.fbx",
+      "bytes": 154032,
+      "sha256": "8f71730317760a9d8cd7d91a940c0f0b18dfbb14e081edcd8694264bad232040"
+    },
+    {
+      "path": "Models/FBX format/building-k.fbx",
+      "bytes": 98816,
+      "sha256": "3561c873c6df83cbc4679885b930577c5ed2b686b5d646bb321ec81352bbe0c1"
+    },
+    {
+      "path": "Models/FBX format/building-l.fbx",
+      "bytes": 110864,
+      "sha256": "3bc4f8c8a54460b99b40b82a0e761024fe735a3b4911f025868d83267106d73c"
+    },
+    {
+      "path": "Models/FBX format/building-m.fbx",
+      "bytes": 109696,
+      "sha256": "d0497a11869a9e9fdd26859294c809e21e8e5a99edae53f3b0d112e55732d56d"
+    },
+    {
+      "path": "Models/FBX format/building-n.fbx",
+      "bytes": 129408,
+      "sha256": "c977f6879a8021291c8e79e1abb6d3f4862e63ae621749cd954c4d78dad11589"
+    },
+    {
+      "path": "Models/FBX format/building-skyscraper-a.fbx",
+      "bytes": 56832,
+      "sha256": "769f629b00d7ed4d134163c1067e5524d2f46043a6c983fca132d97b717651b0"
+    },
+    {
+      "path": "Models/FBX format/building-skyscraper-b.fbx",
+      "bytes": 63296,
+      "sha256": "2a5731e00b5f067151353569965795c484e3fd8df5228527e5790aabfbcc0bd4"
+    },
+    {
+      "path": "Models/FBX format/building-skyscraper-c.fbx",
+      "bytes": 69344,
+      "sha256": "142a773ec0ab0745a20d80b22a99bb9f5802e99ef525130671ae6f802dc9a6fb"
+    },
+    {
+      "path": "Models/FBX format/building-skyscraper-d.fbx",
+      "bytes": 73200,
+      "sha256": "a1b8c3a6bcd2d980582805a4c1828b325f715909d0124c4996717d6dc719148f"
+    },
+    {
+      "path": "Models/FBX format/building-skyscraper-e.fbx",
+      "bytes": 51616,
+      "sha256": "bf223a5ee77fa80c91c6f3b83bc1ac7bb339167a85488f3e99066a4c0ef8fef0"
+    },
+    {
+      "path": "Models/FBX format/detail-awning-wide.fbx",
+      "bytes": 28576,
+      "sha256": "995e5a1d784f927a516a550bcd6026369d9726c3b4fed92c3dcff1dd8ba4d730"
+    },
+    {
+      "path": "Models/FBX format/detail-awning.fbx",
+      "bytes": 28528,
+      "sha256": "e718ffcb9d5d025288c09290244749e8f13aa58cce08334196c049c065d92a19"
+    },
+    {
+      "path": "Models/FBX format/detail-overhang-wide.fbx",
+      "bytes": 26576,
+      "sha256": "f4c284a0fae0e4f6435926638a8e6338df96b5bd8fec0172dffadd0678632e0d"
+    },
+    {
+      "path": "Models/FBX format/detail-overhang.fbx",
+      "bytes": 26560,
+      "sha256": "1ac33863624ba4d51a19780f83967deefa38f166384b949006ba80d9fe67742d"
+    },
+    {
+      "path": "Models/FBX format/detail-parasol-a.fbx",
+      "bytes": 26608,
+      "sha256": "1c6eae3191e70d1c63456f810376f55c2f149138508e2069823e59bf9eaa80b7"
+    },
+    {
+      "path": "Models/FBX format/detail-parasol-b.fbx",
+      "bytes": 27536,
+      "sha256": "4da74cc9389e5094cdc326be056c621cd7d15d9f4e4f5df4b576d1889011eb05"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-a.fbx",
+      "bytes": 27760,
+      "sha256": "7bade3808bc0984c77d50d67616b482bd1fb3bb9bd6d6b077e2a5d840cf3fcd3"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-b.fbx",
+      "bytes": 27968,
+      "sha256": "4b660cc533a6495ad205949202c3731ede42d99d9dbcb0e63348080dfae9faf2"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-c.fbx",
+      "bytes": 26864,
+      "sha256": "f623fd7f10a8e546ab5cb186e3631eaf5ce4e8874fabf27c3e1afb311b0e7d3a"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-d.fbx",
+      "bytes": 25936,
+      "sha256": "f20860ee8201979274fde5d92ac60ee441dbd023734fc6fcba9f8024287023e1"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-e.fbx",
+      "bytes": 26160,
+      "sha256": "a0edbb719f5f56b576afb46b0d9550a3b74ac0080fd69ab2934399d3df7a0e55"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-f.fbx",
+      "bytes": 25504,
+      "sha256": "ebe8215155d97640da7a1ab6cc7c0005d22d66e372e4604f7b30fe1aeda3117b"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-g.fbx",
+      "bytes": 27312,
+      "sha256": "771e355b103822e569312bd7c72496f31469cda727988fbee92c5e9fe62bc133"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-h.fbx",
+      "bytes": 31072,
+      "sha256": "908a94ad9ae84bf85313ebf6b38c822f02e7b41ebcc7b294dc57c29cf6e3bbf4"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-i.fbx",
+      "bytes": 26688,
+      "sha256": "e9014c011013526772027945a263e42d97ecb1a3cac3c210043888103ebc19a9"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-j.fbx",
+      "bytes": 27936,
+      "sha256": "7e2d5c8380823890c635c04515bedefafb63f355d0185d797bfad234d87cbabc"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-k.fbx",
+      "bytes": 25392,
+      "sha256": "03b03700b694a9e41e97f3d3820b82c4b74c4d43b09379065b75ff923719c6bb"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-l.fbx",
+      "bytes": 26784,
+      "sha256": "da474e2cc9d531dc50f0a074cc33a97cb3fc368acbded80bd9fd82e4493a0585"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-m.fbx",
+      "bytes": 27872,
+      "sha256": "8064e91d2e4deeacfad940e5733f83fd3947d46a5a9d0fea5986b81f8d8b52fe"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-n.fbx",
+      "bytes": 26592,
+      "sha256": "51ad9ec369b6892744dd57727761c4558e68c53ba64db7384ddd1199b1edb679"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-wide-a.fbx",
+      "bytes": 27040,
+      "sha256": "787b3e5f321e71748f84711b148f4c51fa8af139c95bc88d25bd9ee319fc6f0d"
+    },
+    {
+      "path": "Models/FBX format/low-detail-building-wide-b.fbx",
+      "bytes": 28704,
+      "sha256": "b53e52b7713667be2520a61bb1f3d8cb77c9b9c4d59495fbd432cc331989b8ca"
+    },
+    {
+      "path": "Models/FBX format/Textures/colormap.png",
+      "bytes": 11002,
+      "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+    },
+    {
+      "path": "Models/GLB format/building-a.glb",
+      "bytes": 108936,
+      "sha256": "5cf220f90ee3f21e7abe38055ca409a48aa8ef1d5ffab6e2deb99e5a5e1ed5e0",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1252,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-b.glb",
+      "bytes": 106408,
+      "sha256": "3b5d3ac0799c024781d92bb15971d42f4f8e380554dc5cf6a40c2f07d948947a",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1276,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-c.glb",
+      "bytes": 102788,
+      "sha256": "f6887608a95a165503561730252c30506938803731c6546efca12bd47b1666bd",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1195,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-d.glb",
+      "bytes": 95160,
+      "sha256": "40605608e9aca0c98e294acff4af0f74afa417a51d589be490ca98f33ce4c2f5",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1100,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-e.glb",
+      "bytes": 128208,
+      "sha256": "edbe5b49858a3c83e72d3cf496129c06082ef3a3d6005769f8883138e275b456",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1509,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-f.glb",
+      "bytes": 148952,
+      "sha256": "633a25f7fb3ccf98e304a885a36ed900aecee5bde7ecd554729dec753cceea78",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1794,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-g.glb",
+      "bytes": 166356,
+      "sha256": "9a28fa2fdfac07492ee95589882213cfd6eb32d6752cb3b2f5404604c676d27a",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 2006,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-h.glb",
+      "bytes": 127384,
+      "sha256": "6881613ce218bb33a0f56137d4d33b00d307c47e518fbb21ccba1083efbea896",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1512,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-i.glb",
+      "bytes": 209728,
+      "sha256": "3e572277d3eead30e24668a653ec6a11a488228a219d4902f08638cbca7c3dfe",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 2544,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-j.glb",
+      "bytes": 440652,
+      "sha256": "eedc2690cda345b62351f03a218a817a6ad59f399c12e064ca5ff37333d059f5",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 5246,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-k.glb",
+      "bytes": 246976,
+      "sha256": "afd36f573b9d6a6a890675aa0fbe762b29efb6258f322990752d79d9f0da42c6",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 2960,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-l.glb",
+      "bytes": 290516,
+      "sha256": "0c3d1b346c142198b7f504d12b40cb1630bb14c3ff38a013922b700d09f9dcff",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 3512,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-m.glb",
+      "bytes": 301004,
+      "sha256": "1cdc717ac86a0479043ff0d0146142f5dfc2622c0e3aaac484fad5807f94d580",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 3740,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-n.glb",
+      "bytes": 341232,
+      "sha256": "35dc225d48516ead483a49e90dd164f1bc62b1ad75d3095488bd404cad1848b0",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 4350,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-skyscraper-a.glb",
+      "bytes": 111336,
+      "sha256": "d8339bbb75944ff91d1ec9a70ec6dead71bd98b94a42d3dd0fc1f3b107ddbe85",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1292,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-skyscraper-b.glb",
+      "bytes": 138480,
+      "sha256": "3a383e8a0a8819023d30b2aee1c6f40fa6bc28990227a306a86e531f36c6b8d5",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1592,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-skyscraper-c.glb",
+      "bytes": 149524,
+      "sha256": "e73c357554f7561fedb8c1cbecf9d7163ba09ada264d661c59a0f0a180e0185f",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1704,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-skyscraper-d.glb",
+      "bytes": 167148,
+      "sha256": "5c524ec13be53fff85ace8b328bc2587cba4e93962230e4a0ba98998e53d30b5",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1892,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/building-skyscraper-e.glb",
+      "bytes": 101880,
+      "sha256": "21b58a2f2b18d6a7cf8915e8b947bdb6a6a0706da6cffb5a01677c29f03b5935",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 1156,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-awning-wide.glb",
+      "bytes": 5544,
+      "sha256": "d37ba34be414cef84db966e548e2c558088aec3fdf68763565b9caf95c11ac5f",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 40,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-awning.glb",
+      "bytes": 5528,
+      "sha256": "386978daf81dc11ac601638f19a41918a391ff882a8c518ae5a3215a1bed4d8a",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 40,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-overhang-wide.glb",
+      "bytes": 6716,
+      "sha256": "e94c5d603936a225c8d37650044cebdae99c112c49273dc19a3ee3fb2dca2bf0",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 64,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-overhang.glb",
+      "bytes": 6704,
+      "sha256": "291b00c1f698296b50cf25c393777eee9547a4aa0f912efe73cb9789d104ba2b",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 64,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-parasol-a.glb",
+      "bytes": 10320,
+      "sha256": "70e636bea8dc67c3bfd19b163333e824356118458c8c401017322ec43c10a7f7",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 96,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/detail-parasol-b.glb",
+      "bytes": 12120,
+      "sha256": "2d58c1d16df16f618afd9f7fd9f13e82791c50cd7cd77edaa493fbdd09e708d2",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 120,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-a.glb",
+      "bytes": 14340,
+      "sha256": "c3986108805f0aa7e27e566f5052cb5e8d478417e267779e55ade583ea809a0a",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 188,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-b.glb",
+      "bytes": 16336,
+      "sha256": "ef2ab63731c38a469df7f993c26b0e8137746f90ac20ed9485d61f48aa50fbdb",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 200,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-c.glb",
+      "bytes": 12284,
+      "sha256": "91ea91b2399cbb94e9b2209e12823dc5b720affc7163f74e0cb8ee07faf62d85",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 142,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-d.glb",
+      "bytes": 8716,
+      "sha256": "cca2c05bba22e1e33c5aeb3c4746843b61235cc75cb2c0269e9e0755b276f121",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 106,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-e.glb",
+      "bytes": 8240,
+      "sha256": "48c9554b54c6a6089ebf7d8acd0186fe5936dfc1711cabebdd97ad918b340fba",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 96,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-f.glb",
+      "bytes": 6932,
+      "sha256": "adc5b93981bb86aca9c7459e35920647039aa217d51705e445d4e699d2c54967",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 88,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-g.glb",
+      "bytes": 16320,
+      "sha256": "f9bc2fe27ffc93689a317959542ad6d1c24aeeaa1efcfed59f7ba67423f65702",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 200,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-h.glb",
+      "bytes": 26812,
+      "sha256": "6de95299129118224b739845202a6d6a688e3ca6f9f61c4b0fd04dba99a61e23",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 378,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-i.glb",
+      "bytes": 11768,
+      "sha256": "e277aad27d3e98f5880ac65acee0ec1f68cc20e7fb28eed0a688afe48f6564ae",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 152,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-j.glb",
+      "bytes": 16404,
+      "sha256": "a1291d4e277c45ee53fa5dc610490c54c302ab1cdc677b6b6b2ce31670f0423c",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 188,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-k.glb",
+      "bytes": 7556,
+      "sha256": "36215b34b01de7a48a78b9cc344a577ed436e13596b59d2bcb01bab9f50aab5c",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 86,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-l.glb",
+      "bytes": 12128,
+      "sha256": "6cc75bfa0e821db2997dca8a14d9f63c675de5987781c2ff0977b8a644d25fd5",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 150,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-m.glb",
+      "bytes": 15112,
+      "sha256": "597d8c18ac63de895de66fc4fe0695bd9958d76ccb9b340ad0dfd1589666a22e",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 188,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-n.glb",
+      "bytes": 5904,
+      "sha256": "8ab4dc2ed40e3f0c2d82eb9010b6e50a946dc07a3125e28568f0dfd12eae00bd",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 62,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-wide-a.glb",
+      "bytes": 12736,
+      "sha256": "4687e3200e1aba16d333a169ca5f7e5489c05ffcaeb06b7159a82c77ea42b42b",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 156,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/low-detail-building-wide-b.glb",
+      "bytes": 18736,
+      "sha256": "c082149c94ce9f6ae06969a7dbf4b3e92009cda8be90f1bcd5b89b9adcb1ce23",
+      "animations": [],
+      "meshes": 1,
+      "materials": 1,
+      "textures": 1,
+      "skins": 0,
+      "triangles": 246,
+      "externalDependencies": [
+        "Textures/colormap.png"
+      ]
+    },
+    {
+      "path": "Models/GLB format/Textures/colormap.png",
+      "bytes": 11002,
+      "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+    },
+    {
+      "path": "Models/OBJ format/building-a.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-a.obj",
+      "bytes": 101104,
+      "sha256": "ec5b3bbf725be6ea792b0cc7b543d11ac8659811264500037d2cdc398632f2ce"
+    },
+    {
+      "path": "Models/OBJ format/building-b.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-b.obj",
+      "bytes": 104189,
+      "sha256": "d5f4344d5be797a6ed93641d4159a630de093e0517b4b8435d9789cea141bd62"
+    },
+    {
+      "path": "Models/OBJ format/building-c.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-c.obj",
+      "bytes": 101022,
+      "sha256": "e7bc3677c9f7ee66a0459bc99fa6c69f60b7f9338165d91ccfd1f2ca1fcac9bd"
+    },
+    {
+      "path": "Models/OBJ format/building-d.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-d.obj",
+      "bytes": 91677,
+      "sha256": "9d0e71d3a3703a171961443ea1b6ec34f67a93d90731e261eb3394fe19a78147"
+    },
+    {
+      "path": "Models/OBJ format/building-e.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-e.obj",
+      "bytes": 128576,
+      "sha256": "4cd4f36a1914d98e9f75825727f117f41a4c11fee284c88cc2fe0c3404a1df51"
+    },
+    {
+      "path": "Models/OBJ format/building-f.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-f.obj",
+      "bytes": 146264,
+      "sha256": "c7398b3f2b9458f56c080fee9d977ae617ed283dc5f768dfcc61133b423fdccf"
+    },
+    {
+      "path": "Models/OBJ format/building-g.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-g.obj",
+      "bytes": 170583,
+      "sha256": "d8e339b38199af55b840111c09352897398c0291e836817b66fa191cbef7ac2b"
+    },
+    {
+      "path": "Models/OBJ format/building-h.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-h.obj",
+      "bytes": 122178,
+      "sha256": "c6d293a14bd24df16ec4bf88ed2cd1d51ce3d1e78c09b019a744e787ce7430ae"
+    },
+    {
+      "path": "Models/OBJ format/building-i.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-i.obj",
+      "bytes": 211145,
+      "sha256": "3965aa1da613a5521990e9c12e10bbb515ce6ec337925c44a8d5c1a6a308d5cc"
+    },
+    {
+      "path": "Models/OBJ format/building-j.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-j.obj",
+      "bytes": 453979,
+      "sha256": "2d7d47e3ac7258e67c4d30dbd8a2ef6cf970ceed2a252e4a8a2ffa31db24ddb8"
+    },
+    {
+      "path": "Models/OBJ format/building-k.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-k.obj",
+      "bytes": 258659,
+      "sha256": "c81fdbabb4f293b809be194bf6e761ba0d87a73b11f1ae9a7bf2ee0df8e67aca"
+    },
+    {
+      "path": "Models/OBJ format/building-l.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-l.obj",
+      "bytes": 307812,
+      "sha256": "496ac0dec43f8389467717fc1edf0c5427c7194c4e5df308bc5e7157aac81109"
+    },
+    {
+      "path": "Models/OBJ format/building-m.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-m.obj",
+      "bytes": 317657,
+      "sha256": "25aa82d8e19327fe68e3220ce3ac33400a125c82b69c0034e738d16b22bcabcb"
+    },
+    {
+      "path": "Models/OBJ format/building-n.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-n.obj",
+      "bytes": 386751,
+      "sha256": "d0390dcd3b0e62f6a8bcee8efa6109ab91d5f9bb49aad93a236b8a50489e9a18"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-a.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-a.obj",
+      "bytes": 118235,
+      "sha256": "0a3704d13705c2f692166d2edb3a31105a7b42f9b4c90996ce19440e276e6c9f"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-b.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-b.obj",
+      "bytes": 144571,
+      "sha256": "c66e25a4501564736579cd658113d62dfc54f0c1e3cc1d118ce4fb72e367e095"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-c.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-c.obj",
+      "bytes": 158350,
+      "sha256": "c586b8beda8cdcc28f34e8c8d25af0fbfa49a5712c83da1228c1739ffd9ef8c1"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-d.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-d.obj",
+      "bytes": 184014,
+      "sha256": "529b0f128cf0a120c5f21176788487bd3e47be6d311ed871798b23152594152d"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-e.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/building-skyscraper-e.obj",
+      "bytes": 95108,
+      "sha256": "544094b4c0d20876b64478b144b91ac0a66dce17aa3e9957ccfa02559fdfe2f9"
+    },
+    {
+      "path": "Models/OBJ format/detail-awning-wide.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-awning-wide.obj",
+      "bytes": 3570,
+      "sha256": "e7c2acdc8e191b848f4be4ca5f89a5d8f8a13212c9f485e0317e89eb0d080e10"
+    },
+    {
+      "path": "Models/OBJ format/detail-awning.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-awning.obj",
+      "bytes": 3555,
+      "sha256": "0e8757195fbbff2a0e6fb35ff97083e0e2e5a8ce9c4c54a955e226a7573746e8"
+    },
+    {
+      "path": "Models/OBJ format/detail-overhang-wide.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-overhang-wide.obj",
+      "bytes": 4747,
+      "sha256": "1aa52304e1daa1446e718edcc0ec5030813f8e2481031f485bdce8a0982f3d44"
+    },
+    {
+      "path": "Models/OBJ format/detail-overhang.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-overhang.obj",
+      "bytes": 4740,
+      "sha256": "2dad0badebb274a959a318e2108a47b18a2ffb1d18e6a412444b531d7a34e16e"
+    },
+    {
+      "path": "Models/OBJ format/detail-parasol-a.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-parasol-a.obj",
+      "bytes": 7340,
+      "sha256": "e31474f76f0898efe50733b783ec599ea11fc55ae93b2e45dc38650a0f75b375"
+    },
+    {
+      "path": "Models/OBJ format/detail-parasol-b.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/detail-parasol-b.obj",
+      "bytes": 9073,
+      "sha256": "29f20da6119e527793f473ee8a2012a6b5deaf8959dbd40ffc0f6c6c0b848e79"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-a.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-a.obj",
+      "bytes": 12263,
+      "sha256": "d0532d815170c5ad4ce8b751e863e36fdd111d01d2727afe5d4e76cf18c57953"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-b.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-b.obj",
+      "bytes": 13493,
+      "sha256": "e8598044afcd89e037f89836d8830192a88ff3016ae98cebd11944f1f87b8fe4"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-c.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-c.obj",
+      "bytes": 10959,
+      "sha256": "c4b8c1493d12a4003d38b9dca641e3075f6394313bf33c720e765671d74e30c4"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-d.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-d.obj",
+      "bytes": 7495,
+      "sha256": "f06386a7973de28069d9a0954317a62ad97ce880cad994ad95073f989548a61b"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-e.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-e.obj",
+      "bytes": 8115,
+      "sha256": "225bebf7aeedfee7207acff56cecd5a69649e11c0bb3032d483e0d2bcf0854f0"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-f.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-f.obj",
+      "bytes": 6371,
+      "sha256": "c253164dad868604c14468ac4e9f6988d88e80a8948188568434738765728872"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-g.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-g.obj",
+      "bytes": 12303,
+      "sha256": "7d5acf276631a37ec986db111d1a96b2816180e34ea0b37ceef72dbc7e8c1070"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-h.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-h.obj",
+      "bytes": 25271,
+      "sha256": "fff34b92f257e6dbe95f5698434511eb22b5cf056f3022e466d14fdf7557b952"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-i.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-i.obj",
+      "bytes": 10741,
+      "sha256": "42a56e149dee895cbfb439339aed70597541466b0c0c236c015c155e9474817d"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-j.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-j.obj",
+      "bytes": 13662,
+      "sha256": "fefc79e43f1be330ecf5d2022d097c75efb177d02ccdde41f59bf738f2f19657"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-k.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-k.obj",
+      "bytes": 6042,
+      "sha256": "e0fa3f2d66245a249d5031eb8be74df4acd2ff7142740e66dfc713317c785f44"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-l.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-l.obj",
+      "bytes": 10767,
+      "sha256": "1a025e7097f9e5364a867420b67bd7a2eb3c7bd31a341addd07b1aa97b140b25"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-m.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-m.obj",
+      "bytes": 12951,
+      "sha256": "7203875cb06b84bd84600f7bdb60843ea065cf92d6ce7627201fc88993f7ccdb"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-n.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-n.obj",
+      "bytes": 4725,
+      "sha256": "2285568ca297d9d3c8954f7d082de2289f46baafb05cc01a33778ad0691958db"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-wide-a.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-wide-a.obj",
+      "bytes": 10014,
+      "sha256": "4f181cc2a4e534db0089341b18b744664a3b1fe09810d214063697f7cec65367"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-wide-b.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "path": "Models/OBJ format/low-detail-building-wide-b.obj",
+      "bytes": 16678,
+      "sha256": "f796e8ebc9c3d815dd8b8805f1f378d7530340c8d8e43d814aea06126d905537"
+    },
+    {
+      "path": "Models/OBJ format/Textures/colormap.png",
+      "bytes": 11002,
+      "sha256": "191bec3889aaaca5018380038fecc129ebb5c2182879a099b7b538b3fa050b5d"
+    },
+    {
+      "path": "Models/Textures/variation-a.png",
+      "bytes": 11020,
+      "sha256": "22be5afbdf78f8158ebd568667779e73ebc16f887481d3add35df59bf820b118"
+    },
+    {
+      "path": "Models/Textures/variation-b.png",
+      "bytes": 10897,
+      "sha256": "d7fa3fb6243fdb8cbcbbe8b61c4ff10ceb29aed23be806171f58cef13a8690e6"
+    },
+    {
+      "path": "Overview.html",
+      "bytes": 9864,
+      "sha256": "d0f39f68d874de727550f244a318fa316d748b793d9845f7dc8e0adeff856d01"
+    },
+    {
+      "path": "Preview (Variation A).png",
+      "bytes": 539349,
+      "sha256": "0e9fc7071ca0307428018ddb28b6313527198bb972a37b3adedd3c9a585864d7"
+    },
+    {
+      "path": "Preview (Variation B).png",
+      "bytes": 517133,
+      "sha256": "ec1086aa88d34b8aef4c46dddc10a6d1886e40c88951f300c575e4c58c80844d"
+    },
+    {
+      "path": "Preview.png",
+      "bytes": 148760,
+      "sha256": "c642e79a23961e06df22b00486734f2da0b9edf71d12e48caa2dc85a0465989d"
+    },
+    {
+      "path": "Previews/building-a.png",
+      "bytes": 1870,
+      "sha256": "5b70226f17fd44da3e92dbb3cc16f719f9e081b18688aadc9eced22d983fa597"
+    },
+    {
+      "path": "Previews/building-b.png",
+      "bytes": 1948,
+      "sha256": "736a288b402389b5d0373bb89288017dc77a0c318c1061f89f8e9225fe588f74"
+    },
+    {
+      "path": "Previews/building-c.png",
+      "bytes": 2026,
+      "sha256": "00ad8f76c4ac70177339161653056025efebd83bb41fcd3b9da021d7fc4bf7e4"
+    },
+    {
+      "path": "Previews/building-d.png",
+      "bytes": 1752,
+      "sha256": "7e09a7d068d45e07bbd118851681aa99d8a9dd94a4ff47d0031a2784053d93ea"
+    },
+    {
+      "path": "Previews/building-e.png",
+      "bytes": 2194,
+      "sha256": "1f0c3c7c0348172ecade2aa4998963abe8245d69f0f53b1c03c689bd6a30a4ba"
+    },
+    {
+      "path": "Previews/building-f.png",
+      "bytes": 1750,
+      "sha256": "36bc3043a4ee7aaf22863c12de4258f366b3e87d0ac8ff48f06cb784f6253888"
+    },
+    {
+      "path": "Previews/building-g.png",
+      "bytes": 1783,
+      "sha256": "158c072e63d6f4790d2f097135dba3fa3dd2bef0c914e22fcb9235131f32e374"
+    },
+    {
+      "path": "Previews/building-h.png",
+      "bytes": 1741,
+      "sha256": "f317fd3a8a2aa3dd567b31bf7adf9597791946efbcb208a64cbed6f26dd9e315"
+    },
+    {
+      "path": "Previews/building-i.png",
+      "bytes": 1848,
+      "sha256": "20dc5863afd14b9f966956f785728ff8a1d21b1a3eb8afea8fa8d3ac68f09fae"
+    },
+    {
+      "path": "Previews/building-j.png",
+      "bytes": 2139,
+      "sha256": "f2aa3c6a1dcf1ef7182e5a0e8c9dca6ad5a550d974f512fb715e3b7b86570a6f"
+    },
+    {
+      "path": "Previews/building-k.png",
+      "bytes": 2020,
+      "sha256": "bb7871e6eb012fe1a8fe804c8d38d53869714f78e81e6af7480570aca3f6eaca"
+    },
+    {
+      "path": "Previews/building-l.png",
+      "bytes": 1695,
+      "sha256": "907f1c9bbdc4121616d9cc7c72c56092a18b4970831b18eb1a043071e0e13908"
+    },
+    {
+      "path": "Previews/building-m.png",
+      "bytes": 1558,
+      "sha256": "6d72ab147b2c1f02ce90199b1d18f6701567a7e6843cb26177de46d47b6a4ce0"
+    },
+    {
+      "path": "Previews/building-n.png",
+      "bytes": 1921,
+      "sha256": "f2ff5b205a14c415cc293132d6336944ca9ab24d57b7293e813143fc36a837a0"
+    },
+    {
+      "path": "Previews/building-skyscraper-a.png",
+      "bytes": 1652,
+      "sha256": "8c36940e5946f691e3cbb97bb08796554f1984da80c89ce8f32d63c552323eb5"
+    },
+    {
+      "path": "Previews/building-skyscraper-b.png",
+      "bytes": 1527,
+      "sha256": "bc2f6b71565ddc989c21b046dfdee8907da387eb4dd3d6174a96873f27bb9d6b"
+    },
+    {
+      "path": "Previews/building-skyscraper-c.png",
+      "bytes": 1506,
+      "sha256": "d729b6ad6ff826bdfc58183f943e480e5ed1e90cf7a1144e9dacc398bcc823e4"
+    },
+    {
+      "path": "Previews/building-skyscraper-d.png",
+      "bytes": 1424,
+      "sha256": "cb913471d7fe8e00a1a2af4c367ea992f8903fac9208b0fd532d601a7327ee62"
+    },
+    {
+      "path": "Previews/building-skyscraper-e.png",
+      "bytes": 1538,
+      "sha256": "9c6d41ce1a98d60c58b6aae45b4dc00cbaaaf20099fef192aae7b1727aeab75a"
+    },
+    {
+      "path": "Previews/detail-awning-wide.png",
+      "bytes": 1336,
+      "sha256": "edc00015d600da7f6b8d0849f88395e014c971385c44e682be8745c174f13989"
+    },
+    {
+      "path": "Previews/detail-awning.png",
+      "bytes": 1542,
+      "sha256": "c537e781d0a92c02d3e1286bbcb9f1190db47da02c3bff115e228d962356fe00"
+    },
+    {
+      "path": "Previews/detail-overhang-wide.png",
+      "bytes": 1330,
+      "sha256": "ca8bf019ead44233ec410756b6c41ec060257b78492e88be3cb434f682964112"
+    },
+    {
+      "path": "Previews/detail-overhang.png",
+      "bytes": 1528,
+      "sha256": "7ac816416a89bcffe4b08759db7942cdd2341fe09b7b2b900d9cabcad9c911ee"
+    },
+    {
+      "path": "Previews/detail-parasol-a.png",
+      "bytes": 1748,
+      "sha256": "13fe067dfe9566868e4dc573aa8f0b70fc9b13d57c330635068218cb86577df0"
+    },
+    {
+      "path": "Previews/detail-parasol-b.png",
+      "bytes": 1728,
+      "sha256": "5193c9265095cc27108a764fb29bc915256d36ce3742a96d443499aa907c423e"
+    },
+    {
+      "path": "Previews/low-detail-building-a.png",
+      "bytes": 1488,
+      "sha256": "0b3201e1a7a3df3d30f1db8be3917b32438a512970870a414013ce58b7a095b4"
+    },
+    {
+      "path": "Previews/low-detail-building-b.png",
+      "bytes": 1239,
+      "sha256": "c3ab63e1d75260faad1f84566dc2943ce74376a8c0f7436482f500bb1cb16380"
+    },
+    {
+      "path": "Previews/low-detail-building-c.png",
+      "bytes": 1449,
+      "sha256": "bbac81b17c6d5d89393c2e33abfc98568d616b75683058024a6760540b778926"
+    },
+    {
+      "path": "Previews/low-detail-building-d.png",
+      "bytes": 1447,
+      "sha256": "aab8c20103d71c6e3501757851e54a8ba92e625f102106bdbd4872f623a83844"
+    },
+    {
+      "path": "Previews/low-detail-building-e.png",
+      "bytes": 1530,
+      "sha256": "0268586aff7d8dbd6bace6c1bab3ac5234af5e86d7cffdd059fbc07658893612"
+    },
+    {
+      "path": "Previews/low-detail-building-f.png",
+      "bytes": 1318,
+      "sha256": "ff599c4f88fa4aaa048af8eb238c7e8cda65b32c15a8b0f9ee87f4de0a4e158e"
+    },
+    {
+      "path": "Previews/low-detail-building-g.png",
+      "bytes": 1439,
+      "sha256": "6a1cc294a30f1d076cee6f5d992a025324e8ef3de0a9e8425473c5e98060085d"
+    },
+    {
+      "path": "Previews/low-detail-building-h.png",
+      "bytes": 1342,
+      "sha256": "014654e9b77ff52a5e86c7b4a9f483f3b158ff3dd56c520c586ac5d5ab3dce98"
+    },
+    {
+      "path": "Previews/low-detail-building-i.png",
+      "bytes": 1389,
+      "sha256": "37b1710d7c155bc6a319d89033677b1598afbb35c6fb16248bc5ad4621e488f3"
+    },
+    {
+      "path": "Previews/low-detail-building-j.png",
+      "bytes": 1365,
+      "sha256": "0a7043b489e4fbe92b7965083a88e5b3e96978fd76208539f184ee72742e8f22"
+    },
+    {
+      "path": "Previews/low-detail-building-k.png",
+      "bytes": 1512,
+      "sha256": "1816d1e155998b509d13a4061000c4f10b3b5e36368e5892e42abb46a3262ca3"
+    },
+    {
+      "path": "Previews/low-detail-building-l.png",
+      "bytes": 1449,
+      "sha256": "b419230596f7e5df735be61e356004d1e78a9b4cb3fea7c8bc4152dfb3af7e3c"
+    },
+    {
+      "path": "Previews/low-detail-building-m.png",
+      "bytes": 1396,
+      "sha256": "3a979997853e5858018cc5f375d635ebc732cd826c9714d546c359350a418f56"
+    },
+    {
+      "path": "Previews/low-detail-building-n.png",
+      "bytes": 1725,
+      "sha256": "fb55cfefcb261a79e6bfd2343db4f746bb559dfc22023090d44a93708d3e73ab"
+    },
+    {
+      "path": "Previews/low-detail-building-wide-a.png",
+      "bytes": 1812,
+      "sha256": "4d09bf7fb954635707fd560c380d48f16f7205d4612591b1a0cde33d84477325"
+    },
+    {
+      "path": "Previews/low-detail-building-wide-b.png",
+      "bytes": 1744,
+      "sha256": "4dd1be1948630492b2ae1c2c238a92b2cdb16dbbf1e33b35d00eecba10a58c30"
+    },
+    {
+      "path": "Sample.png",
+      "bytes": 190728,
+      "sha256": "e4a8153a5064a1eda1b8e04e0db5064ed0481cb05fd978516792d24eafe2ba5e"
+    },
+    {
+      "path": "View Documentation.url",
+      "bytes": 185,
+      "sha256": "04e97bd6cafb469c1d38fd8c0b7db896d4f40ae14a4892de49690e2339977ef5"
+    },
+    {
+      "path": "Visit Kenney.url",
+      "bytes": 118,
+      "sha256": "773515aff299de98f621b769e3ad1ac5552eed54ea686791f75000014911e203"
+    },
+    {
+      "path": "Visit Patreon.url",
+      "bytes": 55,
+      "sha256": "84be5ef26b07905fa7e196e943c9807bf84138c3a71d87f51c6fd57b85c48c34"
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+bun test v1.4.2 (744846f84)
+
+tests/e2e/godot-input.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-input.spec.ts:4:1
+-------------------------------
+
+
+tests/e2e/godot-duos.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-duos.spec.ts:6:72
+-------------------------------
+
+
+tests/e2e/godot-loading.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-loading.spec.ts:3:1
+-------------------------------
+
+
+tests/e2e/godot-lifecycle.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-lifecycle.spec.ts:4:1
+-------------------------------
+
+
+tests/e2e/godot-release.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-release.spec.ts:3:1
+-------------------------------
+
+
+tests/e2e/godot-offline.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-offline.spec.ts:8:1
+-------------------------------
+
+
+tests/e2e/godot-character-workflow.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-character-workflow.spec.ts:4:70
+-------------------------------
+
+
+tests/e2e/godot-backdrops.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-backdrops.spec.ts:8:94
+-------------------------------
+
+
+tests/e2e/godot-foundation.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test.beforeEach() to be called here.
+Most common reasons include:
+- You are calling test.beforeEach() in a configuration file.
+- You are calling test.beforeEach() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test.beforeEach() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _hook (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2312:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-foundation.spec.ts:3:6
+-------------------------------
+
+
+tests/e2e/artwork-enemy-pilot.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test() to be called here.
+Most common reasons include:
+- You are calling test() in a configuration file.
+- You are calling test() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _createTest (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2238:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/artwork-enemy-pilot.spec.ts:11:1
+-------------------------------
+
+
+tests/e2e/godot-accessibility.spec.ts:
+
+# Unhandled error between tests
+-------------------------------
+2219 |     this.test = test;
+2220 |   }
+2221 |   _currentSuite(location, title) {
+2222 |     const suite = (0, import_globals2.currentlyLoadingFileSuite)();
+2223 |     if (!suite) {
+2224 |       throw new Error([
+                       ^
+error: Playwright Test did not expect test.beforeEach() to be called here.
+Most common reasons include:
+- You are calling test.beforeEach() in a configuration file.
+- You are calling test.beforeEach() in a file that is imported by the configuration file.
+- You have two different versions of @playwright/test. This usually happens
+  when one of the dependencies in your package.json depends on @playwright/test.
+- You are calling test.beforeEach() from an async test.describe() block. Only sync ones are supported.
+      at _currentSuite (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2224:17)
+      at _hook (/home/mark/projects/godot/streets-of-rock/node_modules/playwright/lib/common/index.js:2312:24)
+      at /home/mark/projects/godot/streets-of-rock/tests/e2e/godot-accessibility.spec.ts:4:6
+-------------------------------
+
+
+tests/platform/storage.test.ts:
+(pass) browser storage boundary > exposes exactly the three stable raw keys and reports unavailable storage without throwing [0.64ms]
+
+tests/platform/bridge.test.ts:
+(pass) versioned browser capability boundary > keeps the bridge event type when worker detail includes its protocol type [0.14ms]
+(pass) versioned browser capability boundary > retains early cache and update status until Godot connects its callback [0.05ms]
+(pass) versioned browser capability boundary > retains callback for synchronous semantic gesture and rejects stale or disabled activation [1.33ms]
+(pass) versioned browser capability boundary > reports interruption and safe return without auto-resume, then unregisters listeners [0.61ms]
+(pass) versioned browser capability boundary > keeps raw persistence behind three keys with denial fallback [0.06ms]
+(pass) versioned browser capability boundary > rejects unsupported protocol and invalid geometry [0.10ms]
+(pass) forwards native touch cancellation without translating actions or guessing pointer IDs [0.06ms]
+
+tests/platform/diagnostics.test.ts:
+(pass) decodes the Godot bridge JSON into a local structured report [0.04ms]
+
+tests/platform/worker.test.ts:
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+7 | async function workerFixture() {
+8 |   vi.resetModules();
+         ^
+TypeError: vi.resetModules is not a function. (In 'vi.resetModules()', 'vi.resetModules' is undefined)
+      at workerFixture (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:8:6)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:27:25)
+1 | import {afterEach,describe,expect,it,vi} from 'vitest';
+2 | import {digest} from '../../web/cache-audit';
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+                     ^
+TypeError: vi.unstubAllGlobals is not a function. (In 'vi.unstubAllGlobals()', 'vi.unstubAllGlobals' is undefined)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:6:18)
+(fail) actual worker repair protocol > uses revision-aware keys and repairs missing and corrupt bytes [0.41ms]
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+7 | async function workerFixture() {
+8 |   vi.resetModules();
+         ^
+TypeError: vi.resetModules is not a function. (In 'vi.resetModules()', 'vi.resetModules' is undefined)
+      at workerFixture (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:8:6)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:35:25)
+1 | import {afterEach,describe,expect,it,vi} from 'vitest';
+2 | import {digest} from '../../web/cache-audit';
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+                     ^
+TypeError: vi.unstubAllGlobals is not a function. (In 'vi.unstubAllGlobals()', 'vi.unstubAllGlobals' is undefined)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:6:18)
+(fail) actual worker repair protocol > serializes repairs and surfaces quota denial without readiness [0.12ms]
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+7 | async function workerFixture() {
+8 |   vi.resetModules();
+         ^
+TypeError: vi.resetModules is not a function. (In 'vi.resetModules()', 'vi.resetModules' is undefined)
+      at workerFixture (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:8:6)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:43:25)
+1 | import {afterEach,describe,expect,it,vi} from 'vitest';
+2 | import {digest} from '../../web/cache-audit';
+3 | vi.mock('workbox-precaching',()=>({precacheAndRoute:vi.fn(),createHandlerBoundToURL:vi.fn(),cleanupOutdatedCaches:vi.fn(),getCacheKeyForURL:(url:string)=>url+'?__WB_REVISION__=digest'}));
+4 | vi.mock('workbox-routing',()=>({registerRoute:vi.fn(),NavigationRoute:class {}}));
+5 | vi.mock('workbox-core',()=>({cacheNames:{precache:'release-cache'}}));
+6 | afterEach(()=>vi.unstubAllGlobals());
+                     ^
+TypeError: vi.unstubAllGlobals is not a function. (In 'vi.unstubAllGlobals()', 'vi.unstubAllGlobals' is undefined)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/worker.test.ts:6:18)
+(fail) actual worker repair protocol > rejects wrong protocol/build IDs and tampered inventory [0.09ms]
+
+tests/platform/cache-foundation.test.ts:
+(pass) audits every engine/pack byte and never treats missing or corrupt data as ready [2.30ms]
+(pass) rejects an empty or duplicate required inventory instead of claiming offline readiness [0.07ms]
+
+tests/platform/semantics.test.ts:
+(pass) semantic projection > publishes accessible roles, ranges, focus intent and generation-safe intents exactly once [0.17ms]
+(pass) semantic projection > rejects out-of-range values and clips CSS bounds to the safe viewport [0.05ms]
+
+tests/platform/cache.test.ts:
+ 7 | 
+ 8 | describe('release cache verification and repair protocol', () => {
+ 9 |   it('ends idle requests after 10 seconds and progressing requests at the 120 second deadline',async()=>{
+10 |     vi.useFakeTimers();
+11 |     class Channel {port1:any={close:()=>{},onmessage:null};port2:any={postMessage:(data:unknown)=>this.port1.onmessage?.({data})};}
+12 |     vi.stubGlobal('MessageChannel',Channel);
+            ^
+TypeError: vi.stubGlobal is not a function. (In 'vi.stubGlobal("MessageChannel", Channel)', 'vi.stubGlobal' is undefined)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/cache.test.ts:12:8)
+(fail) release cache verification and repair protocol > ends idle requests after 10 seconds and progressing requests at the 120 second deadline [0.15ms]
+18 |       await vi.advanceTimersByTimeAsync(120001);expect((await busy).error).toMatch(/deadline/);clearInterval(interval!);
+19 |     }finally{vi.unstubAllGlobals();vi.useRealTimers();}
+20 |   });
+21 |   it('ignores stale request IDs and rejects invalid required paths',async()=>{
+22 |     class Channel {port1:any={close:()=>{},onmessage:null};port2:any={postMessage:(data:unknown)=>this.port1.onmessage?.({data})};}
+23 |     vi.stubGlobal('MessageChannel',Channel);
+            ^
+TypeError: vi.stubGlobal is not a function. (In 'vi.stubGlobal("MessageChannel", Channel)', 'vi.stubGlobal' is undefined)
+      at <anonymous> (/home/mark/projects/godot/streets-of-rock/tests/platform/cache.test.ts:23:8)
+(fail) release cache verification and repair protocol > ignores stale request IDs and rejects invalid required paths [0.11ms]
+(pass) release cache verification and repair protocol > requires exact byte length and SHA-256 and distinguishes missing from corrupt files [0.17ms]
+(pass) release cache verification and repair protocol > rejects mismatched build responses and reports the exact repair request [0.81ms]
+(pass) release cache verification and repair protocol > turns quota and missing worker errors into incomplete readiness [0.10ms]
+
+tests/tooling/character-scaffold.test.ts:
+(pass) character scaffold output scope > defaults to the active feature drafts and retains the requested brief [1.72ms]
+(pass) character scaffold output scope > supports an explicit output directory and refuses collisions before writing [0.93ms]
+
+tests/tooling/preview.test.ts:
+(pass) serves correct engine MIME types, errors for missing assets and confines traversal [0.44ms]
+
+tests/tooling/godot-setup.test.ts:
+(pass) pinned project-local Godot setup > rejects editor/template version mismatches [0.32ms]
+(pass) pinned project-local Godot setup > rejects corrupt bytes before extraction [0.14ms]
+(pass) pinned project-local Godot setup > installs inside the project instead of a global template location [0.04ms]
+(pass) pinned project-local Godot setup > propagates process, parser, load and assertion failures [0.06ms]
+
+tests/tooling/reference.test.ts:
+(pass) canonical replay contract > preserves event order and exact hit/target/outcome identities [0.21ms]
+(pass) canonical replay contract > normalizes absent optionals to null without dropping array order [0.03ms]
+(pass) canonical replay contract > uses tight relative continuous tolerance in both directions [0.04ms]
+(pass) canonical replay contract > requires frame time, viewport, ArenaContext, ordered input and checkpoints [0.26ms]
+(pass) committed fixtures retain pinned provenance, digests and executable frame inputs [80.68ms]
+
+tests/tooling/release-audit.test.ts:
+(pass) complete release audit contracts > rejects duplicate paths, malformed file identity and unverified engine bytes [1.17ms]
+(pass) complete release audit contracts > requires current-build acceptance evidence and keeps diagnostics isolated by build mode [0.35ms]
+(pass) final acceptance evidence integrity > rejects pass flags without the required art and character reviews [0.08ms]
+(pass) final acceptance evidence integrity > accepts complete current-build records and rejects missing, stale or changed evidence [2.99ms]
+(pass) final acceptance evidence integrity > rejects missing files and references outside the evidence root [0.55ms]
+(pass) final acceptance evidence integrity > requires owner approval, licensing and the exact bundled soundtrack bytes [0.78ms]
+(pass) explicit owner waiver of manual acceptance > accepts documented manual waivers without reporting a measured pass [0.68ms]
+(pass) explicit owner waiver of manual acceptance > rejects undocumented, stale or changed waiver decisions [0.60ms]
+
+tests/tooling/export.test.ts:
+(pass) web export contract > uses a silent driver when the browser cannot provide secure worklet audio [0.23ms]
+(pass) web export contract > separates three modes and excludes debug fixtures from release [0.02ms]
+(pass) web export contract > canonical identity includes sorted payload, mode, engine and shell without circular metadata [0.49ms]
+(pass) web export contract > splits only at resource boundaries with shared dependencies mounted first [0.40ms]
+(pass) web export contract > rejects conflicting ownership and unresolved imported-resource remaps [0.06ms]
+(pass) web export contract > preloads every pack before engine start using preserved virtual basenames [0.11ms]
+(pass) web export contract > enforces content budgets and byte-verified engine exceptions [0.08ms]
+(pass) rejects missing, modified or unlisted shipped bytes without circular worker/inventory coverage [0.18ms]
+(pass) keeps editable art provenance out of shipped content while retaining runtime definitions [0.03ms]
+(pass) packages runtime pilot definition fixtures while excluding editable Blender source [0.05ms]
+
+tests/tooling/backdrops.test.ts:
+(pass) accepts an editable opaque static self-contained SVG at the locked size [0.27ms]
+(pass) rejects wrong image sizes, external resources, scripts and animated or transparent roots [0.12ms]
+(pass) requires exactly the four stable room mappings and safe locked wall/floor paths [0.13ms]
+(pass) accounts for all eight decoded RGBA textures including the complete mip pyramid [0.10ms]
+(pass) audits the actual eight final vector panels and their complete decoded budget [0.29ms]
+(pass) requires all eight actual final texture imports in a shipped pack, never concept substitutes [0.18ms]
+
+tests/tooling/character-cli.test.ts:
+(pass) character validator CLI contract > validates a different Godot project root and propagates malformed definition failures [536.57ms]
+(pass) character validator CLI contract > runs the actual imported validator for the full roster and per-character root [620.79ms]
+(pass) character validator CLI contract > supports full/per-character roots and always checks bundled files [794.50ms]
+(pass) character validator CLI contract > rejects conflicting modes and invalid arguments with actionable diagnostics [0.77ms]
+
+16 tests failed:
+(fail) actual worker repair protocol > uses revision-aware keys and repairs missing and corrupt bytes [0.41ms]
+(fail) actual worker repair protocol > serializes repairs and surfaces quota denial without readiness [0.12ms]
+(fail) actual worker repair protocol > rejects wrong protocol/build IDs and tampered inventory [0.09ms]
+(fail) release cache verification and repair protocol > ends idle requests after 10 seconds and progressing requests at the 120 second deadline [0.15ms]
+(fail) release cache verification and repair protocol > ignores stale request IDs and rejects invalid required paths [0.11ms]
+
+ 56 pass
+ 16 fail
+ 11 errors
+ 270 expect() calls
+Ran 72 tests across 26 files. [2.52s]

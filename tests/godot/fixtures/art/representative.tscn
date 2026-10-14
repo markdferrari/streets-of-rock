@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://tests/godot/fixtures/art/enemy_review.gd" id="1"]
+[ext_resource type="PackedScene" path="res://tests/godot/fixtures/art/enemy-pilot/grunt/runtime/character.glb" id="2"]
+[ext_resource type="PackedScene" path="res://tests/godot/fixtures/art/enemy-pilot/zoner/runtime/character.glb" id="3"]
+[ext_resource type="PackedScene" path="res://tests/godot/fixtures/art/enemy-pilot/bottle.glb" id="4"]
+[node name="EnemyMotionPilot" type="Node3D"]
+script = ExtResource("1")
+bottle_scene = ExtResource("4")
+[node name="GruntRig" parent="." instance=ExtResource("2")]
+[node name="ZonerRig" parent="." instance=ExtResource("3")]

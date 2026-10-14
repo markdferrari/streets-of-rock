@@ -1,0 +1,28 @@
+test_attack_hips_cannot_lunge_beyond_simulation_owned_position (test_enemy_exports.EnemyExportTests.test_attack_hips_cannot_lunge_beyond_simulation_owned_position) ... FAIL
+test_clips_skin_materials_bindings_and_self_contained_exports (test_enemy_exports.EnemyExportTests.test_clips_skin_materials_bindings_and_self_contained_exports) ... FAIL
+test_heroes_and_acquired_animation_sources_remain_unchanged (test_enemy_exports.EnemyExportTests.test_heroes_and_acquired_animation_sources_remain_unchanged) ... ok
+
+======================================================================
+FAIL: test_attack_hips_cannot_lunge_beyond_simulation_owned_position (test_enemy_exports.EnemyExportTests.test_attack_hips_cannot_lunge_beyond_simulation_owned_position)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mark/projects/godot/streets-of-rock/tests/blender/test_enemy_exports.py", line 67, in test_attack_hips_cannot_lunge_beyond_simulation_owned_position
+    self.assertLess(span,0.001,(role,animation['name'],name,component,span))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0.14990139007568448 not less than 0.001 : ('grunt', 'Hit_A', 'hips', 2, 0.14990139007568448)
+
+======================================================================
+FAIL: test_clips_skin_materials_bindings_and_self_contained_exports (test_enemy_exports.EnemyExportTests.test_clips_skin_materials_bindings_and_self_contained_exports)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/mark/projects/godot/streets-of-rock/tests/blender/test_enemy_exports.py", line 38, in test_clips_skin_materials_bindings_and_self_contained_exports
+    self.assertEqual(len(g['meshes']),1,'one skinned mesh; batch body parts by shared material to retain draw-call headroom')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 26 != 1 : one skinned mesh; batch body parts by shared material to retain draw-call headroom
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.031s
+
+FAILED (failures=2)
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+pa_write() failed while trying to wake up the mainloop: Operation not permitted

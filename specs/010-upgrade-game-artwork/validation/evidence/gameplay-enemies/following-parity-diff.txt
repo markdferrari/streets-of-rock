@@ -1,0 +1,175 @@
+$ bun scripts/godot/parity.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Replayed 26 fixtures in Godot
+duo-cow-crow: 503 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[1].position.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].position.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-cow-lion: 550 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[1].position.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].position.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-cow-plates: 507 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[1].position.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].position.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-crow-cow: 564 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[1].position.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].position.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-crow-lion: 550 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[1].position.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].position.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-crow-plates: 508 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[1].position.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].position.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-lion-cow: 466 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[1].position.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].position.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-lion-crow: 430 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[1].position.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].position.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-lion-plates: 423 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[1].position.depth: expected -0.048396896000646936, actual -0.0474447334777884
+$[1].state.actors[1].position.x: expected -0.5242145880249467, actual -0.524048928896727
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-plates-cow: 595 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[1].position.depth: expected -0.0368719245332757, actual -0.0361486671330754
+$[1].state.actors[1].position.x: expected -0.5898774453283724, actual -0.589751616181845
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-plates-crow: 546 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[1].position.depth: expected -0.03917682183064691, actual -0.0384078956466517
+$[1].state.actors[1].position.x: expected -0.5767448567192224, actual -0.576611081342732
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+duo-plates-lion: 542 differences
+$[1].state.actors[1].intentState.destination.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[1].intentState.destination.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[1].intentState.lastResolvedPosition.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].intentState.lastResolvedPosition.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[1].position.depth: expected -0.02995752083203532, actual -0.0293709362984724
+$[1].state.actors[1].position.x: expected -0.6292752621020816, actual -0.629173212920909
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+PASS special-cow: 30 exact state/event/camera frames
+PASS special-crow: 30 exact state/event/camera frames
+PASS special-lion: 30 exact state/event/camera frames
+PASS special-plates: 30 exact state/event/camera frames
+PASS enemy-grunt: 30 exact state/event/camera frames
+enemy-zoner: 13 differences
+$[1].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[2].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[3].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[4].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[5].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[6].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[7].state.actors[2].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[24].state.actors[2].action.aimPosition: expected null, actual {"depth":0.0133333333333333,"x":0.0853333333333333}
+PASS enemy-enforcer: 30 exact state/event/camera frames
+PASS enemy-liam: 30 exact state/event/camera frames
+visible-target-667: 13 differences
+$[1].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[2].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[3].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[4].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[5].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[6].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[7].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[24].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+visible-target-844: 13 differences
+$[1].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[2].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[3].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[4].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[5].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[6].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[7].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[24].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+visible-target-915: 13 differences
+$[1].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[2].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[3].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[4].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[5].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[6].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[7].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+$[24].state.actors[3].action.aimPosition: expected null, actual {"depth":0,"x":0}
+tables-healing: 136 differences
+$[1].state.actors[2].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[1].state.actors[3].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[2].state.actors[2].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[2].state.actors[3].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[3].state.actors[2].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[3].state.actors[3].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[4].state.actors[2].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+$[4].state.actors[3].action.aimPosition: expected null, actual {"depth":-2,"x":22}
+PASS lethal-tie: 30 exact state/event/camera frames
+solo-stall-pause: 167 differences
+$[1].state.actors[2].position.depth: expected -1, actual -0.968621418377891
+$[1].state.actors[2].position.x: expected 4.84, actual 4.84310709188945
+$[1].state.actors[3].position.depth: expected 1, actual 0.973696162031143
+$[1].state.actors[3].position.x: expected 5.84, actual 5.84217697218686
+$[2].state.actors[2].position.depth: expected -1, actual -0.929398191350254
+$[2].state.actors[2].position.x: expected 4.64, actual 4.64699095675127
+$[2].state.actors[3].position.depth: expected 1, actual 0.940816364570071
+$[2].state.actors[3].position.x: expected 5.64, actual 5.64489818742043
+error: script "test:parity" exited with code 1

@@ -1,0 +1,61 @@
+11:51:15 | INFO: Data are loaded, start creating Blender stuff
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:51:15 | INFO: Blender create Mesh node Mannequin_Body
+11:51:15 | INFO: Blender create Mesh node Mannequin_Head
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegRight
+11:51:15 | INFO: glTF import finished in 0.18s
+11:51:15 | INFO: Data are loaded, start creating Blender stuff
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:51:15 | INFO: Blender create Mesh node Mannequin_Body
+11:51:15 | INFO: Blender create Mesh node Mannequin_Head
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegRight
+11:51:15 | INFO: glTF import finished in 0.10s
+11:51:15 | INFO: Data are loaded, start creating Blender stuff
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:51:15 | INFO: Blender create Mesh node Mannequin_Body
+11:51:15 | INFO: Blender create Mesh node Mannequin_Head
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:51:15 | INFO: Blender create Mesh node Mannequin_LegRight
+11:51:15 | INFO: glTF import finished in 0.15s
+/home/mark/projects/godot/streets-of-rock/scripts/art/build_enemy_pilot.py:27: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+/home/mark/projects/godot/streets-of-rock/scripts/art/build_enemy_pilot.py:186: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  shared.use_nodes=True
+Info: Saved as "character.blend"
+INFO Draco is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_meshopt_bridge.so
+11:51:15 | INFO: Starting glTF 2.0 export
+11:51:15 | INFO: Extracting primitive: Cube
+11:51:15 | INFO: Primitives created: 1
+11:51:16 | INFO: Finished glTF 2.0 export in 0.44512009620666504 s
+
+11:51:16 | INFO: Data are loaded, start creating Blender stuff
+11:51:16 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:51:16 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:51:16 | INFO: Blender create Mesh node Mannequin_Body
+11:51:16 | INFO: Blender create Mesh node Mannequin_Head
+11:51:16 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:51:16 | INFO: Blender create Mesh node Mannequin_LegRight
+11:51:16 | INFO: glTF import finished in 0.11s
+11:51:16 | INFO: Data are loaded, start creating Blender stuff
+11:51:16 | INFO: Blender create Mesh node Mannequin_ArmLeft
+11:51:16 | INFO: Blender create Mesh node Mannequin_ArmRight
+11:51:16 | INFO: Blender create Mesh node Mannequin_Body
+11:51:16 | INFO: Blender create Mesh node Mannequin_Head
+11:51:16 | INFO: Blender create Mesh node Mannequin_LegLeft
+11:51:16 | INFO: Blender create Mesh node Mannequin_LegRight
+11:51:16 | INFO: glTF import finished in 0.14s
+Info: Saved as "character.blend"
+11:51:16 | INFO: Starting glTF 2.0 export
+11:51:16 | INFO: Extracting primitive: Cube.005
+11:51:16 | INFO: Primitives created: 1
+11:51:17 | INFO: Finished glTF 2.0 export in 0.3993659019470215 s
+
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

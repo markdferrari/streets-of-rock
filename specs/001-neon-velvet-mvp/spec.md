@@ -1,6 +1,6 @@
 # Feature Specification: Bondi Beach Mobile Game MVP
 
-**Feature Branch**: `001-neon-velvet-mvp`
+**Feature Branch**: `001-bondi-beach-mvp`
 
 **Created**: 2026-09-26
 

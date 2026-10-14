@@ -1,0 +1,10 @@
+$ playwright test --config playwright.godot.config.ts --project webkit --grep "lion with crow"
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 1 test using 1 worker
+
+(node:760623) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [webkit] › tests/e2e/godot-duos.spec.ts:6:72 › lion with crow: canvas selection, actions, defeat, retained retry and home (11.8s)
+
+  1 passed (12.9s)

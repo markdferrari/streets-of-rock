@@ -1,0 +1,958 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "kenney-furniture",
+      "name": "Furniture Kit",
+      "creator": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/furniture-kit",
+      "version": "2.0",
+      "acquisitionDate": "2026-10-14",
+      "sha256": "e67652d0932cee41683f74711c03d3e192a2af9979ef8e6b237711f5482d46b0",
+      "acquiredPath": "assets/art-sources/kenney-furniture/archive.zip",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/kenney-furniture/License.txt",
+        "assets/art-sources/kenney-furniture/source-page.html"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/kenney-furniture/License.txt": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29",
+        "assets/art-sources/kenney-furniture/source-page.html": "c4c37343a214b9fb9357fa1a1fe171603aa41436ed1e2b5ab76b589c388afab3"
+      },
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 license retained; copy/modify/distribute/commercial permission assessed against CC0 deed. No creator endorsement."
+      },
+      "attributionText": "Kenney \u2014 Furniture Kit \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "status": "accepted",
+      "assessment": "Use low-cost stools/sofas and adapt counter parts; 140 GLBs actually inspected. Club bottles/DJ/speakers/signs/booths need original geometry. Visual scale/palette pending owner concept review.",
+      "reviewer": "Codex source inspection",
+      "reviewDate": "2026-10-14",
+      "inventoryPath": "assets/art-sources/kenney-furniture/inventory.json",
+      "selectedFiles": [
+        {
+          "path": "Models/GLTF format/kitchenBar.glb",
+          "bytes": 6004,
+          "sha256": "792c3d31e60c8a8d8c7a28cf7d1efe004c5a601adc1b163a8799dde32c1b559d",
+          "animations": [],
+          "meshes": 1,
+          "materials": 3,
+          "textures": 0,
+          "skins": 0,
+          "triangles": 76,
+          "externalDependencies": []
+        },
+        {
+          "path": "Models/GLTF format/kitchenBarEnd.glb",
+          "bytes": 11084,
+          "sha256": "410c6d83defe4ed248a8ec32f81553b56c8b610372d02ecf0e547e3f52cdc0a1",
+          "animations": [],
+          "meshes": 1,
+          "materials": 2,
+          "textures": 0,
+          "skins": 0,
+          "triangles": 152,
+          "externalDependencies": []
+        },
+        {
+          "path": "Models/GLTF format/stoolBar.glb",
+          "bytes": 11816,
+          "sha256": "a86167a9f92401a61fec7e509ad089ecc552d0f299743add3aeb919acb24e341",
+          "animations": [],
+          "meshes": 1,
+          "materials": 2,
+          "textures": 0,
+          "skins": 0,
+          "triangles": 176,
+          "externalDependencies": []
+        },
+        {
+          "path": "Models/GLTF format/loungeSofa.glb",
+          "bytes": 9644,
+          "sha256": "1886b811c0d3ad0d8525a4fd43adf4112c497c8e0ed906f06877ca3517f4c7dd",
+          "animations": [],
+          "meshes": 1,
+          "materials": 2,
+          "textures": 0,
+          "skins": 0,
+          "triangles": 128,
+          "externalDependencies": []
+        }
+      ],
+      "availableClips": [],
+      "runtimeDecision": "No final shipping files selected until concept/import/export gates pass.",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/furniture-kit/440e0608a4-1677580847/kenney_furniture-kit.zip"
+    },
+    {
+      "id": "kenney-city-commercial",
+      "name": "City Kit Commercial",
+      "creator": "Kenney",
+      "sourceUrl": "https://kenney.nl/assets/city-kit-commercial",
+      "version": "2.1",
+      "acquisitionDate": "2026-10-14",
+      "sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+      "acquiredPath": "assets/art-sources/kenney-city-commercial/archive.zip",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/kenney-city-commercial/License.txt",
+        "assets/art-sources/kenney-city-commercial/source-page.html"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/kenney-city-commercial/License.txt": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+        "assets/art-sources/kenney-city-commercial/source-page.html": "1f86a9b6e30bb4aee0e07bed8668e8207422cb1dc9be66e04e697c975343d0f5"
+      },
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 license retained; copy/modify/distribute/commercial permission assessed against CC0 deed. No creator endorsement."
+      },
+      "attributionText": "Kenney \u2014 City Kit Commercial \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "status": "rejected",
+      "assessment": "41 actual GLBs inspected. Whole city buildings/skyscrapers do not furnish the close 16-unit club facade/doorway; no need to ship them. Author a bespoke low-material frontage and queue rather than importing unrelated city geometry.",
+      "reviewer": "Codex source inspection",
+      "reviewDate": "2026-10-14",
+      "inventoryPath": "assets/art-sources/kenney-city-commercial/inventory.json",
+      "selectedFiles": [],
+      "availableClips": [],
+      "runtimeDecision": "No final shipping files selected until concept/import/export gates pass.",
+      "downloadUrl": "https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip"
+    },
+    {
+      "id": "quaternius-modular-men",
+      "name": "Ultimate Modular Men / Ultimate Modular Males",
+      "creator": "Quaternius",
+      "sourceUrl": "https://quaternius.com/packs/ultimatemodularcharacters.html",
+      "version": "February 2022 page; Blender master v3.00",
+      "acquisitionDate": "2026-10-14",
+      "sha256": "25252b3fb5d48b59f2b2dafeb0fd61af0c3ea652254b39cec02fc752be0123f4",
+      "acquiredPath": "assets/art-sources/quaternius-modular-men/Humans_Master.blend",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/quaternius-modular-men/License.txt",
+        "assets/art-sources/quaternius-modular-men/source-page.html"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/quaternius-modular-men/License.txt": "e8dbf915a2b82229913e301a0787696611241bdefec4832bc084f54161db1efe",
+        "assets/art-sources/quaternius-modular-men/source-page.html": "6650b8049ec4bb5c107affe09ccb9dacf88951ea0838d89d0174e0f300d515f8"
+      },
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 license retained; copy/modify/distribute/commercial permission assessed against CC0 deed. No creator endorsement."
+      },
+      "attributionText": "Quaternius \u2014 Ultimate Modular Men / Ultimate Modular Males \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "status": "candidate",
+      "assessment": "Actual master has 48 mesh objects, one 62-bone armature and 24 named actions. Punk/Suit/Swat are possible clubgoer/bartender/security bases; weapon/tactical/residential variants not selected. Current rounded blockouts propose stronger cartoon silhouettes; compare/adapt master before approving final source choice. Supplier actions alone do not cover throw/charge/rope/shockwave phases or stun.",
+      "reviewer": "Codex source inspection",
+      "reviewDate": "2026-10-14",
+      "inventoryPath": "assets/art-sources/quaternius-modular-men/blend-inspection.json",
+      "selectedFiles": [
+        {
+          "path": "Humans_Master.blend",
+          "sha256": "25252b3fb5d48b59f2b2dafeb0fd61af0c3ea652254b39cec02fc752be0123f4",
+          "bytes": 11548924
+        }
+      ],
+      "availableClips": [
+        {
+          "name": "Death",
+          "frameRange": [
+            0.0,
+            32.0
+          ]
+        },
+        {
+          "name": "Gun_Shoot",
+          "frameRange": [
+            0.0,
+            18.0
+          ]
+        },
+        {
+          "name": "HitRecieve",
+          "frameRange": [
+            0.0,
+            17.0
+          ]
+        },
+        {
+          "name": "HitRecieve_2",
+          "frameRange": [
+            0.0,
+            17.0
+          ]
+        },
+        {
+          "name": "Idle",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        },
+        {
+          "name": "Idle_Gun",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        },
+        {
+          "name": "Idle_Gun_Pointing",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        },
+        {
+          "name": "Idle_Gun_Shoot",
+          "frameRange": [
+            0.0,
+            20.0
+          ]
+        },
+        {
+          "name": "Idle_Neutral",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        },
+        {
+          "name": "Idle_Sword",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        },
+        {
+          "name": "Interact",
+          "frameRange": [
+            0.0,
+            38.0
+          ]
+        },
+        {
+          "name": "Kick_Left",
+          "frameRange": [
+            0.0,
+            28.0
+          ]
+        },
+        {
+          "name": "Kick_Right",
+          "frameRange": [
+            0.0,
+            28.0
+          ]
+        },
+        {
+          "name": "Punch_Left",
+          "frameRange": [
+            0.0,
+            25.0
+          ]
+        },
+        {
+          "name": "Punch_Right",
+          "frameRange": [
+            0.0,
+            25.0
+          ]
+        },
+        {
+          "name": "Roll",
+          "frameRange": [
+            0.0,
+            40.0
+          ]
+        },
+        {
+          "name": "Run",
+          "frameRange": [
+            0.0,
+            24.0
+          ]
+        },
+        {
+          "name": "Run_Back",
+          "frameRange": [
+            0.0,
+            25.0
+          ]
+        },
+        {
+          "name": "Run_Left",
+          "frameRange": [
+            0.0,
+            24.0
+          ]
+        },
+        {
+          "name": "Run_Right",
+          "frameRange": [
+            0.0,
+            24.0
+          ]
+        },
+        {
+          "name": "Run_Shoot",
+          "frameRange": [
+            0.0,
+            25.0
+          ]
+        },
+        {
+          "name": "Sword_Slash",
+          "frameRange": [
+            0.0,
+            31.0
+          ]
+        },
+        {
+          "name": "Walk",
+          "frameRange": [
+            0.0,
+            40.0
+          ]
+        },
+        {
+          "name": "Wave",
+          "frameRange": [
+            0.0,
+            50.0
+          ]
+        }
+      ],
+      "runtimeDecision": "No final shipping files selected until concept/import/export gates pass.",
+      "missingSemantics": [
+        "authored Stunned loop/held pose",
+        "grunt.windup/active/recovery bindings aligned to existing ticks",
+        "throw.windup/active/recovery with hand release",
+        "charge.windup/active/recovery without root locomotion",
+        "close/rope/shockwave windup/active/recovery",
+        "phase-two nonblocking style"
+      ],
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1B9DlH0SacSiAlAdnk_Ra9tA0sEpkNAtT"
+    },
+    {
+      "id": "quaternius-house-interior",
+      "name": "Ultimate House Interior Pack",
+      "creator": "Quaternius",
+      "sourceUrl": "https://quaternius.com/packs/ultimatehomeinterior.html",
+      "version": "June 2020 page; sampled Blender v2.79",
+      "acquisitionDate": "2026-10-14",
+      "sha256": "808b0303766ea2ef7c9952a64e43ecaafd6b8f61b534ebea91279a96ea0ca6cc",
+      "acquiredPath": "assets/art-sources/quaternius-house-interior/Curtains_Double.blend",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/quaternius-house-interior/License.txt",
+        "assets/art-sources/quaternius-house-interior/source-page.html"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/quaternius-house-interior/License.txt": "83d8959f9fc56353ed571fbe2dc52e4bcd64508e2399501cd45ac2ce3df0bf8c",
+        "assets/art-sources/quaternius-house-interior/source-page.html": "8898fce4d6994ef6fe7c447752b90f4361f62d286cf9c10b553def8829087f9b"
+      },
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 license retained; copy/modify/distribute/commercial permission assessed against CC0 deed. No creator endorsement."
+      },
+      "attributionText": "Quaternius \u2014 Ultimate House Interior Pack \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "status": "rejected",
+      "assessment": "Inspected creator folder listing and downloaded Curtains_Double.blend: one static mesh, no actions/skeleton. Residential furniture is redundant with selected Kenney props. Keep as evaluated alternative; author simple curtain folds originally to reduce source/material variety.",
+      "reviewer": "Codex source inspection",
+      "reviewDate": "2026-10-14",
+      "inventoryPath": "assets/art-sources/quaternius-house-interior/blend-inspection.json",
+      "selectedFiles": [
+        {
+          "path": "Curtains_Double.blend",
+          "sha256": "808b0303766ea2ef7c9952a64e43ecaafd6b8f61b534ebea91279a96ea0ca6cc",
+          "bytes": 519256
+        }
+      ],
+      "availableClips": [],
+      "runtimeDecision": "No final shipping files selected until concept/import/export gates pass.",
+      "downloadUrl": "https://drive.google.com/uc?export=download&id=1Q04vfnIiGL1sF469c3jsbaLJNBy8-1h1"
+    },
+    {
+      "id": "kaykit-character-animations-1.1",
+      "name": "KayKit Character Animations 1.1",
+      "creator": "Kay Lousberg",
+      "sourceUrl": "https://kaylousberg.itch.io/kaykit-character-animations",
+      "version": "1.1",
+      "acquisitionDate": "2026-10-14",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/kaykit-character-animations-1.1/License.txt"
+      ],
+      "status": "accepted",
+      "reviewer": "Codex inspection, owner approved reuse direction",
+      "reviewDate": "2026-10-14",
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Creator-supplied CC0 license retained with exact selected source bytes from owner-provided local pack."
+      },
+      "attributionText": "Kay Lousberg \u2014 KayKit Character Animations 1.1 \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "files": [
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/License.txt",
+          "sha256": "373b159044d1a886ed15f57ca5a7673ba14e2623c460283452705f2056912ed9",
+          "bytes": 1548
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_CombatMelee.glb",
+          "sha256": "c55e6ec1c79e83ae21d46fe1cd921c1b64be8b9a524a24517e51c6ba99231459",
+          "bytes": 999416
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_General.glb",
+          "sha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
+          "bytes": 828240
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_MovementBasic.glb",
+          "sha256": "11422afd50abf7e8c92ea107e2e0bc94abd38023d6d15f55ad580347efbfa29e",
+          "bytes": 689624
+        }
+      ],
+      "assessment": "Accepted Medium motion source for the two pilot skins. General/MovementBasic/CombatMelee retained unchanged. Pilot skins and phase cuts remain subject to gameplay review.",
+      "acquiredPath": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_General.glb",
+      "sha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
+      "evidenceSha256": {
+        "assets/art-sources/kaykit-character-animations-1.1/License.txt": "373b159044d1a886ed15f57ca5a7673ba14e2623c460283452705f2056912ed9"
+      }
+    },
+    {
+      "id": "enemy-pilot-original",
+      "name": "Original clubgoer and bartender pilot skins",
+      "creator": "Project artwork authored by Codex at owner request",
+      "originalAuthorDeclaration": "Original geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged.",
+      "version": "pilot-1",
+      "acquisitionDate": "2026-10-14",
+      "status": "accepted",
+      "licenseId": "LicenseRef-Project-Original",
+      "assessment": "Original project artwork; not final visual acceptance.",
+      "reviewer": "Owner concept direction approved; Codex source record",
+      "reviewDate": "2026-10-14",
+      "sourcePath": "scripts/art/build_enemy_pilot.py",
+      "sourceSha256": "1f4cc2f0b15120af01b1a5e9fec33476866e87847e71335d505c6deb8df13e6b",
+      "supportingFiles": [
+        {
+          "path": "tests/godot/fixtures/art/enemy-pilot/outfit.tres",
+          "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025",
+          "bytes": 162
+        }
+      ]
+    },
+    {
+      "id": "kaykit-dungeon-1.1",
+      "name": "KayKit Dungeon Asset Pack",
+      "creator": "Kay Lousberg",
+      "version": "1.1",
+      "acquisitionDate": "2026-10-14",
+      "acquisitionMethod": "Exact files copied from owner-provided KayKit_DungeonRemastered_1.1_FREE pack in the parent workspace; no network acquisition.",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/kaykit-dungeon-1.1/License.txt"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/kaykit-dungeon-1.1/License.txt": "3ad9bfddc7e218841ee558f6c462369230021192183a29e5ed1793942c752290"
+      },
+      "acquiredPath": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.gltf",
+      "sha256": "0cd643e227fdb4369dd1cf85d34c58e6b6b605336c73384eb192d21cd6b98bd3",
+      "files": [
+        {
+          "path": "assets/art-sources/kaykit-dungeon-1.1/License.txt",
+          "sha256": "3ad9bfddc7e218841ee558f6c462369230021192183a29e5ed1793942c752290",
+          "bytes": 1374
+        },
+        {
+          "path": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.bin",
+          "sha256": "e82b591d9efb83c7bfc438c031ff865cb125dd54ddd1599d497c2d7fb6e25c99",
+          "bytes": 8256
+        },
+        {
+          "path": "assets/art-sources/kaykit-dungeon-1.1/bottle_A_green.gltf",
+          "sha256": "0cd643e227fdb4369dd1cf85d34c58e6b6b605336c73384eb192d21cd6b98bd3",
+          "bytes": 3062
+        },
+        {
+          "path": "assets/art-sources/kaykit-dungeon-1.1/dungeon_texture.png",
+          "sha256": "ceb331d6ed53273da5e26808560bca8496f8f6ebc12d83b570c0e317560f1d03",
+          "bytes": 17047
+        }
+      ],
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 license retained."
+      },
+      "attributionText": "Kay Lousberg \u2014 KayKit Dungeon Asset Pack 1.1 \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "status": "accepted",
+      "reviewer": "Codex local source inspection",
+      "reviewDate": "2026-10-14",
+      "assessment": "Only green bottle selected for the review pilot; source geometry and texture retained, exported as an embedded GLB."
+    }
+  ],
+  "runtimeAssets": [
+    {
+      "role": "grunt",
+      "sceneResourceId": "enemy.grunt",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 2.5,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "grunt"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0.0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "grunt.windup": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0,
+          "endSeconds": 0.47,
+          "loop": false
+        },
+        "grunt.active": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.47,
+          "endSeconds": 0.66,
+          "loop": false
+        },
+        "grunt.recovery": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.66,
+          "endSeconds": 1.1666666666666667,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "grunt",
+      "status": "production",
+      "sourcePath": "assets/enemies/grunt/source/character.blend",
+      "runtimePath": "assets/enemies/grunt/runtime/character.glb",
+      "sourceSha256": "56c50fd7482fa9257287c4c0b379b1df6e075bcb378b91928fd8e8a7ac9159cd",
+      "runtimeSha256": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Retain only five selected animation clips",
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
+      ],
+      "reviewStatus": "preview-approved; gameplay review pending",
+      "ownerDecision": "I am happy with the previews",
+      "importSettingsPath": "assets/enemies/grunt/runtime/character.glb.import",
+      "importSettingsSha256": "824fa7d66b7c6818f74743639db1b2a7eeb781265b5c147ef4d895c05b5cbf9e",
+      "materialPath": "assets/enemies/shared/outfit.tres",
+      "materialSha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+    },
+    {
+      "role": "zoner",
+      "sceneResourceId": "enemy.zoner",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 2.5,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "throw"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0.0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "throw.windup": {
+          "clipName": "Throw",
+          "startSeconds": 0,
+          "endSeconds": 0.7,
+          "loop": false
+        },
+        "throw.active": {
+          "clipName": "Throw",
+          "startSeconds": 0.7,
+          "endSeconds": 0.84,
+          "loop": false
+        },
+        "throw.recovery": {
+          "clipName": "Throw",
+          "startSeconds": 0.84,
+          "endSeconds": 1.3666666666666667,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "zoner",
+      "status": "production",
+      "sourcePath": "assets/enemies/zoner/source/character.blend",
+      "runtimePath": "assets/enemies/zoner/runtime/character.glb",
+      "sourceSha256": "8822878ebeed62c64d2e1ab9a0f6dd773ab1078002d518fa4e3b646d6251f617",
+      "runtimeSha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Retain only five selected animation clips",
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
+      ],
+      "reviewStatus": "preview-approved; gameplay review pending",
+      "ownerDecision": "I am happy with the previews",
+      "importSettingsPath": "assets/enemies/zoner/runtime/character.glb.import",
+      "importSettingsSha256": "b662ea28d6ede8b77fcfdc08b7c9157c8886369856cfa7f7e5dc7cbf879e688d",
+      "materialPath": "assets/enemies/shared/outfit.tres",
+      "materialSha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+    }
+  ],
+  "originalFallbacks": [
+    {
+      "subjects": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ],
+      "work": "Bespoke club structures/landmarks and restrained palette, supplement selected furniture",
+      "status": "concept-only",
+      "sourcePath": "specs/010-upgrade-game-artwork/reviews/source/create_concepts.py",
+      "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda"
+    },
+    {
+      "subjects": [
+        "grunt",
+        "zoner",
+        "enforcer",
+        "liam"
+      ],
+      "work": "Rounded role-specific silhouettes and authored missing attack/stun poses; compare Quaternius rig before final source choice",
+      "status": "concept-only",
+      "sourcePath": "specs/010-upgrade-game-artwork/reviews/source/create_concepts.py",
+      "sourceSha256": "20042066232b636c7490d5eb07ec8aa0e0be9650da340c4712ae61f24998beda"
+    }
+  ],
+  "prototypeAssets": [
+    {
+      "role": "grunt",
+      "sceneResourceId": "pilot.grunt",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 2.5,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "grunt"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0.0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "grunt.windup": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0,
+          "endSeconds": 0.47,
+          "loop": false
+        },
+        "grunt.active": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.47,
+          "endSeconds": 0.66,
+          "loop": false
+        },
+        "grunt.recovery": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.66,
+          "endSeconds": 1.1666666666666667,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "grunt",
+      "status": "prototype",
+      "sourcePath": "tests/godot/fixtures/art/enemy-pilot/grunt/source/character.blend",
+      "runtimePath": "tests/godot/fixtures/art/enemy-pilot/grunt/runtime/character.glb",
+      "sourceSha256": "56c50fd7482fa9257287c4c0b379b1df6e075bcb378b91928fd8e8a7ac9159cd",
+      "runtimeSha256": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Retain only five selected animation clips",
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
+      ],
+      "importSettings": {
+        "path": "tests/godot/fixtures/art/enemy-pilot/grunt/runtime/character.glb.import",
+        "sha256": "e11c10b89804f33eacca2013f47d972b0d2e5b1fc01dd116ffbbb0ae24ff742c",
+        "bytes": 1433
+      },
+      "material": {
+        "path": "tests/godot/fixtures/art/enemy-pilot/outfit.tres",
+        "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025",
+        "bytes": 162
+      }
+    },
+    {
+      "role": "zoner",
+      "sceneResourceId": "pilot.zoner",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 2.5,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "throw"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0.0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0.0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "throw.windup": {
+          "clipName": "Throw",
+          "startSeconds": 0,
+          "endSeconds": 0.7,
+          "loop": false
+        },
+        "throw.active": {
+          "clipName": "Throw",
+          "startSeconds": 0.7,
+          "endSeconds": 0.84,
+          "loop": false
+        },
+        "throw.recovery": {
+          "clipName": "Throw",
+          "startSeconds": 0.84,
+          "endSeconds": 1.3666666666666667,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "zoner",
+      "status": "prototype",
+      "sourcePath": "tests/godot/fixtures/art/enemy-pilot/zoner/source/character.blend",
+      "runtimePath": "tests/godot/fixtures/art/enemy-pilot/zoner/runtime/character.glb",
+      "sourceSha256": "8822878ebeed62c64d2e1ab9a0f6dd773ab1078002d518fa4e3b646d6251f617",
+      "runtimeSha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Retain only five selected animation clips",
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
+      ],
+      "importSettings": {
+        "path": "tests/godot/fixtures/art/enemy-pilot/zoner/runtime/character.glb.import",
+        "sha256": "b7df0a601201c812b70bf95eecc5d867cb0ab8bc90fb26c0cd8e0c0640684ef8",
+        "bytes": 1433
+      },
+      "material": {
+        "path": "tests/godot/fixtures/art/enemy-pilot/outfit.tres",
+        "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025",
+        "bytes": 162
+      }
+    }
+  ],
+  "prototypeProps": [
+    {
+      "id": "pilot.bottle",
+      "sourceRecordIds": [
+        "kaykit-dungeon-1.1"
+      ],
+      "runtimePath": "tests/godot/fixtures/art/enemy-pilot/bottle.glb",
+      "runtimeSha256": "308f317e903d3d2c91efe0965af68efd8819421aa9d48e084b4d948748eda4aa",
+      "status": "prototype"
+    }
+  ],
+  "runtimeProps": [
+    {
+      "id": "prop.bottle",
+      "sourceRecordIds": [
+        "kaykit-dungeon-1.1"
+      ],
+      "runtimePath": "assets/props/bottle/bottle.glb",
+      "runtimeSha256": "308f317e903d3d2c91efe0965af68efd8819421aa9d48e084b4d948748eda4aa",
+      "adaptations": [
+        "Embedded source geometry and texture in explicit GLB"
+      ],
+      "status": "production"
+    }
+  ]
+}

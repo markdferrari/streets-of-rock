@@ -156,3 +156,7 @@ Existing five-player learning, completion, responsiveness and fighting-style gat
 - [Asset candidates](asset-candidates.md) records initial source-page research, not final selection, downloaded-asset verification or an assertion of complete animation coverage. Suitable free art should be adapted; original work can fill remaining gaps without introducing a paid dependency.
 - Features 008 and 009 include unfinished acceptance work. Planning must inspect actual implementation and integrate this revision with the selected runtime; historical specifications or generated local builds are not proof of completion.
 - Initial caching needs connectivity and offline play depends on retained browser data. Art rights evidence, owner visual review, reference phones, soundtrack and participants are required before declaring delivery accepted.
+
+## Owner-approved gameplay extension — 2026-10-14
+
+After approving the motion previews, the owner requested that Grunts turn with their movement, pursue up/down as well as left/right, and that enemy throws be easier to dodge. These instructions extend the behavior-preservation requirements in US2.4/FR-006 for those specific behaviors. Grunts now use normalized two-axis pursuit at their existing speed, and Zoners lock the target position at the start of the warning instead of tracking until release. Attack timing, damage, projectile speed and all other rules remain unchanged. The original replay baseline is retained alongside explicit feature 010 checkpoints for the affected scenarios.

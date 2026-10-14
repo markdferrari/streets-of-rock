@@ -1,0 +1,18 @@
+{
+  "id": "kenney-city-commercial",
+  "sourceUrl": "https://kenney.nl/assets/city-kit-commercial",
+  "version": "2.1",
+  "acquisitionDate": "2026-10-14",
+  "sha256": "f8b09b081c2bb88bcc126e2dec1cb40fd0dad7e7e591b6c26aaefe96fb35276b",
+  "acquiredPath": "assets/art-sources/kenney-city-commercial/archive.zip",
+  "licenseEvidencePaths": [
+    "assets/art-sources/kenney-city-commercial/License.txt",
+    "assets/art-sources/kenney-city-commercial/source-page.html"
+  ],
+  "evidenceSha256": {
+    "assets/art-sources/kenney-city-commercial/License.txt": "c38cee408d022e57e44e49f1cd655c2fe0dc881a07b881276b795215cdc0de69",
+    "assets/art-sources/kenney-city-commercial/source-page.html": "1f86a9b6e30bb4aee0e07bed8668e8207422cb1dc9be66e04e697c975343d0f5"
+  },
+  "inventoryPath": "assets/art-sources/kenney-city-commercial/inventory.json",
+  "downloadUrl": "https://kenney.nl/media/pages/assets/city-kit-commercial/a742d900eb-1753115042/kenney_city-kit-commercial_2.1.zip"
+}

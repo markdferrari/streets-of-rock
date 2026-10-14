@@ -61,7 +61,7 @@ A demonstrated platform failure blocks the affected integration until corrected.
 
 - [X] T010 Write shared-catalogue/definition tests in `tests/godot/content/test_catalogue.gd` for unchanged shipped values, distinct roster IDs, resource/clip keys and malformed HP/speed/knockback plus other contract constraints; observe rejection and valid-loading failures before implementing (FR-004, FR-012).
 
-- [X] T011 Move the four JSON definitions unchanged to `content/characters/`, update `src/content/characters.ts` to the shared location, and extract `content/roster.json`, `content/resources.json`, `content/animation-clips.json`, `content/tuning.json` and `content/levels/neon-velvet.json`; preserve source values, units, order and body envelopes (FR-003–006, FR-012).
+- [X] T011 Move the four JSON definitions unchanged to `content/characters/`, update `src/content/characters.ts` to the shared location, and extract `content/roster.json`, `content/resources.json`, `content/animation-clips.json`, `content/tuning.json` and `content/levels/bondi-beach.json`; preserve source values, units, order and body envelopes (FR-003–006, FR-012).
 
 - [X] T012 Implement typed catalogue loading and the authoritative definition validator in `game/content/catalogue.gd` and `game/content/validator.gd`, with immutable validated definitions and actionable field diagnostics; keep resource-independent validation headless and leave imported-resource validation explicit (FR-004, FR-012).
 

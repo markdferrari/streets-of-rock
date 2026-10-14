@@ -30,3 +30,17 @@ it('committed fixtures retain pinned provenance, digests and executable frame in
  for(const [id,expected] of Object.entries(manifest.characterDigests))expect(sha256(readFileSync(`content/characters/${id}.json`))).toBe(expected);
  for(const entry of manifest.fixtures){const bytes=readFileSync(join('tests/reference',entry.path));expect(sha256(bytes)).toBe(entry.sha256);const value=JSON.parse(bytes.toString());expect(validateReplay(value)).toEqual([]);expect(compare(value,structuredClone(value))).toEqual([]);}
 });
+it('feature 010 gameplay checkpoints retain the original replay inputs and bind revisions to frozen hashes',()=>{
+ const baselineBytes=readFileSync('tests/reference/manifest.json'),baseline=JSON.parse(baselineBytes.toString());
+ const revisions=JSON.parse(readFileSync('tests/reference/feature-010/manifest.json','utf8'));
+ expect(revisions.schemaVersion).toBe(1);expect(revisions.baselineManifestSha256).toBe(sha256(baselineBytes));expect(revisions.reason).toContain('Owner requested');
+ expect(new Set(revisions.fixtures.map((e:any)=>e.id)).size).toBe(revisions.fixtures.length);
+ for(const entry of revisions.fixtures){
+  const original=baseline.fixtures.find((e:any)=>e.id===entry.id);expect(original).toBeDefined();expect(entry.baselineSha256).toBe(original.sha256);
+  const before=JSON.parse(readFileSync(join('tests/reference',original.path),'utf8'));
+  const bytes=readFileSync(join('tests/reference',entry.path)),after=JSON.parse(bytes.toString());expect(sha256(bytes)).toBe(entry.sha256);expect(validateReplay(after)).toEqual([]);
+  expect(after.startingRun).toEqual(before.startingRun);
+  const inputs=(frames:any[])=>frames.map(({timestampMs,running,viewport,input})=>({timestampMs,running,viewport,input}));
+  expect(inputs(after.frames)).toEqual(inputs(before.frames));expect(compare(before.frames,after.frames).length).toBeGreaterThan(0);
+ }
+});

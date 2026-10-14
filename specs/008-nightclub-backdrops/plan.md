@@ -104,7 +104,7 @@ Use unlit opaque textured materials with sRGB colour maps and tone mapping disab
 
 ### Mapping and geometry preservation
 
-Map `dance-floor` → outside entrance, `vip-lounge` → bar, `backstage-corridor` → dance floor, `alley-exit` → stage/VIP. Keep IDs, room bounds, waves, table positions and game state unchanged. Capture baseline assertions from `src/content/neon-velvet.ts` before modification; only separate presentation definitions are new.
+Map `dance-floor` → outside entrance, `vip-lounge` → bar, `backstage-corridor` → dance floor, `alley-exit` → stage/VIP. Keep IDs, room bounds, waves, table positions and game state unchanged. Capture baseline assertions from `src/content/bondi-beach.ts` before modification; only separate presentation definitions are new.
 
 Use feature 006's final CameraFrame and level bounds to calculate floor/rear-wall coverage. All three two-unit connectors and camera margins get quiet matching surfaces. Extend backing geometry for wide frames and endpoints without stretching detailed illustrations or changing camera fit. Keep all four lightweight room groups present; ordinary frustum visibility handles drawing. AreaIndex can advance before the camera/partner arrives, so it cannot control exclusive room visibility. Preserve shadows, effect/telegraph ordering and the existing table glow unless review identifies a specific readability conflict.
 

@@ -1,0 +1,35 @@
+$ vitest run tests/tooling tests/platform tests/tooling/export.test.ts
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/export.test.ts (9 tests | 1 failed) 32ms
+   × keeps editable art provenance out of shipped content while retaining runtime definitions 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/export.test.ts > keeps editable art provenance out of shipped content while retaining runtime definitions
+AssertionError: expected [ 'content/roster.json', …(4) ] to deeply equal [ 'content/roster.json', …(3) ]
+
+- Expected
++ Received
+
+  [
+    "content/roster.json",
++   "content/art-provenance.json",
+    "content/rooms.json",
+    "content/enemy-presentations.json",
+    "content/tuning.json",
+  ]
+
+ ❯ tests/tooling/export.test.ts:64:189
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  1 failed | 59 passed (60)
+   Start at  09:40:56
+   Duration  3.24s (transform 1.96s, setup 0ms, import 3.85s, tests 3.45s, environment 2ms)
+
+error: script "test:platform" exited with code 1

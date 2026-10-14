@@ -40,7 +40,11 @@ static func role(run: Dictionary, events: Array, name: String) -> void:
    if name == "grunt":
     if run.tick < enemy.decisionReadyTick: continue
     if absf(dx) > 1.5 or absf(dd) > 0.45:
-     enemy.position.x += signf(dx) * 0.04
+     var distance: float = sqrt(dx * dx + dd * dd)
+     var step: float = minf(0.04, distance) / distance
+     enemy.position.x += dx * step
+     enemy.position.depth = clampf(enemy.position.depth + dd * step, -3, 3)
+     if absf(dx * step) > 0.001: enemy.facing = 1 if dx > 0 else -1
      continue
    elif name == "zoner":
     if absf(dx) < 3 and enemy.position.x < 16: enemy.position.x += signf(-dx if dx != 0 else 1.0) * 2.0 / 60.0
@@ -60,12 +64,16 @@ static func role(run: Dictionary, events: Array, name: String) -> void:
     windup = {"shockwave": 60, "rope": 42, "close": 27}[move]
    enemy.facing = 1 if dx >= 0 else -1
    enemy.action = Actor.action("windup", run.tick, run.tick + windup, move)
+   if name == "zoner": enemy.action.aimPosition = player.position.duplicate()
    Events.emit(events, run, "enemy-warning", enemy.id)
   elif kind == "windup" and run.tick >= enemy.action.endTick:
    var move: String = enemy.action.moveId
    var duration: int = 30 if name == "enforcer" else (9 if move == "rope" else 6)
+   var aim: Dictionary = enemy.action.get("aimPosition", player.position)
    enemy.action = Actor.action("active", run.tick, run.tick + duration, move)
    if name == "zoner":
+    dx = aim.x - enemy.position.x
+    dd = aim.depth - enemy.position.depth
     var distance: float = sqrt(dx * dx + dd * dd)
     if distance == 0: distance = 1
     run.projectiles.append({"id": State.entity_id(run), "ownerId": enemy.id, "attackId": State.attack_id(run), "position": enemy.position.duplicate(), "previousPosition": enemy.position.duplicate(), "velocity": {"x": dx / distance * 5.0 / 60.0, "depth": dd / distance * 5.0 / 60.0}, "remainingTicks": 180})

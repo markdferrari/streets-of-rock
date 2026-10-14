@@ -1,0 +1,18 @@
+$ playwright test --config playwright.godot.config.ts --grep "pilot|actual imported skins"
+[WebServer] $ bun scripts/godot/export.ts test
+[WebServer] $ bun scripts/preview.ts --dir dist-test --host "127.0.0.1" --port "4181"
+
+Running 6 tests using 1 worker
+
+(node:773091) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:11:1 › actual imported skins sample real AI phase boundaries and release the bottle on the simulation tick (2.5s)
+  ✓  2 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:21:1 › pilot controls switch facing and authored states; pause freezes actual samples (5.9s)
+  ✓  3 [chromium] › tests/e2e/artwork-enemy-pilot.spec.ts:29:1 › pilot stays usable at the supported landscape widths and records review captures (2.9s)
+(node:773251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:11:1 › actual imported skins sample real AI phase boundaries and release the bottle on the simulation tick (1.7s)
+  ✓  5 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:21:1 › pilot controls switch facing and authored states; pause freezes actual samples (3.6s)
+  ✓  6 [webkit] › tests/e2e/artwork-enemy-pilot.spec.ts:29:1 › pilot stays usable at the supported landscape widths and records review captures (2.2s)
+
+  6 passed (26.7s)
