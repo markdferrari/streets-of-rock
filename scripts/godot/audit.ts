@@ -1,5 +1,5 @@
 import {existsSync,readFileSync,readdirSync} from 'node:fs';
-import {join,basename} from 'node:path';
+import {join,resolve,relative,isAbsolute} from 'node:path';
 import {constants as zlibConstants,gzipSync,brotliCompressSync} from 'node:zlib';
 import {auditFoundationInventory,verifyFoundationFiles,type FoundationInventory} from '../build-asset-inventory';
 import {readLock,sha256} from './setup';
@@ -35,10 +35,40 @@ export function auditFoundationBuild(dir='dist',final=false):{buildId:string;con
  return {buildId:inventory.buildId,contentBytes,engineBytes,files:actual.length,gzipEstimateBytes:Object.values(emitted).reduce((n,b)=>n+gzipSync(b,{mtime:0} as any).length,0),brotliEstimateBytes:Object.values(emitted).reduce((n,b)=>n+brotliCompressSync(b,{params:{[zlibConstants.BROTLI_PARAM_QUALITY]:5}}).length,0),cachedBytes:Object.values(emitted).reduce((n,b)=>n+b.length,0)};
 }
 
-export function validateFinalEvidence(buildId:string,value:unknown):void {
- if(typeof value!=='object'||value===null)throw new Error('Missing final acceptance evidence record');
- const record=value as {buildId?:unknown;statuses?:Record<string,unknown>};
- if(record.buildId!==buildId)throw new Error('Final evidence build identity does not match the audited release');
- const required=['phones','performance','playtest','soundtrack','offlineUpdate','coverage'];
- for(const key of required)if(record.statuses?.[key]!=='pass')throw new Error(`Final evidence ${key} must be pass before --final`);
+export const FINAL_EVIDENCE_KEYS = ['phones', 'performance', 'playtest', 'soundtrack', 'offlineUpdate', 'coverage', 'conceptReview', 'inGameReview', 'characterWorkflow'] as const;
+
+const MANUAL_EVIDENCE_KEYS = new Set(['phones', 'performance', 'playtest', 'offlineUpdate']);
+
+export function validateFinalEvidence(buildId: string, value: unknown, root = '.'): void {
+ if (typeof value !== 'object' || value === null || Array.isArray(value)) throw new Error('Missing final acceptance evidence record');
+ const record = value as { buildId?: unknown; statuses?: Record<string, unknown>; evidence?: Record<string, unknown>; soundtrack?: unknown; manualWaiver?: unknown };
+ if (record.buildId !== buildId) throw new Error('Final evidence build identity does not match the audited release');
+ for (const key of FINAL_EVIDENCE_KEYS) {
+  const status = record.statuses?.[key];
+  if (status !== 'pass' && !(status === 'waived' && MANUAL_EVIDENCE_KEYS.has(key))) throw new Error(`Final evidence ${key} must be pass before --final`);
+ }
+ const verifyFile = (key: string, path: unknown, digest: unknown): void => {
+  if (typeof path !== 'string' || !path || isAbsolute(path) || path.includes('\\')) throw new Error(`${key}: invalid evidence path`);
+  const resolved = resolve(root, path), local = relative(resolve(root), resolved);
+  if (local === '..' || local.startsWith('../') || isAbsolute(local)) throw new Error(`${key}: evidence path escapes repository`);
+  if (!existsSync(resolved)) throw new Error(`${key}: missing evidence file ${path}`);
+  if (typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest) || sha256(readFileSync(resolved)) !== digest) throw new Error(`${key}: evidence digest mismatch`);
+ };
+ if (FINAL_EVIDENCE_KEYS.some(key => record.statuses?.[key] === 'waived')) {
+  const waiver = record.manualWaiver as { approvedBy?: unknown; buildId?: unknown; path?: unknown; sha256?: unknown; reason?: unknown } | undefined;
+  if (waiver?.approvedBy !== 'owner' || typeof waiver.reason !== 'string' || !waiver.reason.trim()) throw new Error('Manual waiver requires an explicit owner decision and reason');
+  if (waiver.buildId !== buildId) throw new Error('Manual waiver build identity mismatch');
+  verifyFile('manual waiver', waiver.path, waiver.sha256);
+ }
+ for (const key of FINAL_EVIDENCE_KEYS) {
+  const entry = record.evidence?.[key] as { buildId?: unknown; path?: unknown; sha256?: unknown } | undefined;
+  if (!entry || typeof entry !== 'object') throw new Error(`${key}: missing final evidence reference`);
+  if (entry.buildId !== buildId) throw new Error(`${key}: evidence build identity mismatch`);
+  verifyFile(key, entry.path, entry.sha256);
+ }
+ const soundtrack = record.soundtrack as { ownerApproved?: unknown; title?: unknown; license?: unknown; audioFile?: unknown; sha256?: unknown } | undefined;
+ if (soundtrack?.ownerApproved !== true) throw new Error('Soundtrack owner approval is required');
+ if (typeof soundtrack.title !== 'string' || !soundtrack.title.trim() || typeof soundtrack.license !== 'string' || !soundtrack.license.trim()) throw new Error('Soundtrack identity and licensing confirmation are required');
+ if (soundtrack.audioFile !== 'public/assets/audio/brightside.mp3') throw new Error('Soundtrack must identify the configured bundled audio path');
+ verifyFile('soundtrack', soundtrack.audioFile, soundtrack.sha256);
 }

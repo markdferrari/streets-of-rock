@@ -48,3 +48,11 @@ five-player recognition remain pending. No participant responses are invented.
 Recognition uses the separate [player procedure](../validation/procedures.md):
 at least four of five players must identify every setting without location labels
 or coaching. T049 explicitly defers that evaluation to the final acceptance phase.
+
+## Owner decision — 2026-10-14
+
+Owner approval is now recorded for the existing appearance/gameplay decisions under
+[the instruction to assume all relevant decisions approved](../validation/owner-approvals.md).
+The earlier pending labels describe the historical review date. This update supplies
+approval without relabelling historical captures or claiming new phone, participant
+or natural full-level outcomes.

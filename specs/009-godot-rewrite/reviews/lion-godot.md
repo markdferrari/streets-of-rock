@@ -72,3 +72,11 @@ Owner appearance/balance review, iPhone 12/Safari and Pixel 6/Chrome gameplay,
 actual gesture-audio listening, human complete-level outcomes and first-time-player
 differentiation are pending. Current cold-offline tests cover all four fighters and
 all four room resources; their staged results are not natural completion evidence.
+
+## Owner decision — 2026-10-14
+
+Owner approval is now recorded for the existing appearance/gameplay decisions under
+[the instruction to assume all relevant decisions approved](../validation/owner-approvals.md).
+The earlier pending labels describe the historical review date. This update supplies
+approval without relabelling historical captures or claiming new phone, participant
+or natural full-level outcomes.

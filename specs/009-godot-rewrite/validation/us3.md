@@ -89,3 +89,20 @@ Phase 7 gates (T075–T078), including SC-003–005/009 acceptance where applica
 Follow-up: [LAN HTTP evidence](lan-http.md) records the reproduced `addModule`
 loading error, silent audio fallback, secure API requirements and rebuilt preview
 identities. The phase/character results above retain their actual historical IDs.
+
+## Current owner decisions and browser verification — 2026-10-14
+
+Owner music/art/character decisions are approved in [owner-approvals.md](owner-approvals.md).
+Current full browser/static results and exact artifact IDs are in [phase7.md](phase7.md)
+and [release.md](release.md). Local WebKit now launches with the documented project
+`LD_LIBRARY_PATH` override. Historical lack of WebKit results above remains an
+observation about that earlier run. Current skips/failures are reported separately.
+T066's physical storage/gesture audio/VoiceOver/TalkBack/installed/offline/full-level
+and update procedures remain unmeasured; desktop checks do not provide these outcomes.
+
+## Subsequent owner-authorized cutover
+
+The owner explicitly [waived the outstanding manual acceptance gates](manual-waiver.md).
+Earlier pending labels and results above remain historical. See [cutover](cutover.md)
+and [post-cutover validation](cutover-validation.md) for the current technical state.
+No phone/player observation was converted into a measured pass.

@@ -1,0 +1,728 @@
+{
+  "sourceCommit": "ddca43f",
+  "retiredFiles": [
+    "index.html",
+    "scripts/reference/capture.ts",
+    "scripts/reference/views.ts",
+    "src/.gdignore",
+    "src/app/clock.ts",
+    "src/app/countdown.ts",
+    "src/app/game-app.ts",
+    "src/app/loop.ts",
+    "src/app/selection.ts",
+    "src/app/session.ts",
+    "src/content/animation-clips.ts",
+    "src/content/characters.ts",
+    "src/content/neon-velvet.ts",
+    "src/content/training.ts",
+    "src/content/tuning.ts",
+    "src/content/types.ts",
+    "src/content/validate.ts",
+    "src/game/actions.ts",
+    "src/game/ai/attack-slots.ts",
+    "src/game/ai/enforcer.ts",
+    "src/game/ai/grunt.ts",
+    "src/game/ai/liam.ts",
+    "src/game/ai/partner.ts",
+    "src/game/ai/zoner.ts",
+    "src/game/arena.ts",
+    "src/game/collision.ts",
+    "src/game/damage.ts",
+    "src/game/duo.ts",
+    "src/game/encounters.ts",
+    "src/game/movement.ts",
+    "src/game/moves.ts",
+    "src/game/pickups.ts",
+    "src/game/projectiles.ts",
+    "src/game/run.ts",
+    "src/game/selectors.ts",
+    "src/game/specials.ts",
+    "src/game/status-effects.ts",
+    "src/game/step.ts",
+    "src/game/types.ts",
+    "src/input/frame.ts",
+    "src/input/pointers.ts",
+    "src/input/selection.ts",
+    "src/main.ts",
+    "src/platform/audio.ts",
+    "src/platform/best-result.ts",
+    "src/platform/diagnostics.ts",
+    "src/platform/pwa.ts",
+    "src/platform/settings.ts",
+    "src/presentation/actors.ts",
+    "src/presentation/camera.ts",
+    "src/presentation/character-animation.ts",
+    "src/presentation/character-assets.ts",
+    "src/presentation/character-preview.ts",
+    "src/presentation/effects.ts",
+    "src/presentation/environments.ts",
+    "src/presentation/scene.ts",
+    "src/presentation/shake.ts",
+    "src/sw.ts",
+    "src/ui/combat.ts",
+    "src/ui/progression.ts",
+    "src/ui/screens.ts",
+    "src/ui/selection.ts",
+    "src/ui/settings.ts",
+    "src/ui/styles.css",
+    "src/ui/tutorial.ts",
+    "tests/e2e/audio.spec.ts",
+    "tests/e2e/characters.spec.ts",
+    "tests/e2e/combat-capture.spec.ts",
+    "tests/e2e/combat-view.spec.ts",
+    "tests/e2e/countdown.spec.ts",
+    "tests/e2e/diagnostics.spec.ts",
+    "tests/e2e/fighter-selection.spec.ts",
+    "tests/e2e/four-character-selection.spec.ts",
+    "tests/e2e/level.spec.ts",
+    "tests/e2e/offline.spec.ts",
+    "tests/e2e/partner-behaviour.spec.ts",
+    "tests/e2e/partner-selection.spec.ts",
+    "tests/e2e/progression.spec.ts",
+    "tests/e2e/selection-accessibility.spec.ts",
+    "tests/e2e/settings.spec.ts",
+    "tests/e2e/touch-combat.spec.ts",
+    "tests/e2e/update-worker.spec.ts",
+    "tests/fixtures/roster.ts",
+    "tests/fixtures/run.ts",
+    "tests/integration/app/arena-lifecycle.test.ts",
+    "tests/integration/app/session.test.ts",
+    "tests/integration/game/four-character-roles.test.ts",
+    "tests/integration/game/headrest.test.ts",
+    "tests/integration/game/roar.test.ts",
+    "tests/integration/input/pointers.test.ts",
+    "tests/integration/ui/combat-ui.test.ts",
+    "tests/integration/ui/progression-ui.test.ts",
+    "tests/unit/app/clock.test.ts",
+    "tests/unit/app/countdown.test.ts",
+    "tests/unit/app/loop.test.ts",
+    "tests/unit/app/selection.test.ts",
+    "tests/unit/characters/commands.test.ts",
+    "tests/unit/content/characters.test.ts",
+    "tests/unit/content/tuning.test.ts",
+    "tests/unit/game/arena.test.ts",
+    "tests/unit/game/character-profiles.test.ts",
+    "tests/unit/game/combat.test.ts",
+    "tests/unit/game/coordination.test.ts",
+    "tests/unit/game/crow.test.ts",
+    "tests/unit/game/duo.test.ts",
+    "tests/unit/game/enemies.test.ts",
+    "tests/unit/game/headrest-collision.test.ts",
+    "tests/unit/game/level.test.ts",
+    "tests/unit/game/lion.test.ts",
+    "tests/unit/game/partner-engagement.test.ts",
+    "tests/unit/game/partner-movement.test.ts",
+    "tests/unit/game/partner-recovery.test.ts",
+    "tests/unit/game/plates.test.ts",
+    "tests/unit/game/run.test.ts",
+    "tests/unit/game/status-effects.test.ts",
+    "tests/unit/game/step.test.ts",
+    "tests/unit/platform/audio.test.ts",
+    "tests/unit/platform/best-result.test.ts",
+    "tests/unit/platform/build-audit.test.ts",
+    "tests/unit/platform/diagnostics.test.ts",
+    "tests/unit/platform/pwa.test.ts",
+    "tests/unit/platform/settings.test.ts",
+    "tests/unit/presentation/camera.test.ts",
+    "tests/unit/presentation/character-animation.test.ts",
+    "tests/unit/presentation/character-assets.test.ts",
+    "tests/unit/presentation/character-preview.test.ts",
+    "tests/unit/presentation/poses.test.ts",
+    "tests/unit/presentation/shake.test.ts",
+    "tests/unit/ui/combat.test.ts",
+    "tests/unit/ui/progression.test.ts",
+    "tests/unit/ui/screens.test.ts",
+    "vite.config.ts"
+  ],
+  "testReplacementMap": [
+    {
+      "retired": "tests/e2e/audio.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-lifecycle.spec.ts",
+        "tests/e2e/godot-foundation.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/characters.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-character-workflow.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/combat-capture.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-input.spec.ts",
+        "tests/e2e/godot-foundation.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/combat-view.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-backdrops.spec.ts",
+        "tests/godot/simulation/test_progression.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/countdown.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-duos.spec.ts",
+        "tests/e2e/godot-accessibility.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/diagnostics.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-release.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/fighter-selection.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-duos.spec.ts",
+        "tests/e2e/godot-accessibility.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/four-character-selection.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-duos.spec.ts",
+        "tests/e2e/godot-accessibility.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/level.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-backdrops.spec.ts",
+        "tests/godot/simulation/test_progression.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/offline.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-offline.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/partner-behaviour.spec.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/tooling/reference.test.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/partner-selection.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-duos.spec.ts",
+        "tests/e2e/godot-accessibility.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/progression.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-backdrops.spec.ts",
+        "tests/godot/simulation/test_progression.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/selection-accessibility.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-lifecycle.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/settings.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-lifecycle.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/touch-combat.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-input.spec.ts",
+        "tests/e2e/godot-foundation.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/e2e/update-worker.spec.ts",
+      "replacements": [
+        "tests/e2e/godot-offline.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/app/arena-lifecycle.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/app/session.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/game/four-character-roles.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/game/headrest.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/game/roar.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/input/pointers.test.ts",
+      "replacements": [
+        "tests/godot/input/test_input_controller.gd",
+        "tests/e2e/godot-input.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/ui/combat-ui.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/integration/ui/progression-ui.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/app/clock.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/app/countdown.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/app/loop.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/app/selection.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/godot/simulation/test_run_clock.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/characters/commands.test.ts",
+      "replacements": [
+        "tests/tooling/character-cli.test.ts",
+        "tests/tooling/character-scaffold.test.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/content/characters.test.ts",
+      "replacements": [
+        "tests/godot/content/test_catalogue.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/content/tuning.test.ts",
+      "replacements": [
+        "tests/godot/content/test_catalogue.gd"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/arena.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/character-profiles.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/combat.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_combat.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/coordination.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/crow.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/duo.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_progression.gd",
+        "tests/godot/simulation/test_run_clock.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/enemies.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/headrest-collision.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/level.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_progression.gd",
+        "tests/godot/simulation/test_run_clock.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/lion.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/partner-engagement.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/partner-movement.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/partner-recovery.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_ai.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/plates.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/run.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_progression.gd",
+        "tests/godot/simulation/test_run_clock.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/status-effects.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_specials.gd",
+        "tests/godot/content/test_catalogue.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/game/step.test.ts",
+      "replacements": [
+        "tests/godot/simulation/test_progression.gd",
+        "tests/godot/simulation/test_run_clock.gd",
+        "tests/tooling/reference.test.ts",
+        "tests/reference/manifest.json"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/audio.test.ts",
+      "replacements": [
+        "tests/godot/platform/test_lifecycle_audio.gd",
+        "tests/e2e/godot-lifecycle.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/best-result.test.ts",
+      "replacements": [
+        "tests/godot/platform/test_persistence.gd",
+        "tests/platform/storage.test.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/build-audit.test.ts",
+      "replacements": [
+        "tests/tooling/release-audit.test.ts",
+        "tests/tooling/export.test.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/diagnostics.test.ts",
+      "replacements": [
+        "tests/godot/platform/test_diagnostics.gd",
+        "tests/platform/diagnostics.test.ts",
+        "tests/e2e/godot-release.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/pwa.test.ts",
+      "replacements": [
+        "tests/platform/cache.test.ts",
+        "tests/e2e/godot-offline.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/platform/settings.test.ts",
+      "replacements": [
+        "tests/godot/platform/test_persistence.gd",
+        "tests/platform/storage.test.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/camera.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/character-animation.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/character-assets.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/character-preview.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/poses.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/presentation/shake.test.ts",
+      "replacements": [
+        "tests/godot/presentation/test_import.gd",
+        "tests/godot/presentation/test_camera.gd",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/ui/combat.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/ui/progression.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    },
+    {
+      "retired": "tests/unit/ui/screens.test.ts",
+      "replacements": [
+        "tests/godot/app/test_session.gd",
+        "tests/e2e/godot-accessibility.spec.ts",
+        "tests/e2e/godot-backdrops.spec.ts"
+      ],
+      "basis": "Passing pre-cutover Godot/platform/parity/browser owners; manual acceptance explicitly waived, not claimed measured."
+    }
+  ],
+  "retained": [
+    "game/",
+    "web/",
+    "content/",
+    "assets/",
+    "public/",
+    "tests/godot/",
+    "tests/platform/",
+    "tests/tooling/",
+    "tests/blender/",
+    "tests/reference/",
+    "tests/e2e/helpers/selection.ts (immutable legacy upgrade fixture driver; no live JS runtime imports)"
+  ],
+  "removedDependencies": [
+    "three",
+    "@types/three",
+    "vite-plugin-pwa",
+    "workbox-range-requests",
+    "workbox-strategies"
+  ],
+  "retainedViteReason": "Vitest requires Vite; there is no Vite game build after cutover.",
+  "runtimeReplacementMap": {
+    "src/app/": "game/app/",
+    "src/game/": "game/simulation/",
+    "src/content/": "content/ and game/content/",
+    "src/input/": "game/input/",
+    "src/presentation/": "game/presentation/",
+    "src/ui/": "game/ui/ and web/semantics.ts",
+    "src/platform/": "game/platform/ and web/",
+    "src/sw.ts": "web/sw.ts",
+    "src/main.ts": "game/app/bootstrap.tscn and web/main.ts"
+  }
+}

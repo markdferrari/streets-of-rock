@@ -81,7 +81,7 @@ A demonstrated platform failure blocks the affected integration until corrected.
 
 - [X] T020 Wire dev, preview, build, build:test, build:diagnostics and focused test commands in `package.json`, `scripts/preview.ts` and `playwright.config.ts`; serve correct MIME types and missing-resource errors and keep Web Test fixtures out of Release/Diagnostics (FR-013–014).
 
-- [ ] T021 Run the automated foundation suite and attempt iPhone 12/Safari and Pixel 6/Chrome smoke procedures; record imported pose, touch, semantics, audio, explicit resume, offline loading, forced pack split and release fixture exclusion in `specs/009-godot-rewrite/validation/foundation.md`, with actual failures or missing devices visible (FR-007, FR-010–015).
+- [X] T021 Run the automated foundation suite and attempt iPhone 12/Safari and Pixel 6/Chrome smoke procedures; record imported pose, touch, semantics, audio, explicit resume, offline loading, forced pack split and release fixture exclusion in `specs/009-godot-rewrite/validation/foundation.md`, with actual failures or missing devices visible (FR-007, FR-010–015).
 
   Automated checkpoint passed on 2026-10-09, including actual Release/Web Test browser
   exports and a forced two-pack cold offline launch. Physical iPhone/Pixel evidence is
@@ -224,7 +224,7 @@ scenarios. Run on both phones in browser and installed modes where supported
 
 - [X] T065 [US3] Implement read-only frame/resource/render diagnostics in `game/platform/diagnostics.gd` and `web/diagnostics.ts`, restricted to Web Diagnostics; capture active frame intervals/rolling FPS/draw calls/triangles/owned counts with local JSON download and no telemetry (FR-013–014).
 
-- [ ] T066 [US3] Run US3 browser/unit/release checks and actual phone storage/audio/lifecycle/VoiceOver/TalkBack/offline/installed/update procedures; record build/device versions, full-level outcomes, limitations and pending evidence in `specs/009-godot-rewrite/validation/us3.md` (FR-007, FR-009–015; SC-003–005, SC-009).
+- [X] T066 [US3] [MANUAL GATES WAIVED BY OWNER; UNVERIFIED] Run US3 browser/unit/release checks and actual phone storage/audio/lifecycle/VoiceOver/TalkBack/offline/installed/update procedures; record build/device versions, full-level outcomes, limitations and pending evidence in `specs/009-godot-rewrite/validation/us3.md` (FR-007, FR-009–015; SC-003–005, SC-009).
 
 Phase 5 implementation and automated verification passed on 2026-10-10.
 T066 remains open for physical phone/installed/accessibility/audio/full-run acceptance.
@@ -266,21 +266,21 @@ in defeat and do not establish full-level wins. See [US4 evidence](validation/us
 These are required delivery gates, not optional polish. No historical result substitutes
 for the release being evaluated; corrections require red–green regression tests.
 
-- [ ] T074 Wire the full test:unit/test:platform/test:parity/test:e2e/test:blender/test/typecheck/build/audit command set in `package.json`, retaining still-active legacy suites; run every quickstart command and update `specs/009-godot-rewrite/quickstart.md` to verified executable usage (FR-014).
+- [X] T074 Wire the full test:unit/test:platform/test:parity/test:e2e/test:blender/test/typecheck/build/audit command set in `package.json`, retaining still-active legacy suites; run every quickstart command and update `specs/009-godot-rewrite/quickstart.md` to verified executable usage (FR-014).
 
-- [ ] T075 Confirm the intended owner soundtrack, bundle it at the configured `public/assets/audio/` path and record actual identity/licensing/review confirmation in `specs/009-godot-rewrite/validation/soundtrack.md`; rerun audio/import/cache/size checks, leaving final acceptance pending if the track is unavailable (FR-010–011, FR-014–015).
+- [X] T075 Confirm the intended owner soundtrack, bundle it at the configured `public/assets/audio/` path and record actual identity/licensing/review confirmation in `specs/009-godot-rewrite/validation/soundtrack.md`; rerun audio/import/cache/size checks, leaving final acceptance pending if the track is unavailable (FR-010–011, FR-014–015).
 
-- [ ] T076 Measure complete intended-content runs and ten lifecycle cycles on iPhone 12/Safari and Pixel 6/Chrome; record raw frame intervals, active-only rolling FPS, busiest encounters, stalls, draw/triangle/DPR/texture budgets and release cross-checks in `specs/009-godot-rewrite/validation/performance.md` (FR-013; SC-005).
+- [X] T076 [WAIVED BY OWNER; UNVERIFIED] Measure complete intended-content runs and ten lifecycle cycles on iPhone 12/Safari and Pixel 6/Chrome; record raw frame intervals, active-only rolling FPS, busiest encounters, stalls, draw/triangle/DPR/texture budgets and release cross-checks in `specs/009-godot-rewrite/validation/performance.md` (FR-013; SC-005).
 
-- [ ] T077 Conduct five-first-time-player evaluation and record individual outcomes and per-criterion thresholds in `specs/009-godot-rewrite/validation/playtest.md`: all PRD SC-001–011, separate responsiveness/readability, first-success duration/attempts, action learning, role/exit understanding, Lion/Plates distinction and four unlabelled settings (FR-014; SC-006–007).
+- [X] T077 [WAIVED BY OWNER; UNVERIFIED] Conduct five-first-time-player evaluation and record individual outcomes and per-criterion thresholds in `specs/009-godot-rewrite/validation/playtest.md`: all PRD SC-001–011, separate responsiveness/readability, first-success duration/attempts, action learning, role/exit understanding, Lion/Plates distinction and four unlabelled settings (FR-014; SC-006–007).
 
-- [ ] T078 Reconcile complete phone touch/accessibility/lifecycle/audio/offline/update evidence, all four art reviews and both character reports in `specs/009-godot-rewrite/validation/coverage.md`; fix observed defects with failing regression cases before correction, revalidate affected procedures and leave unavailable evidence unresolved (FR-001, FR-014).
+- [X] T078 Reconcile complete phone touch/accessibility/lifecycle/audio/offline/update evidence, all four art reviews and both character reports in `specs/009-godot-rewrite/validation/coverage.md`; fix observed defects with failing regression cases before correction, revalidate affected procedures and leave unavailable evidence unresolved (FR-001, FR-014).
 
-- [ ] T079 Produce complete release audit evidence and static-host/rollback instructions in `specs/009-godot-rewrite/validation/release.md`, preserving manifest identity, legacy URLs and previous immutable release artifacts; record compressed estimates versus measured transfers and cached payload without provisioning/publishing (FR-011, FR-013–015; SC-009).
+- [X] T079 Produce complete release audit evidence and static-host/rollback instructions in `specs/009-godot-rewrite/validation/release.md`, preserving manifest identity, legacy URLs and previous immutable release artifacts; record compressed estimates versus measured transfers and cached payload without provisioning/publishing (FR-011, FR-013–015; SC-009).
 
-- [ ] T080 After replacement coverage, parity and required acceptance evidence pass, retire superseded JS runtime under `src/` and only its mapped tests, remove obsolete Three/gameplay dependencies while retaining Vite if required by Vitest from `package.json` and `bun.lock`, retain Bun/browser tools and immutable reference fixtures, and record the deletion/replacement manifest in `specs/009-godot-rewrite/validation/cutover.md` (FR-001, FR-014).
+- [X] T080 After replacement coverage, parity and required acceptance evidence pass, retire superseded JS runtime under `src/` and only its mapped tests, remove obsolete Three/gameplay dependencies while retaining Vite if required by Vitest from `package.json` and `bun.lock`, retain Bun/browser tools and immutable reference fixtures, and record the deletion/replacement manifest in `specs/009-godot-rewrite/validation/cutover.md` (FR-001, FR-014).
 
-- [ ] T081 Update `README.md` and `specs/009-godot-rewrite/validation/acceptance.md` with Godot development, static hosting and actual acceptance status; rerun every automated suite, typecheck, build, release smoke and audit --final after cutover, recording results and any blockers before any conventional commit or completion claim (FR-001, FR-014–015; SC-001–009).
+- [X] T081 Update `README.md` and `specs/009-godot-rewrite/validation/acceptance.md` with Godot development, static hosting and actual acceptance status; rerun every automated suite, typecheck, build, release smoke and audit --final after cutover, recording results and any blockers before any conventional commit or completion claim (FR-001, FR-014–015; SC-001–009).
 
 ## Dependencies and execution order
 
@@ -433,5 +433,48 @@ fixtures/evidence; migration alone does not authorize rebalancing.
 
 Complete T081 only when actual automated and physical evidence satisfies all criteria.
 No account/backend, native packaging, extra characters, hosting publication or CI pipeline
-is introduced. Current generation is documentation-only; validate this task list and
-its links/IDs/coverage without claiming any runtime tasks have been executed.
+is introduced. Task generation was documentation-only. Current execution status is recorded by
+the checkmarks and dated validation records below; waived manual checks remain
+unverified under the explicit 2026-10-14 owner exception.
+
+## Remainder execution — 2026-10-14
+
+Owner decisions are approved in `validation/owner-approvals.md`. Current results,
+actual builds and command limitations are tracked in `validation/phase7.md` and
+`validation/release.md`. T021's phone smoke attempt is complete with unavailable
+physical devices recorded; it does not establish device acceptance. T079's release
+byte audits, measured localhost response payload, immutable preservation and static
+hosting/rollback instructions are complete. Hosted/phone transfer results remain
+explicitly unavailable. T066/T076/T077/T078 and the T080/T081 cutover gates stay open
+until required empirical records exist; approval is not a generated measurement.
+
+T074 completed with all current automated owners green (89 Godot browser passes,
+five capability skips; legacy 78 passes/eight skips; Release three passes/three
+mode skips; Diagnostics five passes/one browser-specific skip). T075 is complete
+with owner approval of the existing MP3 plus current import/audio/cache/size checks.
+The pending final audit correctly rejects the unmeasured phone category.
+
+## Explicit owner waiver and cutover — 2026-10-14
+
+The owner instructed “waive manual acceptance gates and proceed with cutover”.
+This overrides the outstanding manual gate dependency for feature 009. T076/T077
+are closed by explicit waiver and remain unverified; no raw frames, player response,
+phone pass or human full-level outcome is invented. The same exception applies to
+T066's manual portion. T078 reconciles measured passes and these waived categories,
+and T080/T081 retain automated replacement/parity/suite/export/audit requirements.
+See `validation/manual-waiver.md`, `validation/cutover.md`,
+`validation/evidence/cutover-manifest.json` and `validation/cutover-validation.md`.
+
+The current runtime/commands use Godot only; immutable reference and legacy-upgrade
+fixtures, their helper and the prior deployable production archive are preserved.
+
+## Final closure — 2026-10-14
+
+All 81 task entries are closed under the explicit owner exception. Remaining
+post-cutover automated owners pass: 113 platform/GUT tests, 780 parity checkpoints,
+97 browser checks (nine explicit capability/mode skips across Web Test, Release
+and Diagnostics), 24 Blender tests, type checks, frozen install and all-mode
+export/resource audits. Final auditing passes and explicitly reports four manual
+categories as waived/unverified. T066/T076/T077 are closed by waiver rather than
+physical or participant evidence. T078 reconciliation and T080/T081 cutover/final
+verification are complete. No publication or conventional commit was performed.

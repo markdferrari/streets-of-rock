@@ -183,3 +183,12 @@ worker fixture, loading/countdown/running/paused states, old saved values, faile
 installation, missing/corrupt cached bytes, quota failure, repair, wrong IDs and
 offline full-level completion/retry. Missing WebKit offline emulation capability stays
 visible and must be covered on physical Safari before acceptance.
+
+## Owner waiver amendment — 2026-10-14
+
+The [explicit owner decision](../validation/manual-waiver.md) allows final audit to
+accept `waived` for phones, performance, playtest and offlineUpdate. It requires an
+owner-approved, current-build, digest-verified decision record and all nine evidence
+references. Other final categories require measured/recorded pass status. Ordinary
+automated, inventory/resource/engine/budget/isolation checks remain mandatory.
+The command must print the waived categories as unverified when final auditing succeeds.

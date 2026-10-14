@@ -114,3 +114,19 @@ Full gameplay parity starts in phase 3; final art/concept approval, intended sou
 confirmation, accessibility device review, performance and five-player acceptance are
 later tasks. Final auditing deliberately rejects absent full-game/art/device evidence.
 The retained legacy runtime and suites remain available. Nothing is published.
+
+## Remainder pass — 2026-10-14 (T021)
+
+The foundation's automated owners are rerun under the phase 7 full current suite;
+see [phase7.md](phase7.md). Physical smoke was attempted again on the host outside
+the sandbox: `idevice_id -l` could not retrieve an iOS device list, `lsusb` showed
+no reference phone, and `adb` is absent. See [host discovery](evidence/phase7-phones-host.log).
+No physical phone smoke pass is claimed. The attempt/evidence-record task T021 is
+complete; actual phone acceptance remains under T066/T076 and the final gate.
+
+## Subsequent owner-authorized cutover
+
+The owner explicitly [waived the outstanding manual acceptance gates](manual-waiver.md).
+Earlier pending labels and results above remain historical. See [cutover](cutover.md)
+and [post-cutover validation](cutover-validation.md) for the current technical state.
+No phone/player observation was converted into a measured pass.

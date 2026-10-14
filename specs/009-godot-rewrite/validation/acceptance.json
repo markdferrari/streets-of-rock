@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+  "statuses": {
+    "phones": "waived",
+    "performance": "waived",
+    "playtest": "waived",
+    "soundtrack": "pass",
+    "offlineUpdate": "waived",
+    "coverage": "pass",
+    "conceptReview": "pass",
+    "inGameReview": "pass",
+    "characterWorkflow": "pass"
+  },
+  "evidence": {
+    "phones": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/foundation.md",
+      "sha256": "d01143848ca00fd7f18cd290e738c777e5483caad19583190cbd4bc7b6591bb9"
+    },
+    "performance": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/performance.md",
+      "sha256": "878751a4bbf3e4e00f58d5ef956c8254629e8601415a1aaefc8f11fb9c5e6e59"
+    },
+    "playtest": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/playtest.md",
+      "sha256": "62187cffa722398501bcf1d1a0355f19ae87b2356ac0281ee0347163af1521c2"
+    },
+    "soundtrack": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/soundtrack.md",
+      "sha256": "4256acba696db79875a133f68fa11c879b928de0cac018659f3b729139c740fd"
+    },
+    "offlineUpdate": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/us3.md",
+      "sha256": "b1953da32e27584ef45ecd9c173657f4356c961f245d61fae48fe3ea681f7413"
+    },
+    "coverage": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/coverage.md",
+      "sha256": "b275048498ae8278260498d8d6b2a0d0047941af5660aa652af8f54a6b8426ad"
+    },
+    "conceptReview": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/owner-approvals.md",
+      "sha256": "bd0625e8f1a2aecbceeb2e612cef22c8cbfe0fb7c723bf759aa661a75e36da31"
+    },
+    "inGameReview": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/owner-approvals.md",
+      "sha256": "bd0625e8f1a2aecbceeb2e612cef22c8cbfe0fb7c723bf759aa661a75e36da31"
+    },
+    "characterWorkflow": {
+      "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+      "path": "specs/009-godot-rewrite/validation/owner-approvals.md",
+      "sha256": "bd0625e8f1a2aecbceeb2e612cef22c8cbfe0fb7c723bf759aa661a75e36da31"
+    }
+  },
+  "soundtrack": {
+    "ownerApproved": true,
+    "title": "Brightside (bundled filename; creator metadata not supplied)",
+    "license": "Owner authorized bundling the existing asset under the 2026-10-14 approval instruction; third-party license provenance not supplied.",
+    "audioFile": "public/assets/audio/brightside.mp3",
+    "sha256": "90279f810f0b8624ebbf247a1e8676244e258b9898e8f2db1e7672cdd93d3fcb"
+  },
+  "manualWaiver": {
+    "approvedBy": "owner",
+    "buildId": "9b5f79acdfb0eed7bd4faf117c29f16f61c09f0c371cad3614a9167eea429beb",
+    "path": "specs/009-godot-rewrite/validation/manual-waiver.md",
+    "sha256": "2f9b7fa5f6e485abf4b58e644083c3ce80b3be1714da58fe9ecf5527908e4b9e",
+    "reason": "Owner explicitly waived manual acceptance gates and authorized runtime cutover; physical phone and five-player results remain unverified."
+  }
+}

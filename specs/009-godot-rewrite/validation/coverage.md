@@ -594,3 +594,49 @@ and SC-008 remain pending despite completed technical workflow exercises.
 
 No old runtime or mapped tests were retired. Final acceptance, soundtrack identity,
 phone performance and five-player evidence remain Phase 7 delivery gates.
+
+## Phase 7 reconciliation — 2026-10-14
+
+The historical rows above retain their original dates and pending acceptance labels.
+Current commands, exact build IDs and logs are in [phase7.md](phase7.md) and
+[release.md](release.md). The current evidence owners are:
+
+| Scenarios | Current automated owners | Acceptance still needed |
+|---|---|---|
+| US1.1/1.6 | session/input GUT, godot-duos, godot-input and accessibility browser tests; all twelve distinct duos | Physical touch/assistive access and first-time-player selection/reset. |
+| US1.2/1.3 | combat/specials/AI GUT and 26 exact replay fixtures; character-workflow/lifecycle browser tests | Real-phone action readability and gesture audio. |
+| US1.4/1.5 | progression GUT, lethal/solo/table replays and backdrop browser transitions | Natural full-level/solo phone wins; fixture outcomes establish rules only. |
+| US2.1/2.2/2.3/2.4 | backdrop/import/camera GUT, SVG tooling checks, three-layout/connector browser tests | Phone safe areas/readability/performance, five-player unlabelled recognition. |
+| US2.5 | Four concept and in-game review files; owner decisions approved in owner-approvals.md | Participant recognition stays under T077. |
+| US3.1/3.2/3.3 | persistence/audio/lifecycle GUT, storage/semantic platform tests, accessibility/lifecycle/loading browsers | Actual Safari/Chrome gesture audio, VoiceOver/TalkBack, physical interruption. |
+| US3.4/3.5/3.6 | verified worker/cache platform tests, loading/offline/two-window upgrade browsers, immutable release locks | Physical installed/offline full-level completion and safe update. |
+| US3.7 | all-mode byte/resource audits, actual Release/Diagnostics smoke and structured local diagnostics | Both reference-phone full-run frame series and ten lifecycle cycles (T076). |
+| US4.1/4.2/4.3 | actual authoritative CLI checks, scaffold preservation/rejection tests, Blender and character workflow browsers; owner reviews approved | Human full-level outcomes and phone role/readability checks. |
+
+FR-001–015 and feature SC-001–009 retain their original mappings. PRD SC-001–011
+thresholds are explicitly preserved in [playtest.md](playtest.md); none is replaced
+by bot outcomes or desktop emulation. Owner approvals resolve the art/music/character
+decisions; T076/T077 supply measurements and individual participant outcomes.
+T078 remains open for their actual results, T066 for physical platform procedures,
+and T080/T081 for the evidence-gated runtime retirement and post-cutover verification.
+
+Current full browser result: 89 Godot checks passed with five explicitly scoped
+WebKit skips, alongside 78 retained legacy checks, three Release smoke checks and
+five Diagnostics checks. The current logs in phase7.md replace no historical builds
+or physical evidence. All twelve duos and ten retained-duo retry cycles pass in
+both browsers; Chromium current-cache and immutable upgrade checks pass.
+
+## Cutover reconciliation — 2026-10-14 (T078)
+
+The explicit owner waiver closes the remaining manual device/performance/player
+portions of T066/T076/T077. Their absence is classified waived/unverified and preserved
+in the procedures, performance and playtest records. All four final room reviews and
+both character reports have owner approval. The [replacement manifest](evidence/cutover-manifest.json)
+maps all retired suites; immutable parity and upgrade fixtures stay active.
+Post-cutover results are in [cutover-validation.md](cutover-validation.md). Coverage
+completeness is accepted with the documented exception; no empirical result is invented.
+
+Post-cutover reconciliation is complete: all remaining automated owners pass under
+the explicit manual waiver, with full results in cutover-validation.md. T078/T080/T081
+are closed; T066's manual portion and T076/T077 remain waived/unverified. The old
+unit/integration/browser suites are retired only with the explicit replacement map.

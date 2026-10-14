@@ -3,7 +3,7 @@
 **Branch**: `009-godot-rewrite` | **Date**: 2026-10-09 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification in `specs/009-godot-rewrite/spec.md`.
-**Status**: Phase 0 research and Phase 1 design complete; implementation and acceptance pending.
+**Status**: Implementation and technical cutover complete; final automated verification recorded in validation/cutover-validation.md. Manual acceptance is owner-waived and unverified.
 
 ## Summary
 
@@ -269,3 +269,11 @@ not new-engine validation; see research for the exact limitation. This documenta
 change receives link, requirement and cross-artifact consistency checks. No runtime
 acceptance, phone results, intended soundtrack approval or participant outcomes are
 claimed by completing the plan.
+
+## Approved execution exception — 2026-10-14
+
+The owner's explicit [manual waiver](validation/manual-waiver.md) permits phase 7
+cutover after automated verification without the unavailable phone/player records.
+These acceptance categories remain unverified; the engine, architecture, numerical
+tolerance, content/render budgets and all automated checks retain their planned gates.
+Normal JS runtime/validator/inventory ownership is retired with the replacement manifest.

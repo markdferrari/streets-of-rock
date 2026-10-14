@@ -1,0 +1,4 @@
+$ bun run typecheck:tooling && bun run typecheck:godot
+$ tsc --noEmit
+$ bun scripts/godot/typecheck.ts
+Godot script checks passed

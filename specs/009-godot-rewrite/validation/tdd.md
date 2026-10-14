@@ -124,3 +124,30 @@ observed defects were reproduced and corrected during browser integration:
 Final platform, GUT, affected browser, three-mode audits and authoring rejection/
 preservation checks pass. Unavailable physical-device acceptance remains pending.
 
+
+## Phase 7 — final audit evidence integrity (2026-10-13)
+
+Red: `bun run test:platform tests/tooling/release-audit.test.ts` produced four
+behavioral failures: six pass flags omitted art/character reviews; missing/stale/
+changed evidence was accepted; missing/escaping paths were accepted; unapproved or
+unlicensed/replaced music was accepted. See `evidence/phase7-audit-red.log`.
+
+Green: `bun run test:platform` passes 57 tests after the final gate requires all nine
+review families, build-bound file references and matching SHA-256 plus configured
+soundtrack identity, owner approval and licensing. See `evidence/phase7-audit-green.log`.
+These synthetic validator fixtures establish rejection rules, not product acceptance.
+
+## Explicit owner waiver and runtime cutover — 2026-10-14
+
+`bun run test:platform` first failed two new behavioral cases: an explicit current-build
+owner waiver was rejected, and an undocumented waiver did not report the required
+owner-decision failure. See `evidence/cutover-waiver-red.log`. The validator now accepts
+only the four manual categories with digest-verified, matching-build owner decision
+and reason; it still rejects attempts to waive soundtrack or other nonmanual gates.
+All 59 platform/tooling tests pass (`cutover-waiver-green.log`).
+
+Authoring contract tests now use the real imported Godot validator, including alternate
+root, full/per-character, missing bundled file and invalid argument cases; they passed
+before the fallback removal and again after it. Cutover deletes mapped owners and
+changes static runner/dependency configuration; existing GUT/replay/platform/browser
+suites validate the remaining implementation without artificial deletion tests.

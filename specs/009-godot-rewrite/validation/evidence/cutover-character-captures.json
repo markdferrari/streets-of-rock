@@ -1,0 +1,28 @@
+{
+  "buildId": "febfd935cc99c343219caf44fd551e771a4332a20d2cad4edc65a05d3f93ef7c",
+  "mode": "test",
+  "captures": [
+    {
+      "fighter": "lion",
+      "path": "specs/009-godot-rewrite/validation/evidence/cutover-lion-webkit.png",
+      "sha256": "22635beb4311018256e333626558b61d5cdc1d0387abc802546b53367196c58a",
+      "browser": "Playwright WebKit",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "procedure": "Post-cutover character-workflow browser test: native moves plus staged meter and terminal state; no natural full-level victory claimed"
+    },
+    {
+      "fighter": "plates",
+      "path": "specs/009-godot-rewrite/validation/evidence/cutover-plates-webkit.png",
+      "sha256": "302e9af345addb4401bff72378f32068e9388777c9636ced7051c919ae1f23ee",
+      "browser": "Playwright WebKit",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "procedure": "Post-cutover character-workflow browser test: native moves plus staged meter and terminal state; no natural full-level victory claimed"
+    }
+  ]
+}

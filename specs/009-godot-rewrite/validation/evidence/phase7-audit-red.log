@@ -1,0 +1,101 @@
+$ vitest run tests/tooling tests/platform tests/tooling/release-audit.test.ts
+
+ RUN  v4.1.11 /home/mark/projects/streets-of-rock
+
+ ❯ tests/tooling/release-audit.test.ts (6 tests | 4 failed) 18ms
+     × rejects pass flags without the required art and character reviews 5ms
+     × accepts complete current-build records and rejects missing, stale or changed evidence 3ms
+     × rejects missing files and references outside the evidence root 2ms
+     × requires owner approval, licensing and the exact bundled soundtrack bytes 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > final acceptance evidence integrity > rejects pass flags without the required art and character reviews
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/release-audit.test.ts:49:96
+     47|   it('rejects pass flags without the required art and character review…
+     48|     const statuses = Object.fromEntries(finalKeys.slice(0, 6).map(key …
+     49|     expect(() => validateFinalEvidence('a'.repeat(64), { buildId: 'a'.…
+       |                                                                                                ^
+     50|   });
+     51|   it('accepts complete current-build records and rejects missing, stal…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > final acceptance evidence integrity > accepts complete current-build records and rejects missing, stale or changed evidence
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/release-audit.test.ts:54:71
+     52|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+     53|     record.evidence.phones.buildId = 'b'.repeat(64);
+     54|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+       |                                                                       ^
+     55|     record.evidence.phones.buildId = record.buildId;
+     56|     writeFileSync(join(root, 'phones.md'), 'changed');
+ ❯ withFinalEvidence tests/tooling/release-audit.test.ts:44:9
+ ❯ tests/tooling/release-audit.test.ts:51:101
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > final acceptance evidence integrity > rejects missing files and references outside the evidence root
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/release-audit.test.ts:63:71
+     61|   it('rejects missing files and references outside the evidence root',…
+     62|     record.evidence.phones.path = 'missing.md';
+     63|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+       |                                                                       ^
+     64|     record.evidence.phones.path = '../outside.md';
+     65|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+ ❯ withFinalEvidence tests/tooling/release-audit.test.ts:44:9
+ ❯ tests/tooling/release-audit.test.ts:61:78
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/tooling/release-audit.test.ts > final acceptance evidence integrity > requires owner approval, licensing and the exact bundled soundtrack bytes
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/tooling/release-audit.test.ts:69:71
+     67|   it('requires owner approval, licensing and the exact bundled soundtr…
+     68|     record.soundtrack.ownerApproved = false;
+     69|     expect(() => validateFinalEvidence(record.buildId, record, root)).…
+       |                                                                       ^
+     70|     record.soundtrack.ownerApproved = true;
+     71|     record.soundtrack.license = '';
+ ❯ withFinalEvidence tests/tooling/release-audit.test.ts:44:9
+ ❯ tests/tooling/release-audit.test.ts:67:89
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed | 14 passed (15)
+      Tests  4 failed | 53 passed (57)
+   Start at  17:39:28
+   Duration  1.87s (transform 1.50s, setup 0ms, import 2.95s, tests 1.90s, environment 2ms)
+
+error: script "test:platform" exited with code 1
