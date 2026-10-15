@@ -1,10 +1,10 @@
 # Streets of Rock — MVP Product Requirements
 
-**Version:** 2.6
+**Version:** 2.7
 
-**Status:** Agreed prototype scope; homepage, combat-view/partner, Lion/Plates and 3D scenery/enemy artwork revisions specified, implementation acceptance pending
+**Status:** Agreed prototype scope; homepage, combat-view/partner, Lion/Plates and 3D scenery/enemy artwork and fighter/companion animation revisions specified, implementation acceptance pending
 
-**Updated:** 2026-10-13
+**Updated:** 2026-10-15
 
 **Delivery:** Mobile browser and installable progressive web app (PWA)  
 **Working title:** Streets of Rock
@@ -129,7 +129,7 @@ Combat must remain beatable with the fighter alone. The fighter’s Special has 
 
 ### Combat view and AI partner revision
 
-[006-combat-view-partner](specs/006-combat-view-partner/spec.md) refines companion engagement, framing and progression. It supersedes earlier distance-tether/recovery assumptions, including feature 005's requirement to retain those old behaviors. Homepage selection remains a separate feature. Room dimensions, connections, combat abilities and encounter composition stay unchanged. Feature 010 subsequently authorizes scenery and enemy artwork changes; unrelated graphical upgrades remain deferred.
+[006-combat-view-partner](specs/006-combat-view-partner/spec.md) refines companion engagement, framing and progression. It supersedes earlier distance-tether/recovery assumptions, including feature 005's requirement to retain those old behaviors. Homepage selection remains a separate feature. Room dimensions, connections, combat abilities and encounter composition stay unchanged. Feature 010 subsequently authorizes scenery and enemy artwork changes; feature 011 authorizes animation upgrades for the four fighters and their AI-partner roles. Other graphical upgrades remain deferred.
 
 | ID | Requirement |
 | --- | --- |
@@ -165,6 +165,20 @@ Feature 008 established outside entrance → bar → dance floor → stage/VIP. 
 | FR-061 | Give Raver Grunt, Bartender Zoner, Club Enforcer and Liam complete stylized 3D character designs fitting the venue and heroes. Distinguish roles and boss by silhouette, clothing or equipment rather than colour alone. Communicate supported idle, movement, facing, warning, attack, recovery, hit, stun and defeat states, and both boss phases. Align visible actions with existing timing, direction and reach; preserve independent enemy states, pause and full retry reset. |
 | FR-062 | Evaluate free assets first and reuse those suitable for the theme, animation, readability, mobile performance and game distribution. Record candidate decisions and original-art fallbacks. For every shipped third-party asset retain creator, source, asset/version identity, acquisition date, license evidence, adaptations and required credits; exclude unclear or incompatible permissions. Fulfill required attribution in the distributed game, available offline. No paid asset dependency is introduced. |
 | FR-063 | Review concepts for all three common enemy roles and Liam before final production, then review final in-game designs and every supported action/state alongside the four rooms. Record actual review and five-player results; missing asset, device or visual evidence remains pending. |
+
+### Fighter and companion animation revision
+
+[011-improve-character-animations](specs/011-improve-character-animations/spec.md) authorizes improved articulated motion for Cow, Lion, Crow and Plates in both selectable roles, preserving their identities and existing gameplay. It supersedes feature 009's visual-parity constraint for these animations only; feature 010's scenery/enemy scope remains separate.
+
+| ID | Requirement |
+| --- | --- |
+| FR-064 | Assess the supplied KayKit Character Animations and Universal Animation Library samples for all four characters. Before full production, provide matched current/candidate idle, movement and attack previews on each actual character; record coverage, adaptation needs, permissions, mobile cost concerns and a source recommendation per character. Libraries are candidates; custom motion may fill gaps or replace unsuitable samples. |
+| FR-065 | Improve all four characters' articulated selection, idle, movement, three Light strikes, Heavy, directed Dodge, existing Special, hurt and knockout motion; cover actual partner movement, support attacks, hurt and knockout in both facings across all twelve ordered duos. Retain recognizable designs and proportions, Crow's wings and Plates' rigid plate shape. Required states must not exhibit rest-pose flashes, detached parts, unintended pose snaps or sustained foot sliding during steady travel. |
+| FR-066 | Distinguish Light strikes, Heavy and each character's Special through motion; connect loops and action transitions without adding control delay. Visible anticipation, contact/release and recovery must match existing action windows. Preserve movement, reach, damage, invulnerability, targeting, buffering, AI and effect rules; animation must not add gameplay displacement or abilities. |
+| FR-067 | Maintain independent animation per actor and view, correct reaction/knockout priority, visibly inactive knocked-out companions, frozen gameplay motion during pause and same-action continuation on explicit resume. Retry resets all motion and related effects. A bounded visual knockout may finish after results without advancing combat/run time or delaying results/Retry/Home; interruption freezes it until explicit Resume. |
+| FR-068 | Preserve muted/no-shake readability, reduced-motion still previews and essential combat cues, safe areas and simultaneous input. Include required motion in readiness and complete offline play; preserve actionable loading failures, cache status, safe updates and nonblocking audio/storage failure. Retain the 60 fps target and 30 fps minimum on both reference phones and existing 30 MiB game-content/16 MiB per-content-file budgets, with engine overhead reported separately. |
+| FR-069 | Record source selection/rejection, provenance, adaptations, license evidence and credits under FR-062 for shipped third-party motion. Review candidates before production and final in-game motion for every required state/role on all four characters; record matched before/after, owner feedback, five-player and device results, with unfinished evidence explicitly pending. |
+
 
 ### Encounter sequence
 
@@ -344,6 +358,16 @@ As a player, I can inspect and select my duo before entering the level with the 
 - **AC-064:** Given proposed free assets and the final shipped art, when reviewing selection and provenance records, then suitable candidates are reused, rejections/fallbacks are explained, each third-party asset has documented compatible permissions and adaptations, and required credits accompany the game offline. Missing required art offers actionable load retry and never starts an invisible enemy encounter. (FR-060, FR-062)
 - **AC-065:** Given concepts for four rooms and four enemy identities plus final gameplay evidence, when reviewing, then all eight concepts and eight final subjects have recorded outcomes, including all enemy actions and five-player setting/role recognition and artwork preference; unresolved evidence is explicitly pending. (FR-060, FR-063; SC-011–013)
 
+### Fighter and companion animation acceptance
+
+- **AC-066:** Given both supplied libraries and all four characters, when candidate review is complete, then an eight-pair assessment and four matched actual-character idle/movement/attack comparisons record suitable sources, gaps, adaptations and permission evidence before full production. (FR-064, FR-069)
+- **AC-067:** Given any fighter in either facing, when previewing, moving or performing every existing action, then motion retains identity, distinguishes strikes and Specials, connects without unintended pose snaps and avoids rest-pose flashes, detached parts, body distortion and sustained foot sliding. (FR-065–066)
+- **AC-068:** Given an existing attack, Dodge or Special, when animated, then visible direction, contact/release and recovery match existing windows without changing control delay, travel, damage, reach, invulnerability, targeting, buffering or effect rules. (FR-066)
+- **AC-069:** Given each of twelve ordered duos, when actors move, support-attack, take damage, become knocked out or retry, then motion is independent and role-correct, partner Specials remain unavailable, knockout stays visibly inactive and retry clears stale motion/effects. (FR-065, FR-067)
+- **AC-070:** Given either reference phone, when playing muted/no-shake or reduced motion and interrupting action phases through pause, background/focus loss or rotation, then essential cues and safe-area controls remain readable, motion/time freeze and inputs clear, and explicit resume continues the same action without duplicate effects or skipped release. Reduced-motion previews remain still. (FR-067–068; NFR-003–004)
+- **AC-071:** Given the complete animated build, when testing both reference phones, then required motion works during cached offline selection, full play/results/retry; load failures offer retry, cache status is truthful, updates wait between runs and audio/storage failure remains nonblocking. Complete runs meet existing performance/content budgets; provenance, visual review and five-player outcomes are recorded without claiming missing evidence complete. (FR-068–069; NFR-001–009)
+
+
 ## 10. Measurable prototype success
 
 Conduct a formative playtest with five casual action players. Record results manually. These targets guide iteration; the sample does not establish broad market validation.
@@ -363,6 +387,8 @@ Conduct a formative playtest with five casual action players. Record results man
 | SC-011 | At least 4 of 5 testers correctly identify all four settings (outside entrance, bar, dance floor, stage/VIP) without location labels or verbal coaching. |
 | SC-012 | At least 4 of 5 testers distinguish the melee clubgoer, ranged bartender, charging security enemy and boss from normal gameplay views without enemy labels or colour-only cues, after encountering their behavior. |
 | SC-013 | At least 4 of 5 testers prefer the new artwork when shown matched before/after gameplay views of the scenery and enemies; retain separate responsiveness and readability ratings under SC-004. |
+| SC-014 | At least 4 of 5 testers prefer the improved fighter/companion animations in matched before/after gameplay. At least 4 of 5 distinguish Light from Heavy, identify each character's Special and recognize companion inactivity without coaching; record each separately. Retain separate responsiveness/readability ratings under SC-004 and Lion/Plates style checks under SC-010. |
+
 
 For SC-007, start the two-minute window after the final relevant prompt with a reachable enemy and sufficient meter for Special; gameplay or a prepared encounter may provide these prerequisites.
 
