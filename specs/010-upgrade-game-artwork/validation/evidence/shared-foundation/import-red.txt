@@ -1,0 +1,134 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/import-validation.test.ts (6 tests | 6 failed) 1186ms
+     × accepts complete isolated imports and labels definitions-only as incomplete 222ms
+     × rejects incomplete production catalogues instead of silently approving the two-role pilot 205ms
+     × scopes to one enemy without failing an unrelated incomplete room catalogue 175ms
+     × checks missing imported clips, corrupt resources, forbidden room nodes and landmarks 191ms
+     × rejects unaccepted or hash-mismatched provenance even in definitions-only and never mutates files 187ms
+     × rejects undeclared scene dependencies and missing dependency files 201ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > accepts complete isolated imports and labels definitions-only as incomplete
+AssertionError: expected 'Godot Engine v4.7.2.stable.official.e…' to match /Valid/
+
+- Expected:
+/Valid/
+
++ Received:
+"Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+spawnSync godot EPERM"
+
+ ❯ tests/unit/art/import-validation.test.ts:40:59
+     38|  it('accepts complete isolated imports and labels definitions-only as …
+     39|   const f=fixture();
+     40|   const r=validateArt(['--root',f.root]);expect(r.output).toMatch(/Val…
+       |                                                           ^
+     41|   expect(validateArt(['--root',f.root,'--definitions-only']).output).t…
+     42|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > rejects incomplete production catalogues instead of silently approving the two-role pilot
+AssertionError: expected 'Godot Engine v4.7.2.stable.official.e…' to match /rooms|four|enforcer|liam/
+
+- Expected:
+/rooms|four|enforcer|liam/
+
++ Received:
+"Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+spawnSync godot EPERM"
+
+ ❯ tests/unit/art/import-validation.test.ts:44:69
+     42|  });
+     43|  it('rejects incomplete production catalogues instead of silently appr…
+     44|   const r=validateArt([]);expect(r.status).toBe(1);expect(r.output).to…
+       |                                                                     ^
+     45|  });
+     46|  it('scopes to one enemy without failing an unrelated incomplete room …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > scopes to one enemy without failing an unrelated incomplete room catalogue
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ tests/unit/art/import-validation.test.ts:48:67
+     46|  it('scopes to one enemy without failing an unrelated incomplete room …
+     47|   const f=fixture();f.data.rooms.rooms=[];f.save();
+     48|   expect(validateArt(['--root',f.root,'--enemy','grunt']).status).toBe…
+       |                                                                   ^
+     49|   expect(validateArt(['--root',f.root]).status).toBe(1);
+     50|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > checks missing imported clips, corrupt resources, forbidden room nodes and landmarks
+AssertionError: expected 'Godot Engine v4.7.2.stable.official.e…' to contain 'Missing_Idle'
+
+- Expected
++ Received
+
+- Missing_Idle
++ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
++
++ spawnSync godot EPERM
+
+ ❯ tests/unit/art/import-validation.test.ts:53:100
+     51|  it('checks missing imported clips, corrupt resources, forbidden room …
+     52|   const f=fixture();f.data.enemies.enemies[0].clipBindings.Idle.clipNa…
+     53|   let r=validateArt(['--root',f.root,'--enemy','grunt']);expect(r.stat…
+       |                                                                                                    ^
+     54|   f.data.enemies.enemies[0].clipBindings.Idle.clipName='Idle_A';f.save…
+     55|   writeFileSync(join(f.root,'scenes/art/rooms/exterior.tscn'),'invalid…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > rejects unaccepted or hash-mismatched provenance even in definitions-only and never mutates files
+AssertionError: expected 'Godot Engine v4.7.2.stable.official.e…' to contain 'original'
+
+- Expected
++ Received
+
+- original
++ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
++
++ spawnSync godot EPERM
++ Definitions only: imported checks skipped; incomplete for release readiness.
+
+ ❯ tests/unit/art/import-validation.test.ts:63:121
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > rejects undeclared scene dependencies and missing dependency files
+AssertionError: expected 'Godot Engine v4.7.2.stable.official.e…' to match /shared.tres.*undeclared|undeclared.*s…/
+
+- Expected:
+/shared.tres.*undeclared|undeclared.*shared.tres/
+
++ Received:
+"Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+spawnSync godot EPERM"
+
+ ❯ tests/unit/art/import-validation.test.ts:72:104
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  6 failed (6)
+   Start at  21:53:40
+   Duration  1.47s (transform 79ms, setup 0ms, import 107ms, tests 1.19s, environment 0ms)
+

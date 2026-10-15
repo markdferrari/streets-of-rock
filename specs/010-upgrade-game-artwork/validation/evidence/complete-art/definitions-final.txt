@@ -1,0 +1,6 @@
+$ bun scripts/art/validate.ts --definitions-only
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Valid: full artwork catalogue definitions only; incomplete for release readiness
+
+Definitions only: imported checks skipped; incomplete for release readiness.

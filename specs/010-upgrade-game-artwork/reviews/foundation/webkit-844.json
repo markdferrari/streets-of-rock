@@ -1,0 +1,90 @@
+{
+  "bottleVisible": true,
+  "buttons": {
+    "attack": {
+      "height": 44,
+      "width": 85.1111145019531,
+      "x": 194.222229003906,
+      "y": 340
+    },
+    "defeat": {
+      "height": 44,
+      "width": 85.1111450195312,
+      "x": 649.777770996094,
+      "y": 340
+    },
+    "face": {
+      "height": 44,
+      "width": 85.1111145019531,
+      "x": 103.111114501953,
+      "y": 340
+    },
+    "hurt": {
+      "height": 44,
+      "width": 85.1111450195312,
+      "x": 558.666687011719,
+      "y": 340
+    },
+    "idle": {
+      "height": 44,
+      "width": 85.1111145019531,
+      "x": 285.333343505859,
+      "y": 340
+    },
+    "move": {
+      "height": 44,
+      "width": 85.1111145019531,
+      "x": 376.444458007812,
+      "y": 340
+    },
+    "pause": {
+      "height": 44,
+      "width": 85.1111145019531,
+      "x": 12,
+      "y": 340
+    },
+    "reset": {
+      "height": 44,
+      "width": 85.111083984375,
+      "x": 740.888916015625,
+      "y": 340
+    },
+    "stun": {
+      "height": 44,
+      "width": 85.111083984375,
+      "x": 467.555541992188,
+      "y": 340
+    }
+  },
+  "errors": [],
+  "facing": 1,
+  "mode": "attacks",
+  "paused": true,
+  "poses": {
+    "grunt": {
+      "clipName": "Melee_Unarmed_Attack_Punch_A",
+      "facing": 1,
+      "phase2": false,
+      "sample": 0.703703703703704,
+      "semantic": "grunt.windup",
+      "timeSeconds": 0.330740740740741
+    },
+    "zoner": {
+      "clipName": "Throw",
+      "facing": 1,
+      "phase2": false,
+      "sample": 0.487179487179487,
+      "semantic": "throw.windup",
+      "timeSeconds": 0.341025641025641
+    }
+  },
+  "projectileCount": 0,
+  "ready": true,
+  "releases": [],
+  "render": {
+    "draws": 48,
+    "primitives": 30650
+  },
+  "rigCount": 4,
+  "tick": 20
+}

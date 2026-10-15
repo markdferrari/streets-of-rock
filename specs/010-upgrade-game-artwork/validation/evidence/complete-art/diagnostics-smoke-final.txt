@@ -1,0 +1,12 @@
+[WebServer] $ bun scripts/preview.ts --dir dist-diagnostics --host "127.0.0.1" --port "4182"
+
+Running 2 tests using 1 worker
+
+(node:194053) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/e2e/godot-release.spec.ts:32:1 › Web Diagnostics downloads a bounded structured report after active gameplay (11.0s)
+(node:194423) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [webkit] › tests/e2e/godot-release.spec.ts:32:1 › Web Diagnostics downloads a bounded structured report after active gameplay (8.5s)
+
+  2 passed (21.1s)

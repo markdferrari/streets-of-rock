@@ -67,3 +67,10 @@ it('keeps editable art provenance out of shipped content while retaining runtime
 it('packages runtime pilot definition fixtures while excluding editable Blender source',()=>{
  expect(webTestFixtureFiles(['tests/godot/fixtures/art/representative.tscn','tests/godot/fixtures/art/enemy_review.gd','tests/godot/fixtures/art/enemy-pilot/definitions.json','tests/godot/fixtures/art/enemy-pilot/grunt/source/character.blend'])).toEqual(['tests/godot/fixtures/art/representative.tscn','tests/godot/fixtures/art/enemy_review.gd','tests/godot/fixtures/art/enemy-pilot/definitions.json']);
 });
+
+import {runtimeGameScripts} from '../../scripts/godot/export';
+it('excludes author-only validators from every shipped script group while retaining runtime validation',()=>{
+ expect(runtimeGameScripts(['game/tools/validate_art.gd','game/tools/validate_content.gd','game/content/art_catalog.gd','game/app/main.tscn','game/platform/test_bridge.gd','game/platform/diagnostics.gd'],'release')).toEqual(['game/content/art_catalog.gd','game/app/main.tscn']);
+ expect(runtimeGameScripts(['game/tools/validate_art.gd','game/platform/test_bridge.gd','game/platform/diagnostics.gd'],'test')).toEqual(['game/platform/test_bridge.gd']);
+ expect(runtimeGameScripts(['game/platform/test_bridge.gd','game/platform/diagnostics.gd'],'diagnostics')).toEqual(['game/platform/diagnostics.gd']);
+});

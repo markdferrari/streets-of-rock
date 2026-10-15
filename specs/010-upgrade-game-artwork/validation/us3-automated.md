@@ -1,0 +1,15 @@
+# Art readiness, lifecycle and delivery automation
+
+The inherited generation-guarded session/resource boundary now prepares all four rooms, four enemy rigs and clips, props and the existing heroes before the initial world render/countdown. Shared valid imports persist across retry; changed paths and changed clip requirements are rechecked. Wrong-kind imported resources produce actionable errors rather than script exceptions. Late/stale preparation results, cancellation and retained duo behavior remain covered by inherited session/readiness tests. No second asynchronous art loader was introduced.
+
+Presentation is driven solely by the paused/running simulation tick. All authored phases, stun/defeat retention and phase-two styling freeze on repeated snapshots. Existing lifecycle tests cover hide/blur/portrait at every countdown second and during special actions, explicit safe Resume, fresh keyboard/touch sources, context loss, audio denial and storage fallback. Per-instance attack geometry remains visible without audio/shake; decoration and boss chevrons are static under reduced motion.
+
+`test_art_store.gd`, `test_art_cycles.gd`, `test_art_diagnostics.gd`, the inherited session/content/platform suites, `godot-loading.spec.ts` and all twelve duo journeys supply the combined preparation/lifecycle/ownership evidence. This reuses verified inherited tests where the task list proposed duplicate suites. Ten native world cycles and ten actual browser retries release old imported instances and retain the thirteen prepared shared resource identities.
+
+Delivery projects the complete resource registry into one full pinned export. Forced splitting partitions those actual emitted entries once, preserving exact bytes and bootstrap metadata first; supplemental packs mount before dependent content is loaded. Three-MiB splitting correctly refuses an individually larger soundtrack; five-MiB splitting creates two valid cold-mounted packs. Test/source/provenance/Blender/review artifacts remain excluded from Release. Both bundled credit resources are mandatory in packaging/audits.
+
+Existing worker/cache/loader integrity, corruption/repair, cache-only failures and two-window old/new update tests remain active. The extra `artwork-offline.spec.ts` verifies cold cached credits, all four furnished rooms, every enemy role, results and retained retry. No supplier website is required for play or credits. WebKit offline/native-touch emulation limitations are declared skips and do not count as physical Safari evidence.
+
+Read-only diagnostics report bounded active-only intervals, rolling FPS, draws/primitives/render density, actual imported texture bytes including mipmaps, texture/mesh counts and renderer texture residency. Source/diagnostic hooks stay physically absent from Release. Runtime batching preserves all triangles, exact hero material/skin bindings, independent poses and the original hero asset bytes.
+
+Raw completed commands and exact builds are recorded in [final checks](final-checks.md), [delivery](release.md) and [performance](performance.md). Physical device acceptance remains [pending](mobile.md).

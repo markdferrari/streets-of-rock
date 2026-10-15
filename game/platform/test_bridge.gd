@@ -1,6 +1,9 @@
 extends Node
+const Actor = preload("res://game/simulation/actor.gd")
+const Venue = preload("res://game/presentation/venue_view.gd")
 var game: Node
 var callback: JavaScriptObject
+var review_neutral: bool = false
 var review_concepts: bool = false
 var review_rooms: bool = false
 var review_room: int = 0
@@ -54,6 +57,45 @@ func _command(arguments: Array) -> Variant:
    game.world.add_child(backdrop)
    backdrop.build(textures, catalogue, game.content.level)
    if game.world.backdrops != null: game.world.backdrops.hide()
+  "enemy-neutral":
+   if game.session.phase != "paused" or review_neutral: return null
+   review_neutral = true
+   if game.world.backdrops!=null: game.world.backdrops.hide()
+   game.screen.hide()
+   var floor := MeshInstance3D.new()
+   floor.name="NeutralReviewFloor"
+   var shape := BoxMesh.new()
+   shape.size=Vector3(84,0.1,16)
+   floor.mesh=shape
+   floor.position=Vector3(35,-0.055,0)
+   var material := StandardMaterial3D.new()
+   material.albedo_color=Color("37333b")
+   floor.material_override=material
+   game.world.add_child(floor)
+  "enemy-art":
+   # Test export only: sample supported actions without changing simulation rules.
+   if game.session.phase != "paused": return null
+   var value: Dictionary = command.value
+   var role: String = value.role
+   if not game.content.enemy_presentations.has(role): return null
+   game.world.clear_run_views()
+   run.tick += 1
+   run.actors = run.actors.slice(0,2)
+   var actor := Actor.enemy(900,role,{"x":7.0,"depth":0.0},run.tick,game.content.tuning.enemyDefinitions[role])
+   actor.facing = int(value.get("facing",1))
+   actor.phase = int(value.get("phase",1))
+   var semantic: String = value.semantic
+   actor.action = {"kind":"idle","startedTick":run.tick-10,"endTick":run.tick+10}
+   if "." in semantic:
+    var parts := semantic.split(".")
+    actor.action.kind = parts[1]
+    actor.action.moveId = parts[0]
+   elif semantic=="Hurt": actor.action.kind="hurt"
+   elif semantic=="Stunned": actor.stunnedUntilTick=run.tick+30
+   elif semantic=="Defeated": actor.hp=0
+   if role=="zoner": actor.action.aimPosition={"x":7.0+actor.facing*3,"depth":1.0}
+   run.actors.append(actor)
+   game.world.frame={}
   "stage-hit":
    run.actors[0].position = {"x": 6.0, "depth": 0.0}
    run.actors[0].facing = 1
@@ -78,8 +120,22 @@ func _process(_delta: float) -> void:
   var panels: Node3D = game.world.get_node_or_null("Backdrops")
   if panels != null:
    scenery = {"textures": panels.texture_count, "rooms": panels.room_groups.keys(), "visibleRooms": panels.room_groups.values().filter(func(group: Node3D) -> bool: return group.visible).size(), "colliders": panels.find_children("*", "CollisionObject3D", true, false).size(), "animations": panels.find_children("*", "AnimationPlayer", true, false).size(), "connectors": [panels.has_node("Connector1"), panels.has_node("Connector2"), panels.has_node("Connector3")], "cameraX": game.world.camera.position.x}
+   scenery.kind = "neutral-review" if review_neutral else ("furnished" if panels is Venue else "illustrated")
+   scenery.render = {"draws": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME), "primitives": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)}
+   scenery.meshes = panels.find_children("*", "MeshInstance3D", true, false).size()
+   scenery.ownedInstances = panels.room_groups.size() if panels is Venue else 0
+   scenery.visuals = []
+   scenery.landmarks = {}
+   if panels is Venue:
+    for area in game.content.level.areas:
+     var definition: Dictionary = game.content.room_presentations[area.id]
+     scenery.visuals.append(definition.visualId)
+     var found: Array = []
+     for landmark in definition.requiredLandmarks:
+      if panels.room_groups[area.id].find_child(landmark, true, false) != null: found.append(landmark)
+     scenery.landmarks[area.id] = found
  var go: Dictionary = {"text": "", "bounds": {}}
  if game.screen.labels.has("go"):
   var node: Label = game.screen.labels.go
   go = {"text": node.text if node.visible else "", "bounds": {"x": node.position.x, "y": node.position.y, "width": node.size.x, "height": node.size.y}}
- host.__sorSnapshotJson = JSON.stringify({"ready": game.session != null, "phase": game.session.phase, "generation": game.session.generation, "run": game.session.run, "selection": game.session.selection, "bounds": game.screen.control_bounds, "acceptedMoves": game.accepted_moves, "ownedInstances": game.store.live_count(), "ownedInstanceIds": game.store.owned.keys(), "preparedResourceCount": game.store.templates.size(), "enemyArt": {} if game.world == null else game.world.enemy_art_snapshot(), "camera": {} if game.world == null else game.world.frame, "elapsedMs": game.active_clock.elapsed(game.now()), "settings": game.settings, "environment": game.environment, "readiness": game.readiness.snapshot(), "scenery": scenery, "go": go, "movement": {"x": game.input_controller.move_x, "depth": game.input_controller.move_depth}})
+ host.__sorSnapshotJson = JSON.stringify({"ready": game.session != null, "phase": game.session.phase, "generation": game.session.generation, "run": game.session.run, "selection": game.session.selection, "bounds": game.screen.control_bounds, "acceptedMoves": game.accepted_moves, "ownedInstances": game.store.live_count(), "ownedInstanceIds": game.store.owned.keys(), "preparedResourceCount": game.store.templates.size() + game.store.room_scenes.size(), "enemyArt": {} if game.world == null else game.world.enemy_art_snapshot(), "camera": {} if game.world == null else game.world.frame, "elapsedMs": game.active_clock.elapsed(game.now()), "settings": game.settings, "environment": game.environment, "readiness": game.readiness.snapshot(), "scenery": scenery, "go": go, "movement": {"x": game.input_controller.move_x, "depth": game.input_controller.move_depth}})

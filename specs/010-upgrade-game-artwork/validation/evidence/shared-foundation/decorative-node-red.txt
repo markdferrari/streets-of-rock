@@ -1,0 +1,271 @@
+$ bun scripts/godot/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/godot/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/app/test_readiness.gd
+[0m* test_runtime_and_offline_readiness_are_separate_and_update_waits_for_between_runs
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/app/test_session.gd
+[0m* test_two_step_selection_focus_no_preview_duplicate_and_back
+* test_generation_safe_readiness_interrupt_partial_countdown_retry_and_home
+* test_legacy_attack_does_not_complete_heavy_and_dodge_is_contextual
+* test_interruption_on_final_countdown_boundary_launches_once_only_after_safe_resume
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_catalog.gd
+[0m* test_minimal_isolated_catalogues_have_exact_four_room_and_role_coverage
+* test_unknown_schema_and_wrong_stable_mapping_are_rejected
+* test_required_landmarks_and_finite_ordered_coverage_are_checked
+* test_safe_paths_accepted_source_refs_and_dependency_closure_are_required
+* test_semantics_match_role_moves_and_normal_stun_is_required
+* test_nonfinite_transforms_envelopes_segments_and_held_samples_fail
+* test_malformed_field_types_produce_diagnostics_instead_of_script_errors
+* test_valid_catalogue_survives_real_json_number_decoding
+[1m8/8 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_import.gd
+[0m* test_valid_minimal_import_and_missing_skeleton_material_or_clip
+* test_imported_clip_segments_must_fit_actual_animation_length
+* test_imported_gameplay_nodes_and_scripts_are_forbidden
+* test_method_audio_and_actor_root_translation_tracks_are_rejected
+* test_skeletal_root_locomotion_is_rejected_but_local_hand_motion_is_allowed
+* test_unbound_extra_clip_is_also_inspected
+* test_root_bone_detection_does_not_depend_on_supplier_naming
+* test_polygon_colliders_and_navigation_obstacles_are_rejected_for_both_art_kinds
+[31m    [Failed]:  [0mCollisionPolygon3D cannot enter enemy imports
+      at line 98
+[31m    [Failed]:  [0mCollisionPolygon3D cannot enter decorative rooms
+      at line 100
+[31m    [Failed]:  [0mNavigationObstacle3D cannot enter enemy imports
+      at line 98
+[31m    [Failed]:  [0mNavigationObstacle3D cannot enter decorative rooms
+      at line 100
+[1m7/8 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_pose.gd
+[0m* test_action_boundaries_use_new_simulation_phase_and_bound_clip_segments
+* test_actual_displacement_chooses_move_without_camera_or_wall_clock
+* test_defeat_beats_stun_and_action_without_mutating_snapshots
+* test_normal_stun_precedes_attack_refresh_does_not_restart_and_expires_at_boundary
+* test_liam_ignores_stun_and_phase_two_does_not_interrupt_attack
+* test_hurt_only_when_reported_and_all_existing_move_ids_are_preserved
+* test_held_stun_pose_samples_authored_frame_and_pause_is_repeatable
+* test_zero_length_phase_clamps_sample_and_missing_binding_is_explicit
+* test_running_pose_faces_actual_movement_even_when_attack_facing_is_stale
+[1m9/9 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_view.gd
+[0m* test_actual_pilot_imports_have_complete_clips_and_safe_skeleton_tracks
+* test_imported_outfit_palette_uses_vertex_colours_in_godot
+* test_manual_sampling_uses_real_segment_times_positions_and_both_facings
+* test_two_instances_share_resources_but_have_independent_actual_bone_poses
+* test_missing_binding_is_actionable_and_does_not_fall_back_to_idle
+* test_repeat_tick_stun_and_defeat_do_not_advance_or_modify_input_state
+* test_attack_active_starts_with_hand_forward_in_both_facings
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/art/test_gameplay_enemies.gd
+[0m* test_normal_world_uses_imported_rigs_and_simulation_owned_poses
+* test_removed_enemy_holds_defeat_for_21_simulation_ticks_then_releases_rig
+* test_bartender_grip_hides_on_active_and_returns_on_next_windup
+* test_missing_or_invalid_enemy_asset_blocks_preparation_with_role_diagnostic
+* test_defeat_of_actor_still_in_run_does_not_recreate_expired_rig
+[1m5/5 passed.
+[0m[4m
+
+res://tests/godot/art/test_pilot_scene.gd
+[0m* test_review_scene_drives_real_ai_projectile_creation_and_releases_all_owned_heroes
+* test_representative_includes_explicit_imported_room_prop_and_source_record
+[33m    2 Orphans[0m
+[33m        * [@PhysicalBoneSimulator3D@205:<PhysicalBoneSimulator3D#175087027818>]
+        * [@PhysicalBoneSimulator3D@206:<PhysicalBoneSimulator3D#175120582941>][0m
+* test_representative_room_palette_survives_the_pinned_importer
+[33m2 orphans[0m
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/content/test_catalogue.gd
+[0m* test_shipped_catalogue_loads_unchanged_values_and_order
+* test_rejects_malformed_fields_with_actionable_paths
+* test_rejects_schema_identity_move_timing_and_resource_constraints
+* test_distinct_duos_and_clip_keys
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/content/test_resource_store.gd
+[0m* test_required_model_clip_and_backdrop_failures_block_readiness_actionably
+* test_ten_prepare_render_retry_teardown_cycles_leave_no_owned_rig_instances
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/input/test_input_controller.gd
+[0m* test_fixed_sixty_radius_deadzone_and_simultaneous_action
+* test_keyboard_freshness_cancel_geometry_and_carried_input
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_diagnostics.gd
+[0m* test_fps_uses_the_latest_active_second_instead_of_the_entire_raw_buffer
+* test_diagnostics_keep_bounded_local_frame_and_resource_samples
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_editor_platform.gd
+[0m* test_editor_adapter_keeps_allowlisted_values_in_memory_and_reports_geometry
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/platform/test_lifecycle_audio.gd
+[0m* test_visibility_focus_portrait_and_context_require_explicit_safe_resume
+* test_audio_uses_one_stream_and_eight_reusable_voices_and_preserves_pause
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/platform/test_persistence.gd
+[0m* test_settings_fallback_validation_and_storage_denial_remain_playable
+* test_best_result_replaces_only_strictly_better_victories
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_tutorial_uses_only_canonical_ids_and_transient_state_is_not_saved
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_backdrops.gd
+[0m* test_required_preload_is_atomic_and_reports_missing_or_wrong_import
+* test_static_room_panels_cover_all_rooms_connectors_and_backing_without_colliders
+* test_stable_room_mappings_and_exact_eight_resources
+* test_decoded_budget_includes_mipmaps
+* test_actual_final_and_concept_imports_keep_exact_sizes_opacity_and_mipmaps
+* test_actual_final_required_preload_builds_world_and_survives_retry_reuse
+* test_actual_panel_extents_cover_fitted_camera_edges_and_all_three_connectors
+* test_go_avoids_pause_overlay_controls_and_safe_insets_and_is_suppressed_on_result
+[1m8/8 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_camera.gd
+[0m* test_source_camera_frames_all_reference_layouts
+* test_world_retires_removed_actor_models_without_leaking_owned_rigs
+* test_combat_control_sizes_and_diamond_positions_match_retained_touch_layout
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_gesture_button.gd
+[0m* test_only_fresh_completed_inside_gestures_activate
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_import.gd
+[0m* test_imported_rig_has_all_semantic_clips_and_manual_pose
+* test_missing_clip_blocks_readiness_and_released_instances_settle
+* test_manual_sample_changes_real_imported_bones_without_playback
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/presentation/test_selection_gestures.gd
+[0m* test_same_selection_refresh_preserves_in_flight_mouse_gesture_exactly_once
+* test_hidden_button_cannot_capture_or_finish_gestures
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_ai.gd
+[0m* test_roles_begin_telegraphs_and_boss_changes_phase
+* test_partner_fights_without_meter_and_knockout_stays_inactive
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_partner_visibility_stable_target_and_blocked_recovery_only
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_combat.gd
+[0m* test_light_windows_hit_once_meter_and_combo_buffer
+* test_dodge_direction_protection_and_cooldown
+* test_depth_only_preserves_facing_diagonal_is_normalized_and_nonfinite_ignored
+* test_unavailable_preserves_single_buffer_and_source_cancel
+* test_same_sample_priority_and_expiry_never_cancel_recovery
+[1m5/5 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_enemy_following.gd
+[0m* test_grunt_pursues_both_axes_and_faces_its_travel_direction
+* test_grunt_can_close_depth_gap_without_wandering_sideways
+* test_bottle_aim_is_locked_at_warning_and_trajectory_does_not_track_dodges
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_progression.gd
+[0m* test_all_waves_tables_connectors_and_terminal_no_later_tick
+* test_full_health_pickup_consumption_player_only_and_break_once
+* test_tick_order_terminal_break_and_four_solo_terminal_outcomes
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_run_clock.gd
+[0m* test_constructors_all_duos_are_independent_and_role_correct
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+[33m    [GUT WARNING]:  [0mWarn:  Float/Int comparison.  Got FLOAT but expected INT
+* test_accumulator_first_frame_cap_pause_and_exact_boundary
+* test_wall_clock_no_five_minute_terminal_and_pause
+* test_countdown_stalls_do_not_skip_and_partial_time_survives_pause
+[1m4/4 passed.
+[0m[4m
+
+res://tests/godot/simulation/test_specials.gd
+[0m* test_four_specials_spend_once_and_release_correct_family
+* test_headrest_no_visible_target_retains_meter
+* test_roar_cancels_normal_attacks_leaves_bottles_and_damages_only_boss
+* test_headrest_fixed_aim_ties_interception_protection_and_expiry
+[1m4/4 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m[4m
+res://tests/godot/art/test_art_import.gd
+[0m- test_polygon_colliders_and_navigation_obstacles_are_rejected_for_both_art_kinds
+[31m    [Failed]:  [0mCollisionPolygon3D cannot enter enemy imports
+          at line 98
+[31m    [Failed]:  [0mCollisionPolygon3D cannot enter decorative rooms
+          at line 100
+[31m    [Failed]:  [0mNavigationObstacle3D cannot enter enemy imports
+          at line 98
+[31m    [Failed]:  [0mNavigationObstacle3D cannot enter decorative rooms
+          at line 100
+
+Totals
+------
+Warnings             14
+
+Scripts              26
+Tests               100
+Passing Tests        99
+Failing Tests         1
+Asserts           1002/1006
+Time              1.245s
+
+
+[31m---- 1 failing tests ----
+[0m
+error: script "test:godot" exited with code 1

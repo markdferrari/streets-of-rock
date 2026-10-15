@@ -1,0 +1,15 @@
+extends GutTest
+const Diagnostics = preload("res://game/platform/diagnostics.gd")
+func test_active_timing_ignores_pause_gaps_and_art_counters_report_real_scene_cost() -> void:
+ var diagnostics := Diagnostics.new()
+ add_child_autofree(diagnostics)
+ diagnostics.record(0,4,10,true)
+ diagnostics.record(16,4,10,true)
+ diagnostics.record(1000,4,10,false)
+ diagnostics.record(2000,4,10,true)
+ diagnostics.record(2016,4,10,true)
+ var snapshot := diagnostics.snapshot()
+ assert_eq(snapshot.frameIntervalsMs,[16.0,16.0])
+ assert_true(snapshot.has("textureBytes"),"diagnostics must include actual textures and mipmaps")
+ assert_true(snapshot.has("renderDensity"),"primitive density requires viewport pixels")
+ assert_true(snapshot.has("meshes"))

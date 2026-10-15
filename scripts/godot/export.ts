@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { sha256 } from './setup';
-import {auditBackdrops,auditImportedBackdrops} from '../backdrops/validate';
+import {generateCredits} from '../art/credits';
+import {partitionEntries,auditArtDelivery} from '../art/delivery';
 export type Mode='release'|'test'|'diagnostics';
 export function modeConfig(mode:Mode):{preset:string;dir:string;debug:boolean} {
  const modes={release:{preset:'Web Release',dir:'dist',debug:false},test:{preset:'Web Test',dir:'dist-test',debug:true},diagnostics:{preset:'Web Diagnostics',dir:'dist-diagnostics',debug:false}};
@@ -66,31 +67,23 @@ export function runtimeContentDefinitions(paths:string[]):string[]{
 export function webTestFixtureFiles(paths:string[]):string[]{
  return paths.filter(path=>/\.(gd|tscn|bin|json)$/.test(path));
 }
+export function runtimeGameScripts(paths:string[],mode:Mode):string[]{
+ return paths.filter(path=>/\.(gd|tscn)$/.test(path) && !path.startsWith('game/tools/') && (mode==='test'||path!=='game/platform/test_bridge.gd') && (mode==='diagnostics'||path!=='game/platform/diagnostics.gd'));
+}
 function sources(mode:Mode):Record<string,string[]> {
- const resources=JSON.parse(readFileSync('content/resources.json','utf8'));const groups:Record<string,string[]>={main:[...files('game').filter(n=>/\.(gd|tscn)$/.test(n)&&(mode==='test'||n!=='game/platform/test_bridge.gd')&&(mode==='diagnostics'||n!=='game/platform/diagnostics.gd')),...runtimeContentDefinitions(files('content'))],shared:Object.values(resources.props)};
+ const resources=JSON.parse(readFileSync('content/resources.json','utf8'));const groups:Record<string,string[]>={main:[...runtimeGameScripts(files('game'),mode),...runtimeContentDefinitions(files('content'))],shared:Object.values(resources.props)};
  for(const id of ['cow','crow','lion','plates'])groups[id]=[resources.models[id],resources.portraits[id]];
  for(const [id,entry] of Object.entries(resources.art??{}) as [string,{path:string}][])groups[id]=[entry.path];
- for(const room of JSON.parse(readFileSync('content/backdrops.json','utf8')).rooms)groups[room.setting]=[room.wall,room.floor];
+ groups.credits=files('public/assets/credits').filter(n=>/\.(json|txt)$/.test(n));
+ if(mode==='test') for(const room of JSON.parse(readFileSync('content/backdrops.json','utf8')).rooms)groups[room.setting]=[room.wall,room.floor];
  groups.audio=files('public/assets/audio').filter(n=>/\.(mp3|wav|ogg)$/.test(n));
  if(mode==='test'){groups.main!.push(...webTestFixtureFiles(files('tests/godot/fixtures')));groups.backdrops=files('assets/backdrops/concepts').filter(n=>n.endsWith('.svg'));}
  return groups;
 }
-function normalizePacks(stage:string,packs:string[],cap:number):void {
- const sharedMetadata=readPck(join(stage,'full.pck')).filter(e=>duplicateMetadata.has(e.path));
- const scratch=join(stage,'repack');mkdirSync(scratch,{recursive:true});
- for(const [index,pack] of packs.entries()){
-  const entries=readPck(join(stage,'raw',pack)).filter(e=>!duplicateMetadata.has(e.path));
-  if(index===0)entries.push(...sharedMetadata);
-  const records=entries.sort((a,b)=>a.path.localeCompare(b.path)).map((entry,n)=>{const file=join(scratch,`${index}-${n}.bin`);writeFileSync(file,entry.data);return {path:entry.path,file};});
-  const manifest=join(scratch,`${index}.json`);writeFileSync(manifest,JSON.stringify(records));
-  const target=join(scratch,pack);const result=runGodot(['--headless','--path','.','--log-file','.tmp/repack.log','--script','scripts/godot/repack.gd','--',target,manifest]);
-  if(result.status)throw new Error(result.output);if(statSync(target).size>cap)throw new Error(`${pack}: promoted shared metadata exceeds cap`);
-  cpSync(target,join(stage,'raw',pack));
- }
-}
 export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:string):Promise<FoundationInventory> {
  const lock=readLock();verifyInstalled();if(cap>16*1024*1024)throw new Error('Content cap cannot exceed 16 MiB');
- const backdropDecodedBytes=auditBackdrops();
+ generateCredits();
+ const backdropDecodedBytes=0;
  const config=modeConfig(mode);if(outputDir){if(!/^dist(?:-[a-z0-9-]+)?$/.test(outputDir))throw new Error('Output directory must be a dist directory');config.dir=outputDir;}
  const stage=resolve(`.tools/staging/${config.dir}`);rmSync(stage,{recursive:true,force:true});mkdirSync(join(stage,'raw'),{recursive:true});
  const importResult=runGodot(['--headless','--path','.','--log-file','.tmp/export-import.log','--import']);if(importResult.status)throw new Error(importResult.output);
@@ -98,7 +91,7 @@ export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:
  const setFiles=(selected:string[])=>{
   let presets=presetOriginal.replaceAll('export_filter="customized"','export_filter="resources"');
   presets=presets.replaceAll('export_filter="resources"',`export_filter="resources"\nexport_files=PackedStringArray(${selected.map(n=>JSON.stringify('res://'+n)).join(', ')})`);
-  presets=presets.replace(/^include_filter=.*$/gm,`include_filter="${selected.filter(n=>n.endsWith('.json')||n.endsWith('.bin')).join(',')}"`);
+  presets=presets.replace(/^include_filter=.*$/gm,`include_filter="${selected.filter(n=>n.endsWith('.json')||n.endsWith('.bin')||n.endsWith('.txt')).join(',')}"`);
   writeFileSync('export_presets.cfg',presets);
   writeFileSync('project.godot',projectOriginal.replace(/^run\/content_scene=.*$/m,`run/content_scene=${JSON.stringify(mode==='test'?'res://tests/godot/fixtures/web_test.tscn':'res://game/app/main.tscn')}`));
  };
@@ -111,25 +104,29 @@ export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:
   exportPack(Object.values(groups).flat(),join(stage,'raw/sor.html'),true);
   if(statSync(join(stage,'raw/sor.pck')).size>cap){
    cpSync(join(stage,'raw/sor.pck'),join(stage,'full.pck'));
-   // Measure deterministic category exports with the pinned exporter; never byte-split a PCK.
-   const categories=[];
-   for(const [group,selected] of Object.entries(groups)){
-    const target=join(stage,`${group}.pck`);exportPack(selected,target);categories.push({path:group,group,bytes:statSync(target).size});
+   // Partition the exact full export. Category exports repeat imported dependencies.
+   const entries=readPck(join(stage,'full.pck'));
+   const byPath=new Map(entries.map(entry=>[entry.path,entry]));
+   const plan=partitionEntries(entries,cap-65536);
+   const scratch=join(stage,'repack');mkdirSync(scratch,{recursive:true});packs=[];
+   for(const [index,paths] of plan.entries()){
+    const pack=index===0?'sor.pck':`content-${index}.pck`;
+    const records=paths.map((path,n)=>{const file=join(scratch,`${index}-${n}.bin`);writeFileSync(file,byPath.get(path)!.data);return {path,file};});
+    const manifest=join(scratch,`${index}.json`);writeFileSync(manifest,JSON.stringify(records));
+    const result=runGodot(['--headless','--path','.','--log-file','.tmp/repack.log','--script','scripts/godot/repack.gd','--',join(stage,'raw',pack),manifest]);
+    if(result.status)throw new Error(result.output);
+    if(statSync(join(stage,'raw',pack)).size>cap)throw new Error(`${pack}: pack metadata exceeds cap`);
+    packs.push(pack);
    }
-   const plan=planPacks(categories,cap);packs=[];
-   for(const [name,parts] of Object.entries(plan)){
-    const pack=name==='main'?'sor.pck':`${name}.pck`;exportPack(parts.flatMap(part=>groups[part]!),join(stage,'raw',pack));
-    if(statSync(join(stage,'raw',pack)).size>cap)throw new Error(`${pack}: exporter metadata exceeds forced cap; use a larger fixture cap or optimize assets`);packs.push(pack);
-   }
+   if(!packs.includes('sor.pck'))throw new Error('Missing bootstrap pack');
   }
-   if(packs.length>1)normalizePacks(stage,packs,cap);
  }finally{writeFileSync('export_presets.cfg',presetOriginal);writeFileSync('project.godot',projectOriginal);}
  const ownership:Record<string,Record<string,string>>={},remaps:Record<string,string>={};
  for(const pack of packs){const entries=readPck(join(stage,'raw',pack));ownership[pack]=Object.fromEntries(entries.map(e=>[e.path,e.sha256]));
   for(const e of entries){if(/\.blend\d*$|(?:^|\/)(addons|src|scripts|specs)\//.test(e.path)||mode!=='test'&&e.path.includes('/tests/'))throw new Error(`Forbidden export resource ${e.path}`);
    if(e.path.endsWith('.import')||e.path.endsWith('.remap'))for(const match of e.data.toString('utf8').matchAll(/path="(res:\/\/[^"\n]+)"/g))remaps[e.path]=match[1]!;
   }
- }auditOwnership(ownership,remaps);auditImportedBackdrops(Object.values(ownership).flatMap(entries=>Object.keys(entries)));writeFileSync(join(stage,'ownership.json'),JSON.stringify({ownership,remaps},null,2));
+ }auditOwnership(ownership,remaps);auditArtDelivery(Object.values(ownership).flatMap(entries=>Object.keys(entries)),JSON.parse(readFileSync('content/resources.json','utf8')));writeFileSync(join(stage,'ownership.json'),JSON.stringify({ownership,remaps},null,2));
  bundle('web/main.ts',join(stage,'browser.js'),{__SOR_DIAGNOSTICS__:mode==='diagnostics'});
  const stock=JSON.parse(readFileSync(`.tools/godot/${lock.version}/engine-${config.debug?'debug':'release'}.json`,'utf8')) as Record<string,string>;
  const staged=files(join(stage,'raw')).filter(p=>!p.endsWith('.html')&&!p.endsWith('.png'));
@@ -151,7 +148,7 @@ export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:
  await injectManifest({swSrc:join(stage,'sw-bundled.js'),swDest:join(dir,'sw.js'),globDirectory:dir,globPatterns:[],additionalManifestEntries:[...entries.map(e=>({url:e.url,revision:e.sha256})),{url:boot.inventoryUrl,revision:sha256(inventoryBytes)}]});
  const final=files(dir).map(p=>readFileSync(p));const engineBytes=entries.filter(e=>e.category==='engine').reduce((n,e)=>n+e.bytes,0),allBytes=final.reduce((n,b)=>n+b.length,0),contentBytes=allBytes-engineBytes;
  if(contentBytes>30*1024*1024||final.some(b=>b.length>16*1024*1024&&!Object.values(stock).includes(sha256(b))))throw new Error('Complete foundation content budget exceeded');
- const report={stage:'playable-scenery',buildId,mode,packCap:cap,packs,engineBytes,contentBytes,backdropDecodedBytes,requiredCachedPayloadBytes:allBytes,gzipEstimateBytes:final.reduce((n,b)=>n+gzipSync(b,{mtime:0} as any).length,0),brotliEstimateBytes:final.reduce((n,b)=>n+brotliCompressSync(b,{params:{[zlibConstants.BROTLI_PARAM_QUALITY]:5}}).length,0),engineFingerprints,inventoryDigest:sha256(inventoryBytes),workerSha256:sha256(readFileSync(join(dir,'sw.js'))),ownership,pending:['browser reliability acceptance','intended soundtrack confirmation','phone and participant acceptance']};
+ const report={stage:'venue-artwork',buildId,mode,packCap:cap,packs,engineBytes,contentBytes,backdropDecodedBytes,requiredCachedPayloadBytes:allBytes,gzipEstimateBytes:final.reduce((n,b)=>n+gzipSync(b,{mtime:0} as any).length,0),brotliEstimateBytes:final.reduce((n,b)=>n+brotliCompressSync(b,{params:{[zlibConstants.BROTLI_PARAM_QUALITY]:5}}).length,0),engineFingerprints,inventoryDigest:sha256(inventoryBytes),workerSha256:sha256(readFileSync(join(dir,'sw.js'))),ownership,pending:['physical-phone performance and installed/browser acceptance','five-player recognition and preference evaluation']};
  writeFileSync(join(stage,'report.json'),JSON.stringify(report,null,2)+'\n');console.log(`Web ${mode}: ${buildId}; ${packs.length} pack(s), ${contentBytes} content bytes, ${engineBytes} verified engine bytes`);return inventory;
 }
 if(import.meta.main){const args=process.argv.slice(2);const mode=(args[0]??'release') as Mode;const capArg=args.indexOf('--pack-cap');const outArg=args.indexOf('--output-dir');await exportWeb(mode,capArg<0?undefined:Number(args[capArg+1]),outArg<0?undefined:args[outArg+1]);}

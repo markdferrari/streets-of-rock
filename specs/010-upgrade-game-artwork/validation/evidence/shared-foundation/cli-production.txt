@@ -1,0 +1,48 @@
+$ bun scripts/art/validate.ts --enemy grunt
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Valid: enemy grunt definitions and imported resource closure
+
+exit=0
+
+$ bun scripts/art/validate.ts --enemy zoner
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Valid: enemy zoner definitions and imported resource closure
+
+exit=0
+
+$ bun scripts/art/validate.ts --enemy grunt --definitions-only
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Valid: enemy grunt definitions only; incomplete for release readiness
+
+Definitions only: imported checks skipped; incomplete for release readiness.
+exit=0
+
+$ bun scripts/art/validate.ts 
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+res://content/rooms.json: file missing; author the complete catalogue before validation
+rooms.schemaVersion: expected 1; update the authoring record
+rooms: exactly four stable area IDs required; found []
+enemies: exactly grunt, zoner, enforcer and liam required; found ["grunt", "zoner"]
+rooms.schemaVersion: expected 1; update the authoring record
+
+exit=1
+
+$ bun scripts/art/validate.ts --definitions-only
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+res://content/rooms.json: file missing; author the complete catalogue before validation
+rooms.schemaVersion: expected 1; update the authoring record
+rooms: exactly four stable area IDs required; found []
+enemies: exactly grunt, zoner, enforcer and liam required; found ["grunt", "zoner"]
+rooms.schemaVersion: expected 1; update the authoring record
+
+Definitions only: imported checks skipped; incomplete for release readiness.
+exit=1
+
+$ bun scripts/art/validate.ts --enemy missing
+Error: Unknown enemy ID: missing
+exit=2

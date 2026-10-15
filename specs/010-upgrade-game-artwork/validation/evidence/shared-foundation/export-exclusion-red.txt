@@ -1,0 +1,34 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/tooling/export.test.ts (11 tests | 1 failed) 24ms
+   × excludes author-only validators from every shipped script group while retaining runtime validation 6ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/tooling/export.test.ts > excludes author-only validators from every shipped script group while retaining runtime validation
+AssertionError: expected [ 'game/tools/validate_art.gd', …(5) ] to deeply equal [ 'game/content/art_catalog.gd', …(1) ]
+
+- Expected
++ Received
+
+  [
++   "game/tools/validate_art.gd",
++   "game/tools/validate_content.gd",
+    "game/content/art_catalog.gd",
+    "game/app/main.tscn",
++   "game/platform/test_bridge.gd",
++   "game/platform/diagnostics.gd",
+  ]
+
+ ❯ tests/tooling/export.test.ts:73:217
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  22:03:57
+   Duration  813ms (transform 111ms, setup 0ms, import 611ms, tests 24ms, environment 0ms)
+

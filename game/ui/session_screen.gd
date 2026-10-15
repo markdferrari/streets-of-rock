@@ -1,5 +1,6 @@
 extends Control
 signal action(id: String)
+const Credits = preload("res://game/ui/art_credits.gd")
 const Gesture = preload("res://game/platform/gesture_button.gd")
 const Selection = preload("res://game/ui/selection_screen.gd")
 const Hud = preload("res://game/ui/combat_hud.gd")
@@ -11,6 +12,7 @@ var control_bounds: Dictionary = {}
 var render_key: String = ""
 var state_key: String = ""
 var modal: bool = false
+var credits_open: bool = false
 var focused_id: String = ""
 func _ready() -> void: mouse_filter = Control.MOUSE_FILTER_IGNORE
 func clear_ui() -> void:
@@ -74,7 +76,7 @@ func render(session: RefCounted, content: RefCounted, environment: Dictionary, s
  var width: float = environment.width
  var height: float = environment.height
  if session.phase == "selecting" and not modal: focused_id = "character-" + str(session.selection.focusedId)
- var key: String = str([session.phase, session.selection, width, height, environment.safeInsets, modal])
+ var key: String = str([session.phase, session.selection, width, height, environment.safeInsets, modal, credits_open])
  var changed: bool = key != render_key
  var pending_gestures: Dictionary = {}
  if changed:
@@ -103,6 +105,7 @@ func render(session: RefCounted, content: RefCounted, environment: Dictionary, s
     for stat in stats: text += stat + " " + str(snappedf(stats[stat], 0.1)) + "   "
     label("stats", text + "\nTap again or press Enter again to choose", Rect2(width * 0.55, height * 0.64, width * 0.44, 100), 14)
    else: label("stats", "Tap to Preview", Rect2(width * 0.61, height * 0.64, width * 0.35, 50), 18)
+   button("artwork-credits", "Artwork Credits", Rect2(width - 280, height - 54, 160, 44))
    button("settings", "Settings", Rect2(width - 110, height - 54, 100, 44))
    if readiness.get("waitingUpdate", false): label("update-ready", "Update ready · Close all game windows and reopen", Rect2(18, height - 46, width - 220, 34), 13, Color("f8bb54"))
    if session.selection.step == "partner": button("back", "Back", Rect2(20, height - 54, 90, 44))
@@ -165,10 +168,28 @@ func render(session: RefCounted, content: RefCounted, environment: Dictionary, s
   if not str(readiness.get("offlineError", "")).is_empty(): offline += ": " + str(readiness.offlineError)
   label("offline-status", offline, Rect2(width * 0.25, height - 112, width * 0.5, 30), 15)
   if readiness.get("offline", "checking") != "ready": button("retry-cache", "Retry offline check", Rect2(width * 0.29, height - 78, width * 0.42, 42))
+  button("artwork-credits", "Artwork Credits", Rect2(width * 0.03, height - 58, 160, 48))
   button("close-settings", "Close settings", Rect2(width * 0.39, height - 58, 180, 48))
  if modal:
   if labels.has("music"): labels.music.text = "Music " + str(round(settings.musicVolume * 100)) + "%"
   if labels.has("effects"): labels.effects.text = "Effects " + str(round(settings.effectsVolume * 100)) + "%"
+ if credits_open and changed:
+  for child in get_children():
+   child.hide()
+   if child is Button: child.disabled = true
+  controls.clear()
+  descriptors.clear()
+  control_bounds.clear()
+  var left: float = 18 + environment.safeInsets.left
+  var top: float = 12 + environment.safeInsets.top
+  var usable: float = width - left - 18 - environment.safeInsets.right
+  label("credits-title", "Artwork Credits", Rect2(left,top,usable,36),26)
+  var scroll := Credits.new()
+  add_child(scroll)
+  var text := scroll.build(Rect2(left,top+42,usable,height-top-110-environment.safeInsets.bottom))
+  descriptors.append({"id":"credits-dialog","role":"dialog","name":"Artwork Credits","bounds":{"x":left,"y":top,"width":usable,"height":height-top}})
+  descriptors.append({"id":"credits-text","role":"heading","name":text,"focusOrder":-1,"bounds":{"x":left,"y":top+42,"width":usable,"height":height-top-110}})
+  button("close-credits","Back",Rect2(left,height-58-environment.safeInsets.bottom,120,48))
  for id in pending_gestures:
   if controls.has(id) and not controls[id].disabled and controls[id].get_global_rect() == pending_gestures[id].bounds:
    controls[id].sources = pending_gestures[id].sources

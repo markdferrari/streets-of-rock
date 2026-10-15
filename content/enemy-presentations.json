@@ -8,6 +8,10 @@
     {
       "id": "enemy-pilot-original",
       "status": "accepted"
+    },
+    {
+      "id": "head-bouncers-original",
+      "status": "accepted"
     }
   ],
   "enemies": [
@@ -184,6 +188,214 @@
         "Anchor horizontal hips lunge; preserve local limb/vertical motion",
         "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending"
       ]
+    },
+    {
+      "role": "enforcer",
+      "sceneResourceId": "enemy.enforcer",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 3.4,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "charge"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "charge.windup": {
+          "clipName": "Melee_Block",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": false,
+          "fixedSampleSeconds": 0.7466666666666666
+        },
+        "charge.active": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false
+        },
+        "charge.recovery": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "enforcer",
+      "status": "production",
+      "sourcePath": "assets/enemies/enforcer/source/character.blend",
+      "sourceSha256": "f42000677cb4b2d39c396559ca8bbc4003512136d2f13edc0e789fd75c1f7271",
+      "runtimePath": "assets/enemies/enforcer/runtime/character.glb",
+      "runtimeSha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Retain only named required motions; pin horizontal hips.",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate."
+      ]
+    },
+    {
+      "role": "liam",
+      "sceneResourceId": "enemy.liam",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 3.4,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "close",
+        "rope",
+        "shockwave"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "close.windup": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0,
+          "endSeconds": 0.5016666666666667,
+          "loop": false
+        },
+        "close.active": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.5016666666666667,
+          "endSeconds": 0.6816666666666666,
+          "loop": false
+        },
+        "close.recovery": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.6816666666666666,
+          "endSeconds": 1.1666666666666667,
+          "loop": false
+        },
+        "rope.windup": {
+          "clipName": "Throw",
+          "startSeconds": 0,
+          "endSeconds": 0.7,
+          "loop": false
+        },
+        "rope.active": {
+          "clipName": "Throw",
+          "startSeconds": 0.7,
+          "endSeconds": 0.84,
+          "loop": false
+        },
+        "rope.recovery": {
+          "clipName": "Throw",
+          "startSeconds": 0.84,
+          "endSeconds": 1.3666666666666667,
+          "loop": false
+        },
+        "shockwave.windup": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0,
+          "endSeconds": 0.8493333333333334,
+          "loop": false
+        },
+        "shockwave.active": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0.8493333333333334,
+          "endSeconds": 0.9993333333333334,
+          "loop": false
+        },
+        "shockwave.recovery": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0.9993333333333334,
+          "endSeconds": 1.6333333333333333,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "liam",
+      "status": "production",
+      "sourcePath": "assets/enemies/liam/source/character.blend",
+      "sourceSha256": "cdbd885643ec7cdc5614c1ee69e65db1ab265708b04aa08843fb8b3e4efe8a6e",
+      "runtimePath": "assets/enemies/liam/runtime/character.glb",
+      "runtimeSha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Retain only named required motions; pin horizontal hips.",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate."
+      ],
+      "phase2Style": {
+        "kind": "shoulder-chevrons",
+        "nonblocking": true
+      }
     }
   ]
 }

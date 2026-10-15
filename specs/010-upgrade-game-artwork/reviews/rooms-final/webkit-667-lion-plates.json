@@ -1,0 +1,626 @@
+[
+  {
+    "room": "exterior",
+    "edge": "left",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 1.75,
+      "anchorX": 8,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.74662668665667
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 8,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 64,
+        "primitives": 45538
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "exterior",
+    "edge": "right",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 0.75,
+      "anchorX": 8,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.24687656171914
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 8,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 58,
+        "primitives": 34330
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "bar",
+    "edge": "left",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 1.75,
+      "anchorX": 26,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.65111928169878
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 26,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 71,
+        "primitives": 39722
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "bar",
+    "edge": "right",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 0.75,
+      "anchorX": 26,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.24687656171914
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 26,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 69,
+        "primitives": 39706
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "dance-floor",
+    "edge": "left",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 1.75,
+      "anchorX": 44,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.60759038334626
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 44,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 65,
+        "primitives": 39042
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "dance-floor",
+    "edge": "right",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 0.75,
+      "anchorX": 44,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.24687656171914
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 44,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 65,
+        "primitives": 39042
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "stage-vip",
+    "edge": "left",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 1.75,
+      "anchorX": 62,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.65592320633329
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 62,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 54,
+        "primitives": 28262
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  },
+  {
+    "room": "stage-vip",
+    "edge": "right",
+    "fighter": "lion",
+    "partner": "plates",
+    "width": 667,
+    "camera": {
+      "anchorDepth": 0,
+      "anchorHeight": 0.75,
+      "anchorX": 62,
+      "aspect": 1.77866666666667,
+      "halfHeight": 6.24687656171914
+    },
+    "scenery": {
+      "animations": 0,
+      "cameraX": 62,
+      "colliders": 0,
+      "connectors": [
+        true,
+        true,
+        true
+      ],
+      "kind": "furnished",
+      "landmarks": {
+        "alley-exit": [
+          "curtains",
+          "stage-backdrop",
+          "vip-seating",
+          "club-branding",
+          "dramatic-light"
+        ],
+        "backstage-corridor": [
+          "dance-floor",
+          "dj-booth",
+          "large-speakers",
+          "overhead-fixtures",
+          "coloured-light-pools"
+        ],
+        "dance-floor": [
+          "frontage",
+          "club-sign",
+          "neon-doorway",
+          "light-spill",
+          "pavement",
+          "queue-barriers",
+          "event-posters"
+        ],
+        "vip-lounge": [
+          "long-counter",
+          "bottle-shelves",
+          "stools",
+          "booths",
+          "warm-light",
+          "neon-accents"
+        ]
+      },
+      "meshes": 46,
+      "ownedInstances": 4,
+      "render": {
+        "draws": 53,
+        "primitives": 24706
+      },
+      "rooms": [
+        "dance-floor",
+        "vip-lounge",
+        "backstage-corridor",
+        "alley-exit"
+      ],
+      "textures": 0,
+      "visibleRooms": 4,
+      "visuals": [
+        "exterior",
+        "bar",
+        "dance-floor",
+        "stage-vip"
+      ]
+    }
+  }
+]

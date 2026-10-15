@@ -107,3 +107,34 @@ func test_defeat_of_actor_still_in_run_does_not_recreate_expired_rig() -> void:
  assert_eq(f.store.live_count(), count)
  f.world.dispose()
  assert_eq(f.store.live_count(), 0)
+func test_reused_actor_id_in_a_new_run_cannot_inherit_old_pose_or_instance() -> void:
+ var f := setup_world()
+ if f.is_empty(): return
+ render(f)
+ var old_model: Node3D = f.world.models[3].model
+ var old_id := old_model.get_instance_id()
+ f.run.actors[2].hp = 0
+ f.run.tick = 10
+ render(f)
+ f.run.runId = 2
+ f.run.tick = 0
+ f.run.actors[2].hp = 100
+ f.run.actors[2].position = {"x":14.0,"depth":1.0}
+ f.run.actors[2].action = Actor.action("idle",0,0)
+ render(f)
+ assert_ne(f.world.models[3].model.get_instance_id(), old_id, "run generation owns its own rig even when actor IDs repeat")
+ assert_eq(f.world.models[3].last_pose.semantic, "Idle", "movement cannot derive from the previous run")
+ assert_true(f.world.defeat_retire_ticks.is_empty())
+ f.world.dispose()
+ assert_eq(f.store.live_count(),0)
+ await get_tree().process_frame
+ assert_no_new_orphans()
+
+func test_unknown_enemy_presentation_fails_without_a_primitive_fallback() -> void:
+ var f := setup_world()
+ if f.is_empty(): return
+ f.run.actors[2].role = "unregistered"
+ render(f)
+ assert_true(str(f.world.errors).contains("unregistered"))
+ assert_false(f.world.models.has(3), "a missing required rig must not silently become a primitive enemy")
+ f.world.dispose()

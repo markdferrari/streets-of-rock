@@ -1,0 +1,29 @@
+{
+  "id": "representative.room",
+  "status": "prototype",
+  "sourceRecordIds": [
+    "kenney-furniture",
+    "representative-room-original"
+  ],
+  "sourcePath": "tests/godot/fixtures/art/representative-room/source/room.blend",
+  "sourceSha256": "317bc576230777c32489181621adc45ba9803d520838e5855430a0e0ee3f5427",
+  "runtimePath": "tests/godot/fixtures/art/representative-room/runtime/room.glb",
+  "runtimeSha256": "24cab5e0cb37b372e45d97ec8592e2512405b42bfe36bcea120adb8e4b097bb9",
+  "exporter": "5.2.2 LTS",
+  "selectedSource": {
+    "path": "Models/GLTF format/stoolBar.glb",
+    "sha256": "a86167a9f92401a61fec7e509ad089ecc552d0f299743add3aeb919acb24e341"
+  },
+  "adaptations": [
+    "Original floor, wall, counter and palette; imported three selected Kenney stools; one opaque vertex-colour surface."
+  ],
+  "originalAuthorDeclaration": "Fixture geometry and batching authored by Codex at owner request; Kenney stools remain separately attributed.",
+  "importSettings": {
+    "path": "tests/godot/fixtures/art/representative-room/runtime/room.glb.import",
+    "sha256": "a019d167c7d7232a7cbc9b622d84173bdc9f4a5ab5a393e0673b509234c9c1cd"
+  },
+  "palette": {
+    "path": "tests/godot/fixtures/art/representative-room/palette.tres",
+    "sha256": "86279727e0c42f65c6a43a6ec386f7d4eeaa48b49306e10e78e866e93c768973"
+  }
+}

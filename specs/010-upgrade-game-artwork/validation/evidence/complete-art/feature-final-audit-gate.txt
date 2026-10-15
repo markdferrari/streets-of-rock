@@ -1,0 +1,15 @@
+$ bun scripts/audit-build.ts --final --evidence "specs/010-upgrade-game-artwork/validation/acceptance.json"
+43 |  if (typeof value !== 'object' || value === null || Array.isArray(value)) throw new Error('Missing final acceptance evidence record');
+44 |  const record = value as { buildId?: unknown; statuses?: Record<string, unknown>; evidence?: Record<string, unknown>; soundtrack?: unknown; manualWaiver?: unknown };
+45 |  if (record.buildId !== buildId) throw new Error('Final evidence build identity does not match the audited release');
+46 |  for (const key of FINAL_EVIDENCE_KEYS) {
+47 |   const status = record.statuses?.[key];
+48 |   if (status !== 'pass' && !(status === 'waived' && MANUAL_EVIDENCE_KEYS.has(key))) throw new Error(`Final evidence ${key} must be pass before --final`);
+                                                                                                   ^
+error: Final evidence phones must be pass before --final
+      at validateFinalEvidence (/home/mark/projects/godot/streets-of-rock/scripts/godot/audit.ts:48:95)
+      at auditFoundationBuild (/home/mark/projects/godot/streets-of-rock/scripts/godot/audit.ts:33:3)
+      at /home/mark/projects/godot/streets-of-rock/scripts/audit-build.ts:10:16
+
+Bun v1.4.2 (Linux x64)
+error: script "audit:build" exited with code 1

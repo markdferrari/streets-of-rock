@@ -1,0 +1,35 @@
+$ vitest run tests/tooling tests/platform tests/unit/art
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/import-validation.test.ts (10 tests | 1 failed) 6440ms
+     × checks shipped prop provenance instead of validating only room and enemy definitions 430ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/import-validation.test.ts > actual Godot art authoring validation > checks shipped prop provenance instead of validating only room and enemy definitions
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/unit/art/import-validation.test.ts:108:59
+    106|   (f.data.resources as any).props={bottle:path};
+    107|   provenance.runtimeProps=[{id:'prop.bottle',runtimePath:path,runtimeS…
+    108|   const r=validateArt(['--root',f.root]);expect(r.status).toBe(1);expe…
+       |                                                           ^
+    109|   expect(validateArt(['--root',f.root,'--enemy','grunt']).status).toBe…
+    110|  });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  1 failed | 84 passed (85)
+   Start at  09:46:08
+   Duration  6.97s (transform 2.09s, setup 0ms, import 4.82s, tests 11.60s, environment 3ms)
+
+error: script "test:platform" exited with code 1

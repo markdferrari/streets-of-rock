@@ -53,3 +53,6 @@ Running 106 tests using 1 worker
   ✓   46 [chromium] › tests/e2e/godot-lifecycle.spec.ts:31:131 › lion Special freezes through focused interruption until explicit resume (8.1s)
   ✓   47 [chromium] › tests/e2e/godot-lifecycle.spec.ts:31:131 › lion Special freezes through portrait interruption until explicit resume (8.1s)
   ✓   48 [chromium] › tests/e2e/godot-lifecycle.spec.ts:31:131 › plates Special freezes through visible interruption until explicit resume (8.1s)
+  ✓   49 [chromium] › tests/e2e/godot-lifecycle.spec.ts:31:131 › plates Special freezes through focused interruption until explicit resume (8.2s)
+  ✓   50 [chromium] › tests/e2e/godot-lifecycle.spec.ts:31:131 › plates Special freezes through portrait interruption until explicit resume (7.9s)
+  ✓   51 [chromium] › tests/e2e/godot-loading.spec.ts:3:1 › ten retained-duo retry cycles release every old rig and reuse shared imports (51.9s)

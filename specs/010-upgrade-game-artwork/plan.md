@@ -3,7 +3,7 @@
 **Branch**: `010-upgrade-game-artwork` | **Date**: 2026-10-13 | **Spec**: [spec.md](spec.md)
 
 **Input**: `specs/010-upgrade-game-artwork/spec.md`
-**Status**: Research/design and concept direction approved; Grunt/Zoner KayKit motion pilot implemented. Shared validation/production integration and final acceptance remain incomplete; see [current progress](validation/progress.md).
+**Status**: All four furnished rooms, all four rigged enemy roles, complete authoring/import validation, art preparation, optimized presentation, split-pack delivery and offline credits are implemented. Owner visual direction is approved. Current automation and pending phone/participant acceptance are tracked in [progress](validation/progress.md).
 
 ## Summary
 

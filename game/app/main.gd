@@ -120,7 +120,7 @@ func prepare_view(generation: int) -> void:
  for id in content.roster:
   var definition: Dictionary = content.definitions[id]
   if not store.prepare(id, "res://" + content.resources.models[definition.presentation.modelKey], content.clips[definition.presentation.animationSetKey]): readiness_error += "\n".join(store.errors) + "\n"
- if not store.prepare_backdrops(backdrop_catalogue): readiness_error += "\n".join(store.errors)
+ if not store.prepare_rooms(content): readiness_error += "\n".join(store.errors)
  if not store.prepare_enemies(content): readiness_error += "\n".join(store.errors)
  if not readiness_error.is_empty():
   readiness.set_runtime_error(readiness_error)
@@ -287,6 +287,12 @@ func act(id: String) -> void:
    audio.set_running(false)
   screen.modal = true
   clear_inputs()
+ elif id == "artwork-credits":
+  screen.credits_open = true
+  clear_inputs()
+ elif id == "close-credits":
+  screen.credits_open = false
+  screen.focused_id = "artwork-credits"
  elif id == "close-settings": screen.modal = false
  elif id == "shake":
   settings.screenShake = not settings.screenShake

@@ -17,6 +17,7 @@ var clock := Clocks.new()
 var bridge := BrowserBridge.new()
 var runs: Dictionary = {}
 var views: Dictionary = {}
+var representative_views: Dictionary = {}
 var previous: Dictionary = {}
 var definitions: Dictionary = {}
 var projectiles: Dictionary = {}
@@ -54,6 +55,12 @@ func _ready() -> void:
   views[role] = view
   definitions[role] = definition
  if not errors.is_empty(): return
+ for role in ["grunt", "zoner"]:
+  var scene: PackedScene = load("res://tests/godot/fixtures/art/enemy-pilot/" + role + "/runtime/character.glb")
+  var duplicate_view := EnemyView.new()
+  add_child(duplicate_view)
+  if not duplicate_view.attach(scene.instantiate(), definitions[role]): errors.append_array(duplicate_view.errors)
+  representative_views[role] = duplicate_view
  camera = Camera3D.new()
  camera.projection = Camera3D.PROJECTION_ORTHOGONAL
  camera.size = 8.420221169
@@ -75,14 +82,6 @@ func _ready() -> void:
  environment.environment.ambient_light_color = Color.WHITE
  environment.environment.ambient_light_energy = 0.9
  add_child(environment)
- geometry.mesh(self, box(Vector3(24, 0.15, 10)), Color("44404f"), Vector3(6, -0.1, 0))
- geometry.mesh(self, box(Vector3(24, 4, 0.3)), Color("282237"), Vector3(6, 2, -4))
- geometry.mesh(self, box(Vector3(5, 1.5, 1)), Color("613e4b"), Vector3(7, 0.75, -3.7))
- for x in [6, 8]:
-  var prop := bottle_scene.instantiate()
-  add_child(prop)
-  prop.position = Vector3(x, 1.5, -3.7)
-  prop.scale = Vector3.ONE * 0.6
  var i := 0
  for id in ["cow", "crow"]:
   if not store.prepare(id, "res://" + content.resources.models[id], content.clips[id]): errors.append_array(store.errors)
@@ -227,6 +226,13 @@ func render() -> void:
   if not views[role].apply_snapshot(enemy, previous[role], tick):
    errors.append_array(views[role].errors)
   poses[role] = views[role].last_pose
+ for role in representative_views:
+  var snapshot: Dictionary = runs[role].actors[1].duplicate(true)
+  snapshot.position = {"x": 5.0 if role == "grunt" else 10.0, "depth": -1.8}
+  snapshot.action = Actor.action("idle", 0, 1)
+  snapshot.hp = 180
+  snapshot.erase("stunnedUntilTick")
+  if not representative_views[role].apply_snapshot(snapshot, snapshot, tick): errors.append_array(representative_views[role].errors)
  grip.visible = not bottle_released and runs.zoner.actors[1].hp > 0
  var ids: Array = []
  for projectile in runs.zoner.projectiles:
@@ -248,7 +254,7 @@ func render() -> void:
   for key in controls:
    var rect: Rect2 = controls[key].get_global_rect()
    buttons[key] = {"x": rect.position.x, "y": rect.position.y, "width": rect.size.x, "height": rect.size.y}
-  JavaScriptBridge.get_interface("window").__sorArtPilotJson = JSON.stringify({"ready": fixture_ready, "tick": tick, "paused": paused, "mode": mode, "facing": facing, "poses": poses, "bottleVisible": grip.visible, "projectileCount": projectiles.size(), "releases": projectile_releases, "errors": errors, "buttons": buttons, "rigCount": views.size(), "render": {"draws": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME), "primitives": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)}})
+  JavaScriptBridge.get_interface("window").__sorArtPilotJson = JSON.stringify({"ready": fixture_ready, "tick": tick, "paused": paused, "mode": mode, "facing": facing, "poses": poses, "bottleVisible": grip.visible, "projectileCount": projectiles.size(), "releases": projectile_releases, "errors": errors, "buttons": buttons, "rigCount": views.size() + representative_views.size(), "render": {"draws": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME), "primitives": RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_PRIMITIVES_IN_FRAME)}})
 func _process(_delta: float) -> void:
  if not fixture_ready: return
  for i in clock.frame(float(Time.get_ticks_msec()), not paused): advance_tick()

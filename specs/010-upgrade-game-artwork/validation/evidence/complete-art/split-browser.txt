@@ -1,0 +1,21 @@
+[WebServer] $ bun scripts/preview.ts --dir dist-art-split --host "127.0.0.1" --port "4192"
+
+Running 10 tests using 1 worker
+
+(node:207413) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (11.2s)
+  ✓   2 [chromium] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio (1.6s)
+  ✓   3 [chromium] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume (1.5s)
+  ✓   4 [chromium] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline (2.9s)
+  ✓   5 [chromium] › tests/e2e/godot-foundation.spec.ts:27:1 › native simultaneous touches, cancel and outside release clear their originating inputs (1.5s)
+(node:207745) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [webkit] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (8.4s)
+  ✓   7 [webkit] › tests/e2e/godot-foundation.spec.ts:4:1 › real canvas Control and semantic keyboard each activate exactly once with gesture audio (1.8s)
+  ✓   8 [webkit] › tests/e2e/godot-foundation.spec.ts:11:1 › blur clears input and returning requires explicit safe resume (1.4s)
+  -   9 [webkit] › tests/e2e/godot-foundation.spec.ts:18:1 › complete immutable engine and pack release reloads cold offline
+  -  10 [webkit] › tests/e2e/godot-foundation.spec.ts:27:1 › native simultaneous touches, cancel and outside release clear their originating inputs
+
+  2 skipped
+  8 passed (34.3s)

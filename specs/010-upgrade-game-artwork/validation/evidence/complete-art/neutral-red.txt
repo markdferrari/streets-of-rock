@@ -1,0 +1,32 @@
+[WebServer] $ bun scripts/preview.ts --dir dist-art-final --host "127.0.0.1" --port "4195"
+
+Running 1 test using 1 worker
+
+(node:183761) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › grunt samples every attack in both facings with frozen simulation and complete cues (17.7s)
+
+
+  1) [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › grunt samples every attack in both facings with frozen simulation and complete cues 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "neutral-review"
+    Received: "furnished"
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+       5 |  await page.setViewportSize({width:844,height:390});await selectDuo(page,'cow','crow');await canvasControl(page,'pause');
+       6 |  await page.evaluate(()=>(window as any).__sorTest.command('enemy-neutral'));
+    >  7 |  await expect.poll(()=>game(page).then(s=>s.scenery.kind)).toBe('neutral-review');
+         |                                                            ^
+       8 |  for(const facing of [-1,1])for(const semantic of ['Idle','Hurt',...(role==='liam'?[]:['Stunned']),...moves.flatMap(m=>['windup','active','recovery'].map(p=>`${m}.${p}`)),'Defeated']){
+       9 |   await page.evaluate(value=>(window as any).__sorTest.command('enemy-art',value),{role,semantic,facing,phase:role==='liam'?2:1});
+      10 |   await expect.poll(()=>game(page).then(s=>s.enemyArt.views['900']?.pose.semantic)).toBe(semantic);
+        at /home/mark/projects/godot/streets-of-rock/tests/e2e/artwork-enemies.spec.ts:7:60
+
+    Error Context: .tmp/.tmp/010-neutral-results/artwork-enemies-grunt-samp-41218-imulation-and-complete-cues-chromium/error-context.md
+
+  1 failed
+    [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › grunt samples every attack in both facings with frozen simulation and complete cues 

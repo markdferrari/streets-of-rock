@@ -1,0 +1,2 @@
+$ bun scripts/audit-build.ts
+Web export audit passed: be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4, 5.77 MiB content, 37.96 MiB verified engine; cached 45852441 bytes, gzip estimate 16165940 bytes, Brotli estimate 14206650 bytes.

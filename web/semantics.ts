@@ -12,12 +12,17 @@ export function validateSemanticDescriptor(value: UiDescriptor): boolean {
 export class SemanticProjection {
   private elements = new Map<string, HTMLElement>();
   private modal = false;
-  private restoreFocusId: string | undefined;
+  private dialogId: string | undefined;
+  private returnFocus = new Map<string,string|undefined>();
   constructor(private readonly layer: HTMLElement, private readonly dispatch: (id: string, kind: string, value?: unknown) => void) {}
   render(generation: number, descriptors: UiDescriptor[]): void {
-    const wasModal=this.modal;
-    this.modal = descriptors.some(d => d.role === 'dialog');
-    if(this.modal&&!wasModal)this.restoreFocusId=(document.activeElement as HTMLElement)?.dataset.controlId;
+    const previousDialog=this.dialogId;
+    this.dialogId=descriptors.find(d=>d.role==='dialog')?.id;
+    this.modal=!!this.dialogId;
+    const changedDialog=previousDialog!==this.dialogId;
+    const returning=previousDialog ? this.returnFocus.get(previousDialog) : undefined;
+    const returningToParent=!!returning && descriptors.some(d=>d.id===returning);
+    if(changedDialog&&this.dialogId&&!returningToParent)this.returnFocus.set(this.dialogId,(document.activeElement as HTMLElement)?.dataset.controlId);
     const current = new Set(descriptors.map(d => d.id));
     for (const [id, element] of this.elements) if (!current.has(id)) { element.remove(); this.elements.delete(id); }
     let dialogElement: HTMLElement | null = null;
@@ -71,13 +76,19 @@ export class SemanticProjection {
       element.hidden = descriptor.visible === false;
       const b = descriptor.bounds; Object.assign(element.style, { left: `${b.x}px`, top: `${b.y}px`, width: `${b.width}px`, height: `${b.height}px` });
     }
-    this.layer.setAttribute('aria-label', this.modal ? 'Settings dialog' : 'Game controls');
+    this.layer.setAttribute('aria-label', this.modal ? `${descriptors.find(d=>d.role==='dialog')!.name} dialog` : 'Game controls');
     this.layer.setAttribute('role', 'group');
-    if(this.modal&&!wasModal)[...this.elements.values()].find(element=>element.tabIndex>=0&&!element.hidden)?.focus();
-    else if(wasModal&&!this.modal){if(this.restoreFocusId)this.elements.get(this.restoreFocusId)?.focus();this.restoreFocusId=undefined;}
+    if(changedDialog){
+      if(returningToParent)this.elements.get(returning!)?.focus();
+      else if(this.modal)this.focusable()[0]?.focus();
+      if(previousDialog&&(returningToParent||!this.dialogId))this.returnFocus.delete(previousDialog);
+    }
+  }
+  private focusable():HTMLElement[] {
+    return [...this.elements.values()].filter(el=>!el.hidden&&!('disabled' in el&&(el as HTMLButtonElement).disabled)&&el.tabIndex>=0).sort((a,b)=>Number(a.dataset.focusOrder)-Number(b.dataset.focusOrder));
   }
   private trapTab(event: KeyboardEvent): void {
-    const focusable = [...this.elements.values()].filter(el => !el.hidden && !('disabled' in el && (el as HTMLButtonElement).disabled) && el.tabIndex >= 0);
+    const focusable = this.focusable();
     if (!focusable.length) { event.preventDefault(); return; }
     const active = focusable.indexOf(document.activeElement as HTMLElement);
     if (event.shiftKey && active <= 0) { event.preventDefault(); focusable.at(-1)!.focus(); }

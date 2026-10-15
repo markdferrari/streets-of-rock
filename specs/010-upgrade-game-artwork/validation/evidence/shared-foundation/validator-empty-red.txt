@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/validate-cli.test.ts (7 tests | 1 failed) 11ms
+   × does not accept an empty validator report as successful validation 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > does not accept an empty validator report as successful validation
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/unit/art/validate-cli.test.ts:57:60
+     55| });
+     56| it('does not accept an empty validator report as successful validation…
+     57|  expect(validateArt([],()=>({status:0,output:''})).status).toBe(1);
+       |                                                            ^
+     58| });
+     59|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  22:01:46
+   Duration  181ms (transform 31ms, setup 0ms, import 49ms, tests 11ms, environment 0ms)
+

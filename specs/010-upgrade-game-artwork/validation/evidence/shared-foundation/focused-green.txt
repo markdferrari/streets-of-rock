@@ -1,0 +1,104 @@
+$ bun scripts/art/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/godot/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/art/test_art_catalog.gd
+[0m* test_minimal_isolated_catalogues_have_exact_four_room_and_role_coverage
+* test_unknown_schema_and_wrong_stable_mapping_are_rejected
+* test_required_landmarks_and_finite_ordered_coverage_are_checked
+* test_safe_paths_accepted_source_refs_and_dependency_closure_are_required
+* test_semantics_match_role_moves_and_normal_stun_is_required
+* test_nonfinite_transforms_envelopes_segments_and_held_samples_fail
+* test_malformed_field_types_produce_diagnostics_instead_of_script_errors
+* test_valid_catalogue_survives_real_json_number_decoding
+[1m8/8 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_import.gd
+[0m* test_valid_minimal_import_and_missing_skeleton_material_or_clip
+* test_imported_clip_segments_must_fit_actual_animation_length
+* test_imported_gameplay_nodes_and_scripts_are_forbidden
+* test_method_audio_and_actor_root_translation_tracks_are_rejected
+* test_skeletal_root_locomotion_is_rejected_but_local_hand_motion_is_allowed
+* test_unbound_extra_clip_is_also_inspected
+* test_root_bone_detection_does_not_depend_on_supplier_naming
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_pose.gd
+[0m* test_action_boundaries_use_new_simulation_phase_and_bound_clip_segments
+* test_actual_displacement_chooses_move_without_camera_or_wall_clock
+* test_defeat_beats_stun_and_action_without_mutating_snapshots
+* test_normal_stun_precedes_attack_refresh_does_not_restart_and_expires_at_boundary
+* test_liam_ignores_stun_and_phase_two_does_not_interrupt_attack
+* test_hurt_only_when_reported_and_all_existing_move_ids_are_preserved
+* test_held_stun_pose_samples_authored_frame_and_pause_is_repeatable
+* test_zero_length_phase_clamps_sample_and_missing_binding_is_explicit
+* test_running_pose_faces_actual_movement_even_when_attack_facing_is_stale
+[1m9/9 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_view.gd
+[0m* test_actual_pilot_imports_have_complete_clips_and_safe_skeleton_tracks
+* test_imported_outfit_palette_uses_vertex_colours_in_godot
+* test_manual_sampling_uses_real_segment_times_positions_and_both_facings
+* test_two_instances_share_resources_but_have_independent_actual_bone_poses
+* test_missing_binding_is_actionable_and_does_not_fall_back_to_idle
+* test_repeat_tick_stun_and_defeat_do_not_advance_or_modify_input_state
+* test_attack_active_starts_with_hand_forward_in_both_facings
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/art/test_gameplay_enemies.gd
+[0m* test_normal_world_uses_imported_rigs_and_simulation_owned_poses
+* test_removed_enemy_holds_defeat_for_21_simulation_ticks_then_releases_rig
+* test_bartender_grip_hides_on_active_and_returns_on_next_windup
+* test_missing_or_invalid_enemy_asset_blocks_preparation_with_role_diagnostic
+* test_defeat_of_actor_still_in_run_does_not_recreate_expired_rig
+[1m5/5 passed.
+[0m[4m
+
+res://tests/godot/art/test_pilot_scene.gd
+[0m* test_review_scene_drives_real_ai_projectile_creation_and_releases_all_owned_heroes
+* test_representative_includes_explicit_imported_room_prop_and_source_record
+[33m    2 Orphans[0m
+[33m        * [@PhysicalBoneSimulator3D@192:<PhysicalBoneSimulator3D#143294204010>]
+        * [@PhysicalBoneSimulator3D@191:<PhysicalBoneSimulator3D#143260649580>][0m
+* test_representative_room_palette_survives_the_pinned_importer
+[33m2 orphans[0m
+[1m3/3 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Scripts               6
+Tests                39
+Passing Tests        39
+Asserts             212
+Time              0.788s
+
+
+[32m---- All tests passed! ----
+[0m
+
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+
+ Test Files  2 passed (2)
+      Tests  13 passed (13)
+   Start at  22:07:51
+   Duration  3.67s (transform 107ms, setup 0ms, import 156ms, tests 3.47s, environment 0ms)
+
+

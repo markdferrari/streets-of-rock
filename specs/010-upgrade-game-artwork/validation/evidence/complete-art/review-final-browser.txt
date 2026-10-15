@@ -1,0 +1,25 @@
+[WebServer] $ bun scripts/preview.ts --dir dist-art-review --host "127.0.0.1" --port "4195"
+
+Running 14 tests using 1 worker
+
+(node:188593) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (15.9s)
+  ✓   2 [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › grunt samples every attack in both facings with frozen simulation and complete cues (20.5s)
+  ✓   3 [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › zoner samples every attack in both facings with frozen simulation and complete cues (18.4s)
+  ✓   4 [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › enforcer samples every attack in both facings with frozen simulation and complete cues (21.9s)
+  ✓   5 [chromium] › tests/e2e/artwork-enemies.spec.ts:4:131 › liam samples every attack in both facings with frozen simulation and complete cues (43.2s)
+  ✓   6 [chromium] › tests/e2e/artwork-enemy-review.spec.ts:4:1 › neutral enemy review shows unobscured silhouettes, attack reach and both boss phases (29.4s)
+  ✓   7 [chromium] › tests/e2e/artwork-offline.spec.ts:3:1 › complete furnished art, every threat role and credits survive a cold offline run and retry (29.5s)
+(node:191374) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   8 [webkit] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (12.1s)
+  ✓   9 [webkit] › tests/e2e/artwork-enemies.spec.ts:4:131 › grunt samples every attack in both facings with frozen simulation and complete cues (11.5s)
+  ✓  10 [webkit] › tests/e2e/artwork-enemies.spec.ts:4:131 › zoner samples every attack in both facings with frozen simulation and complete cues (11.5s)
+  ✓  11 [webkit] › tests/e2e/artwork-enemies.spec.ts:4:131 › enforcer samples every attack in both facings with frozen simulation and complete cues (11.2s)
+  ✓  12 [webkit] › tests/e2e/artwork-enemies.spec.ts:4:131 › liam samples every attack in both facings with frozen simulation and complete cues (15.2s)
+  ✓  13 [webkit] › tests/e2e/artwork-enemy-review.spec.ts:4:1 › neutral enemy review shows unobscured silhouettes, attack reach and both boss phases (15.4s)
+  -  14 [webkit] › tests/e2e/artwork-offline.spec.ts:3:1 › complete furnished art, every threat role and credits survive a cold offline run and retry
+
+  1 skipped
+  13 passed (4.7m)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3]
+[ext_resource type="PackedScene" path="res://assets/rooms/exterior/runtime/room.glb" id="geometry"]
+[node name="Room" type="Node3D"]
+[node name="Geometry" parent="." instance=ExtResource("geometry")]
+[node name="BrandLettering" type="Label3D" parent="."]
+position = Vector3(6,2.2,-4.25)
+text = "BONDI BEACH"
+font_size = 55
+pixel_size = 0.009
+modulate = Color(0.3254901960784314,0.8313725490196079,0.9215686274509803,1)
+outline_size = 8
+shaded = false
+no_depth_test = false
+[node name="PostersLettering" type="Label3D" parent="."]
+position = Vector3(5,1.0,-4.35)
+text = "LIVE / LOUD"
+font_size = 25
+pixel_size = 0.009
+modulate = Color(0.9333333333333333,0.9098039215686274,0.8627450980392157,1)
+outline_size = 8
+shaded = false
+no_depth_test = false
+[node name="EntranceLettering" type="Label3D" parent="."]
+position = Vector3(14,1.8,-4.05)
+text = "BAR >"
+font_size = 34
+pixel_size = 0.009
+modulate = Color(0.9294117647058824,0.7568627450980392,0.41568627450980394,1)
+outline_size = 8
+shaded = false
+no_depth_test = false

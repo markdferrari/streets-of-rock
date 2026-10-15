@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "venue-original",
+      "status": "accepted"
+    },
+    {
+      "id": "kenney-furniture",
+      "status": "accepted"
+    }
+  ],
+  "rooms": [
+    {
+      "areaId": "dance-floor",
+      "visualId": "exterior",
+      "sceneResourceId": "room.exterior",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "requiredLandmarks": [
+        "frontage",
+        "club-sign",
+        "neon-doorway",
+        "light-spill",
+        "pavement",
+        "queue-barriers",
+        "event-posters"
+      ],
+      "dependencyIds": [
+        "room.exterior.geometry"
+      ],
+      "decorationBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -6.4,
+        "maxDepth": -3.1
+      },
+      "coverageBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -8,
+        "maxDepth": 8
+      },
+      "exitLandmark": "EntranceLettering",
+      "reviewSubjectId": "exterior"
+    },
+    {
+      "areaId": "vip-lounge",
+      "visualId": "bar",
+      "sceneResourceId": "room.bar",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "requiredLandmarks": [
+        "long-counter",
+        "bottle-shelves",
+        "stools",
+        "booths",
+        "warm-light",
+        "neon-accents"
+      ],
+      "dependencyIds": [
+        "room.bar.geometry",
+        "room.prop.sofa",
+        "room.prop.stool"
+      ],
+      "decorationBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -6.4,
+        "maxDepth": -3.1
+      },
+      "coverageBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -8,
+        "maxDepth": 8
+      },
+      "exitLandmark": "ExitLettering",
+      "reviewSubjectId": "bar"
+    },
+    {
+      "areaId": "backstage-corridor",
+      "visualId": "dance-floor",
+      "sceneResourceId": "room.dance-floor",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "requiredLandmarks": [
+        "dance-floor",
+        "dj-booth",
+        "large-speakers",
+        "overhead-fixtures",
+        "coloured-light-pools"
+      ],
+      "dependencyIds": [
+        "room.dance-floor.geometry"
+      ],
+      "decorationBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -6.4,
+        "maxDepth": -3.1
+      },
+      "coverageBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -8,
+        "maxDepth": 8
+      },
+      "exitLandmark": "ExitLettering",
+      "reviewSubjectId": "dance-floor"
+    },
+    {
+      "areaId": "alley-exit",
+      "visualId": "stage-vip",
+      "sceneResourceId": "room.stage-vip",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "requiredLandmarks": [
+        "curtains",
+        "stage-backdrop",
+        "vip-seating",
+        "club-branding",
+        "dramatic-light"
+      ],
+      "dependencyIds": [
+        "room.stage-vip.geometry",
+        "room.prop.sofa"
+      ],
+      "decorationBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -6.4,
+        "maxDepth": -3.1
+      },
+      "coverageBounds": {
+        "minX": 0,
+        "maxX": 16,
+        "minDepth": -8,
+        "maxDepth": 8
+      },
+      "exitLandmark": null,
+      "reviewSubjectId": "stage-vip"
+    }
+  ],
+  "coverage": {
+    "connectors": [
+      [
+        16,
+        18
+      ],
+      [
+        34,
+        36
+      ],
+      [
+        52,
+        54
+      ]
+    ],
+    "backing": {
+      "minX": -35,
+      "maxX": 105,
+      "minDepth": -32,
+      "maxDepth": 32,
+      "wallHeight": 12,
+      "wallDepth": -4.7
+    }
+  }
+}

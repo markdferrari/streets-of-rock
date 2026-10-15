@@ -1,0 +1,30 @@
+{
+  "artImageInventory": [
+    {
+      "path": "assets/characters/cow-crow/runtime/cow.glb",
+      "images": 0,
+      "textures": 0
+    },
+    {
+      "path": "assets/characters/cow-crow/runtime/crow.glb",
+      "images": 0,
+      "textures": 0
+    },
+    {
+      "path": "tests/godot/fixtures/art/enemy-pilot/grunt/runtime/character.glb",
+      "images": 0,
+      "textures": 0
+    },
+    {
+      "path": "tests/godot/fixtures/art/enemy-pilot/zoner/runtime/character.glb",
+      "images": 0,
+      "textures": 0
+    },
+    {
+      "path": "tests/godot/fixtures/art/representative-room/runtime/room.glb",
+      "images": 0,
+      "textures": 0
+    }
+  ],
+  "note": "Image-backed model/scenery textures only; font/skin buffers and total GPU memory are not measured."
+}

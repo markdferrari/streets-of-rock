@@ -114,3 +114,26 @@ Implementation, art review, devices and participants are separate statuses: curr
 | SC-013 | At least 4 of 5 testers prefer the new artwork when shown matched before/after gameplay views of the scenery and enemies; retain separate responsiveness and readability ratings under SC-004. |
 
 All participant/device outcomes remain pending for feature 010. The feature 009 manual waiver is limited to that cutover. Deterministic/parity/browser baseline results are supplementary and cannot establish these human/device outcomes.
+
+## Shared-foundation continuation audit (2026-10-14)
+
+[Foundation evidence](foundation.md) adds full/focused authoring/import validation, source hash/status and dependency checks, a representative explicit room/prop GLB and four independent enemy instances beside the unchanged duo. This advances FR-006/009/010/012 technical evidence without establishing final room/role coverage, credits, physical-phone performance or participant outcomes. The runtime-gate countdown boundary regression is fixed with an observed deterministic red/green case and repeated WebKit verification (FR-008).
+
+Task audit: the original Grunt/Zoner source/runtime work satisfies T031/T032; its final gameplay contact/feet review remains T030/T040. All remaining role-wide tasks retain Enforcer/Liam and phase-two obligations. Inherited SVG tests, shared-generation readiness and offline tests are retained, not relabeled as final feature 010 art acceptance. Missing complete production content correctly fails the new unfiltered validator.
+
+## Complete implementation reconciliation — 2026-10-15
+
+This section supersedes the earlier pilot/foundation statements about missing rooms, roles and credits. All production content and technical interfaces now exist. [Final checks](final-checks.md), [the art register](../reviews/art-register.md), [acceptance](acceptance.md) and [release](release.md) identify actual outcomes and pending evidence.
+
+| Requirements | Current implementation and evidence | Remaining acceptance |
+| --- | --- | --- |
+| FR-001–003 | Four furnished room GLBs/scenes; every landmark; quiet backing/connectors; unchanged camera/level/tables/waves/exits; room import/ray/layout/transition checks and 26 exact replays. | Physical layouts and participant setting recognition. |
+| FR-004–006 | Four distinct rigged roles; every semantic/attack; normal stun/boss immunity; both facings/phases; manual skeleton sampling; exact cues/release; run-bound defeat/ownership; source/Blender/GUT/browser checks. | Physical readability and participant threat recognition. |
+| FR-007–008 | Safe controls, original GO rules, static reduced-motion-safe decoration/cues, frozen pause/results, explicit resume/fresh inputs; all duos and inherited interruption/settings/audio/storage checks. | Real phone touch/gesture/lifecycle procedures and participant measures. |
+| FR-009–010 | Full prepared art and initial view; actionable failures/retry; immutable cache/update/offline art+credits; actual two-pack cold mounts; 30/16-MiB audits; active-only diagnostics; ten cycles; 53–75 sampled desktop draw calls. | Complete browser/installed phone runs and phone FPS/stalls. |
+| FR-011–012 | Retained accepted free-source/license/acquisition/hash records, original fallbacks, rejected candidates, nonmutating full/focused import/prop validation, deterministic shipped-only credits and physical source exclusion. | No unresolved feature-010 artwork source decision is shipped. Inherited soundtrack metadata limits remain explicit. |
+| FR-013 | Eight concept/eight final source/build/capture records, explicit owner blanket artwork approval, exact review hashes and technical rechecks. | Five-player evaluation and required physical device observations. |
+
+All 17 scenarios remain mapped above: US1.1–4 → room/catalogue/layout/transition suites; US2.1–5 → enemy catalogue/pose/view/gameplay/neutral-review suites; US3.1–5 → inherited lifecycle/input/loading/cache/offline suites plus art cycles/diagnostics/pack audits; US4.1–3 → source/import/credits tests and owner review records. A passing automation case does not establish its separate phone/participant clause.
+
+SC-001/002/003 retain participant thresholds; SC-004/005 retain physical mobile conditions. SC-006 has complete feature artwork provenance/notices. SC-007 has exact gameplay regressions and all sixteen owner-approved concept/final directions, with no falsely recorded individual screenshot inspection. The feature-specific strict audit intentionally fails missing manual evidence; the old 009 waiver is not reused.

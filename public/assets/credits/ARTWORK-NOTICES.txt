@@ -1,0 +1,52 @@
+Artwork Credits
+
+Original clubgoer and bartender pilot skins
+Project artwork authored by Codex at owner request
+LicenseRef-Project-Original
+Original geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged.
+Anchor horizontal hips lunge; preserve local limb/vertical motion
+Original club outfit/mesh on KayKit Medium skeleton
+Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending
+Retain only five selected animation clips
+
+Original security and head-bouncer skins
+Project artwork authored by Codex at owner request
+LicenseRef-Project-Original
+Original security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed.
+Original approved security/coat/rope silhouettes on the retained Medium rig.
+Phase segments use source hand extrema; final gameplay contact/feet review remains separate.
+Retain only named required motions; pin horizontal hips.
+
+KayKit Character Animations 1.1
+Kay Lousberg
+CC0-1.0
+Kay Lousberg — KayKit Character Animations 1.1 — CC0 1.0
+Anchor horizontal hips lunge; preserve local limb/vertical motion
+Original approved security/coat/rope silhouettes on the retained Medium rig.
+Original club outfit/mesh on KayKit Medium skeleton
+Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending
+Phase segments use source hand extrema; final gameplay contact/feet review remains separate.
+Retain only five selected animation clips
+Retain only named required motions; pin horizontal hips.
+https://kaylousberg.itch.io/kaykit-character-animations
+
+KayKit Dungeon Asset Pack
+Kay Lousberg
+CC0-1.0
+Kay Lousberg — KayKit Dungeon Asset Pack 1.1 — CC0 1.0
+Embedded source geometry and texture in explicit GLB
+https://kaylousberg.com/
+
+Furniture Kit
+Kenney
+CC0-1.0
+Kenney — Furniture Kit — CC0 1.0
+Retain selected prop; preserve editable source and batch palette by vertex colour.
+https://kenney.nl/assets/furniture-kit
+
+Original rock venue room geometry, signs and palettes
+Project artwork authored by Codex at owner request
+LicenseRef-Project-Original
+Original venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed.
+Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes.
+Retain selected prop; preserve editable source and batch palette by vertex colour.

@@ -4,7 +4,7 @@
 
 ## Current status and prerequisites
 
-The planning-time application was Three.js. After the feature 009 merge, the tracked runtime is Godot; see [source audit](validation/prerequisites.md) and [actual baseline evidence](validation/baseline.md). New art validation commands below remain proposed. Untracked `.godot/`, `.tools/` or `dist-*` outputs do not satisfy source prerequisites. Use feature branch `010-upgrade-game-artwork` and preserve unrelated local changes.
+The planning-time application was Three.js. After the feature 009 merge, the tracked runtime is Godot; see [source audit](validation/prerequisites.md) and [actual baseline evidence](validation/baseline.md). The complete room/enemy validation, production art, loading and credit interfaces below are implemented. Untracked `.godot/`, `.tools/` or `dist-*` outputs do not satisfy source prerequisites. Use feature branch `010-upgrade-game-artwork` and preserve unrelated local changes.
 
 Use feature 009's pinned Godot 4.7.2 and matching locked standard web templates, Compatibility/single-thread export, Bun 1.4.2, Node 24.21.0, Blender 5.2.2 LTS, Python 3.12.3, GUT 9.7.1 and the repository's pinned browser tooling. Do not auto-upgrade tools during art validation. Physical acceptance needs iPhone 12/Safari, Pixel 6/Chrome, the intended soundtrack, owner concept/gameplay review and five casual players.
 
@@ -24,13 +24,13 @@ bun run audit:build
 blender -noaudio --background --factory-startup --python-exit-code 1 --python tests/blender/run_tests.py
 ```
 
-Install browser binaries/host dependencies only if needed, following the repository setup. Existing headless browser environment overrides are documented in [009 quickstart](../009-godot-rewrite/quickstart.md). Run all active suites before any commit. This planning-only change receives document/link/requirement checks; it does not require creating artificial game tests.
+Install browser binaries/host dependencies only if needed, following the repository setup. Existing headless browser environment overrides are documented in [009 quickstart](../009-godot-rewrite/quickstart.md). Run all active suites before any commit. See [current checks](validation/final-checks.md) for actual results and manual acceptance limits.
 
 Capture baseline gameplay views and deterministic traces before modifying presentation, including all room boundaries, the two table locations, mixed enemy waves and both Liam phases. Keep source/build identity, camera/layout, duo, tick and settings with captures so comparisons use equivalent conditions.
 
-## Setup after the 009 foundation and 010 wrappers exist
+## Setup
 
-The following commands are proposed implementation interfaces, not currently runnable claims:
+The following commands are implemented:
 
 ```sh
 bun install --frozen-lockfile
@@ -61,7 +61,7 @@ Expected result: the actual exported browser game loads, shows the selected duo,
 | `bun run build` | Web Release packages complete resources/credits with one coherent release identity. |
 | `bun run audit:build` | Exact emitted inventory, pack dependencies, budgets and absence of test/debug/source resources pass. |
 | `bun run build:diagnostics` | Same art/content/settings in a read-only diagnostics release for phone measurements. |
-| `bun run audit:build -- --final` | Additionally verifies required current evidence references, soundtrack and acceptance records; missing evidence fails. |
+| `bun run audit:build -- --final --evidence specs/010-upgrade-game-artwork/validation/acceptance.json` | Additionally verifies required current evidence references, soundtrack and acceptance records; missing evidence fails. |
 
 Direct focused GUT invocation after its integration:
 
@@ -126,4 +126,22 @@ Store real outputs under `specs/010-upgrade-game-artwork/validation/` and `revie
 
 ## Available KayKit motion review
 
-The two-character review pilot is implemented; see [controls, captures and exact scope](reviews/kaykit-pilot.md). Build with `bun run build:test`, serve `dist-test` using the preview command above, then open `/?fixture=enemy-art`. It uses real AI phase/projectile timing while keeping the pilot out of Web Release. The approved Grunt and bartender rigs now appear on the normal `/` gameplay route; see [gameplay captures and instructions](reviews/gameplay-enemies.md). Remaining enemy roles, furnished rooms and final feature acceptance remain pending.
+The two-character review pilot is implemented; see [controls, captures and exact scope](reviews/kaykit-pilot.md). Build with `bun run build:test`, serve `dist-test` using the preview command above, then open `/?fixture=enemy-art`. It uses real AI phase/projectile timing while keeping the pilot out of Web Release. The approved Grunt and bartender rigs now appear on the normal `/` gameplay route; see [gameplay captures and instructions](reviews/gameplay-enemies.md). All four furnished rooms and all four enemy roles now appear on `/`. Dedicated `artwork-enemies.spec.ts` and `artwork-enemy-review.spec.ts` cover the remaining roles and both Liam phases. Final phone/participant acceptance remains pending.
+
+## Shared authoring foundation (2026-10-14)
+
+`bun run validate:art` and `bun run test:art` are implemented. The validator is nonmutating and defaults to actual Godot import/dependency/clip validation; `--root` selects an isolated project, and `--definitions-only` explicitly reports incomplete release readiness. All production room/enemy focuses and unfiltered validation pass:
+
+```sh
+bun run validate:art -- --enemy grunt
+bun run validate:art -- --enemy zoner
+bun run test:art
+```
+
+Full production validation checks every room, rig, source, supplier prop and imported dependency. Credits are generated automatically before export; `bun scripts/art/credits.ts` also regenerates them directly. Read bundled notices from Home or paused Settings. Source/notice tests and build audits are automated; physical reference-phone and participant acceptance remain pending.
+
+`/?fixture=enemy-art` now includes an explicitly exported prototype room/prop and four independent enemy instances (the same two Grunt/Zoner designs) alongside Cow/Crow. Its current captures are in [foundation review](reviews/foundation/), preserving the earlier two-character motion-review artifacts. [Foundation evidence](validation/foundation.md) records desktop headroom, build identities and unresolved phone evidence.
+
+## Current artwork delivery
+
+See [US1](validation/us1.md), [US2](validation/us2.md), [source/credits](validation/us4.md), [release](validation/release.md) and [acceptance](validation/acceptance.md). The owner approved all visuals on 2026-10-15. That approval does not supply phone timings or five-player scores. Use `bun run audit:build -- --final --evidence specs/010-upgrade-game-artwork/validation/acceptance.json` for this feature. It remains an acceptance gate and must fail while required current-build evidence is missing. Omitting `--evidence` preserves the inherited 009 audit; its waiver is never silently rebound to this artwork build.

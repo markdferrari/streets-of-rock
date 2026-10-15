@@ -1,0 +1,2 @@
+$ bun scripts/audit-build.ts dist-diagnostics
+Web export audit passed: 4710b40647ff4d445476b192930c88f6d18a13b8b5ff34ea241f5e002a71c836, 5.77 MiB content, 37.96 MiB verified engine; cached 45856004 bytes, gzip estimate 16169164 bytes, Brotli estimate 14209299 bytes.

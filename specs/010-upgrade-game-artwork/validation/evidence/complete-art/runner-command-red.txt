@@ -1,0 +1,37 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/validate-cli.test.ts (7 tests | 1 failed) 21ms
+     × runs both GUT and Vitest scopes and propagates either runner failure 10ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > focused art test runner > runs both GUT and Vitest scopes and propagates either runner failure
+AssertionError: expected [ 'bun', 'x' ] to deeply equal [ 'node', …(1) ]
+
+- Expected
++ Received
+
+  [
+-   "node",
+-   "node_modules/vitest/vitest.mjs",
++   "bun",
++   "x",
+  ]
+
+ ❯ tests/unit/art/validate-cli.test.ts:49:35
+     47|    expect(commands[0].join(' ')).toContain('res://tests/godot/art');
+     48|    expect(commands[1].join(' ')).toContain('tests/unit/art');
+     49|    expect(commands[1].slice(0,2)).toEqual(['node','node_modules/vitest…
+       |                                   ^
+     50|    expect(r.status).toBe(failure===-1?0:1);
+     51|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Start at  09:55:51
+   Duration  350ms (transform 80ms, setup 0ms, import 120ms, tests 21ms, environment 0ms)
+

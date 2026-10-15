@@ -31,7 +31,7 @@ test('verified cache launches offline and returning saved values survive reload'
     for(const room of [0,1,2,3]){
       await cold.evaluate(room=>(window as any).__sorTest.command('room',room),room);
       await expect.poll(()=>cold.evaluate(()=>(window as any).__sorTest.snapshot().run.areaIndex)).toBe(room);
-      expect(await cold.evaluate(()=>(window as any).__sorTest.snapshot().scenery.textures)).toBe(8);
+      expect(await cold.evaluate(()=>(window as any).__sorTest.snapshot().scenery.textures)).toBe(0);
     }
     await cold.evaluate(()=>(window as any).__sorTest.command('victory'));
     await expect.poll(()=>cold.evaluate(()=>(window as any).__sorTest.snapshot().phase)).toBe('victory');

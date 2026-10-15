@@ -27,3 +27,11 @@ Exact source last-change commits and working/tracked fingerprints are retained i
 ## KayKit increment recheck
 
 The new pilot has passing structural/import, pure pose and actual instance tests, web review captures and Release exclusion evidence. A completed whole browser run had one WebKit selection-helper failure (94 passes/five skips); the helper now uses explicit native-selection state waits and the affected scope passes. A fresh complete run was interrupted, so T007 remains open. [Current detailed evidence](kaykit-pilot.md) supersedes the earlier statement that no art import/representative checks exist. Full art CLI/production-room and phone acceptance still remain incomplete.
+
+## Shared-foundation continuation audit
+
+The earlier missing-capability statements describe the original merge, not current code. Shared structural/import/dependency/source checks and the authoring CLI/scoped runner now exist; both actual Grunt/Zoner focuses pass, and an explicit representative room/prop GLB is exercised alongside four independent enemy instances and the existing duo. [Foundation evidence](foundation.md) supersedes those missing-validator/prototype statements. Production rooms, Enforcer/Liam and complete art-aware readiness/credits remain unbuilt.
+
+The initial current complete browser run had 100 passes, five skips and one final-countdown/portrait failure. Unlike the earlier selection-helper issue, this is a deterministic session boundary defect: interrupt can sample countdown completion before the next session frame. The regression now proves no launch while paused/unsafe and exactly one launch after safe explicit Resume. The affected WebKit case passes three repeats. T007 stays unchecked until the fresh combined browser gate finishes; a focused pass alone does not close it.
+
+The fresh combined recheck subsequently passed **101 browser cases with five declared skips**; Release smoke passed three with three mode/capability skips. All 101 current GUT cases, 28 Blender cases, 26 exact replays and typecheck pass. T007 is now complete. T015's representative source/import/export/budget proof passes, with both unavailable physical phones explicitly pending under its missing-phone clause. See `evidence/shared-foundation/browser-green.txt` and [foundation](foundation.md). Later room/role integration must retain these regressions.

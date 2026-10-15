@@ -10,7 +10,7 @@ test('normal encounters render approved Grunt and bartender rigs with frozen pos
  await canvasControl(page,'pause');await expect.poll(()=>game(page).then(s=>s.phase)).toBe('paused');
  const before=await game(page);await page.waitForTimeout(200);const after=await game(page);
  expect(after.run.tick).toBe(before.run.tick);expect(after.enemyArt).toEqual(before.enemyArt);
- expect(after.enemyArt.errors).toEqual([]);expect(after.ownedInstances).toBe(2+after.enemyArt.ownedInstances);expect(errors).toEqual([]);
+ expect(after.enemyArt.errors).toEqual([]);expect(after.ownedInstances).toBe(2+after.enemyArt.ownedInstances+after.scenery.ownedInstances);expect(errors).toEqual([]);
  const output='specs/010-upgrade-game-artwork/reviews/gameplay-enemies';mkdirSync(output,{recursive:true});
  await page.screenshot({path:`${output}/${browserName}-bar.png`});
 });

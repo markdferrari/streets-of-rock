@@ -1,0 +1,15 @@
+$ bun scripts/audit-build.ts --final
+40 | const MANUAL_EVIDENCE_KEYS = new Set(['phones', 'performance', 'playtest', 'offlineUpdate']);
+41 | 
+42 | export function validateFinalEvidence(buildId: string, value: unknown, root = '.'): void {
+43 |  if (typeof value !== 'object' || value === null || Array.isArray(value)) throw new Error('Missing final acceptance evidence record');
+44 |  const record = value as { buildId?: unknown; statuses?: Record<string, unknown>; evidence?: Record<string, unknown>; soundtrack?: unknown; manualWaiver?: unknown };
+45 |  if (record.buildId !== buildId) throw new Error('Final evidence build identity does not match the audited release');
+                                                ^
+error: Final evidence build identity does not match the audited release
+      at validateFinalEvidence (/home/mark/projects/godot/streets-of-rock/scripts/godot/audit.ts:45:44)
+      at auditFoundationBuild (/home/mark/projects/godot/streets-of-rock/scripts/godot/audit.ts:33:3)
+      at /home/mark/projects/godot/streets-of-rock/scripts/audit-build.ts:6:16
+
+Bun v1.4.2 (Linux x64)
+error: script "audit:build" exited with code 1

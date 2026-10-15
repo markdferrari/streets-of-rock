@@ -49,7 +49,9 @@ func failed(failed_generation: int, message: String) -> void:
  error = message
 func frame(now: float) -> Array:
  if phase != "countdown" or countdown == null or run.is_empty(): return []
- if not countdown.frame(now) or not countdown.completed: return []
+ # An interrupt can sample/complete the final second before this frame.
+ countdown.frame(now)
+ if not countdown.completed: return []
  phase = "running"
  return [{"type": "clearInputs"}, {"type": "launch", "run": run}]
 func interrupt(now: float) -> Array:

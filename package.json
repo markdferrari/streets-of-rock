@@ -19,12 +19,14 @@
     "test:godot": "bun scripts/godot/test.ts",
     "typecheck:godot": "bun scripts/godot/typecheck.ts",
     "test:blender": "bun scripts/test-blender.ts",
-    "test:platform": "vitest run tests/tooling tests/platform",
+    "test:platform": "vitest run tests/tooling tests/platform tests/unit/art",
     "test:e2e:godot": "playwright test --config playwright.godot.config.ts",
     "test:foundation": "bun run test:platform && bun run test:godot && bun run test:e2e:godot && bun run test:e2e:release",
     "test:e2e:release": "playwright test --config playwright.release.config.ts",
     "test:parity": "bun scripts/godot/parity.ts",
-    "typecheck:tooling": "tsc --noEmit"
+    "typecheck:tooling": "tsc --noEmit",
+    "validate:art": "bun scripts/art/validate.ts",
+    "test:art": "bun scripts/art/test.ts"
   },
   "dependencies": {
     "workbox-core": "7.4.1",

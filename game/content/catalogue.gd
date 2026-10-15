@@ -10,6 +10,8 @@ var clips: Dictionary = {}
 var tuning: Dictionary = {}
 var level: Dictionary = {}
 var enemy_presentations: Dictionary = {}
+var room_presentations: Dictionary = {}
+var venue_coverage: Dictionary = {}
 
 func read_json(path: String) -> Variant:
  var parser := JSON.new()
@@ -35,6 +37,8 @@ func load_catalogue(base: String = "res://content") -> bool:
  errors.clear()
  definitions = {}
  enemy_presentations = {}
+ room_presentations = {}
+ venue_coverage = {}
  var ids: Variant = read_json(base + "/roster.json")
  var assets: Variant = read_json(base + "/resources.json")
  var animations: Variant = read_json(base + "/animation-clips.json")
@@ -60,8 +64,33 @@ func load_catalogue(base: String = "res://content") -> bool:
    if enemy is Dictionary and enemy.get("role") is String:
     if enemy_presentations.has(enemy.role): errors.append("enemy-presentations: duplicate role " + enemy.role)
     else: enemy_presentations[enemy.role] = enemy
-  for role in ["grunt", "zoner"]:
-   if not enemy_presentations.has(role): errors.append("enemy-presentations: required approved rig " + role + " missing")
+  for role in Art.MOVES:
+   if not enemy_presentations.has(role): errors.append("enemy-presentations: required production rig " + role + " missing")
+ var room_document: Variant = read_json(base + "/rooms.json")
+ if not room_document is Dictionary or room_document.get("schemaVersion") != 1 or not room_document.get("rooms") is Array or not room_document.get("sources") is Array:
+  errors.append(base + "/rooms.json: versioned room/source arrays required")
+ else:
+  var sources: Dictionary = {}
+  for source in room_document.sources:
+   if source is Dictionary and source.get("id") is String: sources[source.id] = source
+  for room in room_document.rooms:
+   if not room is Dictionary:
+    errors.append("rooms: expected room object")
+    continue
+   errors.append_array(Art.validate_room_definition(room, resources.get("art", {}), sources))
+   var area_id: Variant = room.get("areaId")
+   if area_id is String:
+    if room_presentations.has(area_id): errors.append("rooms: duplicate area " + area_id)
+    else: room_presentations[area_id] = room
+  if not Art.same_ids(room_presentations.keys(), Art.ROOM_IDS.keys()): errors.append("rooms: exactly four stable area mappings required")
+  var coverage: Variant = room_document.get("coverage")
+  if not coverage is Dictionary or not coverage.get("backing") is Dictionary:
+   errors.append("rooms.coverage.backing: camera-margin bounds required")
+  else:
+   venue_coverage = coverage
+   for field in ["minX", "maxX", "minDepth", "maxDepth", "wallHeight", "wallDepth"]:
+    if not Art.finite(coverage.backing.get(field)): errors.append("rooms.coverage.backing." + field + ": finite value required")
+   if errors.is_empty() and (coverage.backing.minX >= coverage.backing.maxX or coverage.backing.minDepth >= coverage.backing.maxDepth or coverage.backing.wallHeight <= 0): errors.append("rooms.coverage.backing: positive ordered coverage required")
  for id in roster:
   if not id is String or definitions.has(id):
    errors.append(base + "/roster.json: duplicate/invalid identity " + str(id))
@@ -83,6 +112,6 @@ func load_catalogue(base: String = "res://content") -> bool:
  if not errors.is_empty():
   definitions.clear()
   return false
- for value in [definitions, roster, resources, clips, tuning, level, enemy_presentations]:
+ for value in [definitions, roster, resources, clips, tuning, level, enemy_presentations, room_presentations, venue_coverage]:
   freeze(value)
  return true

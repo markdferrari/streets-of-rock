@@ -115,23 +115,9 @@ static func validate(rooms: Variant, enemies: Variant, resources: Dictionary, pr
    errors.append("rooms: room object required")
    continue
   var area: Variant = room.get("areaId")
-  var visual: Variant = room.get("visualId")
-  if not area is String or not ROOM_IDS.has(area) or ROOM_IDS.get(area) != visual or area in seen_rooms:
-   errors.append("rooms." + str(area) + ".visualId: unique stable mapping required")
-  else: seen_rooms.append(area)
-  if LANDMARKS.has(visual):
-   for landmark in LANDMARKS[visual]:
-    if not room.get("requiredLandmarks") is Array or not landmark in room.requiredLandmarks: errors.append("rooms." + str(visual) + ".requiredLandmarks: missing " + landmark)
-  resource(room.get("sceneResourceId"), assets, records, [], errors)
-  var deps: Variant = room.get("dependencyIds")
-  if not deps is Array: errors.append("rooms." + str(visual) + ".dependencyIds: expected array")
-  else:
-   for dep in deps: resource(dep, assets, records, [], errors)
-  var bounds: Variant = room.get("coverageBounds")
-  var good: bool = bounds is Dictionary
-  for field in ["minX", "maxX", "minDepth", "maxDepth"]:
-   good = good and bounds is Dictionary and finite(bounds.get(field))
-  if not good or bounds.minX >= bounds.maxX or bounds.minDepth >= bounds.maxDepth: errors.append("rooms." + str(visual) + ".coverageBounds: finite ordered bounds required")
+  if area in seen_rooms: errors.append("rooms." + str(area) + ": duplicate area ID")
+  seen_rooms.append(area)
+  errors.append_array(validate_room_definition(room, assets, records))
  if not same_ids(seen_rooms, ROOM_IDS.keys()): errors.append("rooms: exactly four stable area IDs required; found " + str(seen_rooms))
  var seen_roles: Array = []
  for enemy in enemy_entries:
@@ -141,6 +127,26 @@ static func validate(rooms: Variant, enemies: Variant, resources: Dictionary, pr
    if role in seen_roles: errors.append("enemies." + str(role) + ": duplicate role")
    seen_roles.append(role)
  if not same_ids(seen_roles, MOVES.keys()): errors.append("enemies: exactly grunt, zoner, enforcer and liam required; found " + str(seen_roles))
+ return errors
+static func validate_room_definition(room: Dictionary, assets: Dictionary, records: Dictionary) -> Array[String]:
+ var errors: Array[String] = []
+ var area: Variant = room.get("areaId")
+ var visual: Variant = room.get("visualId")
+ if not area is String or not ROOM_IDS.has(area) or ROOM_IDS.get(area) != visual:
+  errors.append("rooms." + str(area) + ".visualId: unique stable mapping required")
+ if LANDMARKS.has(visual):
+  for landmark in LANDMARKS[visual]:
+   if not room.get("requiredLandmarks") is Array or not landmark in room.requiredLandmarks: errors.append("rooms." + str(visual) + ".requiredLandmarks: missing " + landmark)
+ resource(room.get("sceneResourceId"), assets, records, [], errors)
+ var deps: Variant = room.get("dependencyIds")
+ if not deps is Array: errors.append("rooms." + str(visual) + ".dependencyIds: expected array")
+ else:
+  for dep in deps: resource(dep, assets, records, [], errors)
+ var bounds: Variant = room.get("coverageBounds")
+ var good: bool = bounds is Dictionary
+ for field in ["minX", "maxX", "minDepth", "maxDepth"]:
+  good = good and bounds is Dictionary and finite(bounds.get(field))
+ if not good or bounds.minX >= bounds.maxX or bounds.minDepth >= bounds.maxDepth: errors.append("rooms." + str(visual) + ".coverageBounds: finite ordered bounds required")
  return errors
 static func descendants(node: Node) -> Array[Node]:
  var result: Array[Node] = [node]
@@ -152,18 +158,34 @@ static func inspect_enemy(instance: Node, definition: Dictionary) -> Array[Strin
  var skeletons: Array[Skeleton3D] = []
  var players: Array[AnimationPlayer] = []
  var meshes := 0
+ var skinned_meshes := 0
  for node in descendants(instance):
   if node.get_script() != null: errors.append(role + ": imported script forbidden on " + str(node.name))
-  if not (node is Node3D or node is AnimationPlayer) or node is CollisionObject3D or node is CollisionShape3D or node is NavigationRegion3D or node is Camera3D or node is Light3D:
+  if not (node is Node3D or node is AnimationPlayer) or node is CollisionObject3D or node is CollisionShape3D or node is CollisionPolygon3D or node is NavigationObstacle3D or node is NavigationRegion3D or node is Camera3D or node is Light3D:
    errors.append(role + ": forbidden imported node " + node.get_class())
   if node is Skeleton3D: skeletons.append(node)
   if node is AnimationPlayer: players.append(node)
   if node is MeshInstance3D:
    meshes += 1
-   if node.mesh == null: errors.append(role + ": missing geometry on " + str(node.name))
+   if node.mesh == null or node.mesh.get_surface_count() == 0: errors.append(role + ": missing geometry on " + str(node.name))
    elif node.material_override == null:
     for surface in node.mesh.get_surface_count():
      if node.get_surface_override_material(surface) == null and node.mesh.surface_get_material(surface) == null: errors.append(role + ": material missing on " + str(node.name))
+  if node is MeshInstance3D and node.skin != null:
+   skinned_meshes += 1
+   var target: Node = node.get_node_or_null(node.skeleton)
+   if not target is Skeleton3D or node.skin.get_bind_count() == 0:
+    errors.append(role + ".skin: mesh must bind a nonempty skeleton")
+   else:
+    for bind in node.skin.get_bind_count():
+     var bone_name: String = str(node.skin.get_bind_name(bind))
+     var index: int = target.find_bone(bone_name) if not bone_name.is_empty() else node.skin.get_bind_bone(bind)
+     if index < 0 or index >= target.get_bone_count(): errors.append(role + ".skin: unresolved skeleton bind " + str(bind))
+   if node.mesh != null:
+    for surface in node.mesh.get_surface_count():
+     var arrays: Array = node.mesh.surface_get_arrays(surface)
+     if arrays[Mesh.ARRAY_BONES] == null or arrays[Mesh.ARRAY_WEIGHTS] == null or arrays[Mesh.ARRAY_BONES].is_empty() or arrays[Mesh.ARRAY_WEIGHTS].is_empty(): errors.append(role + ".skin: missing vertex joint/weight data")
+ if MOVES.has(role) and skinned_meshes == 0: errors.append(role + ".skin: a visible skinned mesh bound to the skeleton is required")
  if skeletons.is_empty() or skeletons.any(func(s: Skeleton3D) -> bool: return s.get_bone_count() == 0): errors.append(role + ": nonempty skeleton required")
  if meshes == 0: errors.append(role + ": visible mesh required")
  if players.size() != 1:
@@ -184,7 +206,7 @@ static func inspect_enemy(instance: Node, definition: Dictionary) -> Array[Strin
    if not target is Skeleton3D or path.get_subname_count() != 1 or target.find_bone(str(path.get_subname(0))) < 0:
     errors.append(label + ": transform must target an existing skeletal bone, not actor root")
     continue
-   if kind == Animation.TYPE_POSITION_3D and path.get_subname(0) == "root" and animation.track_get_key_count(track) > 1:
+   if kind == Animation.TYPE_POSITION_3D and target.get_bone_parent(target.find_bone(str(path.get_subname(0)))) == -1 and animation.track_get_key_count(track) > 1:
     var initial: Vector3 = animation.track_get_key_value(track, 0)
     for key in animation.track_get_key_count(track):
      if not initial.is_equal_approx(animation.track_get_key_value(track, key)): errors.append(label + ": root locomotion forbidden; keep actor transform simulation-owned")
@@ -206,4 +228,27 @@ static func inspect_enemy(instance: Node, definition: Dictionary) -> Array[Strin
    if field == "fixedSampleSeconds" and not binding.has(field): continue
    var value: Variant = binding.get(field)
    if not finite(value) or value < 0 or value > length + 0.00001: errors.append(label + "." + field + ": outside imported clip [0," + str(length) + "]")
+ return errors
+
+static func inspect_room(instance: Node, definition: Dictionary) -> Array[String]:
+ var errors: Array[String] = []
+ var label: String = "rooms." + str(definition.get("visualId", "unknown"))
+ var names: Array[String] = []
+ var meshes := 0
+ for node in descendants(instance):
+  names.append(str(node.name))
+  if node.get_script() != null or not (node is Node3D) or node is CollisionObject3D or node is CollisionShape3D or node is CollisionPolygon3D or node is NavigationObstacle3D or node is NavigationRegion3D or node is Camera3D or node is Light3D or node is Skeleton3D:
+   errors.append(label + ": forbidden decorative node/script " + node.get_class() + " at " + str(node.name))
+  if node is Node3D and (not node.transform.origin.is_finite() or not node.transform.basis.is_finite()):
+   errors.append(label + ": nonfinite transform at " + str(node.name))
+  if node is MeshInstance3D:
+   if node.mesh == null or node.mesh.get_surface_count() == 0: errors.append(label + ": missing geometry at " + str(node.name))
+   else:
+    meshes += 1
+    for surface in node.mesh.get_surface_count():
+     if node.material_override == null and node.get_surface_override_material(surface) == null and node.mesh.surface_get_material(surface) == null:
+      errors.append(label + ": missing material at " + str(node.name))
+ for landmark in definition.get("requiredLandmarks", []):
+  if not landmark in names: errors.append(label + ".requiredLandmarks: missing node " + str(landmark))
+ if meshes == 0: errors.append(label + ": major 3D geometry required")
  return errors

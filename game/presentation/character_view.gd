@@ -1,10 +1,12 @@
 extends Node3D
+const Batches = preload("res://game/presentation/character_batches.gd")
 const Store = preload("res://game/content/resource_store.gd")
 var animation: AnimationPlayer
 var sample_time: float = 0.0
 
 func attach(instance: Node3D) -> void:
  add_child(instance)
+ Batches.build(instance)
  animation = Store.find_animation(instance)
  if animation != null:
   animation.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL

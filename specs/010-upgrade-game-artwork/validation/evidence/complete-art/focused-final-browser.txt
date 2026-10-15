@@ -1,0 +1,21 @@
+[WebServer] $ bun scripts/preview.ts --dir dist-art-final --host "127.0.0.1" --port "4194"
+
+Running 10 tests using 1 worker
+
+(node:175024) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (23.3s)
+  ✓   2 [chromium] › tests/e2e/artwork-offline.spec.ts:3:1 › complete furnished art, every threat role and credits survive a cold offline run and retry (43.5s)
+  ✓   3 [chromium] › tests/e2e/godot-accessibility.spec.ts:11:1 › roster has a single tab stop; focus does not preview and arrows move focus (3.4s)
+  ✓   4 [chromium] › tests/e2e/godot-accessibility.spec.ts:22:1 › a twelve-entry semantic roster keeps one tab stop and supports wraparound focus (3.6s)
+  ✓   5 [chromium] › tests/e2e/godot-accessibility.spec.ts:31:1 › settings expose a trapped dialog and native volume ranges with stable identity (6.2s)
+(node:175948) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [webkit] › tests/e2e/artwork-credits.spec.ts:3:1 › bundled artwork credits return safely to Home and paused settings (14.1s)
+  -   7 [webkit] › tests/e2e/artwork-offline.spec.ts:3:1 › complete furnished art, every threat role and credits survive a cold offline run and retry
+  ✓   8 [webkit] › tests/e2e/godot-accessibility.spec.ts:11:1 › roster has a single tab stop; focus does not preview and arrows move focus (3.2s)
+  ✓   9 [webkit] › tests/e2e/godot-accessibility.spec.ts:22:1 › a twelve-entry semantic roster keeps one tab stop and supports wraparound focus (3.0s)
+  ✓  10 [webkit] › tests/e2e/godot-accessibility.spec.ts:31:1 › settings expose a trapped dialog and native volume ranges with stable identity (4.6s)
+
+  1 skipped
+  9 passed (1.8m)

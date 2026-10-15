@@ -1,0 +1,155 @@
+$ bun scripts/art/test.ts
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[1m[INFO]:  [0musing [/home/mark/projects/godot/streets-of-rock/.tools/user/data/godot/app_userdata/Streets of Rock] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+[4m
+
+res://tests/godot/art/test_art_catalog.gd
+[0m* test_minimal_isolated_catalogues_have_exact_four_room_and_role_coverage
+* test_unknown_schema_and_wrong_stable_mapping_are_rejected
+* test_required_landmarks_and_finite_ordered_coverage_are_checked
+* test_safe_paths_accepted_source_refs_and_dependency_closure_are_required
+* test_semantics_match_role_moves_and_normal_stun_is_required
+* test_nonfinite_transforms_envelopes_segments_and_held_samples_fail
+* test_malformed_field_types_produce_diagnostics_instead_of_script_errors
+* test_valid_catalogue_survives_real_json_number_decoding
+[1m8/8 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_credits.gd
+[0m* test_credits_are_bundled_scrollable_and_preserve_paused_selection
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_cycles.gd
+[0m* test_ten_complete_world_cycles_release_all_furnished_rooms_rigs_and_projectiles
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_diagnostics.gd
+[0m* test_active_timing_ignores_pause_gaps_and_art_counters_report_real_scene_cost
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_import.gd
+[0m* test_valid_minimal_import_and_missing_skeleton_material_or_clip
+* test_imported_clip_segments_must_fit_actual_animation_length
+* test_imported_gameplay_nodes_and_scripts_are_forbidden
+* test_method_audio_and_actor_root_translation_tracks_are_rejected
+* test_skeletal_root_locomotion_is_rejected_but_local_hand_motion_is_allowed
+* test_unbound_extra_clip_is_also_inspected
+* test_root_bone_detection_does_not_depend_on_supplier_naming
+* test_polygon_colliders_and_navigation_obstacles_are_rejected_for_both_art_kinds
+* test_empty_mesh_resources_are_not_visible_geometry
+* test_production_role_requires_a_mesh_bound_to_its_skeleton
+[1m10/10 passed.
+[0m[4m
+
+res://tests/godot/art/test_art_store.gd
+[0m* test_preparation_rejects_missing_roles_and_rechecks_a_changed_scene_on_retry
+* test_all_room_preparation_is_atomic_and_dependency_errors_block_readiness
+* test_non_scene_import_reports_a_required_visual_failure_without_a_script_error
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/art/test_character_batches.gd
+[0m* test_shared_material_batching_keeps_hero_skeletons_materials_and_all_triangles
+[1m1/1 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_catalog.gd
+[0m* test_all_four_roles_have_complete_safe_imported_action_bindings
+* test_cues_match_simulation_reach_and_phase_two_never_replaces_an_action
+[1m2/2 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_pose.gd
+[0m* test_action_boundaries_use_new_simulation_phase_and_bound_clip_segments
+* test_actual_displacement_chooses_move_without_camera_or_wall_clock
+* test_defeat_beats_stun_and_action_without_mutating_snapshots
+* test_normal_stun_precedes_attack_refresh_does_not_restart_and_expires_at_boundary
+* test_liam_ignores_stun_and_phase_two_does_not_interrupt_attack
+* test_hurt_only_when_reported_and_all_existing_move_ids_are_preserved
+* test_held_stun_pose_samples_authored_frame_and_pause_is_repeatable
+* test_zero_length_phase_clamps_sample_and_missing_binding_is_explicit
+* test_running_pose_faces_actual_movement_even_when_attack_facing_is_stale
+[1m9/9 passed.
+[0m[4m
+
+res://tests/godot/art/test_enemy_view.gd
+[0m* test_actual_pilot_imports_have_complete_clips_and_safe_skeleton_tracks
+* test_imported_outfit_palette_uses_vertex_colours_in_godot
+* test_manual_sampling_uses_real_segment_times_positions_and_both_facings
+* test_two_instances_share_resources_but_have_independent_actual_bone_poses
+* test_missing_binding_is_actionable_and_does_not_fall_back_to_idle
+* test_repeat_tick_stun_and_defeat_do_not_advance_or_modify_input_state
+* test_attack_active_starts_with_hand_forward_in_both_facings
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/art/test_gameplay_enemies.gd
+[0m* test_normal_world_uses_imported_rigs_and_simulation_owned_poses
+* test_removed_enemy_holds_defeat_for_21_simulation_ticks_then_releases_rig
+* test_bartender_grip_hides_on_active_and_returns_on_next_windup
+* test_missing_or_invalid_enemy_asset_blocks_preparation_with_role_diagnostic
+* test_defeat_of_actor_still_in_run_does_not_recreate_expired_rig
+* test_reused_actor_id_in_a_new_run_cannot_inherit_old_pose_or_instance
+* test_unknown_enemy_presentation_fails_without_a_primitive_fallback
+[1m7/7 passed.
+[0m[4m
+
+res://tests/godot/art/test_pilot_scene.gd
+[0m* test_review_scene_drives_real_ai_projectile_creation_and_releases_all_owned_heroes
+* test_representative_includes_explicit_imported_room_prop_and_source_record
+[33m    2 Orphans[0m
+[33m        * [@PhysicalBoneSimulator3D@1025:<PhysicalBoneSimulator3D#309942290654>]
+        * [@PhysicalBoneSimulator3D@1026:<PhysicalBoneSimulator3D#309975845088>][0m
+* test_representative_room_palette_survives_the_pinned_importer
+[33m2 orphans[0m
+[1m3/3 passed.
+[0m[4m
+
+res://tests/godot/art/test_rooms.gd
+[0m* test_four_rooms_preserve_stable_area_map_and_required_landmarks
+* test_imported_rooms_have_real_landmark_geometry_without_gameplay_nodes
+* test_room_preparation_is_atomic_and_missing_room_is_actionable
+* test_venue_keeps_all_rooms_connectors_and_camera_margins_with_no_new_gameplay
+* test_world_owns_and_releases_four_furnished_room_instances
+* test_solid_furniture_stays_outside_the_unchanged_combat_floor
+* test_connector_and_margin_floor_use_the_imported_floor_palette_exactly
+* test_actual_backing_covers_camera_extrema_and_all_connector_travel
+* test_runtime_batches_room_geometry_by_shared_palette_without_changing_triangles
+[1m9/9 passed.
+[0m
+
+
+
+[33m==============================================
+[0m[33m= Run Summary
+[0m[33m==============================================
+[0m
+Totals
+------
+Scripts              13
+Tests                62
+Passing Tests        62
+Asserts            1819
+Time              1.014s
+
+
+[32m---- All tests passed! ----
+[0m
+
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+
+ Test Files  4 passed (4)
+      Tests  23 passed (23)
+   Start at  10:08:53
+   Duration  3.83s (transform 121ms, setup 0ms, import 504ms, tests 3.70s, environment 0ms)
+
+

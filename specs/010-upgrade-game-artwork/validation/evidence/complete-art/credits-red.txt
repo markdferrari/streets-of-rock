@@ -1,0 +1,78 @@
+$ vitest run tests/tooling tests/platform tests/unit/art
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/credits.test.ts (3 tests | 3 failed) 14ms
+     × projects only used accepted sources in stable order with exact notices 10ms
+     × rejects missing, pending and rejected used sources rather than omitting credit 2ms
+     × requires a meaningful identity and license and retains original declarations 1ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/credits.test.ts > shipped artwork notices > projects only used accepted sources in stable order with exact notices
+AssertionError: expected [] to deeply equal [ 'a', 'z' ]
+
+- Expected
++ Received
+
+- [
+-   "a",
+-   "z",
+- ]
++ []
+
+ ❯ tests/unit/art/credits.test.ts:9:34
+      7|   const resources={art:{one:{sourceRecordIds:['z','a','z']}}};
+      8|   const a=createCredits({sources},resources);
+      9|   expect(a.sources.map(s=>s.id)).toEqual(['a','z']);
+       |                                  ^
+     10|   expect(a.sources[0].requiredNotices).toEqual(['Keep this notice']);
+     11|   expect(a.text).toContain('a attribution');expect(a.text).not.toConta…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/unit/art/credits.test.ts > shipped artwork notices > rejects missing, pending and rejected used sources rather than omitting credit
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/unit/art/credits.test.ts:15:157
+     13|  });
+     14|  it('rejects missing, pending and rejected used sources rather than om…
+     15|   for(const sources of [[],[source('bad','pending')],[source('bad','re…
+       |                                                                                                                                                             ^
+     16|  });
+     17|  it('requires a meaningful identity and license and retains original d…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/unit/art/credits.test.ts > shipped artwork notices > requires a meaningful identity and license and retains original declarations
+AssertionError: expected [Function] to throw an error
+
+- Expected:
+null
+
++ Received:
+undefined
+
+ ❯ tests/unit/art/credits.test.ts:18:103
+     16|  });
+     17|  it('requires a meaningful identity and license and retains original d…
+     18|   expect(()=>createCredits({sources:[{id:'x',status:'accepted'}]},{art…
+       |                                                                                                       ^
+     19|   const record={...source('original'),originalAuthorDeclaration:'Origi…
+     20|   expect(createCredits({sources:[record]},{art:{x:{sourceRecordIds:['o…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed | 17 passed (18)
+      Tests  3 failed | 77 passed (80)
+   Start at  09:29:02
+   Duration  2.62s (transform 870ms, setup 0ms, import 2.14s, tests 5.01s, environment 2ms)
+
+error: script "test:platform" exited with code 1

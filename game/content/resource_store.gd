@@ -3,12 +3,41 @@ const Backdrops = preload("res://game/presentation/backdrops.gd")
 const Art = preload("res://game/content/art_catalog.gd")
 var owned: Dictionary = {}
 var templates: Dictionary = {}
+var template_paths: Dictionary = {}
+var room_scenes: Dictionary = {}
 var errors: Array[String] = []
 var backdrop_textures: Dictionary = {}
 var backdrop_decoded_bytes: int = 0
 
+func prepare_rooms(content: RefCounted) -> bool:
+ errors.clear()
+ var prepared: Dictionary = {}
+ if content.room_presentations.size() != 4:
+  errors.append("rooms: all four furnished scenes required before countdown")
+  return false
+ for definition in content.room_presentations.values():
+  var key: String = definition.sceneResourceId
+  var path: String = "res://" + content.resources.art[key].path
+  if not ResourceLoader.exists(path):
+   errors.append(definition.visualId + ": required room missing " + path + "; restore/import it and retry")
+   continue
+  var scene := ResourceLoader.load(path)
+  if not scene is PackedScene:
+   errors.append(definition.visualId + ": required room is not an imported scene " + path)
+   continue
+  var probe: Node = scene.instantiate()
+  var inspected := Art.inspect_room(probe, definition)
+  probe.free()
+  if not inspected.is_empty(): errors.append_array(inspected)
+  else: prepared[key] = scene
+ if not errors.is_empty(): return false
+ room_scenes = prepared
+ return true
+
 func prepare_enemies(content: RefCounted) -> bool:
  var failures: Array[String] = []
+ for role in Art.MOVES:
+  if not content.enemy_presentations.has(role): failures.append(role + ": required production enemy missing; repair art and retry")
  for definition in content.enemy_presentations.values():
   var key: String = definition.sceneResourceId
   var path: String = "res://" + content.resources.art[key].path
@@ -73,16 +102,21 @@ static func find_animation(node: Node) -> AnimationPlayer:
 
 func prepare(key: String, path: String, clips: Array) -> bool:
  errors.clear()
- if templates.has(key):
-  return true
+ if templates.has(key) and template_paths.get(key) == path:
+  var cached_probe: Node = templates[key].instantiate()
+  var cached_player := find_animation(cached_probe)
+  for clip in clips:
+   if cached_player == null or not cached_player.has_animation(str(clip)): errors.append(key + ": missing semantic clip " + str(clip))
+  cached_probe.free()
+  return errors.is_empty()
  if not ResourceLoader.exists(path):
   errors.append(key + ": missing required resource " + path)
   return false
- var scene: PackedScene = load(path)
- if scene == null:
-  errors.append(key + ": could not import " + path)
+ var scene := ResourceLoader.load(path)
+ if not scene is PackedScene:
+  errors.append(key + ": required imported scene could not load: " + path)
   return false
- var probe := scene.instantiate()
+ var probe: Node = scene.instantiate()
  var player := find_animation(probe)
  # Godot sanitizes glTF dots; publish the original semantic clip keys.
  if player != null:
@@ -98,13 +132,15 @@ func prepare(key: String, path: String, clips: Array) -> bool:
  if not errors.is_empty():
   return false
  templates[key] = scene
+ template_paths[key] = path
  return true
 
 func create(key: String) -> Node3D:
- if not templates.has(key):
+ var template: PackedScene = templates.get(key, room_scenes.get(key))
+ if template == null:
   errors.append(key + ": resource not prepared")
   return null
- var instance: Node3D = templates[key].instantiate()
+ var instance: Node3D = template.instantiate()
  owned[instance.get_instance_id()] = instance
  return instance
 

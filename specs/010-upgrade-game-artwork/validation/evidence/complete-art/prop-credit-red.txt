@@ -1,0 +1,37 @@
+$ vitest run tests/tooling tests/platform tests/unit/art
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/credits.test.ts (4 tests | 1 failed) 21ms
+     × credits shipped props even when they use the inherited props registry 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/credits.test.ts > shipped artwork notices > credits shipped props even when they use the inherited props registry
+AssertionError: expected [] to deeply equal [ 'supplier' ]
+
+- Expected
++ Received
+
+- [
+-   "supplier",
+- ]
++ []
+
+ ❯ tests/unit/art/credits.test.ts:25:40
+     23|   const provenance={sources:[source('supplier')],runtimeProps:[{runtim…
+     24|   const credits=createCredits(provenance,{art:{},props:{bottle:'assets…
+     25|   expect(credits.sources.map(s=>s.id)).toEqual(['supplier']);expect(cr…
+       |                                        ^
+     26|  });
+     27|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 18 passed (19)
+      Tests  1 failed | 83 passed (84)
+   Start at  09:41:27
+   Duration  7.15s (transform 3.03s, setup 0ms, import 6.58s, tests 12.12s, environment 3ms)
+
+error: script "test:platform" exited with code 1

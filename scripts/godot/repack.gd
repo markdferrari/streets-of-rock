@@ -1,6 +1,6 @@
 extends SceneTree
-# Promote exporter-generated shared metadata to the main owner. Resource bytes
-# remain exactly those produced by the pinned category exporter.
+# Write resource-boundary partitions of the complete pinned export. Every
+# resource payload remains exactly the original exported bytes.
 func _init() -> void:
  var args := OS.get_cmdline_user_args()
  var entries: Array = JSON.parse_string(FileAccess.get_file_as_string(args[1]))

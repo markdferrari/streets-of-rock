@@ -1,0 +1,30 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/art-delivery.test.ts (2 tests | 1 failed) 10ms
+   × selects explicit feature acceptance without reusing the inherited waiver or escaping the project 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/art-delivery.test.ts > selects explicit feature acceptance without reusing the inherited waiver or escaping the project
+AssertionError: expected 'specs/009-godot-rewrite/validation/ac…' to be 'specs/010-upgrade-game-artwork/valida…' // Object.is equality
+
+Expected: "specs/010-upgrade-game-artwork/validation/acceptance.json"
+Received: "specs/009-godot-rewrite/validation/acceptance.json"
+
+ ❯ tests/unit/art/art-delivery.test.ts:17:89
+     15| it('selects explicit feature acceptance without reusing the inherited …
+     16|  expect(finalEvidencePath()).toBe('specs/009-godot-rewrite/validation/…
+     17|  expect(finalEvidencePath('specs/010-upgrade-game-artwork/validation/a…
+       |                                                                                         ^
+     18|  for(const path of ['', '../acceptance.json','/tmp/acceptance.json','s…
+     19| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Start at  10:06:34
+   Duration  411ms (transform 41ms, setup 0ms, import 324ms, tests 10ms, environment 0ms)
+

@@ -1,0 +1,1129 @@
+{
+  "schemaVersion": 1,
+  "conceptRecords": "reviews/concepts/records.json",
+  "ownerApproval": "validation/owner-approval.md",
+  "finalSubjects": [
+    {
+      "subject": "exterior",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/rooms/exterior/source/room.blend",
+      "sourceSha256": "65ffe3566079a34e4d84dfcc3823875d4c04e8b59b6dbcdb9612e7d1d528de4c",
+      "runtimePath": "assets/rooms/exterior/runtime/room.glb",
+      "runtimeSha256": "aef851963a3bd700ccc04ae53721608f20ddb06635de9e1bf5547f96e5d42074",
+      "sceneResourceId": "room.exterior",
+      "captureBuildId": "027b91cf30f2795f621d9b205f5f1c006ac68c49b911b9e7d6412ad7d1b678b2",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "landmarks": [
+        "frontage",
+        "club-sign",
+        "neon-doorway",
+        "light-spill",
+        "pavement",
+        "queue-barriers",
+        "event-posters"
+      ],
+      "semantics": [],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-exterior-left-lion-plates.png",
+          "sha256": "289b7dee542b5390180828f9adbaabf221113d50b428412f9b9ec612c2a1a053"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-exterior-right-lion-plates.png",
+          "sha256": "2db4b67cf05764b5abfe407066f5a64313645abe5811fae092aa32bd1c01e4f4"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-exterior-left-cow-crow.png",
+          "sha256": "17956c87675a4a1518c1de3610b09402ecd586c1c11250ba5f74a635cb6afb6e"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-exterior-left-lion-plates.png",
+          "sha256": "c530e9758ccba7eaf591adf786befa62408a5fd1e4f7f1a44de275bfefafdd59"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-exterior-right-cow-crow.png",
+          "sha256": "2196e9792e8cc9f2deccf1526807662c624e97c5ba6aae8230bcd765eb4d4551"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-exterior-right-lion-plates.png",
+          "sha256": "9011dea36511d7894690ede0942a5d875df5337fefda5360a1f9cb57c8b939d4"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-exterior-left-lion-plates.png",
+          "sha256": "389eedbe62688091146a5df124515b7eefe7f224dfec68347b05947eb7ef98cb"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-exterior-right-lion-plates.png",
+          "sha256": "14fb5f5e52d58ba28c9aaad3a07914c6bdf3ed9bf6a2c6ec31f43d96d504d35c"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-exterior-left-lion-plates.png",
+          "sha256": "ee6cf4bcaf049fe67a910818867cc899d0faa434c0c1317739fc040e5ca16d7b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-exterior-right-lion-plates.png",
+          "sha256": "aea8010640da00931855503f85246ccf28f3acef3c771eb25adef43b55b9eada"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-exterior-left-cow-crow.png",
+          "sha256": "3d924b21827e4248d2e6da81f88de2b6820571d9ff3aa6130bf0ee02311e91e5"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-exterior-left-lion-plates.png",
+          "sha256": "68b81fb03d852e297b22a8a73c0977851b3d9e9654e30f7abd5a22681af47869"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-exterior-right-cow-crow.png",
+          "sha256": "ccad7010a95af28c048b3839ecdd77161176afe5808e4d60b458ff8654da9272"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-exterior-right-lion-plates.png",
+          "sha256": "3ea6777667c4d37794639817306247f56ad8115a7031e84a3098ce21130f4677"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-exterior-left-lion-plates.png",
+          "sha256": "874e9c7b51b7016df70afa93b6973556dbf3a123422ed567ec6ee24aa3f8ca23"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-exterior-right-lion-plates.png",
+          "sha256": "6cb7b9e11e48b196a3ddf5ee144687d97d502a99cf598a34f186d08d3b5eb947"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/complete-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow",
+          "lion/plates"
+        ],
+        "viewport": "667x375 / 844x390 / 915x412, room camera edges"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "scenes/art/rooms/exterior.tscn",
+      "sceneSha256": "ea44c6362aeba8cb4c80177fa2b0ebbeee14819399170b28cc0cb3e9455a4f21",
+      "definitionSha256": "20669ea5126e20898599b588a60d2519a69c9792013ee9ff873d7f662a5af8f2",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "room.exterior",
+          "path": "scenes/art/rooms/exterior.tscn",
+          "sha256": "ea44c6362aeba8cb4c80177fa2b0ebbeee14819399170b28cc0cb3e9455a4f21"
+        },
+        {
+          "id": "room.exterior.geometry",
+          "path": "assets/rooms/exterior/runtime/room.glb",
+          "sha256": "aef851963a3bd700ccc04ae53721608f20ddb06635de9e1bf5547f96e5d42074"
+        },
+        {
+          "id": "room.palette",
+          "path": "assets/rooms/shared/opaque.tres",
+          "sha256": "e18d34feb5a44879092a1a939b4451c6181d021a731cfdcf4633a97d09cdba9b"
+        },
+        {
+          "id": "room.glow",
+          "path": "assets/rooms/shared/glow.tres",
+          "sha256": "5e931c4b7f618d049b6df9dd37ef128fcdef6cde3b413b541b9db926b09734a4"
+        }
+      ]
+    },
+    {
+      "subject": "bar",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/rooms/bar/source/room.blend",
+      "sourceSha256": "279b66e77ceeca95b2ec0c2f09c23ce02f72bf1a712a254fd076f23fad0f629f",
+      "runtimePath": "assets/rooms/bar/runtime/room.glb",
+      "runtimeSha256": "d3fbe499e3fb4829f8e9c10c6ec5da9cbf2f4d1eaacc089cb1d2d6754d743305",
+      "sceneResourceId": "room.bar",
+      "captureBuildId": "027b91cf30f2795f621d9b205f5f1c006ac68c49b911b9e7d6412ad7d1b678b2",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "landmarks": [
+        "long-counter",
+        "bottle-shelves",
+        "stools",
+        "booths",
+        "warm-light",
+        "neon-accents"
+      ],
+      "semantics": [],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-bar-left-lion-plates.png",
+          "sha256": "3e3fb1181eec4c047acd385c3aa4bfdc5e32aa2531535d5c014810c8ec45e99d"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-bar-right-lion-plates.png",
+          "sha256": "16ba9d03bbe5f3f9182eb7c287362f71de7e5681b214e9144513dd50bf4f0a7e"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-bar-left-cow-crow.png",
+          "sha256": "d530e8fc16b745234d7b49adebd21ca414f6a60818bd116dbfeb69c40e86e723"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-bar-left-lion-plates.png",
+          "sha256": "85f1472a85f0ee162580b63e1a93dc773d1f9389fe01b15bb115aa489bf508dc"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-bar-right-cow-crow.png",
+          "sha256": "141e30b8dbb7b2328879a9ab3d8e680fae908066a9568318aca80ff0aecd8e85"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-bar-right-lion-plates.png",
+          "sha256": "4095b5b594a9f5cfc9c26489c99046e060fe074a4c40ba40d1f90ce491a2e435"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-bar-left-lion-plates.png",
+          "sha256": "ecd93005fcc9b6f9fd76cb8174362f815a18fd6719753319f5ed3452d244c87b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-bar-right-lion-plates.png",
+          "sha256": "24a4db6c04fd402dffff930b62e62f745dc3171bbd2f3ac6e891173c52a2a6fc"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-bar-left-lion-plates.png",
+          "sha256": "06fc6049df7527da05c62fd6ede652b224021e5d1b87c34bdcd219ffea86288a"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-bar-right-lion-plates.png",
+          "sha256": "d3892aacafeefcc4f4d2b052c38d5f9bf882843b7177f12f24a440f5c6a927ad"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-bar-left-cow-crow.png",
+          "sha256": "f1db4ddd2941719ed8dc8efa7532331ac6a0f3025fd4ace7abc2ae3f8db7a7b2"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-bar-left-lion-plates.png",
+          "sha256": "05f39079529367e1eb3b30621d986c2ed34a0f88f59a74d8368ce6028ccbf2db"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-bar-right-cow-crow.png",
+          "sha256": "59ccd7975dfb3163ebc507594f25aa568a0d67e3312b6a68002886f2527aa61c"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-bar-right-lion-plates.png",
+          "sha256": "72ff46a0f8f57bf0f153eb4e67f23561e0c2f19e0e2be3e9699776ed0f5de38a"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-bar-left-lion-plates.png",
+          "sha256": "53c962a0e4628eb97917e41d62a21bd175a5bcfdbee0b2fff36790710a042122"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-bar-right-lion-plates.png",
+          "sha256": "0cc2f4f068b49c960b8670e5dbe960b161905c0583910bbc5cb1255c6121a664"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/complete-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow",
+          "lion/plates"
+        ],
+        "viewport": "667x375 / 844x390 / 915x412, room camera edges"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "scenes/art/rooms/bar.tscn",
+      "sceneSha256": "e76e03a3b4cdeef03a90c1a20f37918b2203662b886c9f59acdbcd65b46aeee7",
+      "definitionSha256": "2624face1ee5423e2d2157088a419eb9cd4384dff7c17c1cda5d830e97859fcd",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "room.bar",
+          "path": "scenes/art/rooms/bar.tscn",
+          "sha256": "e76e03a3b4cdeef03a90c1a20f37918b2203662b886c9f59acdbcd65b46aeee7"
+        },
+        {
+          "id": "room.bar.geometry",
+          "path": "assets/rooms/bar/runtime/room.glb",
+          "sha256": "d3fbe499e3fb4829f8e9c10c6ec5da9cbf2f4d1eaacc089cb1d2d6754d743305"
+        },
+        {
+          "id": "room.palette",
+          "path": "assets/rooms/shared/opaque.tres",
+          "sha256": "e18d34feb5a44879092a1a939b4451c6181d021a731cfdcf4633a97d09cdba9b"
+        },
+        {
+          "id": "room.glow",
+          "path": "assets/rooms/shared/glow.tres",
+          "sha256": "5e931c4b7f618d049b6df9dd37ef128fcdef6cde3b413b541b9db926b09734a4"
+        },
+        {
+          "id": "room.prop.sofa",
+          "path": "assets/rooms/shared/runtime/sofa.glb",
+          "sha256": "69d33ad120c90e4afa66c16f32ea7a9b3d1bc3be5d5e8bb239ea972fb0c27a33"
+        },
+        {
+          "id": "room.prop.stool",
+          "path": "assets/rooms/shared/runtime/stool.glb",
+          "sha256": "1043a89faec22f8eca78401eaa4e4a8ac6822b124fe8ae6d613cec445fc79579"
+        }
+      ]
+    },
+    {
+      "subject": "dance-floor",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/rooms/dance-floor/source/room.blend",
+      "sourceSha256": "f11693132dd1f0cbcbe33a0ee5b6046d13398d2736eeb85e2fa344f3482f5cb3",
+      "runtimePath": "assets/rooms/dance-floor/runtime/room.glb",
+      "runtimeSha256": "eb17366994cdf584d8f611851367a62802ee98d2b6d26a03f5b3545bd0d747eb",
+      "sceneResourceId": "room.dance-floor",
+      "captureBuildId": "027b91cf30f2795f621d9b205f5f1c006ac68c49b911b9e7d6412ad7d1b678b2",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "landmarks": [
+        "dance-floor",
+        "dj-booth",
+        "large-speakers",
+        "overhead-fixtures",
+        "coloured-light-pools"
+      ],
+      "semantics": [],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-dance-floor-left-lion-plates.png",
+          "sha256": "409bc340d378ec3bde22772ae9356baea46b1341248685c9a9d2ea2bf6025fe8"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-dance-floor-right-lion-plates.png",
+          "sha256": "79b420ce59f292591879052171821c05cf3f6ed7f461254e4e16993cb4088770"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-dance-floor-left-cow-crow.png",
+          "sha256": "5ac3c3278b515713752362ca445809ed748ee238663e8b74f7da9306dc5564c9"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-dance-floor-left-lion-plates.png",
+          "sha256": "0b0ae696917e8c19a315ddab4edc5ff829dde76ed0b7fdcc529b60b8b1fef26b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-dance-floor-right-cow-crow.png",
+          "sha256": "86794c623227b072c52a8c029ca543a4c8fb57adf85e29595a0cfc7581db5c01"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-dance-floor-right-lion-plates.png",
+          "sha256": "716ed0fee15086e91bb4fe3e02fb950db21d4c52256c6cc2f2953fee9ebfdfb3"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-dance-floor-left-lion-plates.png",
+          "sha256": "f72f2212c4a9f3e3061e58f86d9cc83650f1c7b9ae2a9d75687a97f2c08aa005"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-dance-floor-right-lion-plates.png",
+          "sha256": "327e85c04cd33b097f48a1c8547342b243d39ae92931a79402ffc9279a8addd9"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-dance-floor-left-lion-plates.png",
+          "sha256": "7cb2fd8f0a0e1bcb4cf2722cd0b89a8bf3a8b8b3786fa9a0fbc0d2fcd8625439"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-dance-floor-right-lion-plates.png",
+          "sha256": "a62c9a9d116225743254c5e103bc3df1d1cd5737a0fb58d144bb1f8f072ee600"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-dance-floor-left-cow-crow.png",
+          "sha256": "da7cd775e5cb34960de3270b7f95f479d3c9ca47cfee7a9af0e6f881292925a1"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-dance-floor-left-lion-plates.png",
+          "sha256": "324cbed1a8670e26f08daeb85e3c3bcf1c4a954ffbd156dfa2d1654cebe4356e"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-dance-floor-right-cow-crow.png",
+          "sha256": "a53bb3c46610037d490f870985e902a85157ff3cd6d894af47ab0e84952e119d"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-dance-floor-right-lion-plates.png",
+          "sha256": "a2bd9d2aa3c9400badf7e29a6303200a7e3dc381a94e5af7ddf5a5bffbdbaaa8"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-dance-floor-left-lion-plates.png",
+          "sha256": "4580a08787e73383d31c3ae28bce338e695c620950bb633a562f2546267492c9"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-dance-floor-right-lion-plates.png",
+          "sha256": "10541281a69a222916544bf0218cba779d1339a36c2c17aa756e11a0a06ef037"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/complete-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow",
+          "lion/plates"
+        ],
+        "viewport": "667x375 / 844x390 / 915x412, room camera edges"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "scenes/art/rooms/dance-floor.tscn",
+      "sceneSha256": "08d718e7414acf9fdd85ec1ddb1849db552ea831858fb96e5fdc4d2a49701db5",
+      "definitionSha256": "d389d5deffabe600450610a00d005daeeefabf780d772e5836458392a03b82f7",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "room.dance-floor",
+          "path": "scenes/art/rooms/dance-floor.tscn",
+          "sha256": "08d718e7414acf9fdd85ec1ddb1849db552ea831858fb96e5fdc4d2a49701db5"
+        },
+        {
+          "id": "room.dance-floor.geometry",
+          "path": "assets/rooms/dance-floor/runtime/room.glb",
+          "sha256": "eb17366994cdf584d8f611851367a62802ee98d2b6d26a03f5b3545bd0d747eb"
+        },
+        {
+          "id": "room.palette",
+          "path": "assets/rooms/shared/opaque.tres",
+          "sha256": "e18d34feb5a44879092a1a939b4451c6181d021a731cfdcf4633a97d09cdba9b"
+        },
+        {
+          "id": "room.glow",
+          "path": "assets/rooms/shared/glow.tres",
+          "sha256": "5e931c4b7f618d049b6df9dd37ef128fcdef6cde3b413b541b9db926b09734a4"
+        }
+      ]
+    },
+    {
+      "subject": "stage-vip",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/rooms/stage-vip/source/room.blend",
+      "sourceSha256": "4b05c48d04a7e62ab65151720367cbe69a32231f0ca036d9372311bb53c96516",
+      "runtimePath": "assets/rooms/stage-vip/runtime/room.glb",
+      "runtimeSha256": "01ed7f4b88904693286fd0f4ac5c16d1b16172f2de02c1cbfa8212180ed3578c",
+      "sceneResourceId": "room.stage-vip",
+      "captureBuildId": "027b91cf30f2795f621d9b205f5f1c006ac68c49b911b9e7d6412ad7d1b678b2",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "landmarks": [
+        "curtains",
+        "stage-backdrop",
+        "vip-seating",
+        "club-branding",
+        "dramatic-light"
+      ],
+      "semantics": [],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-stage-vip-left-lion-plates.png",
+          "sha256": "481f0207a3f9eed6655459a61ab3b41adfb6f1f1ed8d3d87a87888daf9b6382a"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-667-stage-vip-right-lion-plates.png",
+          "sha256": "1ff1669293067482314533f59fc234683ea62dc4152b6d52813e8f7e7eb0c7c7"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-stage-vip-left-cow-crow.png",
+          "sha256": "816e80d72aa754e515530ec172faf29a6e070d35b9932be1304cde4435a5a79e"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-stage-vip-left-lion-plates.png",
+          "sha256": "537ab12f22066e08af628b380babdfd601b2017ad591857e39dd9b2c56a01076"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-stage-vip-right-cow-crow.png",
+          "sha256": "ed572552347b4761da5e2616285441a4ce11f09bd489d29e84578f5dab1b5fab"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-844-stage-vip-right-lion-plates.png",
+          "sha256": "cf4c8e589d5fcccbbd04a7c8b0166ebdba426ce34039a8e5c2c075c5fb94268d"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-stage-vip-left-lion-plates.png",
+          "sha256": "ddcd57dfa8c928c9c4f626e03e940a24037b1e232866e33ba921c56e497b79a8"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/chromium-915-stage-vip-right-lion-plates.png",
+          "sha256": "ac7076d058005f695ba6cd70f378c611cf05ec0ec3b282a72b88281499a4a0d1"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-stage-vip-left-lion-plates.png",
+          "sha256": "31f33ca762c8730a3dfb5ba0df0432a6c8298c3b818108f11d01af7b52d88af8"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-667-stage-vip-right-lion-plates.png",
+          "sha256": "daabe810bb55e58da8ae75c05bc5e74f70a5c7b4ed4a0a23ec822eebe0507066"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-stage-vip-left-cow-crow.png",
+          "sha256": "389c6881d420391496d4a40d5b6a177df1dbd60798b394345a491a4b8709f39b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-stage-vip-left-lion-plates.png",
+          "sha256": "da1ddf5c273d245fe32dff38c8c2b4b4ab7a83ac232335e9a00430cb81382bea"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-stage-vip-right-cow-crow.png",
+          "sha256": "4e470bfbe3c48023ea1e261becb7b498e3e213866a570e9407a16694e32f0985"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-844-stage-vip-right-lion-plates.png",
+          "sha256": "ca09b9fb0b8f76bf5eea5b5b53d07de1264c0bbbe91e84e0765432a6a1423767"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-stage-vip-left-lion-plates.png",
+          "sha256": "5b159edfc6bb0f90787b25b908e354ca82c919cb9cf6133638403b28c107d728"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/rooms-final/webkit-915-stage-vip-right-lion-plates.png",
+          "sha256": "43b7fd77425a9c0164c93c62621dbced95676eae62bf0ba0e3d979e7b0120fd3"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/complete-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow",
+          "lion/plates"
+        ],
+        "viewport": "667x375 / 844x390 / 915x412, room camera edges"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "scenes/art/rooms/stage-vip.tscn",
+      "sceneSha256": "00062180619a8e527bc3d3bf52a3456c0576539bb6e76915df29437a3b0991ac",
+      "definitionSha256": "9edc6c2af0be0cbdcba47ac1fbec141ea8d7864a0d9667d1a3c58446ac5498f6",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "room.stage-vip",
+          "path": "scenes/art/rooms/stage-vip.tscn",
+          "sha256": "00062180619a8e527bc3d3bf52a3456c0576539bb6e76915df29437a3b0991ac"
+        },
+        {
+          "id": "room.stage-vip.geometry",
+          "path": "assets/rooms/stage-vip/runtime/room.glb",
+          "sha256": "01ed7f4b88904693286fd0f4ac5c16d1b16172f2de02c1cbfa8212180ed3578c"
+        },
+        {
+          "id": "room.palette",
+          "path": "assets/rooms/shared/opaque.tres",
+          "sha256": "e18d34feb5a44879092a1a939b4451c6181d021a731cfdcf4633a97d09cdba9b"
+        },
+        {
+          "id": "room.glow",
+          "path": "assets/rooms/shared/glow.tres",
+          "sha256": "5e931c4b7f618d049b6df9dd37ef128fcdef6cde3b413b541b9db926b09734a4"
+        },
+        {
+          "id": "room.prop.sofa",
+          "path": "assets/rooms/shared/runtime/sofa.glb",
+          "sha256": "69d33ad120c90e4afa66c16f32ea7a9b3d1bc3be5d5e8bb239ea972fb0c27a33"
+        }
+      ]
+    },
+    {
+      "subject": "grunt",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/enemies/grunt/source/character.blend",
+      "sourceSha256": "56c50fd7482fa9257287c4c0b379b1df6e075bcb378b91928fd8e8a7ac9159cd",
+      "runtimePath": "assets/enemies/grunt/runtime/character.glb",
+      "runtimeSha256": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1",
+      "sceneResourceId": "enemy.grunt",
+      "captureBuildId": "4eae6e07614320ed746c1558aea3d3c48489cbdb0d03b7ddc2f4fefdfb375f8b",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "landmarks": [],
+      "semantics": [
+        "Defeated",
+        "Hurt",
+        "Idle",
+        "Move",
+        "Stunned",
+        "grunt.active",
+        "grunt.recovery",
+        "grunt.windup"
+      ],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-grunt-grunt--1-phase1.png",
+          "sha256": "7b252cd95f56b6b32d24be51f602c88763e973c72c2eb70fd07b9c86ed0be1cc"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-grunt-grunt-1-phase1.png",
+          "sha256": "4e861c659825f88a88da03e3647caafad9dff00f4fbfb1e7e8d795a0083f07ef"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-grunt-grunt--1-phase1.png",
+          "sha256": "84d3a0908c9cfbfb6d33f2471c61c63290d48c46b4ea6cc024d37b137e6d9285"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-grunt-grunt-1-phase1.png",
+          "sha256": "f8434ffea17ca52dd805dfae36f7a0246e64c414a808a111c66168dcdca02afd"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/review-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow"
+        ],
+        "viewport": "844x390 neutral arena, both facings and both Liam phases"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "assets/enemies/grunt/runtime/character.glb",
+      "sceneSha256": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1",
+      "definitionSha256": "e3b78ba435f494c4658fb0e3828980ff43d2df5e6d465d7bd091c8180002def5",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "enemy.grunt",
+          "path": "assets/enemies/grunt/runtime/character.glb",
+          "sha256": "074f98112a111678ab0fb788c86833f6b991b8c9b3e4301cb866e935b99883d1"
+        },
+        {
+          "id": "enemy.outfit",
+          "path": "assets/enemies/shared/outfit.tres",
+          "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+        }
+      ]
+    },
+    {
+      "subject": "zoner",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/enemies/zoner/source/character.blend",
+      "sourceSha256": "8822878ebeed62c64d2e1ab9a0f6dd773ab1078002d518fa4e3b646d6251f617",
+      "runtimePath": "assets/enemies/zoner/runtime/character.glb",
+      "runtimeSha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+      "sceneResourceId": "enemy.zoner",
+      "captureBuildId": "4eae6e07614320ed746c1558aea3d3c48489cbdb0d03b7ddc2f4fefdfb375f8b",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "enemy-pilot-original"
+      ],
+      "landmarks": [],
+      "semantics": [
+        "Defeated",
+        "Hurt",
+        "Idle",
+        "Move",
+        "Stunned",
+        "throw.active",
+        "throw.recovery",
+        "throw.windup"
+      ],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-zoner-throw--1-phase1.png",
+          "sha256": "1a7ff1f9cbe196a8517e2cc848e742d3bbb398bf4cd88c2ee4a66a2c7339d751"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-zoner-throw-1-phase1.png",
+          "sha256": "e906c3ee6a71880a3bc197c50f6a6d49a3fc3a83a718b54271d8035d2b77b930"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-zoner-throw--1-phase1.png",
+          "sha256": "08d4a2ef0f37ffff963a480dad1038a41f7bb39c0970e1ba1d331ac70e107ce5"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-zoner-throw-1-phase1.png",
+          "sha256": "47aa211c765cc3d4fa9b17f89b727bfb8fd3ef7350f48267dffbafbf139f3f65"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/review-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow"
+        ],
+        "viewport": "844x390 neutral arena, both facings and both Liam phases"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "assets/enemies/zoner/runtime/character.glb",
+      "sceneSha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530",
+      "definitionSha256": "6485af23d44173d362357b2709c6b6d1d3c295675aa0f59cc5aaf9448be164d3",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "enemy.zoner",
+          "path": "assets/enemies/zoner/runtime/character.glb",
+          "sha256": "8e433505c7bb52616b2a8670e279041f371f0bb954b1c0f91136310cd98b7530"
+        },
+        {
+          "id": "enemy.outfit",
+          "path": "assets/enemies/shared/outfit.tres",
+          "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+        },
+        {
+          "id": "prop.bottle",
+          "path": "assets/props/bottle/bottle.glb",
+          "sha256": "308f317e903d3d2c91efe0965af68efd8819421aa9d48e084b4d948748eda4aa"
+        }
+      ]
+    },
+    {
+      "subject": "enforcer",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/enemies/enforcer/source/character.blend",
+      "sourceSha256": "f42000677cb4b2d39c396559ca8bbc4003512136d2f13edc0e789fd75c1f7271",
+      "runtimePath": "assets/enemies/enforcer/runtime/character.glb",
+      "runtimeSha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a",
+      "sceneResourceId": "enemy.enforcer",
+      "captureBuildId": "4eae6e07614320ed746c1558aea3d3c48489cbdb0d03b7ddc2f4fefdfb375f8b",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "landmarks": [],
+      "semantics": [
+        "Defeated",
+        "Hurt",
+        "Idle",
+        "Move",
+        "Stunned",
+        "charge.active",
+        "charge.recovery",
+        "charge.windup"
+      ],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-enforcer-charge--1-phase1.png",
+          "sha256": "64603c16d659d6dade33ad96c0136a95e9d98cdc4657f3ba253609f5a06129b2"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-enforcer-charge-1-phase1.png",
+          "sha256": "dbf6ce11c576dd0550393235d4e96d07ba2497ec6fec0fe9fb8f9d65f2f245a5"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-enforcer-charge--1-phase1.png",
+          "sha256": "969e40e324460e49ac44d2f21d914c678ee9ec0922dd5b0ab7ecad657a58361a"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-enforcer-charge-1-phase1.png",
+          "sha256": "1f85be10dd8b5085469a617ed5c5fe89cda0db5f9bd0a8386a1f7049335d4556"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/review-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow"
+        ],
+        "viewport": "844x390 neutral arena, both facings and both Liam phases"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "assets/enemies/enforcer/runtime/character.glb",
+      "sceneSha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a",
+      "definitionSha256": "d4a459a3254f8d2a0dc3a55f82b8288250762bc04ecab0dbe94aba728253f505",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "enemy.enforcer",
+          "path": "assets/enemies/enforcer/runtime/character.glb",
+          "sha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a"
+        },
+        {
+          "id": "enemy.outfit",
+          "path": "assets/enemies/shared/outfit.tres",
+          "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+        }
+      ]
+    },
+    {
+      "subject": "liam",
+      "stage": "final",
+      "result": "owner-approved direction; automated checks pass",
+      "reviewer": "owner",
+      "approvalMode": "blanket direction, not a claim of individual screenshot inspection",
+      "approvalDate": "2026-10-15",
+      "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sourceCommit": "5ffff6e6230b5159c7bc9abbe94d31b68bb73d4b",
+      "sourceTree": "working feature branch, uncommitted implementation",
+      "sourcePath": "assets/enemies/liam/source/character.blend",
+      "sourceSha256": "cdbd885643ec7cdc5614c1ee69e65db1ab265708b04aa08843fb8b3e4efe8a6e",
+      "runtimePath": "assets/enemies/liam/runtime/character.glb",
+      "runtimeSha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59",
+      "sceneResourceId": "enemy.liam",
+      "captureBuildId": "4eae6e07614320ed746c1558aea3d3c48489cbdb0d03b7ddc2f4fefdfb375f8b",
+      "releaseBuildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "landmarks": [],
+      "semantics": [
+        "Defeated",
+        "Hurt",
+        "Idle",
+        "Move",
+        "close.active",
+        "close.recovery",
+        "close.windup",
+        "rope.active",
+        "rope.recovery",
+        "rope.windup",
+        "shockwave.active",
+        "shockwave.recovery",
+        "shockwave.windup"
+      ],
+      "captures": [
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-close--1-phase1.png",
+          "sha256": "dd8de1a631a05b6c0bbd2e8737be44c0541553fc739373fa6687dff2e3fa5b0c"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-close--1-phase2.png",
+          "sha256": "e4d4b81de966eff7bfc699e674b3370771e80fddaa89e71342f5951d21acc7b2"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-close-1-phase1.png",
+          "sha256": "7d6098c8a3b28e59d74104db3512fb656d7f0daea564728aabab7a6eadf270a2"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-close-1-phase2.png",
+          "sha256": "557666f85d4132b0ad0dd111a3e9e21ff6720516bcbe61a734c9b90d5cc1ad50"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-rope--1-phase1.png",
+          "sha256": "f29e357ccd5c030584d7d8a9afa9c53df4cdad6f4bd9de726bf657ac4c4e3a5c"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-rope--1-phase2.png",
+          "sha256": "b1ed3e8f906078d0a4442d7d90c375ca704bde02a0008da5d05e65953745150b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-rope-1-phase1.png",
+          "sha256": "deb7a2abfb906c56c1313cbd53ce843c899a951908a24a4301c173705e1ec873"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-rope-1-phase2.png",
+          "sha256": "786210ac7d4d8781ede92ba0d2ce6376a2318610374982ed0ebc5b46557b90c7"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-shockwave--1-phase1.png",
+          "sha256": "f19c0bb58f3fbb29c8289e7d252e60b6052b313102ba65a5072d9b3ef0974a91"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-shockwave--1-phase2.png",
+          "sha256": "e2758cf657e01d8848e680f671801516eda897745efa095b4d0c301349b8633b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-shockwave-1-phase1.png",
+          "sha256": "743314a747b52661912e267e3119629c39ba0282dbfa0d45d7477206034b3c83"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/chromium-liam-shockwave-1-phase2.png",
+          "sha256": "5aab0d818c5bb8a6352b38c8502d4ee3dbdac54b0821f0b4a6c11537f2f69788"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-close--1-phase1.png",
+          "sha256": "65e375bd805133716195f7b9fe2fb4cfd0e351f7c5c74f553de056c0cc4ad1d7"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-close--1-phase2.png",
+          "sha256": "22cc4696a17484e3098bec495ab3b2b2b15c28e476a217e72b82cef9058a4fba"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-close-1-phase1.png",
+          "sha256": "9069eebfe1fb3584eb4f30b234f6a5fd10814923e672dffb9d0fae236c8a021b"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-close-1-phase2.png",
+          "sha256": "1a580b5c726356ace6dde322c4ed8ec31cd0189d4892be0575c538f72b3c0c97"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-rope--1-phase1.png",
+          "sha256": "419aa39e246b716dd16719cc154e29fe7e98bfc9596fd3e2835a4df76f64eea2"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-rope--1-phase2.png",
+          "sha256": "83bf586047e6752f42328bfc28f96fb3b244c8530c5f72d73a236c595aaea085"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-rope-1-phase1.png",
+          "sha256": "a7280cfdbcc98270f3fe933b325bfdb48f972444a37ae281c6b9603056cc76b4"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-rope-1-phase2.png",
+          "sha256": "305e6fa83627f970adc55617a8cb540c90524bf9123ab81483a0c55116c68ee4"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-shockwave--1-phase1.png",
+          "sha256": "95adacae67161a3ef9f2ddc9c87713f57dd1608e1488d7955f369187275f8979"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-shockwave--1-phase2.png",
+          "sha256": "b65592e4cb469cd37917da8a3e0d095553cdd7bb4c8ed68b06d112bf4ccf925c"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-shockwave-1-phase1.png",
+          "sha256": "93e1a5259e21759001fcf119ded105020f126ae52fe9dd90690c55b08190ef87"
+        },
+        {
+          "path": "specs/010-upgrade-game-artwork/reviews/enemies-final/webkit-liam-shockwave-1-phase2.png",
+          "sha256": "a912cd20078dc65b045505ce137213e5d37ead8f9c57224defd01997a2956bda"
+        }
+      ],
+      "technicalEvidence": [
+        "validation/evidence/complete-art/unit-final.txt",
+        "validation/evidence/complete-art/full-validator.txt",
+        "validation/evidence/complete-art/blender-full.txt",
+        "validation/evidence/complete-art/review-final-browser.txt"
+      ],
+      "context": {
+        "renderer": "Godot Compatibility web",
+        "engines": [
+          "Chromium",
+          "WebKit"
+        ],
+        "duos": [
+          "cow/crow"
+        ],
+        "viewport": "844x390 neutral arena, both facings and both Liam phases"
+      },
+      "pending": [
+        "physical-phone observations",
+        "five-player recognition/preference evaluation"
+      ],
+      "scenePath": "assets/enemies/liam/runtime/character.glb",
+      "sceneSha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59",
+      "definitionSha256": "2142abaabf7bbb803b3c8f07c3d59fb668a33aed3a7b5a81f9917f568a5eacc3",
+      "resourceCatalogueSha256": "6c8dab5faede3ccc27d0349910c77e10a22deeefbbd354d40f37d79dec5aa3a6",
+      "presentationSources": {
+        "game/presentation/backdrops.gd": "0230477e880fc0595f38aa3113d25a9e4adc0b5b8972fdf961b386f1608a1a63",
+        "game/presentation/camera_math.gd": "9303f6505f0351f713446eca00ef035745541122a87c4acaabcd137d7c84166c",
+        "game/presentation/character_batches.gd": "db09bdbec64aad858c845c09c1ed6b1f4b7721469ef95a323cf8a4821a705c91",
+        "game/presentation/character_view.gd": "2e607c043cc9f6d6906519eba598d182c7fbc01c579ffc47ee60dabf5af6094d",
+        "game/presentation/enemy_cues.gd": "7a5fe63566f65705116352ec87cb9edd295874249005e174b0c023c9a3662183",
+        "game/presentation/enemy_pose.gd": "837ae817677e76baa4b89a77445bdb8e5c0f88b99b47934abfb94fd16fdd2112",
+        "game/presentation/enemy_view.gd": "4a1a8782732d6a96d30e17d3778f57bed005c39faa7dd103c4bf54fe8a6945e2",
+        "game/presentation/venue_view.gd": "64b26ec740152ac369815b1e8e820bb52e9e0ffba29f72cca625a1cc7c96b3c4",
+        "game/presentation/world_view.gd": "5a6083306412c5b736eb25b23a6137913ff3a867729fce43b4969d837d388786"
+      },
+      "dependencies": [
+        {
+          "id": "enemy.liam",
+          "path": "assets/enemies/liam/runtime/character.glb",
+          "sha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59"
+        },
+        {
+          "id": "enemy.outfit",
+          "path": "assets/enemies/shared/outfit.tres",
+          "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+        }
+      ]
+    }
+  ]
+}

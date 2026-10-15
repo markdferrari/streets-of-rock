@@ -80,3 +80,31 @@ func test_unbound_extra_clip_is_also_inspected() -> void:
  bad.track_set_path(track, NodePath("."))
  player.get_animation_library("").add_animation("UnboundUnsafe", bad)
  assert_true(str(Art.inspect_enemy(root, definition())).contains("UnboundUnsafe"))
+func test_root_bone_detection_does_not_depend_on_supplier_naming() -> void:
+ var root := rig()
+ var skeleton: Skeleton3D = root.get_node("Skeleton3D")
+ skeleton.set_bone_name(0, "ArmatureRoot")
+ var player: AnimationPlayer = root.find_children("*", "AnimationPlayer", true, false)[0]
+ var animation := player.get_animation("Idle_A")
+ var track := animation.add_track(Animation.TYPE_POSITION_3D)
+ animation.track_set_path(track, NodePath("Skeleton3D:ArmatureRoot"))
+ animation.position_track_insert_key(track, 0.0, Vector3.ZERO)
+ animation.position_track_insert_key(track, 1.0, Vector3.RIGHT)
+ assert_true(str(Art.inspect_enemy(root, definition())).contains("root locomotion"), "renaming a top-level bone must not bypass root-motion validation")
+func test_polygon_colliders_and_navigation_obstacles_are_rejected_for_both_art_kinds() -> void:
+ for kind in ["CollisionPolygon3D", "NavigationObstacle3D"]:
+  var root := rig()
+  root.add_child(ClassDB.instantiate(kind))
+  assert_true(str(Art.inspect_enemy(root, definition())).contains(kind), kind + " cannot enter enemy imports")
+  var room := {"visualId": "fixture", "requiredLandmarks": []}
+  assert_true(str(Art.inspect_room(root, room)).contains(kind), kind + " cannot enter decorative rooms")
+func test_empty_mesh_resources_are_not_visible_geometry() -> void:
+ var root := rig()
+ var mesh: MeshInstance3D = root.find_children("*", "MeshInstance3D", true, false)[0]
+ mesh.mesh = ArrayMesh.new()
+ assert_true(str(Art.inspect_enemy(root, definition())).contains("geometry"), "an allocated mesh without surfaces is still invisible")
+ assert_true(str(Art.inspect_room(root, {"visualId": "fixture", "requiredLandmarks": []})).contains("geometry"))
+func test_production_role_requires_a_mesh_bound_to_its_skeleton() -> void:
+ var d := definition()
+ d.role = "grunt"
+ assert_true(str(Art.inspect_enemy(rig(),d)).contains("skin"), "an animated skeleton beside an unbound box is not a rigged enemy")

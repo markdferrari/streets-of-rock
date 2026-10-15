@@ -1,0 +1,38 @@
+{
+  "buildId": "4710b40647ff4d445476b192930c88f6d18a13b8b5ff34ea241f5e002a71c836",
+  "context": "Desktop browser diagnostics; phone performance remains pending",
+  "report": {
+    "characterTextureBytes": 0,
+    "collectedAtMs": 10227,
+    "drawCalls": 58,
+    "frameIntervalsMs": [
+      400,
+      136,
+      87,
+      105,
+      93,
+      100,
+      105,
+      79,
+      97,
+      205,
+      89,
+      120,
+      85,
+      103,
+      78
+    ],
+    "meshes": 46,
+    "ownedNodes": 9,
+    "ownedResources": 9,
+    "renderDensity": 0.105577834487787,
+    "rendererTextureBytes": 16095741,
+    "rollingFps": 9.42507068803016,
+    "sampleCount": 15,
+    "sceneryTextureBytes": 0,
+    "schemaVersion": 1,
+    "textureBytes": 0,
+    "textureCount": 0,
+    "triangles": 34752
+  }
+}

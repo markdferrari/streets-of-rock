@@ -90,7 +90,9 @@
         "kaykit-character-animations-1.1",
         "enemy-pilot-original"
       ],
-      "dependencyIds": []
+      "dependencyIds": [
+        "enemy.outfit"
+      ]
     },
     "enemy.zoner": {
       "path": "assets/enemies/zoner/runtime/character.glb",
@@ -98,7 +100,166 @@
         "kaykit-character-animations-1.1",
         "enemy-pilot-original"
       ],
+      "dependencyIds": [
+        "enemy.outfit"
+      ]
+    },
+    "enemy.outfit": {
+      "path": "assets/enemies/shared/outfit.tres",
+      "sourceRecordIds": [
+        "enemy-pilot-original"
+      ],
+      "dependencyIds": [],
+      "sha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+    },
+    "room.palette": {
+      "path": "assets/rooms/shared/opaque.tres",
+      "sha256": "e18d34feb5a44879092a1a939b4451c6181d021a731cfdcf4633a97d09cdba9b",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
       "dependencyIds": []
+    },
+    "room.glow": {
+      "path": "assets/rooms/shared/glow.tres",
+      "sha256": "5e931c4b7f618d049b6df9dd37ef128fcdef6cde3b413b541b9db926b09734a4",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": []
+    },
+    "room.prop.stool": {
+      "path": "assets/rooms/shared/runtime/stool.glb",
+      "sha256": "1043a89faec22f8eca78401eaa4e4a8ac6822b124fe8ae6d613cec445fc79579",
+      "sourceRecordIds": [
+        "kenney-furniture",
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette"
+      ]
+    },
+    "room.prop.sofa": {
+      "path": "assets/rooms/shared/runtime/sofa.glb",
+      "sha256": "69d33ad120c90e4afa66c16f32ea7a9b3d1bc3be5d5e8bb239ea972fb0c27a33",
+      "sourceRecordIds": [
+        "kenney-furniture",
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette"
+      ]
+    },
+    "room.exterior.geometry": {
+      "path": "assets/rooms/exterior/runtime/room.glb",
+      "sha256": "aef851963a3bd700ccc04ae53721608f20ddb06635de9e1bf5547f96e5d42074",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette",
+        "room.glow"
+      ]
+    },
+    "room.exterior": {
+      "path": "scenes/art/rooms/exterior.tscn",
+      "sha256": "ea44c6362aeba8cb4c80177fa2b0ebbeee14819399170b28cc0cb3e9455a4f21",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.exterior.geometry"
+      ]
+    },
+    "room.bar.geometry": {
+      "path": "assets/rooms/bar/runtime/room.glb",
+      "sha256": "d3fbe499e3fb4829f8e9c10c6ec5da9cbf2f4d1eaacc089cb1d2d6754d743305",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette",
+        "room.glow"
+      ]
+    },
+    "room.bar": {
+      "path": "scenes/art/rooms/bar.tscn",
+      "sha256": "e76e03a3b4cdeef03a90c1a20f37918b2203662b886c9f59acdbcd65b46aeee7",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "dependencyIds": [
+        "room.bar.geometry",
+        "room.prop.sofa",
+        "room.prop.stool"
+      ]
+    },
+    "room.dance-floor.geometry": {
+      "path": "assets/rooms/dance-floor/runtime/room.glb",
+      "sha256": "eb17366994cdf584d8f611851367a62802ee98d2b6d26a03f5b3545bd0d747eb",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette",
+        "room.glow"
+      ]
+    },
+    "room.dance-floor": {
+      "path": "scenes/art/rooms/dance-floor.tscn",
+      "sha256": "08d718e7414acf9fdd85ec1ddb1849db552ea831858fb96e5fdc4d2a49701db5",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.dance-floor.geometry"
+      ]
+    },
+    "room.stage-vip.geometry": {
+      "path": "assets/rooms/stage-vip/runtime/room.glb",
+      "sha256": "01ed7f4b88904693286fd0f4ac5c16d1b16172f2de02c1cbfa8212180ed3578c",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "dependencyIds": [
+        "room.palette",
+        "room.glow"
+      ]
+    },
+    "room.stage-vip": {
+      "path": "scenes/art/rooms/stage-vip.tscn",
+      "sha256": "00062180619a8e527bc3d3bf52a3456c0576539bb6e76915df29437a3b0991ac",
+      "sourceRecordIds": [
+        "venue-original",
+        "kenney-furniture"
+      ],
+      "dependencyIds": [
+        "room.stage-vip.geometry",
+        "room.prop.sofa"
+      ]
+    },
+    "enemy.enforcer": {
+      "path": "assets/enemies/enforcer/runtime/character.glb",
+      "sha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "dependencyIds": [
+        "enemy.outfit"
+      ]
+    },
+    "enemy.liam": {
+      "path": "assets/enemies/liam/runtime/character.glb",
+      "sha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "dependencyIds": [
+        "enemy.outfit"
+      ]
     }
   }
 }

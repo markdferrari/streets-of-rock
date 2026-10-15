@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="PackedScene" path="res://assets/rooms/bar/runtime/room.glb" id="geometry"]
+[ext_resource type="PackedScene" path="res://assets/rooms/shared/runtime/sofa.glb" id="sofa"]
+[ext_resource type="PackedScene" path="res://assets/rooms/shared/runtime/stool.glb" id="stool"]
+[node name="Room" type="Node3D"]
+[node name="Geometry" parent="." instance=ExtResource("geometry")]
+[node name="stools" type="Node3D" parent="."]
+[node name="booths" type="Node3D" parent="."]
+[node name="Prop0" parent="stools" instance=ExtResource("stool")]
+position = Vector3(2,0,-3.75)
+scale = Vector3(1,1,1)
+[node name="Prop1" parent="stools" instance=ExtResource("stool")]
+position = Vector3(5,0,-3.75)
+scale = Vector3(1,1,1)
+[node name="Prop2" parent="stools" instance=ExtResource("stool")]
+position = Vector3(8,0,-3.75)
+scale = Vector3(1,1,1)
+[node name="Prop3" parent="booths" instance=ExtResource("sofa")]
+position = Vector3(12,0,-4.6)
+scale = Vector3(1.1,1.1,1.1)
+[node name="Prop4" parent="booths" instance=ExtResource("sofa")]
+position = Vector3(14.6,0,-4.6)
+scale = Vector3(1.1,1.1,1.1)
+[node name="BarLettering" type="Label3D" parent="."]
+position = Vector3(5.8,2.55,-4.15)
+text = "LAST ORDERS"
+font_size = 48
+pixel_size = 0.009
+modulate = Color(0.9764705882352941,0.3058823529411765,0.6039215686274509,1)
+outline_size = 8
+shaded = false
+no_depth_test = false
+[node name="ExitLettering" type="Label3D" parent="."]
+position = Vector3(14.4,2.4,-4.1)
+text = "DANCE >"
+font_size = 26
+pixel_size = 0.009
+modulate = Color(0.3254901960784314,0.8313725490196079,0.9215686274509803,1)
+outline_size = 8
+shaded = false
+no_depth_test = false

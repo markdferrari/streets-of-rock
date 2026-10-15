@@ -1,0 +1,24 @@
+/home/mark/projects/godot/streets-of-rock/scripts/art/build_representative_room.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True
+22:10:20 | INFO: Data are loaded, start creating Blender stuff
+22:10:20 | INFO: Blender create Mesh node Mesh stoolBar
+22:10:20 | INFO: glTF import finished in 0.01s
+22:10:20 | INFO: Data are loaded, start creating Blender stuff
+22:10:20 | INFO: Blender create Mesh node Mesh stoolBar
+22:10:20 | INFO: glTF import finished in 0.00s
+22:10:20 | INFO: Data are loaded, start creating Blender stuff
+22:10:20 | INFO: Blender create Mesh node Mesh stoolBar
+22:10:20 | INFO: glTF import finished in 0.00s
+/home/mark/projects/godot/streets-of-rock/scripts/art/build_representative_room.py:21: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True
+Info: Saved as "room.blend"
+INFO Draco is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_draco_bridge.so
+INFO MeshOptimizer is available, use library at /usr/local/blender-5.2.2-linux-x64/lib/libbf_intern_meshopt_bridge.so
+22:10:21 | INFO: Starting glTF 2.0 export
+22:10:21 | INFO: Extracting primitive: Cube.001
+22:10:21 | INFO: Primitives created: 1
+22:10:21 | INFO: Finished glTF 2.0 export in 0.013531923294067383 s
+
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:34:58)
+
+Blender quit

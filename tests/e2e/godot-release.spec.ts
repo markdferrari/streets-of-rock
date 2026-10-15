@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {readFile} from 'node:fs/promises';
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
 test('plain HTTP LAN origin boots and plays without secure audio or service workers',async({page,browserName})=>{
  test.skip(browserName!=='chromium','Chromium checks the actual insecure-origin capabilities.');
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
@@ -29,7 +29,7 @@ test('actual Release boots and query parameters cannot register test or diagnost
  await expect(page.getByRole('button',{name:'Resume',exact:true})).toBeEnabled();
  expect(errors).toEqual([]);
 });
-test('Web Diagnostics downloads a bounded structured report after active gameplay',async({page})=>{
+test('Web Diagnostics downloads a bounded structured report after active gameplay',async({page,browserName})=>{
  test.skip(process.env.SOR_RELEASE_DIR!=='dist-diagnostics','Requires the isolated Web Diagnostics export.');
  await page.setViewportSize({width:844,height:390});await page.goto('/');
  await expect(page.locator('#boot')).toBeHidden({timeout:60000});
@@ -45,5 +45,8 @@ test('Web Diagnostics downloads a bounded structured report after active gamepla
  expect(report.schemaVersion).toBe(1);expect(report.sampleCount).toBeGreaterThan(0);expect(report.sampleCount).toBeLessThanOrEqual(120);
  expect(report.frameIntervalsMs).toHaveLength(report.sampleCount);expect(report.rollingFps).toBeGreaterThan(0);
  expect(report.drawCalls).toBeGreaterThanOrEqual(0);expect(report.triangles).toBeGreaterThanOrEqual(0);expect(report.ownedResources).toBeGreaterThan(0);
+ expect(report.textureBytes).toBeGreaterThanOrEqual(0);expect(report.textureCount).toBeGreaterThanOrEqual(0);expect(report.meshes).toBeGreaterThan(0);expect(report.renderDensity).toBeGreaterThanOrEqual(0);
+ const folder='specs/010-upgrade-game-artwork/validation/evidence/complete-art';await mkdir(folder,{recursive:true});
+ await writeFile(`${folder}/${browserName}-diagnostics.json`,JSON.stringify({buildId:await page.evaluate(()=>(window as any).SorBoot.buildId),context:'Desktop browser diagnostics; phone performance remains pending',report},null,2)+'\n');
  expect(await page.evaluate(()=>typeof (window as any).__sorTest)).toBe('undefined');
 });

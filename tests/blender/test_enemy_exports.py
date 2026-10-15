@@ -76,3 +76,33 @@ class EnemyExportTests(unittest.TestCase):
             # Only compare supplier folders where present; retained acquisition hashes
             # are authoritative when the project moves to another workstation.
             if original.exists():self.assertEqual((source/filename).read_bytes(),original.read_bytes())
+
+class ProductionEnemyExportTests(unittest.TestCase):
+    def test_registered_exports_preserve_editable_source_and_exact_runtime_bindings(self):
+        import bpy
+        catalog=json.loads((ROOT/'content/enemy-presentations.json').read_text())
+        for record in catalog['enemies']:
+            source=ROOT/record['sourcePath']
+            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(),record['sourceSha256'])
+            bpy.ops.wm.open_mainfile(filepath=str(source))
+            rigs=[o for o in bpy.data.objects if o.type=='ARMATURE']
+            self.assertEqual(len(rigs),1)
+            self.assertGreater(len([o for o in bpy.data.objects if o.type=='MESH']),10,'editable named outfit parts remain in source')
+            self.assertTrue(all(abs(s-rigs[0].scale.x)<1e-5 for s in rigs[0].scale),'uniform source transform')
+            self.assertEqual(len(rigs[0].data.bones),23)
+            # Blender uses +z up and -y forward; explicit Y-up GLB maps to +z forward.
+            nose=next(o for o in bpy.data.objects if o.name=='Nose')
+            center=sum((v.co for v in nose.data.vertices),__import__('mathutils').Vector())/len(nose.data.vertices)
+            self.assertLess(center.y,-.15,'nose establishes canonical forward')
+            boots=[o for o in bpy.data.objects if o.name.startswith('Boot.')]
+            floor=min((o.matrix_world@v.co).z for o in boots for v in o.data.vertices)
+            self.assertAlmostEqual(floor,0.0,delta=.015,msg='source feet anchor at ground')
+            runtime=ROOT/record['runtimePath']
+            self.assertEqual(hashlib.sha256(runtime.read_bytes()).hexdigest(),record['runtimeSha256'])
+            gltf,accessor=read_glb(runtime)
+            self.assertFalse(any('uri' in item for item in gltf.get('buffers',[])+gltf.get('images',[])),'runtime is self-contained')
+            clips={clip['name']:clip for clip in gltf['animations']}
+            for binding in record['clipBindings'].values():
+                self.assertIn(binding['clipName'],clips)
+                length=max(gltf['accessors'][sampler['input']]['max'][0] for sampler in clips[binding['clipName']]['samplers'])
+                self.assertLessEqual(binding['endSeconds'],length+1e-5)

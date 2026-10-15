@@ -3,7 +3,7 @@
     "subject": "exterior",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/exterior.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -49,13 +49,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "bar",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/bar.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -100,13 +103,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "dance-floor",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/dance-floor.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -150,13 +156,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "stage-vip",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/stage-vip.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -200,13 +209,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "grunt",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/grunt.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -253,13 +265,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "zoner",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/zoner.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -306,13 +321,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "enforcer",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/enforcer.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -359,13 +377,16 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   },
   {
     "subject": "liam",
     "stage": "concept",
     "result": "pass",
-    "reviewer": null,
+    "reviewer": "owner",
     "capture": "specs/010-upgrade-game-artwork/reviews/concepts/liam.png",
     "source": "reviews/source/create_concepts.py",
     "notes": "Review-only 3D blockout with unchanged hero references and projected HUD guides; no runtime, rig/action or final art acceptance.",
@@ -417,6 +438,9 @@
       "Owner appearance review",
       "Final production/import/export",
       "Actual phone/camera/HUD gameplay review"
-    ]
+    ],
+    "approvalMode": "blanket artwork direction approval",
+    "approvalDate": "2026-10-15",
+    "approvalRecord": "specs/010-upgrade-game-artwork/validation/owner-approval.md"
   }
 ]

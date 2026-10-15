@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "feature": "010-upgrade-game-artwork",
+  "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+  "accepted": false,
+  "statuses": {
+    "phones": "pending",
+    "performance": "pending",
+    "playtest": "pending",
+    "soundtrack": "pass",
+    "offlineUpdate": "pending",
+    "coverage": "pass",
+    "conceptReview": "pass",
+    "inGameReview": "pass",
+    "characterWorkflow": "pass"
+  },
+  "evidence": {
+    "phones": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/mobile.md",
+      "sha256": "c844122b6e6e690c5d11f3defd8d8b89740a089889f8a572ed9f30018fced2e0"
+    },
+    "performance": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/performance.md",
+      "sha256": "d4ba5f9da141545c233ded204fab9ae297efc482853c12b52040384bf3583aef"
+    },
+    "playtest": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/playtest.md",
+      "sha256": "42f8bdd804fa326f69dcfc6d08bfa77e50f9dc2b24f83eade74584d7b3fad9b2"
+    },
+    "soundtrack": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/soundtrack.md",
+      "sha256": "200ee77be53a091d2586dfc08e9d99a4a546dd6b1160e824fb210e9f66b49ce9"
+    },
+    "offlineUpdate": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/us3-automated.md",
+      "sha256": "74a65ff52201bbeaa4518de48e9dd59523fa67e1cafb371c9051bcb1df940a91"
+    },
+    "coverage": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/coverage.md",
+      "sha256": "9ca8e58760fc013a5285737ec2b27f93e181b6c51580c47ad67c246899b0cead"
+    },
+    "conceptReview": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/owner-approval.md",
+      "sha256": "8e05244cec32d5593f4df77649864e41e1e7fb3425dc019e21fdd3070c708c81"
+    },
+    "inGameReview": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/reviews/art-register.md",
+      "sha256": "1b851178a132d0d6b2239a22346e82eb80eea5130ea3d3c3274325fc4e7da3d1"
+    },
+    "characterWorkflow": {
+      "buildId": "be1468cb326533addf2759f2188ff443d31e7dbfe7b65e48f7b870d05c1f4be4",
+      "path": "specs/010-upgrade-game-artwork/validation/final-checks.md",
+      "sha256": "092d1db868df8ecbdffd1babb54e80b119e987082a0eb2d753a50ce32d649c53"
+    }
+  },
+  "soundtrack": {
+    "ownerApproved": true,
+    "title": "Brightside (bundled filename; owner-provided asset)",
+    "license": "Owner authorized bundling of the provided asset; third-party metadata has not been supplied",
+    "audioFile": "public/assets/audio/brightside.mp3",
+    "sha256": "90279f810f0b8624ebbf247a1e8676244e258b9898e8f2db1e7672cdd93d3fcb"
+  }
+}

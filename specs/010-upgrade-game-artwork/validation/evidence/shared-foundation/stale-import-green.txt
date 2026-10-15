@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+
+ Test Files  2 passed (2)
+      Tests  14 passed (14)
+   Start at  08:20:27
+   Duration  2.05s (transform 44ms, setup 0ms, import 76ms, tests 1.93s, environment 0ms)
+

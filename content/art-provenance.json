@@ -517,7 +517,50 @@
       "status": "accepted",
       "reviewer": "Codex local source inspection",
       "reviewDate": "2026-10-14",
-      "assessment": "Only green bottle selected for the review pilot; source geometry and texture retained, exported as an embedded GLB."
+      "assessment": "Green bottle selected for production bartender/projectile views; exact owner-provided geometry, binary, texture and creator license retained. Creator identity URL comes from the bundled license; acquisition remains local.",
+      "sourceUrl": "https://kaylousberg.com/"
+    },
+    {
+      "id": "representative-room-original",
+      "name": "Representative room geometry and palette",
+      "creator": "Project artwork authored by Codex at owner request",
+      "status": "accepted",
+      "originalAuthorDeclaration": "Fixture geometry and batching authored by Codex at owner request; Kenney stools remain separately attributed.",
+      "licenseId": "LicenseRef-Project-Original",
+      "reviewer": "Codex fixture source inspection",
+      "reviewDate": "2026-10-14",
+      "sourcePath": "scripts/art/build_representative_room.py",
+      "sourceSha256": "a6ade67eb4a19c2389d87966a8dcb45b0a885f83e878cd41860b96198ce15c36"
+    },
+    {
+      "id": "venue-original",
+      "name": "Original rock venue room geometry, signs and palettes",
+      "creator": "Project artwork authored by Codex at owner request",
+      "originalAuthorDeclaration": "Original venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed.",
+      "licenseId": "LicenseRef-Project-Original",
+      "sourcePath": "scripts/art/build_venue.py",
+      "sourceSha256": "1ebf1262ba57c6700ec3ac2e1c850b064cb5830d64dc7dfdf8f8fb6dade014ba",
+      "status": "accepted",
+      "reviewer": "Codex source inspection; owner concept directions already approved",
+      "reviewDate": "2026-10-15"
+    },
+    {
+      "id": "head-bouncers-original",
+      "name": "Original security and head-bouncer skins",
+      "creator": "Project artwork authored by Codex at owner request",
+      "originalAuthorDeclaration": "Original security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed.",
+      "licenseId": "LicenseRef-Project-Original",
+      "sourcePath": "scripts/art/build_bouncers.py",
+      "sourceSha256": "a083ab4d27039d34332ad17db0b63466b06862e73a3d70f41a1cb96d89c9d598",
+      "supportingFiles": [
+        {
+          "path": "scripts/art/build_enemy_pilot.py",
+          "sha256": "1f4cc2f0b15120af01b1a5e9fec33476866e87847e71335d505c6deb8df13e6b"
+        }
+      ],
+      "status": "accepted",
+      "reviewer": "Codex source inspection; owner concept/reuse direction approved",
+      "reviewDate": "2026-10-15"
     }
   ],
   "runtimeAssets": [
@@ -706,6 +749,314 @@
       "importSettingsSha256": "b662ea28d6ede8b77fcfdc08b7c9157c8886369856cfa7f7e5dc7cbf879e688d",
       "materialPath": "assets/enemies/shared/outfit.tres",
       "materialSha256": "ba8f56bff11beebe51a4305852214e57317ccc2de14ee78e2b8c8b5082492025"
+    },
+    {
+      "sourcePath": "assets/rooms/shared/source/stool.blend",
+      "sourceSha256": "efb6c79f824f09d4f88237512f54d481e7bdb0e739d05edd07ac5a08333fe17e",
+      "runtimePath": "assets/rooms/shared/runtime/stool.glb",
+      "runtimeSha256": "1043a89faec22f8eca78401eaa4e4a8ac6822b124fe8ae6d613cec445fc79579",
+      "exporter": "5.2.2 LTS",
+      "id": "room.prop.stool",
+      "status": "production",
+      "sourceRecordIds": [
+        "kenney-furniture",
+        "venue-original"
+      ],
+      "selectedSource": {
+        "path": "Models/GLTF format/stoolBar.glb",
+        "sha256": "a86167a9f92401a61fec7e509ad089ecc552d0f299743add3aeb919acb24e341"
+      },
+      "adaptations": [
+        "Retain selected prop; preserve editable source and batch palette by vertex colour."
+      ]
+    },
+    {
+      "sourcePath": "assets/rooms/shared/source/sofa.blend",
+      "sourceSha256": "8ca22269e725e7e3d72e0c345d7d67f7f14520f9491ff7b882a852123020f481",
+      "runtimePath": "assets/rooms/shared/runtime/sofa.glb",
+      "runtimeSha256": "69d33ad120c90e4afa66c16f32ea7a9b3d1bc3be5d5e8bb239ea972fb0c27a33",
+      "exporter": "5.2.2 LTS",
+      "id": "room.prop.sofa",
+      "status": "production",
+      "sourceRecordIds": [
+        "kenney-furniture",
+        "venue-original"
+      ],
+      "selectedSource": {
+        "path": "Models/GLTF format/loungeSofa.glb",
+        "sha256": "1886b811c0d3ad0d8525a4fd43adf4112c497c8e0ed906f06877ca3517f4c7dd"
+      },
+      "adaptations": [
+        "Retain selected prop; preserve editable source and batch palette by vertex colour."
+      ]
+    },
+    {
+      "sourcePath": "assets/rooms/exterior/source/room.blend",
+      "sourceSha256": "65ffe3566079a34e4d84dfcc3823875d4c04e8b59b6dbcdb9612e7d1d528de4c",
+      "runtimePath": "assets/rooms/exterior/runtime/room.glb",
+      "runtimeSha256": "aef851963a3bd700ccc04ae53721608f20ddb06635de9e1bf5547f96e5d42074",
+      "exporter": "5.2.2 LTS",
+      "id": "room.exterior.geometry",
+      "status": "production",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "adaptations": [
+        "Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes."
+      ]
+    },
+    {
+      "sourcePath": "assets/rooms/bar/source/room.blend",
+      "sourceSha256": "279b66e77ceeca95b2ec0c2f09c23ce02f72bf1a712a254fd076f23fad0f629f",
+      "runtimePath": "assets/rooms/bar/runtime/room.glb",
+      "runtimeSha256": "d3fbe499e3fb4829f8e9c10c6ec5da9cbf2f4d1eaacc089cb1d2d6754d743305",
+      "exporter": "5.2.2 LTS",
+      "id": "room.bar.geometry",
+      "status": "production",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "adaptations": [
+        "Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes."
+      ]
+    },
+    {
+      "sourcePath": "assets/rooms/dance-floor/source/room.blend",
+      "sourceSha256": "f11693132dd1f0cbcbe33a0ee5b6046d13398d2736eeb85e2fa344f3482f5cb3",
+      "runtimePath": "assets/rooms/dance-floor/runtime/room.glb",
+      "runtimeSha256": "eb17366994cdf584d8f611851367a62802ee98d2b6d26a03f5b3545bd0d747eb",
+      "exporter": "5.2.2 LTS",
+      "id": "room.dance-floor.geometry",
+      "status": "production",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "adaptations": [
+        "Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes."
+      ]
+    },
+    {
+      "sourcePath": "assets/rooms/stage-vip/source/room.blend",
+      "sourceSha256": "4b05c48d04a7e62ab65151720367cbe69a32231f0ca036d9372311bb53c96516",
+      "runtimePath": "assets/rooms/stage-vip/runtime/room.glb",
+      "runtimeSha256": "01ed7f4b88904693286fd0f4ac5c16d1b16172f2de02c1cbfa8212180ed3578c",
+      "exporter": "5.2.2 LTS",
+      "id": "room.stage-vip.geometry",
+      "status": "production",
+      "sourceRecordIds": [
+        "venue-original"
+      ],
+      "adaptations": [
+        "Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes."
+      ]
+    },
+    {
+      "role": "enforcer",
+      "sceneResourceId": "enemy.enforcer",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 3.4,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "charge"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "Stunned": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": true,
+          "fixedSampleSeconds": 0.3
+        },
+        "charge.windup": {
+          "clipName": "Melee_Block",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": false,
+          "fixedSampleSeconds": 0.7466666666666666
+        },
+        "charge.active": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false
+        },
+        "charge.recovery": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "enforcer",
+      "status": "production",
+      "sourcePath": "assets/enemies/enforcer/source/character.blend",
+      "sourceSha256": "f42000677cb4b2d39c396559ca8bbc4003512136d2f13edc0e789fd75c1f7271",
+      "runtimePath": "assets/enemies/enforcer/runtime/character.glb",
+      "runtimeSha256": "99f8138749a530e4abe0097f224ef67c2f7d99a24b1ed0c495fab5d541bb750a",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Retain only named required motions; pin horizontal hips.",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate."
+      ]
+    },
+    {
+      "role": "liam",
+      "sceneResourceId": "enemy.liam",
+      "sourceRecordIds": [
+        "kaykit-character-animations-1.1",
+        "head-bouncers-original"
+      ],
+      "transform": {
+        "scale": 1.0,
+        "footOffset": 0.0,
+        "facingCorrection": 0.0
+      },
+      "visualEnvelope": {
+        "width": 2.5,
+        "height": 3.4,
+        "depth": 2.5
+      },
+      "allowedMoveIds": [
+        "close",
+        "rope",
+        "shockwave"
+      ],
+      "clipBindings": {
+        "Idle": {
+          "clipName": "Idle_A",
+          "startSeconds": 0,
+          "endSeconds": 1.0666666666666667,
+          "loop": true
+        },
+        "Move": {
+          "clipName": "Running_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": true
+        },
+        "Hurt": {
+          "clipName": "Hit_A",
+          "startSeconds": 0,
+          "endSeconds": 0.6666666666666666,
+          "loop": false
+        },
+        "Defeated": {
+          "clipName": "Death_A",
+          "startSeconds": 0,
+          "endSeconds": 0.8,
+          "loop": false,
+          "fixedSampleSeconds": 0.8
+        },
+        "close.windup": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0,
+          "endSeconds": 0.5016666666666667,
+          "loop": false
+        },
+        "close.active": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.5016666666666667,
+          "endSeconds": 0.6816666666666666,
+          "loop": false
+        },
+        "close.recovery": {
+          "clipName": "Melee_Unarmed_Attack_Punch_A",
+          "startSeconds": 0.6816666666666666,
+          "endSeconds": 1.1666666666666667,
+          "loop": false
+        },
+        "rope.windup": {
+          "clipName": "Throw",
+          "startSeconds": 0,
+          "endSeconds": 0.7,
+          "loop": false
+        },
+        "rope.active": {
+          "clipName": "Throw",
+          "startSeconds": 0.7,
+          "endSeconds": 0.84,
+          "loop": false
+        },
+        "rope.recovery": {
+          "clipName": "Throw",
+          "startSeconds": 0.84,
+          "endSeconds": 1.3666666666666667,
+          "loop": false
+        },
+        "shockwave.windup": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0,
+          "endSeconds": 0.8493333333333334,
+          "loop": false
+        },
+        "shockwave.active": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0.8493333333333334,
+          "endSeconds": 0.9993333333333334,
+          "loop": false
+        },
+        "shockwave.recovery": {
+          "clipName": "Melee_2H_Attack_Chop",
+          "startSeconds": 0.9993333333333334,
+          "endSeconds": 1.6333333333333333,
+          "loop": false
+        }
+      },
+      "defeatHoldTicks": 21,
+      "reviewSubjectId": "liam",
+      "status": "production",
+      "sourcePath": "assets/enemies/liam/source/character.blend",
+      "sourceSha256": "cdbd885643ec7cdc5614c1ee69e65db1ab265708b04aa08843fb8b3e4efe8a6e",
+      "runtimePath": "assets/enemies/liam/runtime/character.glb",
+      "runtimeSha256": "54dfe5d25eeaafc1cc563e6e0f93fd167a794c8e5a35415aff11639bd4278e59",
+      "exporter": "5.2.2 LTS",
+      "adaptations": [
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Retain only named required motions; pin horizontal hips.",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate."
+      ],
+      "phase2Style": {
+        "kind": "shoulder-chevrons",
+        "nonblocking": true
+      }
     }
   ],
   "originalFallbacks": [
@@ -953,6 +1304,37 @@
         "Embedded source geometry and texture in explicit GLB"
       ],
       "status": "production"
+    }
+  ],
+  "prototypeRooms": [
+    {
+      "id": "representative.room",
+      "status": "prototype",
+      "sourceRecordIds": [
+        "kenney-furniture",
+        "representative-room-original"
+      ],
+      "sourcePath": "tests/godot/fixtures/art/representative-room/source/room.blend",
+      "sourceSha256": "317bc576230777c32489181621adc45ba9803d520838e5855430a0e0ee3f5427",
+      "runtimePath": "tests/godot/fixtures/art/representative-room/runtime/room.glb",
+      "runtimeSha256": "24cab5e0cb37b372e45d97ec8592e2512405b42bfe36bcea120adb8e4b097bb9",
+      "exporter": "5.2.2 LTS",
+      "selectedSource": {
+        "path": "Models/GLTF format/stoolBar.glb",
+        "sha256": "a86167a9f92401a61fec7e509ad089ecc552d0f299743add3aeb919acb24e341"
+      },
+      "adaptations": [
+        "Original floor, wall, counter and palette; imported three selected Kenney stools; one opaque vertex-colour surface."
+      ],
+      "originalAuthorDeclaration": "Fixture geometry and batching authored by Codex at owner request; Kenney stools remain separately attributed.",
+      "importSettings": {
+        "path": "tests/godot/fixtures/art/representative-room/runtime/room.glb.import",
+        "sha256": "a019d167c7d7232a7cbc9b622d84173bdc9f4a5ab5a393e0673b509234c9c1cd"
+      },
+      "palette": {
+        "path": "tests/godot/fixtures/art/representative-room/palette.tres",
+        "sha256": "86279727e0c42f65c6a43a6ec386f7d4eeaa48b49306e10e78e866e93c768973"
+      }
     }
   ]
 }

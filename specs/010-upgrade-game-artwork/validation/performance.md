@@ -1,0 +1,11 @@
+# Complete artwork performance evidence
+
+Physical iPhone 12/Pixel 6 complete-run, rolling-FPS, thermal/stall and installed/browser measurements remain pending. No desktop timing below is a phone result. T065 remains unchecked.
+
+After observed draw overruns, per-room palette batches and compatible shared-material hero batches preserve every triangle and the exact original hero material/skin resources. The 64 final room-edge observations span Chromium/WebKit, all four rooms, 667x375/844x390/915x412 with Lion/Plates plus 844x390 with Cow/Crow. Their observed total draw count is **53–75**, and total rendered primitive count peaks at **45,538** (below 100 calls/100k primitives for these samples). These are recorded total engine counters, not a substitute for measuring the busiest complete phone run. Raw records are in `../reviews/rooms-final/*-{cow-crow,lion-plates}.json`.
+
+All four furnished rooms use vertex-colour material palettes without imported image textures. Room source texture residency is consequently zero; anonymous font/renderer allocations are not represented as zero total memory. Diagnostics separately report actual imported texture bytes/mipmaps, scenery/character texture totals, renderer texture residency, mesh counts, primitives, draw calls and primitives per viewport pixel. See the actual desktop downloads in `evidence/complete-art/{chromium,webkit}-diagnostics.json`. Their raw timing includes this host's software rendering and concurrent test load and does not establish the 60-fps target or 30-fps phone minimum.
+
+Godot exposes separate visible/canvas render counters in its [Viewport API](https://docs.godotengine.org/en/stable/classes/class_viewport.html); this feature's archived total counters deliberately retain UI cost. Texture data sizes come from actual imported Image data; renderer totals additionally cover resources outside those material-image inventories.
+
+Ten complete native venue/rig/projectile cycles and ten browser retries settle imported owned counts without retaining old instance IDs. Exact release/content/engine/transfer-estimate/cache sizes and forced-split ownership are recorded in [release evidence](release.md). No wave, camera coverage or combat timing was reduced to meet desktop render budgets.

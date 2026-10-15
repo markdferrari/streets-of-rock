@@ -41,3 +41,12 @@ URLs immutable. [Release instructions](specs/009-godot-rewrite/validation/releas
 cover installation identity, publication order and rollback. Local LAN HTTP can
 support online review, but offline/service-worker facilities require HTTPS or localhost.
 No hosting is provisioned by this work.
+
+The 3D venue and all four enemy designs are documented in the
+[artwork quickstart](specs/010-upgrade-game-artwork/quickstart.md).
+Run `bun run validate:art` for full source/import validation and `bun run test:art`
+for focused checks. `bun scripts/art/credits.ts` regenerates bundled artwork
+notices; exports regenerate them automatically. Artwork Credits are available
+from Home and paused Settings, including offline. Editable sources and supplier
+archives stay outside production exports. Physical-phone and five-player
+acceptance remain tracked separately from implementation and owner visual approval.

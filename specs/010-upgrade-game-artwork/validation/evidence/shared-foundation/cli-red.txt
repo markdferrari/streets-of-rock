@@ -1,0 +1,88 @@
+
+ RUN  v4.1.11 /home/mark/projects/godot/streets-of-rock
+
+ ❯ tests/unit/art/validate-cli.test.ts (5 tests | 4 failed) 18ms
+     × delegates full/focused/default imported and explicit incomplete definition checks with an absolute fixture root 10ms
+     × propagates validation failures and never falls back after an import failure 1ms
+     × rejects missing values, unknown/duplicate options and conflicting or unknown focus IDs before invoking Godot 1ms
+     × runs both GUT and Vitest scopes and propagates either runner failure 2ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > art CLI delegation and usage > delegates full/focused/default imported and explicit incomplete definition checks with an absolute fixture root
+AssertionError: expected 2 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 2
+
+ ❯ tests/unit/art/validate-cli.test.ts:18:22
+     16|     const calls: string[][] = [];
+     17|     const r = validateArt(['--root',root,...filter], args => {calls.pu…
+     18|     expect(r.status).toBe(0);
+       |                      ^
+     19|     expect(calls).toHaveLength(1);
+     20|     expect(calls[0]).toEqual(expect.arrayContaining(['--path',root,'re…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > art CLI delegation and usage > propagates validation failures and never falls back after an import failure
+AssertionError: expected +0 to be 1 // Object.is equality
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/unit/art/validate-cli.test.ts:28:17
+     26|   let calls = 0;
+     27|   const r = validateArt([], () => {calls++;return {status:1,output:'li…
+     28|   expect(calls).toBe(1);expect(r.status).toBe(1);expect(r.output).toCo…
+       |                 ^
+     29|  });
+     30|  it('rejects missing values, unknown/duplicate options and conflicting…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > art CLI delegation and usage > rejects missing values, unknown/duplicate options and conflicting or unknown focus IDs before invoking Godot
+AssertionError: expected 'Art validation is not implemented' to match /unknown|requires|cannot|duplicate/i
+
+- Expected:
+/unknown|requires|cannot|duplicate/i
+
++ Received:
+"Art validation is not implemented"
+
+ ❯ tests/unit/art/validate-cli.test.ts:33:62
+
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  tests/unit/art/validate-cli.test.ts > focused art test runner > runs both GUT and Vitest scopes and propagates either runner failure
+AssertionError: expected [] to have a length of 2 but got +0
+
+- Expected
++ Received
+
+- 2
++ 0
+
+ ❯ tests/unit/art/validate-cli.test.ts:46:21
+     44|    const commands: string[][]=[];
+     45|    const r=runArtTests(command=>{commands.push(command);return {status…
+     46|    expect(commands).toHaveLength(2);
+       |                     ^
+     47|    expect(commands[0].join(' ')).toContain('res://tests/godot/art');
+     48|    expect(commands[1].join(' ')).toContain('tests/unit/art');
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 1 passed (5)
+   Start at  21:52:40
+   Duration  278ms (transform 40ms, setup 0ms, import 61ms, tests 18ms, environment 0ms)
+

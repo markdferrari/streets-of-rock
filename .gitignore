@@ -41,3 +41,11 @@ dist-diagnostics/
 *.blend2
 dist-legacy/
 dist-split/
+
+# Disposable artwork foundation export
+dist-art-foundation/
+
+# Disposable complete-art forced-split proof
+dist-art-split/
+dist-art-final/
+dist-art-review/

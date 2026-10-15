@@ -160,3 +160,7 @@ Existing five-player learning, completion, responsiveness and fighting-style gat
 ## Owner-approved gameplay extension — 2026-10-14
 
 After approving the motion previews, the owner requested that Grunts turn with their movement, pursue up/down as well as left/right, and that enemy throws be easier to dodge. These instructions extend the behavior-preservation requirements in US2.4/FR-006 for those specific behaviors. Grunts now use normalized two-axis pursuit at their existing speed, and Zoners lock the target position at the start of the warning instead of tracking until release. Attack timing, damage, projectile speed and all other rules remain unchanged. The original replay baseline is retained alongside explicit feature 010 checkpoints for the affected scenarios.
+
+## Owner artwork decision — 2026-10-15
+
+The owner approved all visuals and requested completion of the remaining implementation. [The decision record](validation/owner-approval.md) applies to all eight final subjects and concept directions. Keep actual phone/performance/participant outcomes separate; this approval does not fabricate those measurements or retire inherited acceptance obligations.

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "enemy-pilot-original",
+      "name": "Original clubgoer and bartender pilot skins",
+      "creator": "Project artwork authored by Codex at owner request",
+      "licenseId": "LicenseRef-Project-Original",
+      "attributionText": "",
+      "requiredNotices": [],
+      "modifications": [
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending",
+        "Retain only five selected animation clips"
+      ],
+      "originalAuthorDeclaration": "Original geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged."
+    },
+    {
+      "id": "head-bouncers-original",
+      "name": "Original security and head-bouncer skins",
+      "creator": "Project artwork authored by Codex at owner request",
+      "licenseId": "LicenseRef-Project-Original",
+      "attributionText": "",
+      "requiredNotices": [],
+      "modifications": [
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate.",
+        "Retain only named required motions; pin horizontal hips."
+      ],
+      "originalAuthorDeclaration": "Original security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed."
+    },
+    {
+      "id": "kaykit-character-animations-1.1",
+      "name": "KayKit Character Animations 1.1",
+      "creator": "Kay Lousberg",
+      "licenseId": "CC0-1.0",
+      "attributionText": "Kay Lousberg — KayKit Character Animations 1.1 — CC0 1.0",
+      "requiredNotices": [],
+      "modifications": [
+        "Anchor horizontal hips lunge; preserve local limb/vertical motion",
+        "Original approved security/coat/rope silhouettes on the retained Medium rig.",
+        "Original club outfit/mesh on KayKit Medium skeleton",
+        "Phase cuts align active start with measured forward hand pose; final spatial contact/feet review pending",
+        "Phase segments use source hand extrema; final gameplay contact/feet review remains separate.",
+        "Retain only five selected animation clips",
+        "Retain only named required motions; pin horizontal hips."
+      ],
+      "sourceUrl": "https://kaylousberg.itch.io/kaykit-character-animations"
+    },
+    {
+      "id": "kaykit-dungeon-1.1",
+      "name": "KayKit Dungeon Asset Pack",
+      "creator": "Kay Lousberg",
+      "licenseId": "CC0-1.0",
+      "attributionText": "Kay Lousberg — KayKit Dungeon Asset Pack 1.1 — CC0 1.0",
+      "requiredNotices": [],
+      "modifications": [
+        "Embedded source geometry and texture in explicit GLB"
+      ],
+      "sourceUrl": "https://kaylousberg.com/"
+    },
+    {
+      "id": "kenney-furniture",
+      "name": "Furniture Kit",
+      "creator": "Kenney",
+      "licenseId": "CC0-1.0",
+      "attributionText": "Kenney — Furniture Kit — CC0 1.0",
+      "requiredNotices": [],
+      "modifications": [
+        "Retain selected prop; preserve editable source and batch palette by vertex colour."
+      ],
+      "sourceUrl": "https://kenney.nl/assets/furniture-kit"
+    },
+    {
+      "id": "venue-original",
+      "name": "Original rock venue room geometry, signs and palettes",
+      "creator": "Project artwork authored by Codex at owner request",
+      "licenseId": "LicenseRef-Project-Original",
+      "attributionText": "",
+      "requiredNotices": [],
+      "modifications": [
+        "Original approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes.",
+        "Retain selected prop; preserve editable source and batch palette by vertex colour."
+      ],
+      "originalAuthorDeclaration": "Original venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed."
+    }
+  ],
+  "text": "Artwork Credits\n\nOriginal clubgoer and bartender pilot skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged.\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nRetain only five selected animation clips\n\nOriginal security and head-bouncer skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed.\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only named required motions; pin horizontal hips.\n\nKayKit Character Animations 1.1\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Character Animations 1.1 — CC0 1.0\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only five selected animation clips\nRetain only named required motions; pin horizontal hips.\nhttps://kaylousberg.itch.io/kaykit-character-animations\n\nKayKit Dungeon Asset Pack\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Dungeon Asset Pack 1.1 — CC0 1.0\nEmbedded source geometry and texture in explicit GLB\nhttps://kaylousberg.com/\n\nFurniture Kit\nKenney\nCC0-1.0\nKenney — Furniture Kit — CC0 1.0\nRetain selected prop; preserve editable source and batch palette by vertex colour.\nhttps://kenney.nl/assets/furniture-kit\n\nOriginal rock venue room geometry, signs and palettes\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed.\nOriginal approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes.\nRetain selected prop; preserve editable source and batch palette by vertex colour."
+}

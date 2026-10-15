@@ -3,7 +3,9 @@ const EnemyView = preload("res://game/presentation/enemy_view.gd")
 const View = preload("res://game/presentation/character_view.gd")
 const CameraMath = preload("res://game/presentation/camera_math.gd")
 const Arena = preload("res://game/simulation/arena.gd")
+const Venue = preload("res://game/presentation/venue_view.gd")
 const Backdrops = preload("res://game/presentation/backdrops.gd")
+var bound_run_id: Variant = null
 var store: RefCounted
 var content: RefCounted
 var models: Dictionary = {}
@@ -45,8 +47,14 @@ func initialize(resource_store: RefCounted, catalogue: RefCounted) -> void:
  environment.environment.ambient_light_color = Color.WHITE
  environment.environment.ambient_light_energy = 0.9
  add_child(environment)
- # Gameplay starts only after Main has prepared every required imported texture.
- if store.backdrop_textures.size() == 8:
+ # Gameplay starts only after Main has prepared every required imported visual.
+ if store.room_scenes.size() == 4:
+  backdrops = Venue.new()
+  backdrops.name = "Backdrops"
+  add_child(backdrops)
+  instances.append_array(backdrops.build(store, content))
+  errors.append_array(backdrops.errors)
+ elif store.backdrop_textures.size() == 8:
   backdrops = Backdrops.new()
   backdrops.name = "Backdrops"
   add_child(backdrops)
@@ -67,15 +75,6 @@ func box(parent: Node3D, size: Vector3, color: Color, at: Vector3) -> void:
  var shape := BoxMesh.new()
  shape.size = size
  mesh(parent, shape, color, at)
-func enemy_model(actor: Dictionary) -> Node3D:
- var root := Node3D.new()
- add_child(root)
- var jacket := Color("282532")
- box(root, Vector3(0.52, 0.78, 0.35), jacket, Vector3(0, 0.95, 0))
- box(root, Vector3(0.41, 0.37, 0.37), Color("bd325e") if actor.role == "grunt" else Color("514470"), Vector3(0, 1.52, 0))
- for x in [-0.38, 0.38]: box(root, Vector3(0.18, 0.55, 0.2), jacket, Vector3(x, 0.92, 0))
- for x in [-0.17, 0.17]: box(root, Vector3(0.2, 0.56, 0.2), Color("24202b"), Vector3(x, 0.3, 0))
- return root
 static func sample(actor: Dictionary, tick: int, moving: bool) -> Dictionary:
  if actor.hp <= 0 or actor.action.kind == "knockedOut": return {"clip": "KnockedOut", "progress": 1.0}
  var action: Dictionary = actor.action
@@ -99,6 +98,9 @@ func arena(run: Dictionary, viewport: Dictionary) -> Dictionary:
  context.playerVisibleRegions = Arena.build(run, frame, content.resources.bodyEnvelopes[run.duo.fighterId], "player", content).visibleRegions
  return context
 func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, active_ms: float, shake: bool, reduced_motion: bool) -> void:
+ if bound_run_id != run.get("runId"):
+  if bound_run_id != null: clear_run_views()
+  bound_run_id = run.get("runId")
  frame = CameraMath.compute(run, viewport, {"player": content.resources.bodyEnvelopes[run.duo.fighterId], "partner": content.resources.bodyEnvelopes[run.duo.partnerId]}, content, frame, delta)
  var age: float = active_ms - last_impact
  var offset: float = sin(age * 0.11) * 0.12 * (1 - age / 180.0) if shake and not reduced_motion and age > 0 and age < 180 else 0.0
@@ -158,7 +160,9 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
      instances.append(prop)
      actor_instances[actor.id].append(prop)
      model.attach_prop(prop)
-   else: model = enemy_model(actor)
+   else:
+    errors.assign([str(actor.role) + ": required enemy presentation missing; repair artwork and retry"])
+    return
    var shadow := CylinderMesh.new()
    shadow.top_radius = 0.48
    shadow.bottom_radius = 0.48
@@ -257,6 +261,26 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
   if active_ms >= effect.expires:
    effect.node.queue_free()
    effects.erase(effect)
+func clear_run_views() -> void:
+ for id in models.keys(): retire_actor(id)
+ for id in projectile_models.keys():
+  if owned_projectiles.has(id):
+   instances.erase(owned_projectiles[id])
+   store.release(owned_projectiles[id])
+  elif is_instance_valid(projectile_models[id]): projectile_models[id].queue_free()
+ projectile_models.clear()
+ owned_projectiles.clear()
+ for node in objects.values():
+  if is_instance_valid(node): node.queue_free()
+ objects.clear()
+ for effect in effects:
+  if is_instance_valid(effect.node): effect.node.queue_free()
+ effects.clear()
+ for record in [previous_positions,enemy_snapshots,enemy_previous,enemy_ticks,defeat_retire_ticks,retired_enemy_ids]: record.clear()
+ frame.clear()
+ errors.clear()
+ last_impact = -1000.0
+
 func retire_actor(id: int) -> void:
  if actor_instances.has(id):
   var owned: Array = actor_instances[id].duplicate()
@@ -279,7 +303,7 @@ func enemy_art_snapshot() -> Dictionary:
  for id in models:
   if models[id] is EnemyView:
    owned += actor_instances.get(id, []).size()
-   poses[str(id)] = {"role":models[id].definition.role,"pose":models[id].last_pose,"retiring":defeat_retire_ticks.has(id)}
+   poses[str(id)] = {"role":models[id].definition.role,"pose":models[id].last_pose,"retiring":defeat_retire_ticks.has(id),"cue":models[id].last_cue,"phaseOverlay":models[id].phase_overlay.visible if models[id].phase_overlay!=null else false}
  return {"views":poses,"ownedInstances":owned,"errors":errors}
 func dispose() -> void:
  for id in models.keys(): retire_actor(id)

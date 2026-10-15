@@ -28,11 +28,11 @@ test('pilot controls switch facing and authored states; pause freezes actual sam
 });
 test('pilot stays usable at the supported landscape widths and records review captures',async({page,browserName})=>{
  await boot(page);await command(page,'step',20);
- const output='specs/010-upgrade-game-artwork/reviews/kaykit-pilot';mkdirSync(output,{recursive:true});
+ const output='specs/010-upgrade-game-artwork/reviews/foundation';mkdirSync(output,{recursive:true});
  for(const viewport of [{width:667,height:375},{width:844,height:390},{width:915,height:412}]){
   await page.setViewportSize(viewport);await expect.poll(()=>snapshot(page).then(s=>Math.max(...Object.values(s.buttons).map((b:any)=>b.x+b.width)))).toBeLessThanOrEqual(viewport.width);
   await expect.poll(()=>page.evaluate(()=>document.querySelector('canvas')!.width)).toBe(await page.evaluate(()=>Math.round(innerWidth*Math.min(devicePixelRatio||1,1.5))));
-  const state=await snapshot(page);expect(state.rigCount).toBe(2);expect(state.render.draws).toBeLessThanOrEqual(100);expect(state.render.primitives).toBeLessThanOrEqual(100000);for(const b of Object.values(state.buttons) as any[]){expect(b.width).toBeGreaterThanOrEqual(44);expect(b.y+b.height).toBeLessThanOrEqual(viewport.height);}
+  const state=await snapshot(page);expect(state.rigCount).toBe(4);expect(state.render.draws).toBeLessThanOrEqual(100);expect(state.render.primitives).toBeLessThanOrEqual(100000);for(const b of Object.values(state.buttons) as any[]){expect(b.width).toBeGreaterThanOrEqual(44);expect(b.y+b.height).toBeLessThanOrEqual(viewport.height);}
   await page.screenshot({path:`${output}/${browserName}-${viewport.width}.png`});writeFileSync(`${output}/${browserName}-${viewport.width}.json`,JSON.stringify(state,null,2)+'\n');
  }
 });
