@@ -2,11 +2,11 @@
 
 **Input**: [spec.md](spec.md), [plan.md](plan.md), [research.md](research.md), [data-model.md](data-model.md), [presentation contract](contracts/animation-presentation.md), [asset contract](contracts/animation-assets.md), [quickstart.md](quickstart.md).
 
-**Branch**: `011-improve-character-animations` — use the existing feature branch and preserve unrelated changes.
+**Branch**: `011-implement` — existing implementation branch for feature `011-improve-character-animations`; preserve unrelated changes.
 
 **Tests**: TDD is mandatory. For each automatable change, write the specified test and observe its expected failure before implementation; then run the focused tests to green. Preserve passing existing regressions. Define manual checks before visual production. Documentation and source-inventory tasks receive consistency checks rather than artificial runtime tests.
 
-**Format**: `- [ ] Tnnn [P] [USn] Description with paths`. `[P]` means independent work within the explicitly stated ready batch, after its prerequisites have completed. It does not authorize spawning agents. Paths are repository-relative; proposed files are created by the named task. FR/SC IDs refer to this feature; AC IDs refer to PRD 2.7. All tasks start unchecked; no implementation or acceptance is implied.
+**Format**: `- [ ] Tnnn [P] [USn] Description with paths`. `[P]` means independent work within the explicitly stated ready batch, after its prerequisites have completed. It does not authorize spawning agents. Paths are repository-relative; proposed files are created by the named task. FR/SC IDs refer to this feature; AC IDs refer to PRD 2.7. Checked tasks record verified implementation; pending owner/device acceptance is never implied.
 
 **Efficiency**: Use focused tests during iteration and one complete release-candidate validation before device/player checks. Reuse unchanged evidence; rerun only affected checks after fixes, and the full suite before any commit. Shared files and catalogues have one writer. If a check fails, fix its owning task and invalidate affected downstream evidence; do not add parallel reports that repeat the same result.
 
@@ -14,8 +14,8 @@
 
 **Purpose**: Establish the baseline and review procedures using the existing project.
 
-- [ ] T001 Verify branch, pinned tools and existing baseline commands from `package.json`; record source/build hashes, current four-character motion captures and actual test results in `specs/011-improve-character-animations/validation/baseline.md`, preserving feature 010 fingerprints and unchanged simulation fixtures. (FR-005, FR-009; AC-068, AC-071)
-- [ ] T002 Define the action/facing/role matrix, matched source-comparison procedure, phone/offline and five-player recording fields in `specs/011-improve-character-animations/validation/strategy.md` by referencing `quickstart.md` sections A–G; identify unavailable reviewers/devices as dependencies without marking evidence passed. (FR-001–010; AC-066–071)
+- [X] T001 Verify branch, pinned tools and existing baseline commands from `package.json`; record source/build hashes, current four-character motion captures and actual test results in `specs/011-improve-character-animations/validation/baseline.md`, preserving feature 010 fingerprints and unchanged simulation fixtures. (FR-005, FR-009; AC-068, AC-071)
+- [X] T002 Define the action/facing/role matrix, matched source-comparison procedure, phone/offline and five-player recording fields in `specs/011-improve-character-animations/validation/strategy.md` by referencing `quickstart.md` sections A–G; identify unavailable reviewers/devices as dependencies without marking evidence passed. (FR-001–010; AC-066–071)
 
 ## Phase 2: Foundational contracts
 
@@ -23,10 +23,10 @@
 
 **Prerequisites**: T001–T002. These four tasks block story implementation; they do not require a selected donor library or final production assets.
 
-- [ ] T003 [P] Write and observe failing schema tests in `tests/godot/content/test_hero_animation_catalog.gd` for exact semantic coverage, model-key authority, source summaries, four directional loops, ordered phase segments/contact markers, finite bounds and invalid/missing fields. Use synthetic profile records from the data model. (FR-003–005, FR-008; AC-067–068, AC-071)
-- [ ] T004 Implement pure profile validation in `game/content/hero_animation_catalog.gd` until T003 passes; leave live catalogue activation for T027 and keep `content/animation-clips.json` as semantic coverage authority. (FR-003–005, FR-008; AC-067–068, AC-071)
-- [ ] T005 [P] Write and observe failing source/export invariant tests in `tests/blender/test_hero_motion.py` using small synthetic rigs: valid weights, rigid plate/face attachments, wing groups, root travel exclusion, loop/phase boundaries, invalid tracks and donor geometry removal. (FR-002–004; AC-067–068)
-- [ ] T006 Implement the bounded validation/bake helpers in `scripts/blender/hero_motion.py` to pass T005, with declared numeric tolerances and isolated outputs; reuse existing Blender action-slot/export conventions rather than adding a general retargeting framework. (FR-002–004; AC-067–068)
+- [X] T003 [P] Write and observe failing schema tests in `tests/godot/content/test_hero_animation_catalog.gd` for exact semantic coverage, model-key authority, source summaries, four directional loops, ordered phase segments/contact markers, finite bounds and invalid/missing fields. Use synthetic profile records from the data model. (FR-003–005, FR-008; AC-067–068, AC-071)
+- [X] T004 Implement pure profile validation in `game/content/hero_animation_catalog.gd` until T003 passes; leave live catalogue activation for T027 and keep `content/animation-clips.json` as semantic coverage authority. (FR-003–005, FR-008; AC-067–068, AC-071)
+- [X] T005 [P] Write and observe failing source/export invariant tests in `tests/blender/test_hero_motion.py` using small synthetic rigs: valid weights, rigid plate/face attachments, wing groups, root travel exclusion, loop/phase boundaries, invalid tracks and donor geometry removal. (FR-002–004; AC-067–068)
+- [X] T006 Implement the bounded validation/bake helpers in `scripts/blender/hero_motion.py` to pass T005, with declared numeric tolerances and isolated outputs; reuse existing Blender action-slot/export conventions rather than adding a general retargeting framework. (FR-002–004; AC-067–068)
 
 **Checkpoint**: Synthetic contracts pass. T003/T005 may run together; T004 depends on T003 and T006 depends on T005. No production hero is replaced in this phase.
 
@@ -38,18 +38,18 @@
 
 ### Tests first
 
-- [ ] T007 [P] [US1] Write and observe failing trial tests in `tests/blender/test_hero_trials.py` for exact source-file/clip selection, differing KayKit Medium/Large names, explicit bone mapping, reproducible isolated exports and preserved donor bytes. (FR-001–002, FR-010; AC-066)
-- [ ] T008 [P] [US1] Write and register failing review-fixture tests in `tests/godot/presentation/test_hero_review.gd` and `tests/e2e/hero-animation.spec.ts`; cover independent baseline/candidate sampling, matched camera/settings and Web Release exclusion in `tests/tooling/export.test.ts`, registering the browser filename in `playwright.godot.config.ts`. (FR-001, FR-010; AC-066)
+- [X] T007 [P] [US1] Write and observe failing trial tests in `tests/blender/test_hero_trials.py` for exact source-file/clip selection, differing KayKit Medium/Large names, explicit bone mapping, reproducible isolated exports and preserved donor bytes. (FR-001–002, FR-010; AC-066)
+- [X] T008 [P] [US1] Write and register failing review-fixture tests in `tests/godot/presentation/test_hero_review.gd` and `tests/e2e/hero-animation.spec.ts`; cover independent baseline/candidate sampling, matched camera/settings and Web Release exclusion in `tests/tooling/export.test.ts`, registering the browser filename in `playwright.godot.config.ts`. (FR-001, FR-010; AC-066)
 
 ### Implementation and review
 
-- [ ] T009 [US1] Inventory and retain the selected trial inputs/license hashes under `assets/art-sources/`, reusing the existing KayKit record in `content/art-provenance.json`; extend `scripts/blender/hero_motion.py` with explicit character/source/output selection and mapping/bake support to pass T007. Record unknown original acquisition dates separately from repository retention dates. (FR-001–002, FR-010; AC-066)
-- [ ] T010 [US1] Implement `tests/godot/fixtures/hero-animation/review.gd` and its test-only route via `game/platform/test_bridge.gd` and `scripts/godot/export.ts`; pass T008 with isolated trial clips and baseline views. Trial subsets must never weaken full production profile validation or enter Web Release. (FR-001, FR-010; AC-066)
-- [ ] T011 [P] [US1] Trial both libraries on Cow from `assets/characters/cow-crow/cow.blend`, saving isolated rig/mapping/GLB outputs in `tests/godot/fixtures/hero-animation/candidates/cow/` and results in `specs/011-improve-character-animations/reviews/cow-candidates.md`; compare weight shifts, articulation and silhouette. (FR-001–002, FR-010; AC-066)
-- [ ] T012 [P] [US1] Trial both libraries on Crow from `assets/characters/cow-crow/crow.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/crow/` and results in `specs/011-improve-character-animations/reviews/crow-candidates.md`; preserve wing/feather anatomy and aviator jacket. (FR-001–002, FR-010; AC-066)
-- [ ] T013 [P] [US1] Trial both libraries on Lion from `assets/characters/lion/source.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/lion/` and results in `specs/011-improve-character-animations/reviews/lion-candidates.md`; assess large-body articulation and slow/strong motion. (FR-001–002, FR-010; AC-066)
-- [ ] T014 [P] [US1] Trial both libraries on Plates from `assets/characters/plates/source.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/plates/` and results in `specs/011-improve-character-animations/reviews/plates-candidates.md`; keep the entire plate and face rigid while articulating limbs. (FR-001–002, FR-010; AC-066)
-- [ ] T015 [US1] Assemble the four matched comparisons, record actual owner feedback and per-character/action source or custom-motion decisions in `specs/011-improve-character-animations/reviews/source-decisions.md`, and reconcile selected source records in `content/art-provenance.json`; retain rejected trials and unmet coverage explicitly. (FR-001, FR-010; SC-001; AC-066)
+- [X] T009 [US1] Inventory and retain the selected trial inputs/license hashes under `assets/art-sources/`, reusing the existing KayKit record in `content/art-provenance.json`; extend `scripts/blender/hero_motion.py` with explicit character/source/output selection and mapping/bake support to pass T007. Record unknown original acquisition dates separately from repository retention dates. (FR-001–002, FR-010; AC-066)
+- [X] T010 [US1] Implement `tests/godot/fixtures/hero-animation/review.gd` and its test-only route via `game/platform/test_bridge.gd` and `scripts/godot/export.ts`; pass T008 with isolated trial clips and baseline views. Trial subsets must never weaken full production profile validation or enter Web Release. (FR-001, FR-010; AC-066)
+- [X] T011 [P] [US1] Trial both libraries on Cow from `assets/characters/cow-crow/cow.blend`, saving isolated rig/mapping/GLB outputs in `tests/godot/fixtures/hero-animation/candidates/cow/` and results in `specs/011-improve-character-animations/reviews/cow-candidates.md`; compare weight shifts, articulation and silhouette. (FR-001–002, FR-010; AC-066)
+- [X] T012 [P] [US1] Trial both libraries on Crow from `assets/characters/cow-crow/crow.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/crow/` and results in `specs/011-improve-character-animations/reviews/crow-candidates.md`; preserve wing/feather anatomy and aviator jacket. (FR-001–002, FR-010; AC-066)
+- [X] T013 [P] [US1] Trial both libraries on Lion from `assets/characters/lion/source.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/lion/` and results in `specs/011-improve-character-animations/reviews/lion-candidates.md`; assess large-body articulation and slow/strong motion. (FR-001–002, FR-010; AC-066)
+- [X] T014 [P] [US1] Trial both libraries on Plates from `assets/characters/plates/source.blend`, saving isolated outputs in `tests/godot/fixtures/hero-animation/candidates/plates/` and results in `specs/011-improve-character-animations/reviews/plates-candidates.md`; keep the entire plate and face rigid while articulating limbs. (FR-001–002, FR-010; AC-066)
+- [X] T015 [US1] Assemble the four matched comparisons, record actual owner feedback and per-character/action source or custom-motion decisions in `specs/011-improve-character-animations/reviews/source-decisions.md`, and reconcile selected source records in `content/art-provenance.json`; retain rejected trials and unmet coverage explicitly. (FR-001, FR-010; SC-001; AC-066)
 
 **Checkpoint / first increment**: Both libraries assessed for all four characters, comparisons reviewable, source decisions recorded. Full asset production depends on T015. If review is pending, keep it pending and continue only independent test/infrastructure work.
 

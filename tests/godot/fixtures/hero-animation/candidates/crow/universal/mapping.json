@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "characterId": "crow",
+  "library": "universal",
+  "status": "trialled",
+  "ownerReview": "pending",
+  "productionSelection": "pending",
+  "rigRevision": "hero-trial-2-neutral-corrected",
+  "mapping": {
+    "Torso": "spine_03",
+    "Head": "Head",
+    "Wing.L": "upperarm_r",
+    "WingTip.L": "lowerarm_r",
+    "UpperLeg.L": "thigh_r",
+    "LowerLeg.L": "calf_r",
+    "Foot.L": "foot_r",
+    "Wing.R": "upperarm_l",
+    "WingTip.R": "lowerarm_l",
+    "UpperLeg.R": "thigh_l",
+    "LowerLeg.R": "calf_l",
+    "Foot.R": "foot_l"
+  },
+  "neutralReference": {
+    "spine_03": [
+      0.6112006306648254,
+      0.7829828858375549,
+      -0.0914955735206604,
+      -0.07071206718683243
+    ],
+    "Head": [
+      0.6033879518508911,
+      0.7967538237571716,
+      -0.03280329704284668,
+      0.005508813075721264
+    ],
+    "upperarm_l": [
+      0.029314357787370682,
+      0.2187332957983017,
+      0.7804669141769409,
+      -0.5849511623382568
+    ],
+    "lowerarm_l": [
+      0.06953085213899612,
+      -0.23923718929290771,
+      -0.5867835879325867,
+      0.7704647779464722
+    ],
+    "upperarm_r": [
+      0.25854402780532837,
+      -0.03443576395511627,
+      -0.8169564604759216,
+      0.5143455266952515
+    ],
+    "lowerarm_r": [
+      0.092003732919693,
+      0.0921032577753067,
+      -0.5964369177818298,
+      0.7920324206352234
+    ],
+    "thigh_l": [
+      0.5640600919723511,
+      -0.8134098052978516,
+      0.012487353757023811,
+      -0.14157989621162415
+    ],
+    "calf_l": [
+      0.7053568959236145,
+      -0.7053239941596985,
+      -0.059954166412353516,
+      -0.037354521453380585
+    ],
+    "foot_l": [
+      0.264487087726593,
+      -0.9631296396255493,
+      0.0476311519742012,
+      -0.012617791071534157
+    ],
+    "thigh_r": [
+      0.7524352073669434,
+      -0.638823926448822,
+      0.1601775735616684,
+      -0.009403056465089321
+    ],
+    "calf_r": [
+      0.7117376923561096,
+      -0.5086718797683716,
+      0.3884660005569458,
+      -0.28944212198257446
+    ],
+    "foot_r": [
+      0.2459830790758133,
+      -0.8951987028121948,
+      0.3584781885147095,
+      -0.09800543636083603
+    ]
+  },
+  "clips": {
+    "Idle": {
+      "clipName": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 2.5,
+      "mode": "loop"
+    },
+    "Move": {
+      "clipName": "Move",
+      "startSeconds": 0.0,
+      "endSeconds": 1.3333333333333333,
+      "mode": "loop"
+    },
+    "Attack": {
+      "clipName": "Attack",
+      "startSeconds": 0.0,
+      "endSeconds": 0.8666666666666667,
+      "mode": "phase"
+    }
+  },
+  "sources": {
+    "Idle": {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Idle_Loop",
+      "sourceFrames": [
+        0.0,
+        150.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": true
+    },
+    "Move": {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "sourceFrames": [
+        0.0,
+        80.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": true
+    },
+    "Attack": {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab",
+      "sourceFrames": [
+        0.0,
+        52.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": false
+    }
+  },
+  "rigidGroups": {},
+  "wingGroups": {
+    "left": [
+      "Crow.Wing.Feather.L.0",
+      "Crow.Wing.Feather.L.1",
+      "Crow.Wing.Feather.L.2",
+      "Crow.Wing.Feather.L.3",
+      "Crow.Wing.Feather.L.4"
+    ],
+    "right": [
+      "Crow.Wing.Feather.R.0",
+      "Crow.Wing.Feather.R.1",
+      "Crow.Wing.Feather.R.2",
+      "Crow.Wing.Feather.R.3",
+      "Crow.Wing.Feather.R.4"
+    ]
+  },
+  "runtimeSha256": "2646d7fe1dadab3d34cfff56440adf3c3ebb516e939866718463e31525a762a3",
+  "runtimeBytes": 434980,
+  "editableSha256": "b14ba834fec6d0cc7520b29f508dd40028098945a396212cde23afe11023926c",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  },
+  "limitations": [
+    "Three trial clips only; not a production profile.",
+    "Rotations rest-corrected and baked; no donor root/pelvis translation or scale.",
+    "Loop endpoint matched; visual seam, contact, feet and clipping require review.",
+    "Bespoke Specials, directional gaits, reactions, full combo and support timing not produced."
+  ]
+}

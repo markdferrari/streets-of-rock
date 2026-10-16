@@ -1,0 +1,861 @@
+{
+  "schemaVersion": 1,
+  "feature": "011-improve-character-animations",
+  "date": "2026-10-16",
+  "buildId": "8e901976f5648913b996d972b78a910a4375d4dbe710cfa2b6e579559107b28e",
+  "buildMode": "test",
+  "reviewer": "Codex automated capture and technical inspection; project owner source choice recorded 2026-10-16",
+  "requirements": [
+    "FR-001",
+    "FR-002",
+    "FR-010",
+    "SC-001",
+    "AC-066"
+  ],
+  "camera": {
+    "projection": "orthographic",
+    "reference": "first-room CameraMath.compute with original character body envelopes",
+    "displayScale": 1.25,
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  "settings": {
+    "lighting": "shared directional + ambient neutral scene",
+    "playbackSpeed": 1,
+    "pausedSampleNormalized": 0.5,
+    "sound": "none in review fixture",
+    "screenShake": false
+  },
+  "scope": "Imported-rig comparison; no production gameplay, device acceptance or source selection implied",
+  "trials": [
+    {
+      "character": "cow",
+      "library": "kaykit",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/cow/kaykit/mapping.json",
+      "recordSha256": "176bb9fde1e24bfc56b213b4895bfd3f02b00217121d287bf24d146f3653e5d8",
+      "runtimeSha256": "0ab7440e595bcad6b1a5923024fd1665a7cbf28deedb0820136e881570e9438f",
+      "runtimeBytes": 355408
+    },
+    {
+      "character": "cow",
+      "library": "universal",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/cow/universal/mapping.json",
+      "recordSha256": "57de8d78dbe456ef2ced604fa4b46da3fc4a7c7b80a780de96bc2a7b6d1a04f8",
+      "runtimeSha256": "04aef5e529d10c7d86a49880b5277901e7c4713b5d4edff01d1c7f3b68e9d832",
+      "runtimeBytes": 371160
+    },
+    {
+      "character": "crow",
+      "library": "kaykit",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/crow/kaykit/mapping.json",
+      "recordSha256": "bc4585ac0147af2c9ab0bfbbdef2882d869ba501ec021e3c349ea58833efa890",
+      "runtimeSha256": "346aee494889d9e266eaaa5a4cdabd94f1d8bb0d2c674170f5e7ff082af27e5b",
+      "runtimeBytes": 415360
+    },
+    {
+      "character": "crow",
+      "library": "universal",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/crow/universal/mapping.json",
+      "recordSha256": "10c948fdd6ed9349a0c3fb78f03db67812eb6617fa8872a90f34bf22bd907635",
+      "runtimeSha256": "2646d7fe1dadab3d34cfff56440adf3c3ebb516e939866718463e31525a762a3",
+      "runtimeBytes": 434980
+    },
+    {
+      "character": "lion",
+      "library": "kaykit",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/lion/kaykit/mapping.json",
+      "recordSha256": "fc0d454e3b42ec1ca9a8c63d11dc337bad03286fc6853d8c9151443f272a9a08",
+      "runtimeSha256": "6f041f0f43c13946fc4880663bb7515751012dc5004938edf369cdf8f5568cb6",
+      "runtimeBytes": 535152
+    },
+    {
+      "character": "lion",
+      "library": "universal",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/lion/universal/mapping.json",
+      "recordSha256": "cbbbe4d90c93826e1caaaddb26d3231532647317207ee92e2617f3660bec75cb",
+      "runtimeSha256": "e616aec4e28256f53e1a8736b0ce9b83b799f4ff3fba4c269258b3f18c3a52b4",
+      "runtimeBytes": 535468
+    },
+    {
+      "character": "plates",
+      "library": "kaykit",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/plates/kaykit/mapping.json",
+      "recordSha256": "a1c8a7eeaaab08cf6190ed5bfa43d7ec5aafd2b7c2b364dc7b74296a5e4279e1",
+      "runtimeSha256": "e26a1cc35d86886ecbafd5e2c017bed94fcdce7b3ef4c2d9779e40f73704e981",
+      "runtimeBytes": 298204
+    },
+    {
+      "character": "plates",
+      "library": "universal",
+      "status": "trialled",
+      "rigRevision": "hero-trial-2-neutral-corrected",
+      "recordPath": "tests/godot/fixtures/hero-animation/candidates/plates/universal/mapping.json",
+      "recordSha256": "e7dd79a00ffc4f7769f7bfaf915e5aa8f831e2ecd43a94c9d1832dd2a673afdf",
+      "runtimeSha256": "86807dfd0dde6fdbdda83378ca7ab0ecc28f870a0c81ad85511fb6bebd5663dd",
+      "runtimeBytes": 311460
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "reviews/comparisons/chromium-cow-attack-face-1.png",
+      "sha256": "3ea2a59113167da6485089524789ed07d35375de03872f3365be5af0ffa93489",
+      "bytes": 32831,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow-attack-face1.png",
+      "sha256": "f54fa86e3df55985c113a73ec46b1c1716c4d7a35db403561ff86ccf6ca8fe5c",
+      "bytes": 33110,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow-idle-face-1.png",
+      "sha256": "f10d56b68c81426157a5d4c1dd5e6ab3bc52f2f82bf5c866a5edfd0deaed2298",
+      "bytes": 31014,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow-idle-face1.png",
+      "sha256": "92ed993c9b742041bb2d60e2f8ac96fa0c3652235e5dea4632bcdfc74bb252a4",
+      "bytes": 31026,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow-move-face-1.png",
+      "sha256": "9d62cc8a9ff39534150c811f31f218fa9d933556fb62ec1a4187dc8ad3efbcbd",
+      "bytes": 32156,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow-move-face1.png",
+      "sha256": "c3382db5d73e698f31917fca9a2f4f3a96f40bd4db449d6dac519737fc859ea9",
+      "bytes": 32316,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-cow.webm",
+      "sha256": "2ccab201d1500c72abfb6e30a753f8895f3ea9909af9eebe9affcafe6361a696",
+      "bytes": 827322,
+      "browser": "chromium",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-attack-face-1.png",
+      "sha256": "5d7fdfd874c9ff8fd75becdfdef2f3390814394484d9219fc9675c4df3ea72b6",
+      "bytes": 32522,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-attack-face1.png",
+      "sha256": "96abd5b442384e3b5460c18ac8bf2416a15f37d8d79b42b59f6778c18f393022",
+      "bytes": 32545,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-idle-face-1.png",
+      "sha256": "df31016242e32df6c1bed2fd17d898124c775559f1dbc729c4b6802506fbd76f",
+      "bytes": 29095,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-idle-face1.png",
+      "sha256": "5694d7f77109c0f7ee448472cce8174433d3ea9c759e183dd89b7f60f91a1559",
+      "bytes": 29237,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-move-face-1.png",
+      "sha256": "521fdbc12e38626ae951301363d9f9872c142c585d543e571838475a3fe5e863",
+      "bytes": 30826,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow-move-face1.png",
+      "sha256": "fad2233d51f7c7231c3d15e78d932051831cab4eedb45ba1df2d0f0cef7f39ae",
+      "bytes": 31820,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-crow.webm",
+      "sha256": "4f59d28acb0030407388cc1dad6881be0ddcaa958e57b62ac7b797c626fbbaa7",
+      "bytes": 849344,
+      "browser": "chromium",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-attack-face-1.png",
+      "sha256": "c28678148fa12474a8d4ce07574e0778d822af773291a7a863da6df4dda3c586",
+      "bytes": 38451,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-attack-face1.png",
+      "sha256": "e4520fad0ab04d7edab9046d0d74941824e0d0fe05564ffb799f38c640931126",
+      "bytes": 38586,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-idle-face-1.png",
+      "sha256": "2de068c4d986a50a5a20f4b8aaaac5dda8ab375c95328aea977a63c76458a4fb",
+      "bytes": 36267,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-idle-face1.png",
+      "sha256": "eea05f4744275615f6623ce25baf6a27ed52c9d1f578237990b262e2994ffdbe",
+      "bytes": 36389,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-move-face-1.png",
+      "sha256": "dc9ba196aabde67402208c7d9e65a8d4221b6ec6839476beb97fc85657f40be4",
+      "bytes": 37200,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion-move-face1.png",
+      "sha256": "22c8dc090bc22395bebbec1f2861ccd9649df54270229bca3115f56090581a87",
+      "bytes": 37332,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-lion.webm",
+      "sha256": "e01f8a3d7841791885b2f01eff5024c7aec2898d44785a5c336a3d13c3595083",
+      "bytes": 1215562,
+      "browser": "chromium",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-attack-face-1.png",
+      "sha256": "e30e9b8945600b999e2c230f993ad3624d3c80255d7d8774cbe610a0c8f45d85",
+      "bytes": 28547,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-attack-face1.png",
+      "sha256": "b6231c6f697693cc232ade439ce6916af63b694e894107cadf5dabddc1b90675",
+      "bytes": 28353,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-idle-face-1.png",
+      "sha256": "f7b6129961960c53518619c963587d0209aa20bb82563d23414ba08762f310b5",
+      "bytes": 25902,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-idle-face1.png",
+      "sha256": "0d3b37efa205b695aee43dcd453561bd90c862a22f1eb207b8cc664fbef5e7f3",
+      "bytes": 26365,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-move-face-1.png",
+      "sha256": "6fc3f9b8a5df39fc349b771f91a729aaee0f2643551770cc742e1f2ad01560f0",
+      "bytes": 26962,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates-move-face1.png",
+      "sha256": "3116e3b6db7f1c218a736346d307fcf7d9be24390c07d51f2daf46a7161ba3dc",
+      "bytes": 27667,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/chromium-plates.webm",
+      "sha256": "97c23656a0ea3a9544006eca370c2909578afcd2b0c182456786dd715af351ae",
+      "bytes": 763256,
+      "browser": "chromium",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-attack-face-1.png",
+      "sha256": "19b01cb6d51e696494dd5bcc7d94b5085741a4268e6f02b9922bd49098ce8f6d",
+      "bytes": 142173,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-attack-face1.png",
+      "sha256": "3afe915f23dbc2d29a894a38e4459962a9540c9bfa92ea6902c719d22f52320a",
+      "bytes": 143467,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-idle-face-1.png",
+      "sha256": "87c66e7b1e6507b27695b5457e408aafdab77146acb1d28f1106c08c841a3411",
+      "bytes": 135648,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-idle-face1.png",
+      "sha256": "db1c6f9896afe924132c443d58d0135491a10af01add98db7b7081b8db1c7ac5",
+      "bytes": 136390,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-move-face-1.png",
+      "sha256": "0702e8db927cfb9e23654ece51959442324d8f1e4aa2c1be2bc3a728c55a4fc8",
+      "bytes": 142070,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow-move-face1.png",
+      "sha256": "62d5e2701b669defeea6ee483d9d040789d091dce166feec21e8abc14c57c1f4",
+      "bytes": 141894,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-cow.webm",
+      "sha256": "c1447bdb3a40f9485df43811384f1790dd0aae181bb4fe8d1dfedb4aaa0b9953",
+      "bytes": 735314,
+      "browser": "webkit",
+      "character": "cow",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-attack-face-1.png",
+      "sha256": "92efcb8978343e6e03dba9c046b8ae68a4d353d7018d3dbd755c574f8476442b",
+      "bytes": 139541,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-attack-face1.png",
+      "sha256": "30a5650442cdbee423c195f4cdfa4de6f66c156cfb75581dea5b8746104a8a27",
+      "bytes": 139888,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-idle-face-1.png",
+      "sha256": "8c92af8ecb4797512c7a43701daa87f2aa24bbc912cea87c018ed005b51ac76e",
+      "bytes": 129403,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-idle-face1.png",
+      "sha256": "051234ff642a0c28018912c9b9784496231e4b265f9a626081f5fee3a0ee602a",
+      "bytes": 130245,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-move-face-1.png",
+      "sha256": "029509c7a1db86a1e787f44a6123b3931bfaecc7941fa4673fcef6c77ecd2850",
+      "bytes": 134987,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow-move-face1.png",
+      "sha256": "a7b23322cae8e464e038e7bb08ebc4040a7846113f298eb6978e36f6412527a7",
+      "bytes": 138396,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-crow.webm",
+      "sha256": "4e2a6c2a78818c0ff7bd8c47393a3d17af5d4f168edb4bd3f886b9e494f36b5a",
+      "bytes": 694476,
+      "browser": "webkit",
+      "character": "crow",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-attack-face-1.png",
+      "sha256": "a91865f4527b48ba71d239c4480cfc0797de88565fa955d2b8635c94883b7910",
+      "bytes": 164788,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-attack-face1.png",
+      "sha256": "6466141a09e920cd37fefc76c3393cb2389427d4af3fc7da42cade476317ca82",
+      "bytes": 164491,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-idle-face-1.png",
+      "sha256": "1fa26ab8683da0fae3d79a0be810ccbba2604ed1dd5b9084d04bbb4864e11ed1",
+      "bytes": 157021,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-idle-face1.png",
+      "sha256": "5782a9d5ed0b97466327ed15df826a40cc214ad0cc441541b8a0efd9876dee1d",
+      "bytes": 157018,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-move-face-1.png",
+      "sha256": "d7ba80861c1121779ee14c414842ef5d87eea3424799c43ca96945b87ea13776",
+      "bytes": 160028,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion-move-face1.png",
+      "sha256": "c180d8ef91b6b42a2c827e95050144f541e061af5911d71af456a64c526ede1c",
+      "bytes": 160740,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-lion.webm",
+      "sha256": "bdcf178562476ad094e1cb80dc0f646e72dad8d141016d53c5f776a02fe5c38e",
+      "bytes": 1123172,
+      "browser": "webkit",
+      "character": "lion",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-attack-face-1.png",
+      "sha256": "561de1750005fd9fd769c35c1de2bda13f0972479a132833665fd2899c8fa257",
+      "bytes": 128106,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-attack-face1.png",
+      "sha256": "b9ee9d4dd3800913d02aab8241408797d9011f403748dc8e1c793100929ab485",
+      "bytes": 127050,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "attack",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-idle-face-1.png",
+      "sha256": "5491a2b78ccc316f4302f324182309084aa0fcb3521cc6e2b60ea6a5377d531a",
+      "bytes": 117220,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-idle-face1.png",
+      "sha256": "ba1b6fb3a28a701168b939daa5c2e466035cbd472edbbed9275a10a829c52483",
+      "bytes": 118634,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "idle",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-move-face-1.png",
+      "sha256": "12521505ec6fe657d062be17268b5f86f12c4ddfb8d1ed5ff7f4dc86b9efc009",
+      "bytes": 122743,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": -1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates-move-face1.png",
+      "sha256": "55f2f30232b171744aeccee55201c4f18fcaa8211601935f09a7a11f72459aed",
+      "bytes": 124004,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": "move",
+      "facing": 1,
+      "result": "captured",
+      "ownerReview": "pending"
+    },
+    {
+      "path": "reviews/comparisons/webkit-plates.webm",
+      "sha256": "586851e8c40b1d8fd098c84da531b96fcad3dc8cf6accfb59d420516739854c2",
+      "bytes": 656996,
+      "browser": "webkit",
+      "character": "plates",
+      "role": "candidate-preview",
+      "action": [
+        "Idle",
+        "Move",
+        "Attack"
+      ],
+      "facing": [
+        -1,
+        1
+      ],
+      "result": "captured",
+      "ownerReview": "pending"
+    }
+  ],
+  "sourceDecision": {
+    "feature": "011-improve-character-animations",
+    "reviewDate": "2026-10-16",
+    "reviewer": "Project owner",
+    "feedback": "I like universal in all cases - lets go with that",
+    "status": "selected",
+    "characterIds": [
+      "cow",
+      "crow",
+      "lion",
+      "plates"
+    ],
+    "sourceRecordId": "quaternius-universal-animation-library-standard",
+    "evidencePath": "specs/011-improve-character-animations/reviews/source-decisions.md",
+    "scope": "Primary animation source for all four characters in fighter and companion roles. Adapt Universal motion to each anatomy and existing gameplay timing; custom motion fills unsupported existing actions. Final production/gameplay/device acceptance remains pending."
+  },
+  "statusSemantics": "Per-artifact and generated trial report statuses record the capture-time state. sourceDecision records the subsequent owner choice; final production acceptance is separate."
+}

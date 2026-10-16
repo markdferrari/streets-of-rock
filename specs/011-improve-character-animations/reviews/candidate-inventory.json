@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-16",
+  "originalAcquisitionDates": "unknown",
+  "repositoryRetentionDate": "2026-10-16",
+  "provenance": "content/art-provenance.json",
+  "inputs": [
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_CombatMelee.glb",
+      "sha256": "485dcde864e015f76901b0832d9dceadecfa3fc1f9fa31df2423a6af9ec66ad8",
+      "bytes": 1025388,
+      "clips": [
+        "Melee_1H_Slash",
+        "Melee_1H_Stab",
+        "Melee_2H_Attack",
+        "Melee_2H_Idle",
+        "Melee_2H_Slam",
+        "Melee_Block",
+        "Melee_Block_Attack",
+        "Melee_Block_Hit",
+        "Melee_Blocking",
+        "Melee_Dualwield_Slash",
+        "Melee_Dualwield_SlashCombo",
+        "Melee_Unarmed_Idle",
+        "Melee_Unarmed_Kick",
+        "Melee_Unarmed_Punch",
+        "Melee_Unarmed_Smash",
+        "T-Pose"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_General.glb",
+      "sha256": "ec263b40704d996692033fc716fc0fcaa11a5089393845fe27877e5f773b2f3e",
+      "bytes": 700336,
+      "clips": [
+        "Death_A",
+        "Death_A_Pose",
+        "Hit_A",
+        "Idle_A",
+        "Idle_B",
+        "T-Pose"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_MovementBasic.glb",
+      "sha256": "2798a62b6f2a1f0f73b8481468fc0aeb7dd3118ceeb1be7db2fc947b7a1221ad",
+      "bytes": 584676,
+      "clips": [
+        "Running_A",
+        "T-Pose",
+        "Walking_A"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_CombatMelee.glb",
+      "sha256": "c55e6ec1c79e83ae21d46fe1cd921c1b64be8b9a524a24517e51c6ba99231459",
+      "bytes": 999416,
+      "clips": [
+        "Melee_1H_Attack_Chop",
+        "Melee_1H_Attack_Jump_Chop",
+        "Melee_1H_Attack_Slice_Diagonal",
+        "Melee_1H_Attack_Slice_Horizontal",
+        "Melee_1H_Attack_Stab",
+        "Melee_2H_Attack_Chop",
+        "Melee_2H_Attack_Slice",
+        "Melee_2H_Attack_Spin",
+        "Melee_2H_Attack_Spinning",
+        "Melee_2H_Attack_Stab",
+        "Melee_2H_Idle",
+        "Melee_Block",
+        "Melee_Block_Attack",
+        "Melee_Block_Hit",
+        "Melee_Blocking",
+        "Melee_Dualwield_Attack_Chop",
+        "Melee_Dualwield_Attack_Slice",
+        "Melee_Dualwield_Attack_Stab",
+        "Melee_Unarmed_Attack_Kick",
+        "Melee_Unarmed_Attack_Punch_A",
+        "Melee_Unarmed_Idle",
+        "T-Pose"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_General.glb",
+      "sha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
+      "bytes": 828240,
+      "clips": [
+        "Death_A",
+        "Death_A_Pose",
+        "Death_B",
+        "Death_B_Pose",
+        "Hit_A",
+        "Hit_B",
+        "Idle_A",
+        "Idle_B",
+        "Interact",
+        "PickUp",
+        "Spawn_Air",
+        "Spawn_Ground",
+        "T-Pose",
+        "Throw",
+        "Use_Item"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_MovementBasic.glb",
+      "sha256": "11422afd50abf7e8c92ea107e2e0bc94abd38023d6d15f55ad580347efbfa29e",
+      "bytes": 689624,
+      "clips": [
+        "Jump_Full_Long",
+        "Jump_Full_Short",
+        "Jump_Idle",
+        "Jump_Land",
+        "Jump_Start",
+        "Running_A",
+        "Running_B",
+        "T-Pose",
+        "Walking_A",
+        "Walking_B",
+        "Walking_C"
+      ],
+      "jointCounts": [
+        23
+      ],
+      "meshes": 6,
+      "externalDependencies": []
+    },
+    {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "bytes": 7618436,
+      "clips": [
+        "A_TPose",
+        "Crouch_Fwd_Loop",
+        "Crouch_Idle_Loop",
+        "Dance_Loop",
+        "Death01",
+        "Driving_Loop",
+        "Fixing_Kneeling",
+        "Hit_Chest",
+        "Hit_Head",
+        "Idle_Loop",
+        "Idle_Talking_Loop",
+        "Idle_Torch_Loop",
+        "Interact",
+        "Jog_Fwd_Loop",
+        "Jump_Land",
+        "Jump_Loop",
+        "Jump_Start",
+        "PickUp_Table",
+        "Pistol_Aim_Down",
+        "Pistol_Aim_Neutral",
+        "Pistol_Aim_Up",
+        "Pistol_Idle_Loop",
+        "Pistol_Reload",
+        "Pistol_Shoot",
+        "Punch_Cross",
+        "Punch_Jab",
+        "Push_Loop",
+        "Roll",
+        "Sitting_Enter",
+        "Sitting_Exit",
+        "Sitting_Idle_Loop",
+        "Sitting_Talking_Loop",
+        "Spell_Simple_Enter",
+        "Spell_Simple_Exit",
+        "Spell_Simple_Idle_Loop",
+        "Spell_Simple_Shoot",
+        "Sprint_Loop",
+        "Swim_Fwd_Loop",
+        "Swim_Idle_Loop",
+        "Sword_Attack",
+        "Sword_Idle",
+        "Walk_Formal_Loop",
+        "Walk_Loop"
+      ],
+      "jointCounts": [
+        65
+      ],
+      "meshes": 1,
+      "externalDependencies": []
+    }
+  ]
+}

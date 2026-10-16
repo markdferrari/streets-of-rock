@@ -435,6 +435,21 @@
           "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_MovementBasic.glb",
           "sha256": "11422afd50abf7e8c92ea107e2e0bc94abd38023d6d15f55ad580347efbfa29e",
           "bytes": 689624
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_General.glb",
+          "sha256": "ec263b40704d996692033fc716fc0fcaa11a5089393845fe27877e5f773b2f3e",
+          "bytes": 700336
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_MovementBasic.glb",
+          "sha256": "2798a62b6f2a1f0f73b8481468fc0aeb7dd3118ceeb1be7db2fc947b7a1221ad",
+          "bytes": 584676
+        },
+        {
+          "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Large_CombatMelee.glb",
+          "sha256": "485dcde864e015f76901b0832d9dceadecfa3fc1f9fa31df2423a6af9ec66ad8",
+          "bytes": 1025388
         }
       ],
       "assessment": "Accepted Medium motion source for the two pilot skins. General/MovementBasic/CombatMelee retained unchanged. Pilot skins and phase cuts remain subject to gameplay review.",
@@ -442,6 +457,25 @@
       "sha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
       "evidenceSha256": {
         "assets/art-sources/kaykit-character-animations-1.1/License.txt": "373b159044d1a886ed15f57ca5a7673ba14e2623c460283452705f2056912ed9"
+      },
+      "heroTrialRetention": {
+        "repositoryRetentionDate": "2026-10-16",
+        "originalAcquisitionDate": "unknown",
+        "purpose": "Medium Cow/Crow/Plates and Large Lion candidate comparison; no production hero source selection implied."
+      },
+      "heroSourceDecision": {
+        "feature": "011-improve-character-animations",
+        "reviewDate": "2026-10-16",
+        "reviewer": "Project owner",
+        "status": "not-selected",
+        "characterIds": [
+          "cow",
+          "crow",
+          "lion",
+          "plates"
+        ],
+        "reason": "Owner preferred Universal for all four hero comparisons. Retain KayKit trials; accepted license and existing enemy usage remain valid.",
+        "evidencePath": "specs/011-improve-character-animations/reviews/source-decisions.md"
       }
     },
     {
@@ -561,6 +595,72 @@
       "status": "accepted",
       "reviewer": "Codex source inspection; owner concept/reuse direction approved",
       "reviewDate": "2026-10-15"
+    },
+    {
+      "id": "quaternius-universal-animation-library-standard",
+      "name": "Universal Animation Library Standard",
+      "creator": "Quaternius",
+      "version": "owner-supplied UAL1 Standard; exact retained file hashes",
+      "sourceUrl": "https://quaternius.itch.io/universal-animation-library",
+      "acquisitionDate": "2026-10-16",
+      "repositoryRetentionDate": "2026-10-16",
+      "originalAcquisitionDate": "unknown",
+      "acquiredPath": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "licenseId": "CC0-1.0",
+      "licenseEvidencePaths": [
+        "assets/art-sources/quaternius-universal-animation-library-standard/License.txt"
+      ],
+      "evidenceSha256": {
+        "assets/art-sources/quaternius-universal-animation-library-standard/License.txt": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+      },
+      "status": "accepted",
+      "reviewer": "Codex local creator-license inspection; project owner selected Universal for all four heroes",
+      "reviewDate": "2026-10-16",
+      "permissions": {
+        "commercial": true,
+        "modification": true,
+        "gameDistribution": true,
+        "purchaseCost": 0,
+        "recurringFee": 0,
+        "basis": "Exact creator-supplied CC0 1.0 public-domain dedication retained from the owner-provided pack; original receipt date unknown."
+      },
+      "attributionText": "Quaternius \u2014 Universal Animation Library Standard \u2014 CC0 1.0",
+      "requiredNotices": [],
+      "files": [
+        {
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/License.txt",
+          "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+          "bytes": 332
+        },
+        {
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/README.txt",
+          "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72",
+          "bytes": 702
+        },
+        {
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "bytes": 7618436
+        }
+      ],
+      "assessment": "CC0 permission and exact retained non-root-motion GLB are evidenced. Owner selected Universal for Cow, Crow, Lion and Plates on 2026-10-16. Character-specific adaptation, unsupported existing actions and final production/gameplay acceptance remain pending; donor mannequin geometry does not ship.",
+      "heroSourceDecision": {
+        "feature": "011-improve-character-animations",
+        "reviewDate": "2026-10-16",
+        "reviewer": "Project owner",
+        "feedback": "I like universal in all cases - lets go with that",
+        "status": "selected",
+        "characterIds": [
+          "cow",
+          "crow",
+          "lion",
+          "plates"
+        ],
+        "sourceRecordId": "quaternius-universal-animation-library-standard",
+        "evidencePath": "specs/011-improve-character-animations/reviews/source-decisions.md",
+        "scope": "Primary animation source for all four characters in fighter and companion roles. Adapt Universal motion to each anatomy and existing gameplay timing; custom motion fills unsupported existing actions. Final production/gameplay/device acceptance remains pending."
+      }
     }
   ],
   "runtimeAssets": [

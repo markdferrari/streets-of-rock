@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "characterId": "cow",
+  "library": "kaykit",
+  "status": "trialled",
+  "ownerReview": "pending",
+  "productionSelection": "pending",
+  "rigRevision": "hero-trial-2-neutral-corrected",
+  "mapping": {
+    "Torso": "chest",
+    "Head": "head",
+    "UpperArm.L": "upperarm.r",
+    "LowerArm.L": "lowerarm.r",
+    "Hand.L": "hand.r",
+    "UpperLeg.L": "upperleg.r",
+    "LowerLeg.L": "lowerleg.r",
+    "Foot.L": "foot.r",
+    "UpperArm.R": "upperarm.l",
+    "LowerArm.R": "lowerarm.l",
+    "Hand.R": "hand.l",
+    "UpperLeg.R": "upperleg.l",
+    "LowerLeg.R": "lowerleg.l",
+    "Foot.R": "foot.l"
+  },
+  "neutralReference": {
+    "upperleg.l": [
+      0.6463128924369812,
+      -0.760077178478241,
+      -0.024139972403645515,
+      -0.06308414041996002
+    ],
+    "lowerleg.l": [
+      0.8234137892723083,
+      -0.5634068846702576,
+      -0.03987685963511467,
+      -0.05451798066496849
+    ],
+    "foot.l": [
+      0.3899611234664917,
+      -0.9171999096870422,
+      -0.07518160343170166,
+      0.03197446092963219
+    ],
+    "chest": [
+      0.702886700630188,
+      0.7099913358688354,
+      0.030363401398062706,
+      0.030670305714011192
+    ],
+    "head": [
+      0.7060042023658752,
+      0.7081089615821838,
+      0.008348474279046059,
+      0.008373353630304337
+    ],
+    "upperarm.l": [
+      0.634956419467926,
+      -0.16372917592525482,
+      0.45937201380729675,
+      -0.5991665720939636
+    ],
+    "lowerarm.l": [
+      0.3778691589832306,
+      -0.31756865978240967,
+      0.3701077997684479,
+      -0.7870103716850281
+    ],
+    "hand.l": [
+      0.5618861317634583,
+      -0.5618857145309448,
+      0.4292834997177124,
+      -0.4292830228805542
+    ],
+    "upperarm.r": [
+      0.6374224424362183,
+      -0.10705025494098663,
+      -0.4961126148700714,
+      0.5797458291053772
+    ],
+    "lowerarm.r": [
+      0.3723507523536682,
+      -0.2859019339084625,
+      -0.41934144496917725,
+      0.7770249247550964
+    ],
+    "hand.r": [
+      0.561886191368103,
+      -0.5618855357170105,
+      -0.4292834997177124,
+      0.42928266525268555
+    ],
+    "upperleg.r": [
+      0.6629049181938171,
+      -0.7481318712234497,
+      0.010846389457583427,
+      0.02716982550919056
+    ],
+    "lowerleg.r": [
+      0.8425279259681702,
+      -0.537857711315155,
+      0.01787610538303852,
+      0.023158131167292595
+    ],
+    "foot.r": [
+      0.3893110752105713,
+      -0.9154741764068604,
+      0.09357251226902008,
+      -0.03985085338354111
+    ]
+  },
+  "clips": {
+    "Idle": {
+      "clipName": "Idle",
+      "startSeconds": 0.0,
+      "endSeconds": 1.0666666666666667,
+      "mode": "loop"
+    },
+    "Move": {
+      "clipName": "Move",
+      "startSeconds": 0.0,
+      "endSeconds": 1.0666666666666667,
+      "mode": "loop"
+    },
+    "Attack": {
+      "clipName": "Attack",
+      "startSeconds": 0.0,
+      "endSeconds": 1.1666666666666667,
+      "mode": "phase"
+    }
+  },
+  "sources": {
+    "Idle": {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_General.glb",
+      "sha256": "5f725c0f745f36078c7238968cd5c04843cbc6260689eb6e7f5e2bbd7ffdd7ad",
+      "clipName": "Idle_A",
+      "sourceFrames": [
+        0.0,
+        64.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": true
+    },
+    "Move": {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_MovementBasic.glb",
+      "sha256": "11422afd50abf7e8c92ea107e2e0bc94abd38023d6d15f55ad580347efbfa29e",
+      "clipName": "Walking_A",
+      "sourceFrames": [
+        0.0,
+        64.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": true
+    },
+    "Attack": {
+      "path": "assets/art-sources/kaykit-character-animations-1.1/Rig_Medium_CombatMelee.glb",
+      "sha256": "c55e6ec1c79e83ae21d46fe1cd921c1b64be8b9a524a24517e51c6ba99231459",
+      "clipName": "Melee_Unarmed_Attack_Punch_A",
+      "sourceFrames": [
+        0.0,
+        70.0
+      ],
+      "sourceFps": 60,
+      "loopEndpointMatched": false
+    }
+  },
+  "rigidGroups": {},
+  "wingGroups": {},
+  "runtimeSha256": "0ab7440e595bcad6b1a5923024fd1665a7cbf28deedb0820136e881570e9438f",
+  "runtimeBytes": 355408,
+  "editableSha256": "2c80c6e03162e372342016e15fddc39c834e1ab98542e5cf22d718ce91465d0b",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  },
+  "limitations": [
+    "Three trial clips only; not a production profile.",
+    "Rotations rest-corrected and baked; no donor root/pelvis translation or scale.",
+    "Loop endpoint matched; visual seam, contact, feet and clipping require review.",
+    "Bespoke Specials, directional gaits, reactions, full combo and support timing not produced."
+  ]
+}

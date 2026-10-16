@@ -74,3 +74,9 @@ it('excludes author-only validators from every shipped script group while retain
  expect(runtimeGameScripts(['game/tools/validate_art.gd','game/platform/test_bridge.gd','game/platform/diagnostics.gd'],'test')).toEqual(['game/platform/test_bridge.gd']);
  expect(runtimeGameScripts(['game/platform/test_bridge.gd','game/platform/diagnostics.gd'],'diagnostics')).toEqual(['game/platform/diagnostics.gd']);
 });
+
+it('includes baked hero trial GLBs only in Web Test and excludes authoring files',()=>{
+ const paths=['tests/godot/fixtures/hero-animation/review.gd','tests/godot/fixtures/hero-animation/review.tscn','tests/godot/fixtures/hero-animation/candidates/cow/kaykit/character.glb','tests/godot/fixtures/hero-animation/candidates/cow/kaykit/rigged.blend'];
+ expect(webTestFixtureFiles(paths)).toEqual(paths.slice(0,3));
+ expect(runtimeGameScripts(['game/platform/test_bridge.gd','game/app/main.gd'],'release')).toEqual(['game/app/main.gd']);
+});

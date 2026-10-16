@@ -1,0 +1,94 @@
+{
+  "camera": {
+    "location": [
+      0,
+      -10,
+      4
+    ],
+    "target": [
+      0,
+      0,
+      1
+    ],
+    "orthoScale": 8,
+    "viewport": [
+      844,
+      390
+    ]
+  },
+  "lighting": "scripts/blender/presentation.py neutral",
+  "characters": {
+    "cow": {
+      "sourcePath": "assets/characters/cow-crow/runtime/cow-rigged.blend",
+      "sourceSha256": "93af979abb5163663a2a16899b58822f9da67546648d912f6d98820482abc968",
+      "clips": [
+        "Idle",
+        "Move",
+        "cow1.active"
+      ],
+      "frames": [
+        1,
+        6,
+        12
+      ],
+      "facing": [
+        -1,
+        1
+      ]
+    },
+    "crow": {
+      "sourcePath": "assets/characters/cow-crow/runtime/crow-rigged.blend",
+      "sourceSha256": "7aa26fdecb4d7e616e13fdb9d581c672cb0fbe5f5b9052f1356bdcc98ae44872",
+      "clips": [
+        "Idle",
+        "Move",
+        "crow1.active"
+      ],
+      "frames": [
+        1,
+        6,
+        12
+      ],
+      "facing": [
+        -1,
+        1
+      ]
+    },
+    "lion": {
+      "sourcePath": "assets/characters/lion/runtime/rigged.blend",
+      "sourceSha256": "16ac5251fa2eb97138ee2b0f865ebaf5ba2418542172086463107cba1711c29b",
+      "clips": [
+        "Idle",
+        "Move",
+        "lion1.active"
+      ],
+      "frames": [
+        1,
+        6,
+        12
+      ],
+      "facing": [
+        -1,
+        1
+      ]
+    },
+    "plates": {
+      "sourcePath": "assets/characters/plates/runtime/rigged.blend",
+      "sourceSha256": "1b46b0a0b74d41a84b6b08fc5ca4c58a14d950abe5e74eebede044dc7daf7b6f",
+      "clips": [
+        "Idle",
+        "Move",
+        "plates1.active"
+      ],
+      "frames": [
+        1,
+        6,
+        12
+      ],
+      "facing": [
+        -1,
+        1
+      ]
+    }
+  }
+}

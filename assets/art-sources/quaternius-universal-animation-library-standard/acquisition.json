@@ -1,0 +1,50 @@
+{
+  "id": "quaternius-universal-animation-library-standard",
+  "name": "Universal Animation Library Standard",
+  "creator": "Quaternius",
+  "version": "owner-supplied UAL1 Standard; exact retained file hashes",
+  "sourceUrl": "https://quaternius.itch.io/universal-animation-library",
+  "acquisitionDate": "2026-10-16",
+  "repositoryRetentionDate": "2026-10-16",
+  "originalAcquisitionDate": "unknown",
+  "acquiredPath": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+  "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+  "licenseId": "CC0-1.0",
+  "licenseEvidencePaths": [
+    "assets/art-sources/quaternius-universal-animation-library-standard/License.txt"
+  ],
+  "evidenceSha256": {
+    "assets/art-sources/quaternius-universal-animation-library-standard/License.txt": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+  },
+  "status": "accepted",
+  "reviewer": "Codex local creator-license inspection; motion selection pending owner review",
+  "reviewDate": "2026-10-16",
+  "permissions": {
+    "commercial": true,
+    "modification": true,
+    "gameDistribution": true,
+    "purchaseCost": 0,
+    "recurringFee": 0,
+    "basis": "Exact creator-supplied CC0 1.0 public-domain dedication retained from the owner-provided pack; original receipt date unknown."
+  },
+  "attributionText": "Quaternius \u2014 Universal Animation Library Standard \u2014 CC0 1.0",
+  "requiredNotices": [],
+  "files": [
+    {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/License.txt",
+      "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061",
+      "bytes": 332
+    },
+    {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/README.txt",
+      "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72",
+      "bytes": 702
+    },
+    {
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "bytes": 7618436
+    }
+  ],
+  "assessment": "Permission assessed for candidate use; four character trials and owner production selection remain separate. Non-root-motion GLB retained; no donor mannequin ships."
+}

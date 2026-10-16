@@ -1,0 +1,24 @@
+{
+  "commit": "58cb50039a03674fd301d49c37d3bf440589e413",
+  "branch": "011-implement",
+  "buildId": "8dbc1723e45e70f85a03a5770a55fd64d49453a77f5dfaadb85764e45b1e543a",
+  "inventoryPath": "dist-test/releases/8dbc1723e45e70f85a03a5770a55fd64d49453a77f5dfaadb85764e45b1e543a/asset-inventory.json",
+  "inventorySha256": "d55225fb541aafc7d4b1c102908c2b9ace50ae5cc0ee52bde6972382987cd167",
+  "files": {
+    "assets/characters/cow-crow/comparison.blend": "b8d35018b48e1bfa27261259d70a84796ba68c800f039326926b897a9195f815",
+    "assets/characters/cow-crow/cow.blend": "c1ab6e38f6e48fc38433f64b3f7d59d034a5cc0df4458d5720bb3ec931f1a3e3",
+    "assets/characters/cow-crow/crow.blend": "c77932c793bfe70c36024f4e1b3d6aacb8fc7a6b59bef12382dd75b69df687a6",
+    "assets/characters/cow-crow/runtime/cow-rigged.blend": "93af979abb5163663a2a16899b58822f9da67546648d912f6d98820482abc968",
+    "assets/characters/cow-crow/runtime/cow.glb": "9b8227157dc6439efebccf6867ddd1faef873af46f918685cf495af3509b8909",
+    "assets/characters/cow-crow/runtime/crow-rigged.blend": "7aa26fdecb4d7e616e13fdb9d581c672cb0fbe5f5b9052f1356bdcc98ae44872",
+    "assets/characters/cow-crow/runtime/crow.glb": "87b7af4b2c55d154e6756020381d7c98e1f6026ad8fcbac36bd50e27465eb4a8",
+    "assets/characters/lion/runtime/character.glb": "d82aa13c93b8bb055352a9dbe22ba3590e93827b5b5b3d9836d17e20b48a866d",
+    "assets/characters/lion/runtime/rigged.blend": "16ac5251fa2eb97138ee2b0f865ebaf5ba2418542172086463107cba1711c29b",
+    "assets/characters/lion/source.blend": "c877ee63c4fd63278bf635341a9fe7b640adba986ee42bebec79ea340f87d835",
+    "assets/characters/plates/runtime/character.glb": "3d489bfc1cf350205a3b8bb19aeab4e7a6759b51495c7b97cebb7522fa023d64",
+    "assets/characters/plates/runtime/rigged.blend": "1b46b0a0b74d41a84b6b08fc5ca4c58a14d950abe5e74eebede044dc7daf7b6f",
+    "assets/characters/plates/source.blend": "f84f2b7336591f026b5a3179781b74feb8af81fab7fd29aaa2747b3d639b61d9",
+    "content/animation-clips.json": "6a224d8307b67222031f8bc80cba0331a8f0b26a01cfa1dc4102195fd8e83b8e",
+    "specs/010-upgrade-game-artwork/validation/evidence/hero-fingerprints.json": "8b747f1edf8b37eb6725469e5e3a2c433eafdef20d404fc98c4dbfb4876cf38d"
+  }
+}

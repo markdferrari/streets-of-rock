@@ -18,10 +18,10 @@ test('plain HTTP LAN origin boots and plays without secure audio or service work
  expect(await page.evaluate(async()=>(window as any).SorBrowser.cacheStatus())).toMatchObject({state:'error',error:'Error: Offline play requires HTTPS or localhost.'});
  expect(errors).toEqual([]);
 });
-test('actual Release boots and query parameters cannot register test or diagnostics hooks',async({page})=>{
- const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});await page.goto('/?test=1&diagnostics=1&fixture=enemy-art');
+for(const fixture of ['enemy-art','hero-animation'])test(`actual Release ignores ${fixture} and cannot register test or diagnostics hooks`,async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(/SCRIPT ERROR|^ERROR:/.test(m.text()))errors.push(m.text());});await page.goto(`/?test=1&diagnostics=1&fixture=${fixture}`);
  await expect(page.locator('#boot')).toBeHidden({timeout:60000});
- expect(await page.evaluate(()=>[typeof (window as any).__sorTest,typeof (window as any).__sorDiagnostics,typeof (window as any).__sorArtPilot])).toEqual(['undefined','undefined','undefined']);
+ expect(await page.evaluate(()=>[typeof (window as any).__sorTest,typeof (window as any).__sorDiagnostics,typeof (window as any).__sorArtPilot,typeof (window as any).__sorHeroReview])).toEqual(['undefined','undefined','undefined','undefined']);
  for(const name of ['Cow','Cow','Crow','Crow']){await page.getByRole('button',{name,exact:true}).focus();await page.keyboard.press('Enter');}
  await expect(page.getByRole('button',{name:'Light',exact:true})).toBeEnabled({timeout:10000});
  await page.getByRole('button',{name:'Light',exact:true}).focus();await page.keyboard.press('Enter');

@@ -4,7 +4,7 @@
 
 ## Status and prerequisites
 
-This is the implementation validation guide. The proposed profiles, hero validation option and review fixture are not implemented by planning. Use branch `011-improve-character-animations`; preserve unrelated work and existing feature evidence. Run commands below from the repository root.
+This is the implementation validation guide. Phases 1–3 provide the pure profile schema validator, isolated candidate exporter and Web Test comparison fixture. Live hero profiles and the proposed `validate:art --character` option remain unimplemented (later phases). Work uses `011-implement` for feature `011-improve-character-animations`; preserve unrelated work and existing feature evidence. Run commands below from the repository root.
 
 Use pinned Godot 4.7.2 and locked matching web templates, Bun 1.4.2, Blender 5.2.2 LTS and repository dependencies. The supplied samples live under `/home/mark/projects/godot/assets/KayKit_Character_Animations_1.1` and `/home/mark/projects/godot/assets/Universal Animation Library[Standard]`. Keep them read-only; retain selected copies and licenses in the repository through the provenance workflow. Physical acceptance requires iPhone 12/Safari, Pixel 6/Chrome, intended soundtrack, owner review and five playtesters.
 
@@ -31,7 +31,17 @@ bun run build:test
 bun run preview -- --dir dist-test --host 127.0.0.1 --port 4173
 ```
 
-Open `http://127.0.0.1:4173/`. Once implemented, the planned `?fixture=hero-animation` route supplies repeatable actual-character comparisons and action review in Web Test only. It must not appear in Web Release. Ordinary `/` gameplay remains required for integration validation.
+Open `http://127.0.0.1:4173/`. The `?fixture=hero-animation&character=cow` route supplies repeatable actual-character comparisons and action review in Web Test only (also crow, lion and plates). It must not appear in Web Release. Ordinary `/` gameplay remains required for integration validation.
+
+## Candidate trial export (phases 1–3)
+
+```sh
+blender -noaudio --background --factory-startup --python-exit-code 1 \
+  --python scripts/blender/hero_motion.py -- --character cow --library kaykit \
+  --output-dir .tmp/cow-kaykit-trial
+```
+
+Use one explicit character and `kaykit` or `universal`. Outputs are `rigged.blend`, `character.glb` and `mapping.json`; existing outputs and production/source directories are rejected. Retained candidate files are under `tests/godot/fixtures/hero-animation/candidates/`. [Source decisions](reviews/source-decisions.md) link the four matched comparisons; the owner selected Universal for all four characters on 2026-10-16. Partial trial clips cannot satisfy the complete production profile validator.
 
 ## Proposed hero validation commands
 

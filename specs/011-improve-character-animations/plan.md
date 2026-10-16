@@ -4,7 +4,7 @@
 
 **Input**: `specs/011-improve-character-animations/spec.md`
 
-**Status**: Phase 0 research and Phase 1 design complete; ready for task generation. Candidate trials, source selection, production, runtime integration and acceptance remain pending.
+**Status**: Research/design and task phases 1–3 (T001–T015) complete. Owner selected Universal for all four characters on 2026-10-16. Production, runtime integration and final acceptance remain pending in later task phases.
 
 ## Summary
 

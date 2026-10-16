@@ -65,7 +65,7 @@ export function runtimeContentDefinitions(paths:string[]):string[]{
  return paths.filter(path=>path.endsWith('.json') && path !== 'content/art-provenance.json');
 }
 export function webTestFixtureFiles(paths:string[]):string[]{
- return paths.filter(path=>/\.(gd|tscn|bin|json)$/.test(path));
+ return paths.filter(path=>/\.(gd|tscn|bin|json|glb)$/.test(path));
 }
 export function runtimeGameScripts(paths:string[],mode:Mode):string[]{
  return paths.filter(path=>/\.(gd|tscn)$/.test(path) && !path.startsWith('game/tools/') && (mode==='test'||path!=='game/platform/test_bridge.gd') && (mode==='diagnostics'||path!=='game/platform/diagnostics.gd'));

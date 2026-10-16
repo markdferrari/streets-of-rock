@@ -1,0 +1,7 @@
+# Foundation verification — T003–T006
+
+Profile tests were added first; the red run failed because the profile validator did not exist. Nine focused GUT tests now pass (216 assertions), including exact semantic/model/source coverage, directional loops, contiguous phase/contact windows, finite timing, malformed fields and anatomy/masks. Command: `bun run test:godot -- -gselect=test_hero_animation_catalog.gd` (exit 0). The initial green attempt exposed an empty reaction mask, now rejected.
+
+Five synthetic Blender tests were added before the helper existed: the red run failed on the missing module. The implemented helper passes all five (exit 0), covering weighted articulation, rigid plate/face and feather groups, root exclusion, loop/phase bounds, invalid tracks, finite samples and donor removal. Command: `blender -noaudio --background --factory-startup --python-exit-code 1 --python-expr "import sys,unittest;sys.path.insert(0,'.');s=unittest.defaultTestLoader.loadTestsFromName('tests.blender.test_hero_motion');r=unittest.TextTestRunner(verbosity=2).run(s);sys.exit(not r.wasSuccessful())"`.
+
+Declared tolerances in `scripts/blender/hero_motion.py`: normalized weights/positions 1e-4; loop rotation 1e-3 radians. Clip evaluation is manual and source root travel is not baked. These checks use synthetic records; no production catalogue has been activated and no production hero has been replaced. Red/green logs: local `.tmp/hero-animation/{profile,rig}-{red,green}.log`.

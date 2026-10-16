@@ -4,7 +4,7 @@
 
 **Created**: 2026-10-15
 
-**Status**: Draft — specification validated; animation-source selection, production and gameplay acceptance pending
+**Status**: Implementation in progress — task phases 1–3 complete; owner selected Universal for all four characters on 2026-10-16; production and gameplay acceptance pending
 
 **Input**: “I want the player characters + ai companions to have better animations. We have some samples in /home/mark/projects/godot/assets - KayKit_Character_animations and Universal Animation Library which could be candidates. Let's explore rigging the cow, lion, crow and plates characters up.”
 

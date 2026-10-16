@@ -8,6 +8,11 @@ var review_concepts: bool = false
 var review_rooms: bool = false
 var review_room: int = 0
 var review_generation: int = -1
+static func fixture_scene(query: String) -> String:
+ for part in query.trim_prefix("?").split("&"):
+  if part == "fixture=hero-animation": return "res://tests/godot/fixtures/hero-animation/review.tscn"
+ return ""
+
 func initialize(app: Node) -> void:
  game = app
  review_concepts = bool(JavaScriptBridge.eval("new URLSearchParams(location.search).get('review') === 'backdrops'", true))
