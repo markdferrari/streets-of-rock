@@ -56,7 +56,15 @@ func _initialize() -> void:
     var names: Array = []
     if gltf is Dictionary:
      for animation in gltf.get("animations", []): names.append(animation.get("name", ""))
-    for clip in clips.get(definition.presentation.animationSetKey, []):
+    var physical: Array = clips.get(definition.presentation.animationSetKey, [])
+    var profiles: Variant = _read_json(root_path.path_join("content/hero-animations.json"))
+    if profiles is Dictionary and profiles.get("characters") is Array:
+     for profile in profiles.characters:
+      if profile.get("characterId") == definition.id:
+       physical = []
+       for binding in profile.bindings.values() + profile.locomotion.values():
+        if not binding.clipName in physical: physical.append(binding.clipName)
+    for clip in physical:
      if not clip in names: errors.append(str(definition.id) + ".presentation.animationSetKey: model lacks semantic clip '" + str(clip) + "'")
  for key in resources.get("props", {}):
   var path: String = str(resources.props[key])
@@ -72,7 +80,7 @@ func _initialize() -> void:
    for item in definitions:
     var definition: Dictionary = item.data
     var key: String = definition.presentation.modelKey
-    if not store.prepare(definition.id, "res://" + resources.models[key], clips[definition.presentation.animationSetKey]): errors.append_array(store.errors)
+    if not store.prepare_hero(catalogue,definition.id): errors.append_array(store.errors)
     var portrait_path: String = "res://" + str(resources.portraits[definition.presentation.portraitKey])
     if not ResourceLoader.exists(portrait_path) or not ResourceLoader.load(portrait_path) is Texture2D:
      errors.append(str(definition.id) + ".presentation.portraitKey: imported portrait must load as a texture: " + portrait_path)

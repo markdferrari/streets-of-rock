@@ -55,7 +55,7 @@ func frame(now: float) -> Array:
  phase = "running"
  return [{"type": "clearInputs"}, {"type": "launch", "run": run}]
 func interrupt(now: float) -> Array:
- if not phase in ["preparing", "countdown", "running"]: return []
+ if not phase in ["preparing", "countdown", "running", "victory", "defeat"]: return []
  resume_target = phase
  if phase == "countdown": countdown.pause(now)
  phase = "paused"

@@ -107,3 +107,11 @@ func test_baseline_attack_samples_all_phases_on_its_original_timeline() -> void:
  node.elapsed = 0.0
  node.advance(0.1)
  assert_eq(node.snapshot().views.current.clip, "Idle")
+
+func test_current_comparison_retains_original_runtime_bytes_after_production_replacement() -> void:
+ var register: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://specs/010-upgrade-game-artwork/validation/evidence/hero-fingerprints.json"))
+ var resources: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://content/resources.json"))
+ for id in ["cow","crow","lion","plates"]:
+  var path: String = Review.baseline_path(id)
+  assert_true(FileAccess.file_exists(path))
+  assert_eq(FileAccess.get_sha256(path),register.files[resources.models[id]],id+": comparison baseline must retain preproduction bytes")

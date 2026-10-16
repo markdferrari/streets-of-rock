@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "quaternius-universal-animation-library-standard",
+      "status": "accepted"
+    },
+    {
+      "id": "hero-motion-original",
+      "status": "accepted"
+    }
+  ],
+  "characters": [
+    {
+      "characterId": "cow",
+      "modelKey": "cow",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "bindings": {
+        "Idle": {
+          "clipName": "Idle",
+          "startSeconds": 0,
+          "endSeconds": 2.5,
+          "mode": "loop"
+        },
+        "Move": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop"
+        },
+        "Hurt": {
+          "clipName": "Hurt",
+          "startSeconds": 0,
+          "endSeconds": 1.0,
+          "mode": "reaction"
+        },
+        "KnockedOut": {
+          "clipName": "KnockedOut",
+          "startSeconds": 0,
+          "endSeconds": 2.4,
+          "mode": "phase"
+        },
+        "Dodge": {
+          "clipName": "Dodge",
+          "startSeconds": 0,
+          "endSeconds": 1.4666666666666666,
+          "mode": "phase"
+        },
+        "cow1.windup": {
+          "clipName": "cow1",
+          "startSeconds": 0,
+          "endSeconds": 0.2,
+          "mode": "phase",
+          "actionGroup": "cow1"
+        },
+        "cow1.active": {
+          "clipName": "cow1",
+          "startSeconds": 0.2,
+          "endSeconds": 0.36,
+          "mode": "phase",
+          "actionGroup": "cow1",
+          "contactSeconds": 0.2
+        },
+        "cow1.recovery": {
+          "clipName": "cow1",
+          "startSeconds": 0.36,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "cow1"
+        },
+        "cow2.windup": {
+          "clipName": "cow2",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "cow2"
+        },
+        "cow2.active": {
+          "clipName": "cow2",
+          "startSeconds": 0.3,
+          "endSeconds": 0.45999999999999996,
+          "mode": "phase",
+          "actionGroup": "cow2",
+          "contactSeconds": 0.3
+        },
+        "cow2.recovery": {
+          "clipName": "cow2",
+          "startSeconds": 0.45999999999999996,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "cow2"
+        },
+        "cow3.windup": {
+          "clipName": "cow3",
+          "startSeconds": 0,
+          "endSeconds": 0.26666666666666666,
+          "mode": "phase",
+          "actionGroup": "cow3"
+        },
+        "cow3.active": {
+          "clipName": "cow3",
+          "startSeconds": 0.26666666666666666,
+          "endSeconds": 0.42666666666666664,
+          "mode": "phase",
+          "actionGroup": "cow3",
+          "contactSeconds": 0.26666666666666666
+        },
+        "cow3.recovery": {
+          "clipName": "cow3",
+          "startSeconds": 0.42666666666666664,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "cow3"
+        },
+        "cowHeavy.windup": {
+          "clipName": "cowHeavy",
+          "startSeconds": 0,
+          "endSeconds": 0.26666666666666666,
+          "mode": "phase",
+          "actionGroup": "cowHeavy"
+        },
+        "cowHeavy.active": {
+          "clipName": "cowHeavy",
+          "startSeconds": 0.26666666666666666,
+          "endSeconds": 0.42666666666666664,
+          "mode": "phase",
+          "actionGroup": "cowHeavy",
+          "contactSeconds": 0.26666666666666666
+        },
+        "cowHeavy.recovery": {
+          "clipName": "cowHeavy",
+          "startSeconds": 0.42666666666666664,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "cowHeavy"
+        },
+        "spin.windup": {
+          "clipName": "spin",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "spin"
+        },
+        "spin.active": {
+          "clipName": "spin",
+          "startSeconds": 0.3,
+          "endSeconds": 0.7,
+          "mode": "phase",
+          "actionGroup": "spin",
+          "contactSeconds": 0.3
+        },
+        "spin.recovery": {
+          "clipName": "spin",
+          "startSeconds": 0.7,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "spin"
+        }
+      },
+      "locomotion": {
+        "forward": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.25
+        },
+        "backward": {
+          "clipName": "Move_backward",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.25
+        },
+        "left": {
+          "clipName": "Move_left",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.25
+        },
+        "right": {
+          "clipName": "Move_right",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.25
+        }
+      },
+      "idleCycleSeconds": 2.5,
+      "hurtSeconds": 0.15,
+      "knockoutSeconds": 0.6,
+      "transitionSeconds": {
+        "action": 0.05
+      },
+      "reactionBoneNames": [
+        "Torso"
+      ],
+      "secondaryMotionBoneNames": [],
+      "rigidGroups": {}
+    },
+    {
+      "characterId": "crow",
+      "modelKey": "crow",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "bindings": {
+        "Idle": {
+          "clipName": "Idle",
+          "startSeconds": 0,
+          "endSeconds": 2.5,
+          "mode": "loop"
+        },
+        "Move": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop"
+        },
+        "Hurt": {
+          "clipName": "Hurt",
+          "startSeconds": 0,
+          "endSeconds": 1.0,
+          "mode": "reaction"
+        },
+        "KnockedOut": {
+          "clipName": "KnockedOut",
+          "startSeconds": 0,
+          "endSeconds": 2.4,
+          "mode": "phase"
+        },
+        "Dodge": {
+          "clipName": "Dodge",
+          "startSeconds": 0,
+          "endSeconds": 1.4666666666666666,
+          "mode": "phase"
+        },
+        "crow.windup": {
+          "clipName": "crow",
+          "startSeconds": 0,
+          "endSeconds": 0.13333333333333333,
+          "mode": "phase",
+          "actionGroup": "crow"
+        },
+        "crow.active": {
+          "clipName": "crow",
+          "startSeconds": 0.13333333333333333,
+          "endSeconds": 0.29333333333333333,
+          "mode": "phase",
+          "actionGroup": "crow",
+          "contactSeconds": 0.13333333333333333
+        },
+        "crow.recovery": {
+          "clipName": "crow",
+          "startSeconds": 0.29333333333333333,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "crow"
+        },
+        "crow1.windup": {
+          "clipName": "crow1",
+          "startSeconds": 0,
+          "endSeconds": 0.13333333333333333,
+          "mode": "phase",
+          "actionGroup": "crow1"
+        },
+        "crow1.active": {
+          "clipName": "crow1",
+          "startSeconds": 0.13333333333333333,
+          "endSeconds": 0.29333333333333333,
+          "mode": "phase",
+          "actionGroup": "crow1",
+          "contactSeconds": 0.13333333333333333
+        },
+        "crow1.recovery": {
+          "clipName": "crow1",
+          "startSeconds": 0.29333333333333333,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "crow1"
+        },
+        "crow2.windup": {
+          "clipName": "crow2",
+          "startSeconds": 0,
+          "endSeconds": 0.6833333333333333,
+          "mode": "phase",
+          "actionGroup": "crow2"
+        },
+        "crow2.active": {
+          "clipName": "crow2",
+          "startSeconds": 0.6833333333333333,
+          "endSeconds": 0.8416666666666667,
+          "mode": "phase",
+          "actionGroup": "crow2",
+          "contactSeconds": 0.6833333333333333
+        },
+        "crow2.recovery": {
+          "clipName": "crow2",
+          "startSeconds": 0.8416666666666667,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "crow2"
+        },
+        "crow3.windup": {
+          "clipName": "crow3",
+          "startSeconds": 0,
+          "endSeconds": 0.7,
+          "mode": "phase",
+          "actionGroup": "crow3"
+        },
+        "crow3.active": {
+          "clipName": "crow3",
+          "startSeconds": 0.7,
+          "endSeconds": 0.85,
+          "mode": "phase",
+          "actionGroup": "crow3",
+          "contactSeconds": 0.7
+        },
+        "crow3.recovery": {
+          "clipName": "crow3",
+          "startSeconds": 0.85,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "crow3"
+        },
+        "crowHeavy.windup": {
+          "clipName": "crowHeavy",
+          "startSeconds": 0,
+          "endSeconds": 0.7166666666666667,
+          "mode": "phase",
+          "actionGroup": "crowHeavy"
+        },
+        "crowHeavy.active": {
+          "clipName": "crowHeavy",
+          "startSeconds": 0.7166666666666667,
+          "endSeconds": 0.8583333333333334,
+          "mode": "phase",
+          "actionGroup": "crowHeavy",
+          "contactSeconds": 0.7166666666666667
+        },
+        "crowHeavy.recovery": {
+          "clipName": "crowHeavy",
+          "startSeconds": 0.8583333333333334,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "crowHeavy"
+        },
+        "wingSpin.windup": {
+          "clipName": "wingSpin",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "wingSpin"
+        },
+        "wingSpin.active": {
+          "clipName": "wingSpin",
+          "startSeconds": 0.3,
+          "endSeconds": 0.7,
+          "mode": "phase",
+          "actionGroup": "wingSpin",
+          "contactSeconds": 0.3
+        },
+        "wingSpin.recovery": {
+          "clipName": "wingSpin",
+          "startSeconds": 0.7,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "wingSpin"
+        }
+      },
+      "locomotion": {
+        "forward": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "backward": {
+          "clipName": "Move_backward",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "left": {
+          "clipName": "Move_left",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "right": {
+          "clipName": "Move_right",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        }
+      },
+      "idleCycleSeconds": 2.5,
+      "hurtSeconds": 0.15,
+      "knockoutSeconds": 0.6,
+      "transitionSeconds": {
+        "action": 0.05
+      },
+      "reactionBoneNames": [
+        "Torso"
+      ],
+      "secondaryMotionBoneNames": [],
+      "rigidGroups": {
+        "left": [
+          "Crow.Wing.Feather.L.0",
+          "Crow.Wing.Feather.L.1",
+          "Crow.Wing.Feather.L.2",
+          "Crow.Wing.Feather.L.3",
+          "Crow.Wing.Feather.L.4"
+        ],
+        "right": [
+          "Crow.Wing.Feather.R.0",
+          "Crow.Wing.Feather.R.1",
+          "Crow.Wing.Feather.R.2",
+          "Crow.Wing.Feather.R.3",
+          "Crow.Wing.Feather.R.4"
+        ]
+      }
+    },
+    {
+      "characterId": "lion",
+      "modelKey": "lion",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "bindings": {
+        "Idle": {
+          "clipName": "Idle",
+          "startSeconds": 0,
+          "endSeconds": 2.5,
+          "mode": "loop"
+        },
+        "Move": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop"
+        },
+        "Hurt": {
+          "clipName": "Hurt",
+          "startSeconds": 0,
+          "endSeconds": 1.0,
+          "mode": "reaction"
+        },
+        "KnockedOut": {
+          "clipName": "KnockedOut",
+          "startSeconds": 0,
+          "endSeconds": 2.4,
+          "mode": "phase"
+        },
+        "Dodge": {
+          "clipName": "Dodge",
+          "startSeconds": 0,
+          "endSeconds": 1.4666666666666666,
+          "mode": "phase"
+        },
+        "lion1.windup": {
+          "clipName": "lion1",
+          "startSeconds": 0,
+          "endSeconds": 0.2,
+          "mode": "phase",
+          "actionGroup": "lion1"
+        },
+        "lion1.active": {
+          "clipName": "lion1",
+          "startSeconds": 0.2,
+          "endSeconds": 0.36,
+          "mode": "phase",
+          "actionGroup": "lion1",
+          "contactSeconds": 0.2
+        },
+        "lion1.recovery": {
+          "clipName": "lion1",
+          "startSeconds": 0.36,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "lion1"
+        },
+        "lion2.windup": {
+          "clipName": "lion2",
+          "startSeconds": 0,
+          "endSeconds": 0.31666666666666665,
+          "mode": "phase",
+          "actionGroup": "lion2"
+        },
+        "lion2.active": {
+          "clipName": "lion2",
+          "startSeconds": 0.31666666666666665,
+          "endSeconds": 0.4766666666666667,
+          "mode": "phase",
+          "actionGroup": "lion2",
+          "contactSeconds": 0.31666666666666665
+        },
+        "lion2.recovery": {
+          "clipName": "lion2",
+          "startSeconds": 0.4766666666666667,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "lion2"
+        },
+        "lion3.windup": {
+          "clipName": "lion3",
+          "startSeconds": 0,
+          "endSeconds": 0.35,
+          "mode": "phase",
+          "actionGroup": "lion3"
+        },
+        "lion3.active": {
+          "clipName": "lion3",
+          "startSeconds": 0.35,
+          "endSeconds": 0.51,
+          "mode": "phase",
+          "actionGroup": "lion3",
+          "contactSeconds": 0.35
+        },
+        "lion3.recovery": {
+          "clipName": "lion3",
+          "startSeconds": 0.51,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "lion3"
+        },
+        "lionHeavy.windup": {
+          "clipName": "lionHeavy",
+          "startSeconds": 0,
+          "endSeconds": 0.43333333333333335,
+          "mode": "phase",
+          "actionGroup": "lionHeavy"
+        },
+        "lionHeavy.active": {
+          "clipName": "lionHeavy",
+          "startSeconds": 0.43333333333333335,
+          "endSeconds": 0.5933333333333334,
+          "mode": "phase",
+          "actionGroup": "lionHeavy",
+          "contactSeconds": 0.43333333333333335
+        },
+        "lionHeavy.recovery": {
+          "clipName": "lionHeavy",
+          "startSeconds": 0.5933333333333334,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "lionHeavy"
+        },
+        "roar.windup": {
+          "clipName": "roar",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "roar"
+        },
+        "roar.active": {
+          "clipName": "roar",
+          "startSeconds": 0.3,
+          "endSeconds": 0.45999999999999996,
+          "mode": "phase",
+          "actionGroup": "roar",
+          "contactSeconds": 0.3
+        },
+        "roar.recovery": {
+          "clipName": "roar",
+          "startSeconds": 0.45999999999999996,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "roar"
+        },
+        "lionSupport.windup": {
+          "clipName": "lionSupport",
+          "startSeconds": 0,
+          "endSeconds": 0.2,
+          "mode": "phase",
+          "actionGroup": "lionSupport"
+        },
+        "lionSupport.active": {
+          "clipName": "lionSupport",
+          "startSeconds": 0.2,
+          "endSeconds": 0.36,
+          "mode": "phase",
+          "actionGroup": "lionSupport",
+          "contactSeconds": 0.2
+        },
+        "lionSupport.recovery": {
+          "clipName": "lionSupport",
+          "startSeconds": 0.36,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "lionSupport"
+        }
+      },
+      "locomotion": {
+        "forward": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.1
+        },
+        "backward": {
+          "clipName": "Move_backward",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.1
+        },
+        "left": {
+          "clipName": "Move_left",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.1
+        },
+        "right": {
+          "clipName": "Move_right",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.1
+        }
+      },
+      "idleCycleSeconds": 2.5,
+      "hurtSeconds": 0.15,
+      "knockoutSeconds": 0.6,
+      "transitionSeconds": {
+        "action": 0.05
+      },
+      "reactionBoneNames": [
+        "Torso"
+      ],
+      "secondaryMotionBoneNames": [],
+      "rigidGroups": {}
+    },
+    {
+      "characterId": "plates",
+      "modelKey": "plates",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "bindings": {
+        "Idle": {
+          "clipName": "Idle",
+          "startSeconds": 0,
+          "endSeconds": 2.5,
+          "mode": "loop"
+        },
+        "Move": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop"
+        },
+        "Hurt": {
+          "clipName": "Hurt",
+          "startSeconds": 0,
+          "endSeconds": 1.0,
+          "mode": "reaction"
+        },
+        "KnockedOut": {
+          "clipName": "KnockedOut",
+          "startSeconds": 0,
+          "endSeconds": 2.4,
+          "mode": "phase"
+        },
+        "Dodge": {
+          "clipName": "Dodge",
+          "startSeconds": 0,
+          "endSeconds": 1.4666666666666666,
+          "mode": "phase"
+        },
+        "plates1.windup": {
+          "clipName": "plates1",
+          "startSeconds": 0,
+          "endSeconds": 0.2,
+          "mode": "phase",
+          "actionGroup": "plates1"
+        },
+        "plates1.active": {
+          "clipName": "plates1",
+          "startSeconds": 0.2,
+          "endSeconds": 0.36,
+          "mode": "phase",
+          "actionGroup": "plates1",
+          "contactSeconds": 0.2
+        },
+        "plates1.recovery": {
+          "clipName": "plates1",
+          "startSeconds": 0.36,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "plates1"
+        },
+        "plates2.windup": {
+          "clipName": "plates2",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "plates2"
+        },
+        "plates2.active": {
+          "clipName": "plates2",
+          "startSeconds": 0.3,
+          "endSeconds": 0.45999999999999996,
+          "mode": "phase",
+          "actionGroup": "plates2",
+          "contactSeconds": 0.3
+        },
+        "plates2.recovery": {
+          "clipName": "plates2",
+          "startSeconds": 0.45999999999999996,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "plates2"
+        },
+        "plates3.windup": {
+          "clipName": "plates3",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "plates3"
+        },
+        "plates3.active": {
+          "clipName": "plates3",
+          "startSeconds": 0.3,
+          "endSeconds": 0.45999999999999996,
+          "mode": "phase",
+          "actionGroup": "plates3",
+          "contactSeconds": 0.3
+        },
+        "plates3.recovery": {
+          "clipName": "plates3",
+          "startSeconds": 0.45999999999999996,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "plates3"
+        },
+        "platesHeavy.windup": {
+          "clipName": "platesHeavy",
+          "startSeconds": 0,
+          "endSeconds": 0.26666666666666666,
+          "mode": "phase",
+          "actionGroup": "platesHeavy"
+        },
+        "platesHeavy.active": {
+          "clipName": "platesHeavy",
+          "startSeconds": 0.26666666666666666,
+          "endSeconds": 0.42666666666666664,
+          "mode": "phase",
+          "actionGroup": "platesHeavy",
+          "contactSeconds": 0.26666666666666666
+        },
+        "platesHeavy.recovery": {
+          "clipName": "platesHeavy",
+          "startSeconds": 0.42666666666666664,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "platesHeavy"
+        },
+        "headrest.windup": {
+          "clipName": "headrest",
+          "startSeconds": 0,
+          "endSeconds": 0.3,
+          "mode": "phase",
+          "actionGroup": "headrest"
+        },
+        "headrest.active": {
+          "clipName": "headrest",
+          "startSeconds": 0.3,
+          "endSeconds": 0.45999999999999996,
+          "mode": "phase",
+          "actionGroup": "headrest",
+          "contactSeconds": 0.3
+        },
+        "headrest.recovery": {
+          "clipName": "headrest",
+          "startSeconds": 0.45999999999999996,
+          "endSeconds": 1.0,
+          "mode": "phase",
+          "actionGroup": "headrest"
+        },
+        "platesSupport.windup": {
+          "clipName": "platesSupport",
+          "startSeconds": 0,
+          "endSeconds": 0.2,
+          "mode": "phase",
+          "actionGroup": "platesSupport"
+        },
+        "platesSupport.active": {
+          "clipName": "platesSupport",
+          "startSeconds": 0.2,
+          "endSeconds": 0.36,
+          "mode": "phase",
+          "actionGroup": "platesSupport",
+          "contactSeconds": 0.2
+        },
+        "platesSupport.recovery": {
+          "clipName": "platesSupport",
+          "startSeconds": 0.36,
+          "endSeconds": 0.8666666666666667,
+          "mode": "phase",
+          "actionGroup": "platesSupport"
+        }
+      },
+      "locomotion": {
+        "forward": {
+          "clipName": "Move",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "backward": {
+          "clipName": "Move_backward",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "left": {
+          "clipName": "Move_left",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        },
+        "right": {
+          "clipName": "Move_right",
+          "startSeconds": 0,
+          "endSeconds": 1.3333333333333333,
+          "mode": "loop",
+          "strideDistance": 1.0
+        }
+      },
+      "idleCycleSeconds": 2.5,
+      "hurtSeconds": 0.15,
+      "knockoutSeconds": 0.6,
+      "transitionSeconds": {
+        "action": 0.05
+      },
+      "reactionBoneNames": [
+        "Torso"
+      ],
+      "secondaryMotionBoneNames": [],
+      "rigidGroups": {
+        "plate-face": [
+          "Plates.Plate.Rim",
+          "Plates.Plate.Face",
+          "Plates.Plate.Center",
+          "Plates.Eye.L",
+          "Plates.Iris.L",
+          "Plates.Eye.R",
+          "Plates.Iris.R",
+          "Plates.Smile.L",
+          "Plates.Smile.R",
+          "Plates.Cheek.L",
+          "Plates.Cheek.R"
+        ]
+      }
+    }
+  ]
+}

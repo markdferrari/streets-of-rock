@@ -31,3 +31,25 @@ for(const character of ['cow','crow','lion','plates'])test(`${character} compare
  await expect.poll(()=>snapshot(page).then((s:any)=>s.paused)).toBe(true);
  const video=page.video();await page.close();if(video)await video.saveAs(`${dir}/${browserName}-${character}.webm`);
 });
+
+import {game,canvasControl,selectDuo} from './helpers/godot';
+test('ordinary gameplay samples independent profile bones and freezes terminal run time',async({page})=>{
+ await page.setViewportSize({width:844,height:390});
+ await selectDuo(page,'cow','crow');
+ await expect.poll(()=>game(page).then(s=>Object.keys(s.heroArt?.views??{}).length)).toBe(2);
+ const before=await game(page);
+ expect(before.heroArt.views['1'].skeletonId).not.toBe(before.heroArt.views['2'].skeletonId);
+ await canvasControl(page,'heavy');
+ await expect.poll(()=>game(page).then(s=>s.heroArt.views['1'].semantic)).toMatch(/cowHeavy\./);
+ await page.evaluate(()=>(window as any).__sorTest.command('defeat'));
+ await expect.poll(()=>game(page).then(s=>s.phase)).toBe('defeat');
+ const terminal=await game(page);
+ await page.waitForTimeout(750);
+ const settled=await game(page);
+ expect(settled.run.tick).toBe(terminal.run.tick);
+ expect(settled.elapsedMs).toBe(terminal.elapsedMs);
+ expect(settled.heroArt.views['1'].terminalHold).toBe(true);
+ await canvasControl(page,'retry');
+ await expect.poll(()=>game(page).then(s=>s.phase)).toBe('running');
+ expect((await game(page)).heroArt.views['1'].terminalHold).toBe(false);
+});

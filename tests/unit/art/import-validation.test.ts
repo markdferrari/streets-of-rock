@@ -33,7 +33,16 @@ function fixture() {
  });
  const source={id:'original',status:'accepted',name:'Fixture',creator:'Fixture author',originalAuthorDeclaration:'Original isolated fixture, never shipped',licenseId:'LicenseRef-Fixture',reviewer:'Fixture author',reviewDate:'2026-10-14',sourcePath:'content/original.txt',sourceSha256:createHash('sha256').update('fixture source').digest('hex')};
  writeFileSync(join(root,'content/original.txt'),'fixture source');
- const data={rooms:{schemaVersion:1,rooms},enemies:{schemaVersion:1,enemies},resources:{art},provenance:{schemaVersion:1,sources:[source]}};
+ // Full validation includes the current hero catalogue; this fixture only replaces venue/enemy records.
+ for(const name of ['hero-animations','animation-clips','roster'])cpSync(`content/${name}.json`,join(root,`content/${name}.json`));
+ cpSync('content/characters',join(root,'content/characters'),{recursive:true});
+ for(const dir of ['assets/characters','assets/art-sources','scripts'])symlinkSync(join(process.cwd(),dir),join(root,dir),'dir');
+ const liveResources=JSON.parse(readFileSync('content/resources.json','utf8'));
+ const liveProvenance=JSON.parse(readFileSync('content/art-provenance.json','utf8'));
+ const heroAssets=liveProvenance.runtimeAssets.filter((a:any)=>a.id?.startsWith('hero.'));
+ const heroIds=new Set(heroAssets.flatMap((a:any)=>a.sourceRecordIds));
+ const heroSources=liveProvenance.sources.filter((s:any)=>heroIds.has(s.id));
+ const data={rooms:{schemaVersion:1,rooms},enemies:{schemaVersion:1,enemies},resources:{art,models:liveResources.models},provenance:{schemaVersion:1,sources:[source,...heroSources],runtimeAssets:heroAssets}};
  const save=()=>{for (const [key,path] of [['rooms','rooms'],['enemies','enemy-presentations'],['resources','resources'],['provenance','art-provenance']] as const) writeFileSync(join(root,`content/${path}.json`),JSON.stringify(data[key]));};
  save();return {root,data,save};
 }
@@ -42,7 +51,7 @@ describe('actual Godot art authoring validation',()=>{
   const f=fixture();
   const r=validateArt(['--root',f.root]);expect(r.output).toMatch(/Valid/);expect(r.status,r.output).toBe(0);
   expect(validateArt(['--root',f.root,'--definitions-only']).output).toMatch(/incomplete.*release/i);
- });
+ },30000);
  it('validates the complete production catalogue after all four rooms and roles are registered',()=>{
   const r=validateArt([]);expect(r.status,r.output).toBe(0);expect(r.output).toMatch(/Valid: full artwork catalogue/);
  });

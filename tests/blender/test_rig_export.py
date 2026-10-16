@@ -17,55 +17,39 @@ def glb_json(path):
 
 
 class RigExportTests(unittest.TestCase):
-    def test_lion_and_plates_runtime_exports_cover_semantic_actions(self):
-        required = {
-            'lion': ('Idle','Move','Hurt','KnockedOut','Dodge',
-                     *(f'{move}.{phase}' for move in ('lion1','lion2','lion3','lionHeavy','roar','lionSupport') for phase in ('windup','active','recovery'))),
-            'plates': ('Idle','Move','Hurt','KnockedOut','Dodge',
-                       *(f'{move}.{phase}' for move in ('plates1','plates2','plates3','platesHeavy','headrest','platesSupport') for phase in ('windup','active','recovery'))),
-        }
-        for role, clips in required.items():
-            runtime=Path('assets/characters')/role/'runtime'
-            blend=runtime/'rigged.blend'; glb=runtime/'character.glb'
-            self.assertTrue(blend.is_file()); self.assertTrue(glb.is_file())
-            bpy.ops.wm.open_mainfile(filepath=str(blend.resolve()))
-            arm=bpy.data.objects[f'{role.title()}.Rig']
-            for part in ('Torso','Head','Arm.L','Leg.L'): self.assertIn(part,arm.data.bones)
-            gltf=glb_json(glb)
-            names={clip['name'] for clip in gltf.get('animations',[])}
-            self.assertTrue(set(clips) <= names, sorted(set(clips)-names))
-
-    def test_both_reopen_with_rigid_bones_and_self_contained_animated_glbs(self):
-        with TemporaryDirectory() as temp:
-            out = Path(temp)
-            rig_export.main(['--output-dir', str(out)])
-            for role, clips in {
-                'cow': ('Idle','Move','cow1.windup','cow1.active','cowHeavy.active','spin.active','Dodge','Hurt','KnockedOut'),
-                'crow': ('Idle','Move','crow.windup','crow.active','Dodge','Hurt','KnockedOut',
-                         *(f'{move}.{phase}' for move in ('crow1','crow2','crow3','crowHeavy','wingSpin')
-                           for phase in ('windup','active','recovery'))),
-            }.items():
-                blend, glb = out/f'{role}-rigged.blend', out/f'{role}.glb'
-                self.assertTrue(blend.is_file())
-                self.assertTrue(glb.is_file())
-                bpy.ops.wm.open_mainfile(filepath=str(blend))
-                arm = bpy.data.objects[f'{role.title()}.Rig']
-                self.assertEqual(arm.type, 'ARMATURE')
-                for part in ('Torso','Head','Arm.L' if role=='cow' else 'Wing.L'):
-                    self.assertIn(part, arm.data.bones)
-                for obj in bpy.data.collections[f'Character.{role.title()}'].objects:
-                    if obj.type != 'MESH': continue
-                    self.assertTrue(any(m.type == 'ARMATURE' and m.object == arm for m in obj.modifiers), obj.name)
-                    self.assertEqual(len(obj.vertex_groups), 1, obj.name)
-                    self.assertTrue(all(v.groups and v.groups[0].weight == 1.0 for v in obj.data.vertices), obj.name)
-                gltf = glb_json(glb)
-                self.assertTrue(gltf.get('meshes'))
-                self.assertTrue(gltf.get('materials'))
-                self.assertTrue(gltf.get('skins'))
-                self.assertFalse(gltf.get('cameras'))
-                self.assertFalse(gltf.get('extensionsRequired'))
-                self.assertFalse(any('uri' in item for item in gltf.get('buffers', [])))
-                self.assertTrue(set(clips) <= {a['name'] for a in gltf.get('animations',[])})
+    def test_production_exports_have_articulated_skin_and_complete_semantic_bindings(self):
+        from scripts.blender import hero_motion
+        root=Path.cwd()
+        semantics=json.loads((root/'content/animation-clips.json').read_text())
+        for role in ('cow','crow','lion','plates'):
+            report=json.loads((root/f'specs/011-improve-character-animations/reviews/{role}-bindings.json').read_text())
+            profile=report['profile']
+            self.assertEqual(set(profile['bindings']),set(semantics[role]))
+            self.assertEqual(set(profile['locomotion']),{'forward','backward','left','right'})
+            bpy.ops.wm.open_mainfile(filepath=str(root/report['editablePath']))
+            arms=[o for o in bpy.data.objects if o.type=='ARMATURE']
+            self.assertEqual(len(arms),1)
+            arm=arms[0]
+            for name in ['UpperLeg.L','LowerLeg.L','Foot.L', 'WingTip.L' if role=='crow' else 'LowerArm.L']:
+                self.assertIn(name,arm.data.bones)
+            meshes=[o for o in bpy.data.objects if o.type=='MESH']
+            self.assertEqual(hero_motion.validate_rig(arm,meshes,report['rigidGroups'],report['wingGroups']),[])
+            for action in bpy.data.actions:
+                if action.name in report['physicalClips']:
+                    self.assertEqual(hero_motion.validate_action(arm,action,action.name in report['loopClips']),[])
+            gltf=glb_json(root/report['runtimePath'])
+            names={a['name'] for a in gltf['animations']}
+            self.assertEqual(names,set(report['physicalClips']))
+            self.assertFalse(gltf.get('cameras'))
+            self.assertFalse(any('uri' in b for b in gltf['buffers']))
+            self.assertEqual(len(meshes),len(gltf['meshes']))
+            for binding in [*profile['bindings'].values(),*profile['locomotion'].values()]:
+                self.assertIn(binding['clipName'],names)
+                self.assertGreater(binding['endSeconds'],binding['startSeconds'])
+                self.assertLessEqual(binding['endSeconds'],report['physicalClips'][binding['clipName']]+1e-4)
+            for group in {b.get('actionGroup') for b in profile['bindings'].values()}-{None}:
+                segments=[profile['bindings'][group+'.'+phase] for phase in ['windup','active','recovery']]
+                self.assertEqual(hero_motion.validate_segments(segments,report['physicalClips'][segments[0]['clipName']]),[])
 
     def test_crow_special_pose_is_distinct_from_basic_attack(self):
         self.assertNotEqual(rig_export.pose_values('crow', 'wingSpin.active', 6),

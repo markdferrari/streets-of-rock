@@ -1,5 +1,6 @@
+import {auditArtDelivery} from '../../scripts/art/delivery';
 import {describe,expect,it} from 'vitest';
-import {buildIdentity,modeConfig,planPacks,auditOwnership,runtimeContentDefinitions,webTestFixtureFiles} from '../../scripts/godot/export';
+import {auditExportPath,buildIdentity,modeConfig,planPacks,auditOwnership,runtimeContentDefinitions,webTestFixtureFiles} from '../../scripts/godot/export';
 import {startRuntime,supportsWorkletAudio} from '../../web/runtime-loader';
 import {auditFoundationInventory,type FoundationInventory} from '../../scripts/build-asset-inventory';
 describe('web export contract',()=>{
@@ -79,4 +80,17 @@ it('includes baked hero trial GLBs only in Web Test and excludes authoring files
  const paths=['tests/godot/fixtures/hero-animation/review.gd','tests/godot/fixtures/hero-animation/review.tscn','tests/godot/fixtures/hero-animation/candidates/cow/kaykit/character.glb','tests/godot/fixtures/hero-animation/candidates/cow/kaykit/rigged.blend'];
  expect(webTestFixtureFiles(paths)).toEqual(paths.slice(0,3));
  expect(runtimeGameScripts(['game/platform/test_bridge.gd','game/app/main.gd'],'release')).toEqual(['game/app/main.gd']);
+});
+
+it('ships hero profile metadata with model closure and excludes donor/review sources',()=>{
+ expect(runtimeContentDefinitions(['content/hero-animations.json','content/art-provenance.json'])).toEqual(['content/hero-animations.json']);
+ const packs=planPacks([{path:'hero-profile',bytes:300,group:'main'},{path:'hero.glb',bytes:400,group:'cow',dependencies:['hero-profile']}],700);
+ expect(Object.values(packs).flat().filter(p=>p==='hero-profile')).toHaveLength(1);
+ expect(()=>auditArtDelivery(['res://public/assets/credits/art-credits.json','res://public/assets/credits/ARTWORK-NOTICES.txt'],{art:{},models:{cow:'assets/cow.glb'}})).toThrow(/cow|hero/);
+});
+
+it('rejects retained donor sources and review fixtures at the actual release ownership boundary',()=>{
+ for(const path of ['res://assets/art-sources/library.glb','res://tests/godot/fixtures/hero-animation/candidates/cow/universal/character.glb','res://assets/characters/cow-crow/runtime/cow-rigged.blend'])expect(()=>auditExportPath(path,'release')).toThrow(/Forbidden/);
+ expect(()=>auditExportPath('res://assets/characters/cow-crow/runtime/cow.glb','release')).not.toThrow();
+ expect(()=>auditExportPath('res://tests/godot/fixtures/hero-animation/review.gd','test')).not.toThrow();
 });

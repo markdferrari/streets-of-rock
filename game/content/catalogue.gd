@@ -2,6 +2,7 @@ extends RefCounted
 const Validator = preload("res://game/content/validator.gd")
 const Art = preload("res://game/content/art_catalog.gd")
 
+var hero_profiles: Dictionary = {}
 var definitions: Dictionary = {}
 var errors: Array[String] = []
 var roster: Array = []
@@ -102,6 +103,13 @@ func load_catalogue(base: String = "res://content") -> bool:
    errors.append(id + ".id: does not match roster/file identity")
   if diagnostic.is_empty():
    definitions[id] = definition
+ hero_profiles = {}
+ var hero_document: Variant = read_json(base + "/hero-animations.json")
+ var Hero = load("res://game/content/hero_animation_catalog.gd")
+ errors.append_array(Hero.validate(hero_document, definitions, resources, clips))
+ if hero_document is Dictionary and hero_document.get("characters") is Array:
+  for profile in hero_document.characters:
+   if profile is Dictionary and profile.get("characterId") is String: hero_profiles[profile.characterId] = profile
  if roster.size() < 2:
   errors.append("roster: two distinct characters required")
  for category in ["models", "portraits", "props"]:
@@ -112,6 +120,6 @@ func load_catalogue(base: String = "res://content") -> bool:
  if not errors.is_empty():
   definitions.clear()
   return false
- for value in [definitions, roster, resources, clips, tuning, level, enemy_presentations, room_presentations, venue_coverage]:
+ for value in [definitions, roster, resources, clips, tuning, level, enemy_presentations, room_presentations, venue_coverage, hero_profiles]:
   freeze(value)
  return true

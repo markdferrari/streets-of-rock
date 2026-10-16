@@ -22,7 +22,7 @@ var fixture_ready: bool = false
 
 func _ready() -> void:
  var content := Catalogue.new()
- if not content.load_catalogue() or not store.prepare("cow", "res://" + content.resources.models.cow, content.clips.cow):
+ if not content.load_catalogue() or not store.prepare_hero(content,"cow"):
   push_error("Foundation visual resource failed: " + str(content.errors) + str(store.errors))
   return
  view = View.new()

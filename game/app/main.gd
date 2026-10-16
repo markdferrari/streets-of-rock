@@ -32,6 +32,9 @@ var bridge: RefCounted
 var preview: SubViewportContainer
 var preview_instance: Node3D
 var preview_id: String = ""
+var preview_view: Node3D
+var preview_clock: RefCounted
+const HeroClock = preload("res://game/presentation/hero_clock.gd")
 var last_ui_generation: int = 0
 var accepted_moves: Array = []
 var last_events: Array = []
@@ -52,7 +55,7 @@ func _ready() -> void:
  if backdrop_json is Dictionary: backdrop_catalogue = backdrop_json
  for id in content.roster:
   var definition: Dictionary = content.definitions[id]
-  if not store.prepare(id, "res://" + content.resources.models[definition.presentation.modelKey], content.clips[definition.presentation.animationSetKey]): readiness_error = str(store.errors)
+  if not store.prepare_hero(content,id): readiness_error = str(store.errors)
  session = Session.new(content)
  loop = Clocks.new()
  active_clock = Clocks.ActiveClock.new()
@@ -119,7 +122,7 @@ func prepare_view(generation: int) -> void:
  readiness_error = ""
  for id in content.roster:
   var definition: Dictionary = content.definitions[id]
-  if not store.prepare(id, "res://" + content.resources.models[definition.presentation.modelKey], content.clips[definition.presentation.animationSetKey]): readiness_error += "\n".join(store.errors) + "\n"
+  if not store.prepare_hero(content,id): readiness_error += "\n".join(store.errors) + "\n"
  if not store.prepare_rooms(content): readiness_error += "\n".join(store.errors)
  if not store.prepare_enemies(content): readiness_error += "\n".join(store.errors)
  if not readiness_error.is_empty():
@@ -160,6 +163,8 @@ func dispose_preview() -> void:
   preview.queue_free()
   preview = null
  preview_id = ""
+ preview_view = null
+ preview_clock = null
 func update_preview() -> void:
  var id: String = str(session.selection.previewedId) if session.selection.previewedId != null and session.phase == "selecting" and not screen.modal else ""
  if id == preview_id: return
@@ -191,7 +196,15 @@ func update_preview() -> void:
  sub.add_child(view)
  preview_instance = store.create(id)
  view.attach(preview_instance)
- view.pose(0, 0, 0, "Idle", 0)
+ preview_view = view
+ preview_clock = HeroClock.new()
+ sample_preview(0.0)
+func sample_preview(delta: float) -> void:
+ if preview_view == null or preview_clock == null: return
+ var profile: Dictionary = content.hero_profiles[preview_id]
+ var elapsed: float = preview_clock.advance(delta, safe() and not screen.modal and session.phase == "selecting", environment.reducedMotion)
+ var binding: Dictionary = profile.bindings.Idle
+ preview_view.apply_pose(Vector2.ZERO,0,{"semanticKey":"Idle","actionIdentity":"preview","samples":[{"clipName":binding.clipName,"timeSeconds":binding.startSeconds+fposmod(elapsed,profile.idleCycleSeconds),"weight":1.0}],"reaction":{},"blendSeconds":0.0})
 func viewport() -> Dictionary: return {"width": environment.width, "height": environment.height}
 func render(delta: float) -> void:
  if session == null: return
@@ -205,6 +218,7 @@ func render(delta: float) -> void:
  readiness_view.diagnostics = bridge.mode == "diagnostics"
  var changed: bool = screen.render(session, content, environment, settings, active_clock.elapsed(now()), tutorial.suggest(session.run) if not session.run.is_empty() else null, readiness_view)
  update_preview()
+ sample_preview(delta)
  screen.joystick_visible = session.phase in ["running", "paused"] and not screen.modal
  screen.joystick_center = input_controller.center
  screen.joystick_knob = input_controller.knob
@@ -235,6 +249,7 @@ func _process(delta: float) -> void:
   for index in range(steps):
    var sample: Dictionary = input_controller.frame()
    var events: Array = Step.step_run(session.run, sample, content, world.arena(session.run, viewport()))
+   world.observe_step(session.run, events)
    audio.play_events(events)
    for event in events:
     if event.type in ["attack", "heavy", "dodge", "special"] and event.get("actorId") == 1: accepted_moves.append("light" if event.type == "attack" else event.type)
@@ -250,6 +265,8 @@ func _process(delta: float) -> void:
     break
  else: loop.reset()
  if old_phase != session.phase and session.phase != "running": active_clock.pause(now())
+ if world != null and session.phase in ["victory", "defeat"] and safe() and not screen.modal:
+  world.settle_heroes(minf(0.1,delta),environment.reducedMotion)
  render(minf(0.1, delta))
 func enable_audio() -> void:
  audio.unlock(session.phase == "running")
@@ -281,7 +298,7 @@ func act(id: String) -> void:
  elif id == "retry-cache": bridge.repair_cache()
  elif id == "download-diagnostics" and diagnostics != null: bridge.download_diagnostics(diagnostics.snapshot())
  elif id == "settings":
-  if session.phase == "running":
+  if session.phase in ["running", "victory", "defeat"]:
    effects(session.interrupt(now()))
    active_clock.pause(now())
    audio.set_running(false)

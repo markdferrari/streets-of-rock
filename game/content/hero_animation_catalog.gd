@@ -126,3 +126,54 @@ static func validate(value: Variant, definitions: Dictionary, resources: Diction
   profile(item, definitions, resources, semantics, sources, errors)
  if not Checks.same_ids(ids, definitions.keys()): errors.append("hero-animations.characters: exactly one profile per roster definition required")
  return errors
+
+static func inspect(instance: Node, value: Dictionary) -> Array[String]:
+ var errors: Array[String] = []
+ var id: String = value.get("characterId", "hero")
+ if not value.get("bindings") is Dictionary or not value.get("locomotion") is Dictionary:
+  return [id + ": complete profile required; repair hero metadata and Retry"]
+ var bindings: Dictionary = value.bindings.duplicate(true)
+ for direction in value.locomotion: bindings["Move_"+direction] = value.locomotion[direction]
+ errors.append_array(Checks.inspect_enemy(instance, {"role":id,"clipBindings":bindings}))
+ var player = load("res://game/content/resource_store.gd").find_animation(instance)
+ if player != null:
+  var root: Node = player.get_node_or_null(player.root_node)
+  for clip in player.get_animation_list():
+   var animation: Animation = player.get_animation(clip)
+   for track in animation.get_track_count():
+    var path: NodePath = animation.track_get_path(track)
+    var target: Node = root.get_node_or_null(NodePath(path.get_concatenated_names())) if root != null else null
+    for index in animation.track_get_key_count(track):
+     var key: Variant = animation.track_get_key_value(track,index)
+     if (key is Vector3 or key is Quaternion) and not key.is_finite(): errors.append(id + ": nonfinite imported key in " + str(clip))
+     if target is Skeleton3D and path.get_subname_count() == 1:
+      var bone: int = target.find_bone(str(path.get_subname(0)))
+      if bone >= 0 and target.get_bone_parent(bone) == -1 and index > 0:
+       var initial: Variant = animation.track_get_key_value(track,0)
+       if (key is Vector3 or key is Quaternion) and not key.is_equal_approx(initial): errors.append(id + ": animated root forbidden in " + str(clip))
+ var bones: Dictionary = {}
+ for skeleton in instance.find_children("*","Skeleton3D",true,false):
+  for index in skeleton.get_bone_count(): bones[skeleton.get_bone_name(index)] = true
+ for field in ["reactionBoneNames", "secondaryMotionBoneNames"]:
+  for name in value.get(field, []):
+   if not bones.has(name): errors.append(id + "." + field + ": missing bone " + name)
+ for mesh in instance.find_children("*","MeshInstance3D",true,false):
+  if mesh.skin == null:
+   errors.append(id + ": unskinned/donor geometry " + str(mesh.name))
+   continue
+  for surface in mesh.mesh.get_surface_count():
+   var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+   var weights: PackedFloat32Array = arrays[Mesh.ARRAY_WEIGHTS] if arrays[Mesh.ARRAY_WEIGHTS] != null else PackedFloat32Array()
+   var vertices: int = arrays[Mesh.ARRAY_VERTEX].size()
+   if vertices == 0 or weights.is_empty(): continue # structural inspector reports missing data
+   var count: int = weights.size() / vertices
+   for vertex in vertices:
+    var total := 0.0
+    for influence in count:
+     var weight: float = weights[vertex * count + influence]
+     if not is_finite(weight) or weight < 0: errors.append(id + ": nonfinite/negative skin weight")
+     total += weight
+    if absf(total - 1) > 0.001:
+     errors.append(id + ": vertex weights must sum to one")
+     break
+ return errors

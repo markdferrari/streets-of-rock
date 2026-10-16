@@ -1,9 +1,19 @@
 extends RefCounted
-# Imported hero files stay unchanged. Merge only compatible identity-transform
-# skin surfaces sharing the exact skeleton, Skin and Material resources.
+# Merge only compatible bone-driven surfaces sharing immutable resources.
 static func build(instance: Node3D) -> void:
  var groups: Dictionary = {}
+ var animated: Dictionary = {}
+ for player in instance.find_children("*", "AnimationPlayer", true, false):
+  var root: Node = player.get_node_or_null(player.root_node)
+  if root == null: continue
+  for name in player.get_animation_list():
+   var animation: Animation = player.get_animation(name)
+   for track in animation.get_track_count():
+    var path: NodePath = animation.track_get_path(track)
+    var target := root.get_node_or_null(NodePath(path.get_concatenated_names()))
+    if target is MeshInstance3D: animated[target.get_instance_id()] = true
  for node in instance.find_children("*","MeshInstance3D",true,false):
+  if animated.has(node.get_instance_id()): continue
   if node.mesh==null or node.mesh.get_surface_count()!=1 or node.skin==null or not node.transform.is_equal_approx(Transform3D.IDENTITY): continue
   var skeleton: Node = node.get_node_or_null(node.skeleton)
   if not skeleton is Skeleton3D: continue

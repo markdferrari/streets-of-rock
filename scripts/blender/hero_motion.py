@@ -390,9 +390,18 @@ def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--character',choices=CHARACTERS,required=True)
     parser.add_argument('--library',choices=LIBRARIES,required=True)
-    parser.add_argument('--output-dir',type=Path,required=True)
+    parser.add_argument('--output-dir',type=Path)
+    parser.add_argument('--production',action='store_true',help='Explicitly replace only the selected character production outputs')
     args=parser.parse_args(argv)
     if bpy.app.version[:3]!=(5,2,2): raise RuntimeError('pinned Blender 5.2.2 required')
+    if args.production:
+        if args.library!='universal' or args.output_dir: raise ValueError('production uses selected Universal and fixed scoped paths')
+        sys.path.insert(0,str(ROOT))
+        from scripts.blender.hero_production import build
+        report=build(args.character)
+        print(json.dumps({'character':args.character,'bytes':report['runtimeBytes'],'review':report['visualReview']}))
+        return 0
+    if not args.output_dir: raise ValueError('trial requires isolated --output-dir')
     report=build_trial(args.character,args.library,args.output_dir)
     print(json.dumps({'character':args.character,'library':args.library,'bytes':report['runtimeBytes'],'status':report['status']}))
     return 0

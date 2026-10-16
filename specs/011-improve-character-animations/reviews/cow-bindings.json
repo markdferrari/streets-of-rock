@@ -1,0 +1,309 @@
+{
+  "schemaVersion": 1,
+  "characterId": "cow",
+  "profile": {
+    "characterId": "cow",
+    "modelKey": "cow",
+    "sourceRecordIds": [
+      "quaternius-universal-animation-library-standard",
+      "hero-motion-original"
+    ],
+    "bindings": {
+      "Idle": {
+        "clipName": "Idle",
+        "startSeconds": 0,
+        "endSeconds": 2.5,
+        "mode": "loop"
+      },
+      "Move": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop"
+      },
+      "Hurt": {
+        "clipName": "Hurt",
+        "startSeconds": 0,
+        "endSeconds": 1.0,
+        "mode": "reaction"
+      },
+      "KnockedOut": {
+        "clipName": "KnockedOut",
+        "startSeconds": 0,
+        "endSeconds": 2.4,
+        "mode": "phase"
+      },
+      "Dodge": {
+        "clipName": "Dodge",
+        "startSeconds": 0,
+        "endSeconds": 1.4666666666666666,
+        "mode": "phase"
+      },
+      "cow1.windup": {
+        "clipName": "cow1",
+        "startSeconds": 0,
+        "endSeconds": 0.2,
+        "mode": "phase",
+        "actionGroup": "cow1"
+      },
+      "cow1.active": {
+        "clipName": "cow1",
+        "startSeconds": 0.2,
+        "endSeconds": 0.36,
+        "mode": "phase",
+        "actionGroup": "cow1",
+        "contactSeconds": 0.2
+      },
+      "cow1.recovery": {
+        "clipName": "cow1",
+        "startSeconds": 0.36,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "cow1"
+      },
+      "cow2.windup": {
+        "clipName": "cow2",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "cow2"
+      },
+      "cow2.active": {
+        "clipName": "cow2",
+        "startSeconds": 0.3,
+        "endSeconds": 0.45999999999999996,
+        "mode": "phase",
+        "actionGroup": "cow2",
+        "contactSeconds": 0.3
+      },
+      "cow2.recovery": {
+        "clipName": "cow2",
+        "startSeconds": 0.45999999999999996,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "cow2"
+      },
+      "cow3.windup": {
+        "clipName": "cow3",
+        "startSeconds": 0,
+        "endSeconds": 0.26666666666666666,
+        "mode": "phase",
+        "actionGroup": "cow3"
+      },
+      "cow3.active": {
+        "clipName": "cow3",
+        "startSeconds": 0.26666666666666666,
+        "endSeconds": 0.42666666666666664,
+        "mode": "phase",
+        "actionGroup": "cow3",
+        "contactSeconds": 0.26666666666666666
+      },
+      "cow3.recovery": {
+        "clipName": "cow3",
+        "startSeconds": 0.42666666666666664,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "cow3"
+      },
+      "cowHeavy.windup": {
+        "clipName": "cowHeavy",
+        "startSeconds": 0,
+        "endSeconds": 0.26666666666666666,
+        "mode": "phase",
+        "actionGroup": "cowHeavy"
+      },
+      "cowHeavy.active": {
+        "clipName": "cowHeavy",
+        "startSeconds": 0.26666666666666666,
+        "endSeconds": 0.42666666666666664,
+        "mode": "phase",
+        "actionGroup": "cowHeavy",
+        "contactSeconds": 0.26666666666666666
+      },
+      "cowHeavy.recovery": {
+        "clipName": "cowHeavy",
+        "startSeconds": 0.42666666666666664,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "cowHeavy"
+      },
+      "spin.windup": {
+        "clipName": "spin",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "spin"
+      },
+      "spin.active": {
+        "clipName": "spin",
+        "startSeconds": 0.3,
+        "endSeconds": 0.7,
+        "mode": "phase",
+        "actionGroup": "spin",
+        "contactSeconds": 0.3
+      },
+      "spin.recovery": {
+        "clipName": "spin",
+        "startSeconds": 0.7,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "spin"
+      }
+    },
+    "locomotion": {
+      "forward": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.25
+      },
+      "backward": {
+        "clipName": "Move_backward",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.25
+      },
+      "left": {
+        "clipName": "Move_left",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.25
+      },
+      "right": {
+        "clipName": "Move_right",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.25
+      }
+    },
+    "idleCycleSeconds": 2.5,
+    "hurtSeconds": 0.15,
+    "knockoutSeconds": 0.6,
+    "transitionSeconds": {
+      "action": 0.05
+    },
+    "reactionBoneNames": [
+      "Torso"
+    ],
+    "secondaryMotionBoneNames": [],
+    "rigidGroups": {}
+  },
+  "physicalClips": {
+    "Idle": 2.5,
+    "Move": 1.3333333333333333,
+    "Dodge": 1.4666666666666666,
+    "KnockedOut": 2.4,
+    "cow1": 0.8666666666666667,
+    "cow2": 1.0,
+    "cow3": 1.0,
+    "cowHeavy": 1.0,
+    "Move_backward": 1.3333333333333333,
+    "Move_left": 1.3333333333333333,
+    "Move_right": 1.3333333333333333,
+    "Hurt": 1.0,
+    "spin": 1.0
+  },
+  "loopClips": [
+    "Idle",
+    "Move",
+    "Move_backward",
+    "Move_left",
+    "Move_right"
+  ],
+  "origins": {
+    "Idle": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Idle_Loop"
+    },
+    "Move": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop"
+    },
+    "Dodge": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Roll"
+    },
+    "KnockedOut": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Death01"
+    },
+    "cow1": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "cow2": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "cow3": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "cowHeavy": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "Move_backward": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "time reversal"
+    },
+    "Move_left": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Move_right": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Hurt": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original local rest-relative reaction"
+    },
+    "spin": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original existing Special gesture; no gameplay/root motion"
+    }
+  },
+  "rigidGroups": {},
+  "wingGroups": {},
+  "runtimePath": "assets/characters/cow-crow/runtime/cow.glb",
+  "editablePath": "assets/characters/cow-crow/runtime/cow-rigged.blend",
+  "runtimeSha256": "ac3b012b82aabf80fb73c03647a4035ad353b73eac2186209b4a28cfd6037016",
+  "editableSha256": "d847f99d8ad52d6973efc69c548870723a298e36f0590005a04fd3c321e7067a",
+  "runtimeBytes": 564172,
+  "visualReview": "pending",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  }
+}

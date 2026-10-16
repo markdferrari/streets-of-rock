@@ -84,7 +84,7 @@ func _ready() -> void:
  add_child(environment)
  var i := 0
  for id in ["cow", "crow"]:
-  if not store.prepare(id, "res://" + content.resources.models[id], content.clips[id]): errors.append_array(store.errors)
+  if not store.prepare_hero(content, id): errors.append_array(store.errors)
   else:
    var ally := CharacterView.new()
    add_child(ally)

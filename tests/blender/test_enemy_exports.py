@@ -66,9 +66,11 @@ class EnemyExportTests(unittest.TestCase):
                     for component in [0,2]:
                         span=max(v[component] for v in values)-min(v[component] for v in values)
                         self.assertLess(span,0.001,(role,animation['name'],name,component,span))
-    def test_heroes_and_acquired_animation_sources_remain_unchanged(self):
+    def test_hero_sources_and_acquired_animation_sources_remain_unchanged(self):
         register=json.loads((ROOT/'specs/010-upgrade-game-artwork/validation/evidence/hero-fingerprints.json').read_text())
         for relative,digest in register['files'].items():
+            # Feature 011 authorizes runtime hero changes; original source identities stay fixed.
+            if '/runtime/' in relative: continue
             self.assertEqual(hashlib.sha256((ROOT/relative).read_bytes()).hexdigest(),digest,relative)
         source=ROOT/'assets/art-sources/kaykit-character-animations-1.1'
         for filename in ['Rig_Medium_General.glb','Rig_Medium_CombatMelee.glb','Rig_Medium_MovementBasic.glb']:

@@ -61,6 +61,9 @@ import {readLock,runGodot,verifyInstalled,type ToolLock} from './setup';
 import {auditFoundationInventory,type FoundationInventory} from '../build-asset-inventory';
 function files(dir:string):string[]{return readdirSync(dir,{withFileTypes:true}).filter(e=>e.name!=='.gdignore').flatMap(e=>e.isDirectory()?files(join(dir,e.name)):[join(dir,e.name)]).sort();}
 function bundle(entry:string,out:string,defines:Record<string,unknown>={}){const args=['build',entry,'--target','browser','--format',entry.endsWith('/sw.ts')?'iife':'esm','--outfile',out,...Object.entries(defines).flatMap(([k,v])=>['--define',`${k}=${JSON.stringify(v)}`])];const result=spawnSync('bun',args,{encoding:'utf8'});if(result.status!==0)throw new Error(result.stderr);}
+export function auditExportPath(path:string,mode:Mode):void {
+ if(/\.blend\d*$|(?:^|\/)(addons|src|scripts|specs|art-sources)\//.test(path)||mode!=='test'&&path.includes('/tests/'))throw new Error(`Forbidden export resource ${path}`);
+}
 export function runtimeContentDefinitions(paths:string[]):string[]{
  return paths.filter(path=>path.endsWith('.json') && path !== 'content/art-provenance.json');
 }
@@ -123,7 +126,7 @@ export async function exportWeb(mode:Mode='release',cap=16*1024*1024,outputDir?:
  }finally{writeFileSync('export_presets.cfg',presetOriginal);writeFileSync('project.godot',projectOriginal);}
  const ownership:Record<string,Record<string,string>>={},remaps:Record<string,string>={};
  for(const pack of packs){const entries=readPck(join(stage,'raw',pack));ownership[pack]=Object.fromEntries(entries.map(e=>[e.path,e.sha256]));
-  for(const e of entries){if(/\.blend\d*$|(?:^|\/)(addons|src|scripts|specs)\//.test(e.path)||mode!=='test'&&e.path.includes('/tests/'))throw new Error(`Forbidden export resource ${e.path}`);
+  for(const e of entries){auditExportPath(e.path,mode);
    if(e.path.endsWith('.import')||e.path.endsWith('.remap'))for(const match of e.data.toString('utf8').matchAll(/path="(res:\/\/[^"\n]+)"/g))remaps[e.path]=match[1]!;
   }
  }auditOwnership(ownership,remaps);auditArtDelivery(Object.values(ownership).flatMap(entries=>Object.keys(entries)),JSON.parse(readFileSync('content/resources.json','utf8')));writeFileSync(join(stage,'ownership.json'),JSON.stringify({ownership,remaps},null,2));

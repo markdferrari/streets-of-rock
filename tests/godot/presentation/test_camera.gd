@@ -15,7 +15,7 @@ func test_world_retires_removed_actor_models_without_leaking_owned_rigs() -> voi
  var content := Catalogue.new()
  assert_true(content.load_catalogue())
  var store = load("res://game/content/resource_store.gd").new()
- for id in ["cow", "crow"]: assert_true(store.prepare(id, "res://" + content.resources.models[id], content.clips[id]))
+ for id in ["cow", "crow"]: assert_true(store.prepare_hero(content, id))
  assert_true(store.prepare_enemies(content), str(store.errors))
  var state = load("res://game/simulation/run_state.gd")
  var run: Dictionary = state.create_run(1, {"fighterId": "cow", "partnerId": "crow"}, content)

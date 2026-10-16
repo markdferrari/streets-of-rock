@@ -18,6 +18,9 @@ var callback: JavaScriptObject
 var status: Label
 var buttons: Dictionary = {}
 
+static func baseline_path(id: String) -> String:
+ return "res://tests/godot/fixtures/hero-animation/baseline/" + id + ".glb"
+
 static func find_skeleton(root: Node) -> Skeleton3D:
  if root is Skeleton3D: return root
  for child in root.get_children():
@@ -147,7 +150,7 @@ func load_character(id: String) -> void:
  var run := Run.create_run(1, {"fighterId": id, "partnerId": partner}, content)
  var frame := CameraMath.compute(run, {"width": 844, "height": 390}, {"player": content.resources.bodyEnvelopes[id], "partner": content.resources.bodyEnvelopes[partner]}, content)
  camera.size = frame.halfHeight * 2.0
- var scenes: Dictionary = {"current": load("res://" + content.resources.models[id])}
+ var scenes: Dictionary = {"current": load(baseline_path(id))}
  var bindings: Dictionary = {"current": {"Idle": "Idle", "Move": "Move", "Attack": id + "1.active"}}
  var light: Dictionary = content.definitions[id].player.light[0]
  bindings.current.attackSequence = []

@@ -151,3 +151,35 @@ func release(instance: Node3D) -> void:
 
 func live_count() -> int:
  return owned.size()
+
+func prepare_hero(content: RefCounted, id: String) -> bool:
+ if not content.hero_profiles.has(id):
+  templates.erase(id)
+  errors.assign([id + ": required hero profile missing; restore metadata and Retry"])
+  return false
+ var profile: Dictionary = content.hero_profiles[id]
+ return prepare_profile(id, "res://" + content.resources.models[profile.modelKey], profile)
+
+func prepare_profile(key: String, path: String, profile: Dictionary) -> bool:
+ var clips: Array = []
+ if not profile.get("bindings") is Dictionary or not profile.get("locomotion") is Dictionary:
+  errors.assign([key + ": complete hero profile required; repair metadata and Retry"])
+  templates.erase(key)
+  return false
+ var schema_errors: Array[String] = []
+ for item in profile.bindings.values() + profile.locomotion.values():
+  var Hero = load("res://game/content/hero_animation_catalog.gd")
+  Hero.binding(item, key, schema_errors)
+  if item is Dictionary and not clips.has(item.get("clipName")): clips.append(item.get("clipName"))
+ if not schema_errors.is_empty():
+  templates.erase(key)
+  errors = schema_errors
+  return false
+ if not prepare(key, path, clips):
+  templates.erase(key)
+  return false
+ var probe: Node3D = templates[key].instantiate()
+ errors = load("res://game/content/hero_animation_catalog.gd").inspect(probe, profile)
+ probe.free()
+ if not errors.is_empty(): templates.erase(key)
+ return errors.is_empty()

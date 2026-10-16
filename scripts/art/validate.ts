@@ -5,7 +5,7 @@ export interface Result { status: number; output: string }
 
 export function validateArt(args: string[], runner: (args: string[]) => Result = runGodot): Result {
  let root = process.cwd();
- let focus: '--room' | '--enemy' | undefined;
+ let focus: '--room' | '--enemy' | '--character' | undefined;
  let id: string | undefined;
  let definitionsOnly = false;
  const seen = new Set<string>();
@@ -13,16 +13,16 @@ export function validateArt(args: string[], runner: (args: string[]) => Result =
   for (let i=0; i<args.length; i++) {
    const flag=args[i];
    if (flag==='--') continue;
-   if (!['--room','--enemy','--root','--definitions-only'].includes(flag)) throw new Error(`Unknown argument: ${flag}`);
+   if (!['--room','--enemy','--character','--root','--definitions-only'].includes(flag)) throw new Error(`Unknown argument: ${flag}`);
    if (seen.has(flag)) throw new Error(`Duplicate option: ${flag}`);
    seen.add(flag);
    if (flag==='--definitions-only') { definitionsOnly=true; continue; }
    const value=args[++i];
    if (!value || value.startsWith('--')) throw new Error(`${flag} requires a value`);
    if (flag==='--root') {root=resolve(value);continue;}
-   if (focus) throw new Error('--room cannot combine with --enemy');
-   focus=flag as '--room'|'--enemy';id=value;
-   if (!(flag==='--room'?['exterior','bar','dance-floor','stage-vip']:['grunt','zoner','enforcer','liam']).includes(id)) throw new Error(`Unknown ${flag.slice(2)} ID: ${id}`);
+   if (focus) throw new Error('Cannot combine --room, --enemy or --character focus options');
+   focus=flag as '--room'|'--enemy'|'--character';id=value;
+   if (!(flag==='--character'?['cow','crow','lion','plates']:flag==='--room'?['exterior','bar','dance-floor','stage-vip']:['grunt','zoner','enforcer','liam']).includes(id)) throw new Error(`Unknown ${flag.slice(2)} ID: ${id}`);
   }
   if (!existsSync(join(root,'project.godot')) || !existsSync(join(root,'game/tools/validate_art.gd'))) throw new Error('--root requires a Godot project containing project.godot and game/tools/validate_art.gd');
  } catch(error) {return {status:2,output:String(error)};}

@@ -31,6 +31,21 @@
       "originalAuthorDeclaration": "Original security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed."
     },
     {
+      "id": "hero-motion-original",
+      "name": "Original hero motion adaptations",
+      "creator": "Streets of Rock project / Codex",
+      "licenseId": "LicenseRef-Project-Original",
+      "attributionText": "",
+      "requiredNotices": [],
+      "modifications": [
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry."
+      ],
+      "originalAuthorDeclaration": "Original existing-Special gestures and rest-relative Hurt deltas authored for this project; Universal ordinary motion is separately credited."
+    },
+    {
       "id": "kaykit-character-animations-1.1",
       "name": "KayKit Character Animations 1.1",
       "creator": "Kay Lousberg",
@@ -73,6 +88,21 @@
       "sourceUrl": "https://kenney.nl/assets/furniture-kit"
     },
     {
+      "id": "quaternius-universal-animation-library-standard",
+      "name": "Universal Animation Library Standard",
+      "creator": "Quaternius",
+      "licenseId": "CC0-1.0",
+      "attributionText": "Quaternius — Universal Animation Library Standard — CC0 1.0",
+      "requiredNotices": [],
+      "modifications": [
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry."
+      ],
+      "sourceUrl": "https://quaternius.itch.io/universal-animation-library"
+    },
+    {
       "id": "venue-original",
       "name": "Original rock venue room geometry, signs and palettes",
       "creator": "Project artwork authored by Codex at owner request",
@@ -86,5 +116,5 @@
       "originalAuthorDeclaration": "Original venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed."
     }
   ],
-  "text": "Artwork Credits\n\nOriginal clubgoer and bartender pilot skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged.\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nRetain only five selected animation clips\n\nOriginal security and head-bouncer skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed.\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only named required motions; pin horizontal hips.\n\nKayKit Character Animations 1.1\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Character Animations 1.1 — CC0 1.0\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only five selected animation clips\nRetain only named required motions; pin horizontal hips.\nhttps://kaylousberg.itch.io/kaykit-character-animations\n\nKayKit Dungeon Asset Pack\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Dungeon Asset Pack 1.1 — CC0 1.0\nEmbedded source geometry and texture in explicit GLB\nhttps://kaylousberg.com/\n\nFurniture Kit\nKenney\nCC0-1.0\nKenney — Furniture Kit — CC0 1.0\nRetain selected prop; preserve editable source and batch palette by vertex colour.\nhttps://kenney.nl/assets/furniture-kit\n\nOriginal rock venue room geometry, signs and palettes\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed.\nOriginal approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes.\nRetain selected prop; preserve editable source and batch palette by vertex colour."
+  "text": "Artwork Credits\n\nOriginal clubgoer and bartender pilot skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal geometry/outfits authored in scripts/art/build_enemy_pilot.py from the owner-approved concept direction; KayKit skeleton/motion remains separately attributed. Existing heroes are reference-only and unchanged.\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nRetain only five selected animation clips\n\nOriginal security and head-bouncer skins\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal security vest, coat, shaped hair and rope geometry extend the approved concepts using retained project geometry helpers; KayKit motion is separately attributed.\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only named required motions; pin horizontal hips.\n\nOriginal hero motion adaptations\nStreets of Rock project / Codex\nLicenseRef-Project-Original\nOriginal existing-Special gestures and rest-relative Hurt deltas authored for this project; Universal ordinary motion is separately credited.\nAuthored contact segments map to unchanged gameplay phases; rigid face/feathers retained.\nDirectional loops derived from Walk; heavy/finisher strength adjusted.\nOriginal Special gesture and rest-relative Hurt delta.\nUniversal rotations mapped with neutral/rest correction; no donor root motion or geometry.\n\nKayKit Character Animations 1.1\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Character Animations 1.1 — CC0 1.0\nAnchor horizontal hips lunge; preserve local limb/vertical motion\nOriginal approved security/coat/rope silhouettes on the retained Medium rig.\nOriginal club outfit/mesh on KayKit Medium skeleton\nPhase cuts align active start with measured forward hand pose; final spatial contact/feet review pending\nPhase segments use source hand extrema; final gameplay contact/feet review remains separate.\nRetain only five selected animation clips\nRetain only named required motions; pin horizontal hips.\nhttps://kaylousberg.itch.io/kaykit-character-animations\n\nKayKit Dungeon Asset Pack\nKay Lousberg\nCC0-1.0\nKay Lousberg — KayKit Dungeon Asset Pack 1.1 — CC0 1.0\nEmbedded source geometry and texture in explicit GLB\nhttps://kaylousberg.com/\n\nFurniture Kit\nKenney\nCC0-1.0\nKenney — Furniture Kit — CC0 1.0\nRetain selected prop; preserve editable source and batch palette by vertex colour.\nhttps://kenney.nl/assets/furniture-kit\n\nUniversal Animation Library Standard\nQuaternius\nCC0-1.0\nQuaternius — Universal Animation Library Standard — CC0 1.0\nAuthored contact segments map to unchanged gameplay phases; rigid face/feathers retained.\nDirectional loops derived from Walk; heavy/finisher strength adjusted.\nOriginal Special gesture and rest-relative Hurt delta.\nUniversal rotations mapped with neutral/rest correction; no donor root motion or geometry.\nhttps://quaternius.itch.io/universal-animation-library\n\nOriginal rock venue room geometry, signs and palettes\nProject artwork authored by Codex at owner request\nLicenseRef-Project-Original\nOriginal venue structures, signs and palette/batching authored from the owner-approved four-room concepts; Kenney furniture remains separately attributed.\nOriginal approved room direction; batch opaque and static glow geometry by landmark; no gameplay nodes.\nRetain selected prop; preserve editable source and batch palette by vertex colour."
 }

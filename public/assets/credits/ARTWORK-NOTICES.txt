@@ -17,6 +17,15 @@ Original approved security/coat/rope silhouettes on the retained Medium rig.
 Phase segments use source hand extrema; final gameplay contact/feet review remains separate.
 Retain only named required motions; pin horizontal hips.
 
+Original hero motion adaptations
+Streets of Rock project / Codex
+LicenseRef-Project-Original
+Original existing-Special gestures and rest-relative Hurt deltas authored for this project; Universal ordinary motion is separately credited.
+Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained.
+Directional loops derived from Walk; heavy/finisher strength adjusted.
+Original Special gesture and rest-relative Hurt delta.
+Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.
+
 KayKit Character Animations 1.1
 Kay Lousberg
 CC0-1.0
@@ -43,6 +52,16 @@ CC0-1.0
 Kenney — Furniture Kit — CC0 1.0
 Retain selected prop; preserve editable source and batch palette by vertex colour.
 https://kenney.nl/assets/furniture-kit
+
+Universal Animation Library Standard
+Quaternius
+CC0-1.0
+Quaternius — Universal Animation Library Standard — CC0 1.0
+Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained.
+Directional loops derived from Walk; heavy/finisher strength adjusted.
+Original Special gesture and rest-relative Hurt delta.
+Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.
+https://quaternius.itch.io/universal-animation-library
 
 Original rock venue room geometry, signs and palettes
 Project artwork authored by Codex at owner request

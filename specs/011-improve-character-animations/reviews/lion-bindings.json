@@ -1,0 +1,338 @@
+{
+  "schemaVersion": 1,
+  "characterId": "lion",
+  "profile": {
+    "characterId": "lion",
+    "modelKey": "lion",
+    "sourceRecordIds": [
+      "quaternius-universal-animation-library-standard",
+      "hero-motion-original"
+    ],
+    "bindings": {
+      "Idle": {
+        "clipName": "Idle",
+        "startSeconds": 0,
+        "endSeconds": 2.5,
+        "mode": "loop"
+      },
+      "Move": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop"
+      },
+      "Hurt": {
+        "clipName": "Hurt",
+        "startSeconds": 0,
+        "endSeconds": 1.0,
+        "mode": "reaction"
+      },
+      "KnockedOut": {
+        "clipName": "KnockedOut",
+        "startSeconds": 0,
+        "endSeconds": 2.4,
+        "mode": "phase"
+      },
+      "Dodge": {
+        "clipName": "Dodge",
+        "startSeconds": 0,
+        "endSeconds": 1.4666666666666666,
+        "mode": "phase"
+      },
+      "lion1.windup": {
+        "clipName": "lion1",
+        "startSeconds": 0,
+        "endSeconds": 0.2,
+        "mode": "phase",
+        "actionGroup": "lion1"
+      },
+      "lion1.active": {
+        "clipName": "lion1",
+        "startSeconds": 0.2,
+        "endSeconds": 0.36,
+        "mode": "phase",
+        "actionGroup": "lion1",
+        "contactSeconds": 0.2
+      },
+      "lion1.recovery": {
+        "clipName": "lion1",
+        "startSeconds": 0.36,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "lion1"
+      },
+      "lion2.windup": {
+        "clipName": "lion2",
+        "startSeconds": 0,
+        "endSeconds": 0.31666666666666665,
+        "mode": "phase",
+        "actionGroup": "lion2"
+      },
+      "lion2.active": {
+        "clipName": "lion2",
+        "startSeconds": 0.31666666666666665,
+        "endSeconds": 0.4766666666666667,
+        "mode": "phase",
+        "actionGroup": "lion2",
+        "contactSeconds": 0.31666666666666665
+      },
+      "lion2.recovery": {
+        "clipName": "lion2",
+        "startSeconds": 0.4766666666666667,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "lion2"
+      },
+      "lion3.windup": {
+        "clipName": "lion3",
+        "startSeconds": 0,
+        "endSeconds": 0.35,
+        "mode": "phase",
+        "actionGroup": "lion3"
+      },
+      "lion3.active": {
+        "clipName": "lion3",
+        "startSeconds": 0.35,
+        "endSeconds": 0.51,
+        "mode": "phase",
+        "actionGroup": "lion3",
+        "contactSeconds": 0.35
+      },
+      "lion3.recovery": {
+        "clipName": "lion3",
+        "startSeconds": 0.51,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "lion3"
+      },
+      "lionHeavy.windup": {
+        "clipName": "lionHeavy",
+        "startSeconds": 0,
+        "endSeconds": 0.43333333333333335,
+        "mode": "phase",
+        "actionGroup": "lionHeavy"
+      },
+      "lionHeavy.active": {
+        "clipName": "lionHeavy",
+        "startSeconds": 0.43333333333333335,
+        "endSeconds": 0.5933333333333334,
+        "mode": "phase",
+        "actionGroup": "lionHeavy",
+        "contactSeconds": 0.43333333333333335
+      },
+      "lionHeavy.recovery": {
+        "clipName": "lionHeavy",
+        "startSeconds": 0.5933333333333334,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "lionHeavy"
+      },
+      "roar.windup": {
+        "clipName": "roar",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "roar"
+      },
+      "roar.active": {
+        "clipName": "roar",
+        "startSeconds": 0.3,
+        "endSeconds": 0.45999999999999996,
+        "mode": "phase",
+        "actionGroup": "roar",
+        "contactSeconds": 0.3
+      },
+      "roar.recovery": {
+        "clipName": "roar",
+        "startSeconds": 0.45999999999999996,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "roar"
+      },
+      "lionSupport.windup": {
+        "clipName": "lionSupport",
+        "startSeconds": 0,
+        "endSeconds": 0.2,
+        "mode": "phase",
+        "actionGroup": "lionSupport"
+      },
+      "lionSupport.active": {
+        "clipName": "lionSupport",
+        "startSeconds": 0.2,
+        "endSeconds": 0.36,
+        "mode": "phase",
+        "actionGroup": "lionSupport",
+        "contactSeconds": 0.2
+      },
+      "lionSupport.recovery": {
+        "clipName": "lionSupport",
+        "startSeconds": 0.36,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "lionSupport"
+      }
+    },
+    "locomotion": {
+      "forward": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.1
+      },
+      "backward": {
+        "clipName": "Move_backward",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.1
+      },
+      "left": {
+        "clipName": "Move_left",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.1
+      },
+      "right": {
+        "clipName": "Move_right",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.1
+      }
+    },
+    "idleCycleSeconds": 2.5,
+    "hurtSeconds": 0.15,
+    "knockoutSeconds": 0.6,
+    "transitionSeconds": {
+      "action": 0.05
+    },
+    "reactionBoneNames": [
+      "Torso"
+    ],
+    "secondaryMotionBoneNames": [],
+    "rigidGroups": {}
+  },
+  "physicalClips": {
+    "Idle": 2.5,
+    "Move": 1.3333333333333333,
+    "Dodge": 1.4666666666666666,
+    "KnockedOut": 2.4,
+    "lion1": 0.8666666666666667,
+    "lion2": 1.0,
+    "lion3": 1.0,
+    "lionHeavy": 1.0,
+    "lionSupport": 0.8666666666666667,
+    "Move_backward": 1.3333333333333333,
+    "Move_left": 1.3333333333333333,
+    "Move_right": 1.3333333333333333,
+    "Hurt": 1.0,
+    "roar": 1.0
+  },
+  "loopClips": [
+    "Idle",
+    "Move",
+    "Move_backward",
+    "Move_left",
+    "Move_right"
+  ],
+  "origins": {
+    "Idle": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Idle_Loop"
+    },
+    "Move": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop"
+    },
+    "Dodge": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Roll"
+    },
+    "KnockedOut": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Death01"
+    },
+    "lion1": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "lion2": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "lion3": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "lionHeavy": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "lionSupport": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "Move_backward": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "time reversal"
+    },
+    "Move_left": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Move_right": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Hurt": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original local rest-relative reaction"
+    },
+    "roar": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original existing Special gesture; no gameplay/root motion"
+    }
+  },
+  "rigidGroups": {},
+  "wingGroups": {},
+  "runtimePath": "assets/characters/lion/runtime/character.glb",
+  "editablePath": "assets/characters/lion/runtime/rigged.blend",
+  "runtimeSha256": "de33fef3de714aa1e7b5b3a7e0a8d59fc1b064426b91f8f2146ea0bf604a6d3d",
+  "editableSha256": "d3470fc7c61e2cb70ff1699ddbafec8b5f91216aadddab254d87bf696c9e336e",
+  "runtimeBytes": 732608,
+  "visualReview": "pending",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  }
+}

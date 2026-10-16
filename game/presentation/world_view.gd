@@ -8,6 +8,8 @@ const Backdrops = preload("res://game/presentation/backdrops.gd")
 var bound_run_id: Variant = null
 var store: RefCounted
 var content: RefCounted
+var motion_states: Dictionary = {}
+var hero_samples: Dictionary = {}
 var models: Dictionary = {}
 var actor_instances: Dictionary = {}
 var enemy_snapshots: Dictionary = {}
@@ -75,32 +77,13 @@ func box(parent: Node3D, size: Vector3, color: Color, at: Vector3) -> void:
  var shape := BoxMesh.new()
  shape.size = size
  mesh(parent, shape, color, at)
-static func sample(actor: Dictionary, tick: int, moving: bool) -> Dictionary:
- if actor.hp <= 0 or actor.action.kind == "knockedOut": return {"clip": "KnockedOut", "progress": 1.0}
- var action: Dictionary = actor.action
- var progress: float = clampf(float(tick - action.startedTick) / maxf(1, action.endTick - action.startedTick), 0, 1)
- if action.kind in ["windup", "active", "recovery"] and action.has("moveId"):
-  var move: String = action.moveId
-  if move == "support": move = {"cow": "cow1", "crow": "crow", "lion": "lionSupport", "plates": "platesSupport"}[actor.characterId]
-  elif move == "heavy": move = actor.characterId + "Heavy"
-  elif move == "special": move = {"cow": "spin", "crow": "wingSpin", "lion": "roar", "plates": "headrest"}[actor.characterId]
-  elif move.begins_with("light"): move = actor.characterId + move.right(1)
-  return {"clip": move + "." + action.kind, "progress": progress}
- return {"clip": "Dodge" if action.kind == "dodge" else ("Hurt" if action.kind == "hurt" else ("Move" if moving else "Idle")), "progress": progress if action.kind in ["dodge", "hurt"] else float(tick % 28) / 28.0}
-static func body_pose(kind: String, move: String) -> Vector2:
- if move == "heavy" and kind == "windup": return Vector2(-0.35, 1.16)
- if move == "heavy" and kind == "active": return Vector2(0.55, 0.88)
- if move == "special" and kind == "active": return Vector2(0.45, 1.05)
- return {"windup": Vector2(-0.17, 1.08), "active": Vector2(0.32, 0.95), "recovery": Vector2(0.1, 0.98), "hurt": Vector2(-0.4, 0.88), "dodge": Vector2(0.5, 0.68), "knockedOut": Vector2(1.2, 0.35)}.get(kind, Vector2(0, 1))
 func arena(run: Dictionary, viewport: Dictionary) -> Dictionary:
  if frame.is_empty(): frame = CameraMath.compute(run, viewport, {"player": content.resources.bodyEnvelopes[run.duo.fighterId], "partner": content.resources.bodyEnvelopes[run.duo.partnerId]}, content)
  var context := Arena.build(run, frame, content.resources.bodyEnvelopes[run.duo.partnerId], "partner", content)
  context.playerVisibleRegions = Arena.build(run, frame, content.resources.bodyEnvelopes[run.duo.fighterId], "player", content).visibleRegions
  return context
 func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, active_ms: float, shake: bool, reduced_motion: bool) -> void:
- if bound_run_id != run.get("runId"):
-  if bound_run_id != null: clear_run_views()
-  bound_run_id = run.get("runId")
+ if bound_run_id != run.get("runId"): observe_step(run, [])
  frame = CameraMath.compute(run, viewport, {"player": content.resources.bodyEnvelopes[run.duo.fighterId], "partner": content.resources.bodyEnvelopes[run.duo.partnerId]}, content, frame, delta)
  var age: float = active_ms - last_impact
  var offset: float = sin(age * 0.11) * 0.12 * (1 - age / 180.0) if shake and not reduced_motion and age > 0 and age < 180 else 0.0
@@ -189,18 +172,14 @@ func render(run: Dictionary, events: Array, viewport: Dictionary, delta: float, 
    model.visible = true
    continue
   model.visible = actor.hp > 0 or actor.team == "ally"
-  var pose := body_pose("knockedOut" if actor.hp <= 0 else actor.action.kind, actor.action.get("moveId", ""))
   if actor.team == "ally":
-   var animation := sample(actor, run.tick, moving)
-   model.pose(actor.position.x, actor.position.depth, int(actor.facing), animation.clip, animation.progress)
-   if animation.clip in ["spin.active", "wingSpin.active"]: model.rotation.y += animation.progress * TAU
-   model.scale.y = 1.25 * pose.y
-  else:
-   model.position = Vector3(actor.position.x, 0, actor.position.depth)
-   model.rotation.y = actor.facing * PI / 2.0
-   var size: float = 1.6 if actor.role == "liam" else (1.2 if actor.role == "enforcer" else 1.0)
-   model.scale = Vector3(size, size * pose.y, size)
-  model.rotation.z = pose.x
+   if not motion_states.has(actor.id):
+    var motion = load("res://game/presentation/character_motion_state.gd").new()
+    motion.observe(actor, run.tick, [])
+    motion_states[actor.id] = motion
+   var sample: Dictionary = load("res://game/presentation/character_pose.gd").resolve(actor, content.hero_profiles[actor.characterId], motion_states[actor.id])
+   hero_samples[actor.id] = sample
+   model.apply_pose(Vector2(actor.position.x,actor.position.depth),int(actor.facing),sample)
  for collection in [run.tables, run.pickups]:
   for item in collection:
    if not objects.has(item.id):
@@ -277,6 +256,9 @@ func clear_run_views() -> void:
   if is_instance_valid(effect.node): effect.node.queue_free()
  effects.clear()
  for record in [previous_positions,enemy_snapshots,enemy_previous,enemy_ticks,defeat_retire_ticks,retired_enemy_ids]: record.clear()
+ motion_states.clear()
+ hero_samples.clear()
+ bound_run_id = null
  frame.clear()
  errors.clear()
  last_impact = -1000.0
@@ -292,6 +274,8 @@ func retire_actor(id: int) -> void:
  if models.has(id):
   models[id].queue_free()
   models.erase(id)
+ motion_states.erase(id)
+ hero_samples.erase(id)
  previous_positions.erase(id)
  enemy_snapshots.erase(id)
  enemy_previous.erase(id)
@@ -311,3 +295,33 @@ func dispose() -> void:
  instances.clear()
  owned_projectiles.clear()
  queue_free()
+
+func observe_step(run: Dictionary, events: Array) -> void:
+ if bound_run_id != run.get("runId"):
+  clear_run_views()
+  bound_run_id = run.get("runId")
+ for actor in run.actors:
+  if actor.team != "ally": continue
+  if not motion_states.has(actor.id): motion_states[actor.id] = load("res://game/presentation/character_motion_state.gd").new()
+  motion_states[actor.id].observe(actor, run.tick, events)
+
+func settle_heroes(delta: float, reduced_motion: bool) -> void:
+ for id in motion_states:
+  var motion: RefCounted = motion_states[id]
+  if not motion.knocked_out: continue
+  var duration: float = content.hero_profiles[motion.actor_snapshot.characterId].knockoutSeconds
+  motion.settle(duration if reduced_motion else delta, duration)
+
+func hero_art_snapshot() -> Dictionary:
+ var views: Dictionary = {}
+ for id in hero_samples:
+  if not models.has(id): continue
+  var skeletons: Array = models[id].find_children("*","Skeleton3D",true,false)
+  var skeleton: Skeleton3D = skeletons[0] if not skeletons.is_empty() else null
+  var bones: Array = []
+  if skeleton != null:
+   for index in skeleton.get_bone_count():
+    var q := skeleton.get_bone_pose_rotation(index)
+    bones.append([q.x,q.y,q.z,q.w])
+  views[str(id)] = {"semantic":hero_samples[id].semanticKey,"samples":hero_samples[id].samples,"skeletonId":skeleton.get_instance_id() if skeleton!=null else 0,"bones":bones,"terminalHold":hero_samples[id].terminalHold,"distance":motion_states[id].distance,"tick":motion_states[id].last_tick}
+ return {"views":views,"errors":errors,"motionCount":motion_states.size()}

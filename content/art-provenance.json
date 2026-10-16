@@ -661,6 +661,20 @@
         "evidencePath": "specs/011-improve-character-animations/reviews/source-decisions.md",
         "scope": "Primary animation source for all four characters in fighter and companion roles. Adapt Universal motion to each anatomy and existing gameplay timing; custom motion fills unsupported existing actions. Final production/gameplay/device acceptance remains pending."
       }
+    },
+    {
+      "id": "hero-motion-original",
+      "name": "Original hero motion adaptations",
+      "creator": "Streets of Rock project / Codex",
+      "status": "accepted",
+      "licenseId": "LicenseRef-Project-Original",
+      "originalAuthorDeclaration": "Original existing-Special gestures and rest-relative Hurt deltas authored for this project; Universal ordinary motion is separately credited.",
+      "sourcePath": "scripts/blender/hero_production.py",
+      "sourceSha256": "4938c59f08fe195ae0cabbf83465b58d7e076a5e288c29d3df4ca8ae50045f87",
+      "reviewer": "Codex authoring validation",
+      "reviewDate": "2026-10-16",
+      "attributionText": "",
+      "requiredNotices": []
     }
   ],
   "runtimeAssets": [
@@ -1157,6 +1171,435 @@
         "kind": "shoulder-chevrons",
         "nonblocking": true
       }
+    },
+    {
+      "id": "hero.cow",
+      "characterId": "cow",
+      "modelKey": "cow",
+      "runtimePath": "assets/characters/cow-crow/runtime/cow.glb",
+      "runtimeSha256": "ac3b012b82aabf80fb73c03647a4035ad353b73eac2186209b4a28cfd6037016",
+      "sourcePath": "assets/characters/cow-crow/runtime/cow-rigged.blend",
+      "sourceSha256": "d847f99d8ad52d6973efc69c548870723a298e36f0590005a04fd3c321e7067a",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "selectedMotion": [
+        {
+          "semantic": "Idle",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Idle_Loop"
+        },
+        {
+          "semantic": "Move",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop"
+        },
+        {
+          "semantic": "Dodge",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Roll"
+        },
+        {
+          "semantic": "KnockedOut",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Death01"
+        },
+        {
+          "semantic": "cow1",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "cow2",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "cow3",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "cowHeavy",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "Move_backward",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "time reversal"
+        },
+        {
+          "semantic": "Move_left",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        },
+        {
+          "semantic": "Move_right",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        }
+      ],
+      "adaptations": [
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained."
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "hero.crow",
+      "characterId": "crow",
+      "modelKey": "crow",
+      "runtimePath": "assets/characters/cow-crow/runtime/crow.glb",
+      "runtimeSha256": "cef75a89067a82dbfe636b01788f1a5d235442767ec96ce2d50424cd8ced46f2",
+      "sourcePath": "assets/characters/cow-crow/runtime/crow-rigged.blend",
+      "sourceSha256": "32d2591c26e9480a3d2234ec2e2670294fbf02d376a9c2602881a02c72e6c3ca",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "selectedMotion": [
+        {
+          "semantic": "Idle",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Idle_Loop"
+        },
+        {
+          "semantic": "Move",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop"
+        },
+        {
+          "semantic": "Dodge",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Roll"
+        },
+        {
+          "semantic": "KnockedOut",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Death01"
+        },
+        {
+          "semantic": "crow1",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "crow2",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "crow3",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "crowHeavy",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "crow",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "Move_backward",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "time reversal"
+        },
+        {
+          "semantic": "Move_left",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        },
+        {
+          "semantic": "Move_right",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        }
+      ],
+      "adaptations": [
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained."
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "hero.lion",
+      "characterId": "lion",
+      "modelKey": "lion",
+      "runtimePath": "assets/characters/lion/runtime/character.glb",
+      "runtimeSha256": "de33fef3de714aa1e7b5b3a7e0a8d59fc1b064426b91f8f2146ea0bf604a6d3d",
+      "sourcePath": "assets/characters/lion/runtime/rigged.blend",
+      "sourceSha256": "d3470fc7c61e2cb70ff1699ddbafec8b5f91216aadddab254d87bf696c9e336e",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "selectedMotion": [
+        {
+          "semantic": "Idle",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Idle_Loop"
+        },
+        {
+          "semantic": "Move",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop"
+        },
+        {
+          "semantic": "Dodge",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Roll"
+        },
+        {
+          "semantic": "KnockedOut",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Death01"
+        },
+        {
+          "semantic": "lion1",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "lion2",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "lion3",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "lionHeavy",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "lionSupport",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "Move_backward",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "time reversal"
+        },
+        {
+          "semantic": "Move_left",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        },
+        {
+          "semantic": "Move_right",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        }
+      ],
+      "adaptations": [
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained."
+      ],
+      "visualReview": "pending"
+    },
+    {
+      "id": "hero.plates",
+      "characterId": "plates",
+      "modelKey": "plates",
+      "runtimePath": "assets/characters/plates/runtime/character.glb",
+      "runtimeSha256": "6b732b01d4d2a03e18a10e7ccff8edf3a905f8021f16332fcc4034487604a3c7",
+      "sourcePath": "assets/characters/plates/runtime/rigged.blend",
+      "sourceSha256": "28420aa7a383b2412c885cd85e10525fd47dc98947457b0c54e3c8f103b86e3b",
+      "sourceRecordIds": [
+        "quaternius-universal-animation-library-standard",
+        "hero-motion-original"
+      ],
+      "selectedMotion": [
+        {
+          "semantic": "Idle",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Idle_Loop"
+        },
+        {
+          "semantic": "Move",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop"
+        },
+        {
+          "semantic": "Dodge",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Roll"
+        },
+        {
+          "semantic": "KnockedOut",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Death01"
+        },
+        {
+          "semantic": "plates1",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "plates2",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "plates3",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "platesHeavy",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Cross"
+        },
+        {
+          "semantic": "platesSupport",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Punch_Jab"
+        },
+        {
+          "semantic": "Move_backward",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "time reversal"
+        },
+        {
+          "semantic": "Move_left",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        },
+        {
+          "semantic": "Move_right",
+          "sourceRecordId": "quaternius-universal-animation-library-standard",
+          "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+          "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+          "clipName": "Walk_Loop",
+          "adaptation": "local leg gait plane rotated laterally"
+        }
+      ],
+      "adaptations": [
+        "Universal rotations mapped with neutral/rest correction; no donor root motion or geometry.",
+        "Directional loops derived from Walk; heavy/finisher strength adjusted.",
+        "Original Special gesture and rest-relative Hurt delta.",
+        "Authored contact segments map to unchanged gameplay phases; rigid face/feathers retained."
+      ],
+      "visualReview": "pending"
     }
   ],
   "originalFallbacks": [

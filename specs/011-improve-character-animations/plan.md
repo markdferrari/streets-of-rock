@@ -4,7 +4,7 @@
 
 **Input**: `specs/011-improve-character-animations/spec.md`
 
-**Status**: Research/design and task phases 1–3 (T001–T015) complete. Owner selected Universal for all four characters on 2026-10-16. Production, runtime integration and final acceptance remain pending in later task phases.
+**Status**: Phases 1–3 complete; Universal selected for all four characters. Phases 4–6 production assets, profile sampling, companion ownership and delivery integration are implemented. Automated outcomes and build identities are recorded in `validation/release.md` and `validation/browser.md`; final owner, phone/offline and five-player acceptance remain pending in the unchecked tasks.
 
 ## Summary
 

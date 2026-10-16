@@ -21,7 +21,7 @@ func test_ten_prepare_render_retry_teardown_cycles_leave_no_owned_rig_instances(
  var store := Store.new()
  for id in content.roster:
   var definition: Dictionary = content.definitions[id]
-  assert_true(store.prepare(id, "res://" + content.resources.models[definition.presentation.modelKey], content.clips[definition.presentation.animationSetKey]), str(store.errors))
+  assert_true(store.prepare_hero(content,id), str(store.errors))
  assert_true(store.prepare_backdrops(JSON.parse_string(FileAccess.get_file_as_string("res://content/backdrops.json"))), str(store.errors))
  for cycle in range(10):
   var world: Node3D = World.new()

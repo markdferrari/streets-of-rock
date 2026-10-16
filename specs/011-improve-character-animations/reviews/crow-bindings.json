@@ -1,0 +1,368 @@
+{
+  "schemaVersion": 1,
+  "characterId": "crow",
+  "profile": {
+    "characterId": "crow",
+    "modelKey": "crow",
+    "sourceRecordIds": [
+      "quaternius-universal-animation-library-standard",
+      "hero-motion-original"
+    ],
+    "bindings": {
+      "Idle": {
+        "clipName": "Idle",
+        "startSeconds": 0,
+        "endSeconds": 2.5,
+        "mode": "loop"
+      },
+      "Move": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop"
+      },
+      "Hurt": {
+        "clipName": "Hurt",
+        "startSeconds": 0,
+        "endSeconds": 1.0,
+        "mode": "reaction"
+      },
+      "KnockedOut": {
+        "clipName": "KnockedOut",
+        "startSeconds": 0,
+        "endSeconds": 2.4,
+        "mode": "phase"
+      },
+      "Dodge": {
+        "clipName": "Dodge",
+        "startSeconds": 0,
+        "endSeconds": 1.4666666666666666,
+        "mode": "phase"
+      },
+      "crow.windup": {
+        "clipName": "crow",
+        "startSeconds": 0,
+        "endSeconds": 0.13333333333333333,
+        "mode": "phase",
+        "actionGroup": "crow"
+      },
+      "crow.active": {
+        "clipName": "crow",
+        "startSeconds": 0.13333333333333333,
+        "endSeconds": 0.29333333333333333,
+        "mode": "phase",
+        "actionGroup": "crow",
+        "contactSeconds": 0.13333333333333333
+      },
+      "crow.recovery": {
+        "clipName": "crow",
+        "startSeconds": 0.29333333333333333,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "crow"
+      },
+      "crow1.windup": {
+        "clipName": "crow1",
+        "startSeconds": 0,
+        "endSeconds": 0.13333333333333333,
+        "mode": "phase",
+        "actionGroup": "crow1"
+      },
+      "crow1.active": {
+        "clipName": "crow1",
+        "startSeconds": 0.13333333333333333,
+        "endSeconds": 0.29333333333333333,
+        "mode": "phase",
+        "actionGroup": "crow1",
+        "contactSeconds": 0.13333333333333333
+      },
+      "crow1.recovery": {
+        "clipName": "crow1",
+        "startSeconds": 0.29333333333333333,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "crow1"
+      },
+      "crow2.windup": {
+        "clipName": "crow2",
+        "startSeconds": 0,
+        "endSeconds": 0.6833333333333333,
+        "mode": "phase",
+        "actionGroup": "crow2"
+      },
+      "crow2.active": {
+        "clipName": "crow2",
+        "startSeconds": 0.6833333333333333,
+        "endSeconds": 0.8416666666666667,
+        "mode": "phase",
+        "actionGroup": "crow2",
+        "contactSeconds": 0.6833333333333333
+      },
+      "crow2.recovery": {
+        "clipName": "crow2",
+        "startSeconds": 0.8416666666666667,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "crow2"
+      },
+      "crow3.windup": {
+        "clipName": "crow3",
+        "startSeconds": 0,
+        "endSeconds": 0.7,
+        "mode": "phase",
+        "actionGroup": "crow3"
+      },
+      "crow3.active": {
+        "clipName": "crow3",
+        "startSeconds": 0.7,
+        "endSeconds": 0.85,
+        "mode": "phase",
+        "actionGroup": "crow3",
+        "contactSeconds": 0.7
+      },
+      "crow3.recovery": {
+        "clipName": "crow3",
+        "startSeconds": 0.85,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "crow3"
+      },
+      "crowHeavy.windup": {
+        "clipName": "crowHeavy",
+        "startSeconds": 0,
+        "endSeconds": 0.7166666666666667,
+        "mode": "phase",
+        "actionGroup": "crowHeavy"
+      },
+      "crowHeavy.active": {
+        "clipName": "crowHeavy",
+        "startSeconds": 0.7166666666666667,
+        "endSeconds": 0.8583333333333334,
+        "mode": "phase",
+        "actionGroup": "crowHeavy",
+        "contactSeconds": 0.7166666666666667
+      },
+      "crowHeavy.recovery": {
+        "clipName": "crowHeavy",
+        "startSeconds": 0.8583333333333334,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "crowHeavy"
+      },
+      "wingSpin.windup": {
+        "clipName": "wingSpin",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "wingSpin"
+      },
+      "wingSpin.active": {
+        "clipName": "wingSpin",
+        "startSeconds": 0.3,
+        "endSeconds": 0.7,
+        "mode": "phase",
+        "actionGroup": "wingSpin",
+        "contactSeconds": 0.3
+      },
+      "wingSpin.recovery": {
+        "clipName": "wingSpin",
+        "startSeconds": 0.7,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "wingSpin"
+      }
+    },
+    "locomotion": {
+      "forward": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "backward": {
+        "clipName": "Move_backward",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "left": {
+        "clipName": "Move_left",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "right": {
+        "clipName": "Move_right",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      }
+    },
+    "idleCycleSeconds": 2.5,
+    "hurtSeconds": 0.15,
+    "knockoutSeconds": 0.6,
+    "transitionSeconds": {
+      "action": 0.05
+    },
+    "reactionBoneNames": [
+      "Torso"
+    ],
+    "secondaryMotionBoneNames": [],
+    "rigidGroups": {
+      "left": [
+        "Crow.Wing.Feather.L.0",
+        "Crow.Wing.Feather.L.1",
+        "Crow.Wing.Feather.L.2",
+        "Crow.Wing.Feather.L.3",
+        "Crow.Wing.Feather.L.4"
+      ],
+      "right": [
+        "Crow.Wing.Feather.R.0",
+        "Crow.Wing.Feather.R.1",
+        "Crow.Wing.Feather.R.2",
+        "Crow.Wing.Feather.R.3",
+        "Crow.Wing.Feather.R.4"
+      ]
+    }
+  },
+  "physicalClips": {
+    "Idle": 2.5,
+    "Move": 1.3333333333333333,
+    "Dodge": 1.4666666666666666,
+    "KnockedOut": 2.4,
+    "crow1": 0.8666666666666667,
+    "crow2": 1.0,
+    "crow3": 1.0,
+    "crowHeavy": 1.0,
+    "crow": 0.8666666666666667,
+    "Move_backward": 1.3333333333333333,
+    "Move_left": 1.3333333333333333,
+    "Move_right": 1.3333333333333333,
+    "Hurt": 1.0,
+    "wingSpin": 1.0
+  },
+  "loopClips": [
+    "Idle",
+    "Move",
+    "Move_backward",
+    "Move_left",
+    "Move_right"
+  ],
+  "origins": {
+    "Idle": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Idle_Loop"
+    },
+    "Move": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop"
+    },
+    "Dodge": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Roll"
+    },
+    "KnockedOut": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Death01"
+    },
+    "crow1": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "crow2": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "crow3": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "crowHeavy": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "crow": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "Move_backward": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "time reversal"
+    },
+    "Move_left": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Move_right": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Hurt": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original local rest-relative reaction"
+    },
+    "wingSpin": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original existing Special gesture; no gameplay/root motion"
+    }
+  },
+  "rigidGroups": {},
+  "wingGroups": {
+    "left": [
+      "Crow.Wing.Feather.L.0",
+      "Crow.Wing.Feather.L.1",
+      "Crow.Wing.Feather.L.2",
+      "Crow.Wing.Feather.L.3",
+      "Crow.Wing.Feather.L.4"
+    ],
+    "right": [
+      "Crow.Wing.Feather.R.0",
+      "Crow.Wing.Feather.R.1",
+      "Crow.Wing.Feather.R.2",
+      "Crow.Wing.Feather.R.3",
+      "Crow.Wing.Feather.R.4"
+    ]
+  },
+  "runtimePath": "assets/characters/cow-crow/runtime/crow.glb",
+  "editablePath": "assets/characters/cow-crow/runtime/crow-rigged.blend",
+  "runtimeSha256": "cef75a89067a82dbfe636b01788f1a5d235442767ec96ce2d50424cd8ced46f2",
+  "editableSha256": "32d2591c26e9480a3d2234ec2e2670294fbf02d376a9c2602881a02c72e6c3ca",
+  "runtimeBytes": 607356,
+  "visualReview": "pending",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  }
+}

@@ -10,7 +10,7 @@ func test_ten_complete_world_cycles_release_all_furnished_rooms_rigs_and_project
  var store := Store.new()
  assert_true(store.prepare_rooms(content))
  assert_true(store.prepare_enemies(content))
- for id in ["cow","crow"]: assert_true(store.prepare(id,"res://"+content.resources.models[id],content.clips[id]))
+ for id in ["cow","crow"]: assert_true(store.prepare_hero(content,id))
  var initial_orphans: int = Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT)
  for generation in range(1,11):
   var world := World.new()

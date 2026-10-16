@@ -11,12 +11,16 @@ export function partitionEntries(entries:{path:string;bytes:number}[],cap:number
  }
  return packs;
 }
-export function auditArtDelivery(paths:string[],resources:{art:Record<string,any>}):void {
+export function auditArtDelivery(paths:string[],resources:{art:Record<string,any>;models?:Record<string,string>}):void {
  const shipped=new Set(paths);
  for(const [id,entry] of Object.entries(resources.art)){
   const path=`res://${entry.path}`;
   if(!shipped.has(path)&&!shipped.has(path+'.import')&&!shipped.has(path+'.remap'))throw new Error(`${id}: missing art resource ${path}`);
   for(const dependency of entry.dependencyIds??[])if(!resources.art[dependency])throw new Error(`${id}: missing art dependency ${dependency}`);
  }
+ for(const [id,path] of Object.entries(resources.models??{})){
+  if(!shipped.has(`res://${path}`)&&!shipped.has(`res://${path}.import`))throw new Error(`${id}: missing hero model ${path}`);
+ }
+ if(resources.models && !shipped.has('res://content/hero-animations.json'))throw new Error('Missing bundled hero profile catalogue');
  for(const name of ['art-credits.json','ARTWORK-NOTICES.txt'])if(!shipped.has(`res://public/assets/credits/${name}`))throw new Error(`Missing bundled artwork credit ${name}`);
 }

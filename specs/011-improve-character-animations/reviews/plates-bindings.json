@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "characterId": "plates",
+  "profile": {
+    "characterId": "plates",
+    "modelKey": "plates",
+    "sourceRecordIds": [
+      "quaternius-universal-animation-library-standard",
+      "hero-motion-original"
+    ],
+    "bindings": {
+      "Idle": {
+        "clipName": "Idle",
+        "startSeconds": 0,
+        "endSeconds": 2.5,
+        "mode": "loop"
+      },
+      "Move": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop"
+      },
+      "Hurt": {
+        "clipName": "Hurt",
+        "startSeconds": 0,
+        "endSeconds": 1.0,
+        "mode": "reaction"
+      },
+      "KnockedOut": {
+        "clipName": "KnockedOut",
+        "startSeconds": 0,
+        "endSeconds": 2.4,
+        "mode": "phase"
+      },
+      "Dodge": {
+        "clipName": "Dodge",
+        "startSeconds": 0,
+        "endSeconds": 1.4666666666666666,
+        "mode": "phase"
+      },
+      "plates1.windup": {
+        "clipName": "plates1",
+        "startSeconds": 0,
+        "endSeconds": 0.2,
+        "mode": "phase",
+        "actionGroup": "plates1"
+      },
+      "plates1.active": {
+        "clipName": "plates1",
+        "startSeconds": 0.2,
+        "endSeconds": 0.36,
+        "mode": "phase",
+        "actionGroup": "plates1",
+        "contactSeconds": 0.2
+      },
+      "plates1.recovery": {
+        "clipName": "plates1",
+        "startSeconds": 0.36,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "plates1"
+      },
+      "plates2.windup": {
+        "clipName": "plates2",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "plates2"
+      },
+      "plates2.active": {
+        "clipName": "plates2",
+        "startSeconds": 0.3,
+        "endSeconds": 0.45999999999999996,
+        "mode": "phase",
+        "actionGroup": "plates2",
+        "contactSeconds": 0.3
+      },
+      "plates2.recovery": {
+        "clipName": "plates2",
+        "startSeconds": 0.45999999999999996,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "plates2"
+      },
+      "plates3.windup": {
+        "clipName": "plates3",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "plates3"
+      },
+      "plates3.active": {
+        "clipName": "plates3",
+        "startSeconds": 0.3,
+        "endSeconds": 0.45999999999999996,
+        "mode": "phase",
+        "actionGroup": "plates3",
+        "contactSeconds": 0.3
+      },
+      "plates3.recovery": {
+        "clipName": "plates3",
+        "startSeconds": 0.45999999999999996,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "plates3"
+      },
+      "platesHeavy.windup": {
+        "clipName": "platesHeavy",
+        "startSeconds": 0,
+        "endSeconds": 0.26666666666666666,
+        "mode": "phase",
+        "actionGroup": "platesHeavy"
+      },
+      "platesHeavy.active": {
+        "clipName": "platesHeavy",
+        "startSeconds": 0.26666666666666666,
+        "endSeconds": 0.42666666666666664,
+        "mode": "phase",
+        "actionGroup": "platesHeavy",
+        "contactSeconds": 0.26666666666666666
+      },
+      "platesHeavy.recovery": {
+        "clipName": "platesHeavy",
+        "startSeconds": 0.42666666666666664,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "platesHeavy"
+      },
+      "headrest.windup": {
+        "clipName": "headrest",
+        "startSeconds": 0,
+        "endSeconds": 0.3,
+        "mode": "phase",
+        "actionGroup": "headrest"
+      },
+      "headrest.active": {
+        "clipName": "headrest",
+        "startSeconds": 0.3,
+        "endSeconds": 0.45999999999999996,
+        "mode": "phase",
+        "actionGroup": "headrest",
+        "contactSeconds": 0.3
+      },
+      "headrest.recovery": {
+        "clipName": "headrest",
+        "startSeconds": 0.45999999999999996,
+        "endSeconds": 1.0,
+        "mode": "phase",
+        "actionGroup": "headrest"
+      },
+      "platesSupport.windup": {
+        "clipName": "platesSupport",
+        "startSeconds": 0,
+        "endSeconds": 0.2,
+        "mode": "phase",
+        "actionGroup": "platesSupport"
+      },
+      "platesSupport.active": {
+        "clipName": "platesSupport",
+        "startSeconds": 0.2,
+        "endSeconds": 0.36,
+        "mode": "phase",
+        "actionGroup": "platesSupport",
+        "contactSeconds": 0.2
+      },
+      "platesSupport.recovery": {
+        "clipName": "platesSupport",
+        "startSeconds": 0.36,
+        "endSeconds": 0.8666666666666667,
+        "mode": "phase",
+        "actionGroup": "platesSupport"
+      }
+    },
+    "locomotion": {
+      "forward": {
+        "clipName": "Move",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "backward": {
+        "clipName": "Move_backward",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "left": {
+        "clipName": "Move_left",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      },
+      "right": {
+        "clipName": "Move_right",
+        "startSeconds": 0,
+        "endSeconds": 1.3333333333333333,
+        "mode": "loop",
+        "strideDistance": 1.0
+      }
+    },
+    "idleCycleSeconds": 2.5,
+    "hurtSeconds": 0.15,
+    "knockoutSeconds": 0.6,
+    "transitionSeconds": {
+      "action": 0.05
+    },
+    "reactionBoneNames": [
+      "Torso"
+    ],
+    "secondaryMotionBoneNames": [],
+    "rigidGroups": {
+      "plate-face": [
+        "Plates.Plate.Rim",
+        "Plates.Plate.Face",
+        "Plates.Plate.Center",
+        "Plates.Eye.L",
+        "Plates.Iris.L",
+        "Plates.Eye.R",
+        "Plates.Iris.R",
+        "Plates.Smile.L",
+        "Plates.Smile.R",
+        "Plates.Cheek.L",
+        "Plates.Cheek.R"
+      ]
+    }
+  },
+  "physicalClips": {
+    "Idle": 2.5,
+    "Move": 1.3333333333333333,
+    "Dodge": 1.4666666666666666,
+    "KnockedOut": 2.4,
+    "plates1": 0.8666666666666667,
+    "plates2": 1.0,
+    "plates3": 1.0,
+    "platesHeavy": 1.0,
+    "platesSupport": 0.8666666666666667,
+    "Move_backward": 1.3333333333333333,
+    "Move_left": 1.3333333333333333,
+    "Move_right": 1.3333333333333333,
+    "Hurt": 1.0,
+    "headrest": 1.0
+  },
+  "loopClips": [
+    "Idle",
+    "Move",
+    "Move_backward",
+    "Move_left",
+    "Move_right"
+  ],
+  "origins": {
+    "Idle": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Idle_Loop"
+    },
+    "Move": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop"
+    },
+    "Dodge": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Roll"
+    },
+    "KnockedOut": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Death01"
+    },
+    "plates1": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "plates2": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "plates3": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "platesHeavy": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Cross"
+    },
+    "platesSupport": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Punch_Jab"
+    },
+    "Move_backward": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "time reversal"
+    },
+    "Move_left": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Move_right": {
+      "sourceRecordId": "quaternius-universal-animation-library-standard",
+      "path": "assets/art-sources/quaternius-universal-animation-library-standard/UAL1_Standard.glb",
+      "sha256": "69591853d817488edaa8fd9bf8fc1d821eaeaf789f8627b3cd23b41c4ed67997",
+      "clipName": "Walk_Loop",
+      "adaptation": "local leg gait plane rotated laterally"
+    },
+    "Hurt": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original local rest-relative reaction"
+    },
+    "headrest": {
+      "sourceRecordId": "hero-motion-original",
+      "adaptation": "original existing Special gesture; no gameplay/root motion"
+    }
+  },
+  "rigidGroups": {
+    "plate-face": [
+      "Plates.Plate.Rim",
+      "Plates.Plate.Face",
+      "Plates.Plate.Center",
+      "Plates.Eye.L",
+      "Plates.Iris.L",
+      "Plates.Eye.R",
+      "Plates.Iris.R",
+      "Plates.Smile.L",
+      "Plates.Smile.R",
+      "Plates.Cheek.L",
+      "Plates.Cheek.R"
+    ]
+  },
+  "wingGroups": {},
+  "runtimePath": "assets/characters/plates/runtime/character.glb",
+  "editablePath": "assets/characters/plates/runtime/rigged.blend",
+  "runtimeSha256": "6b732b01d4d2a03e18a10e7ccff8edf3a905f8021f16332fcc4034487604a3c7",
+  "editableSha256": "28420aa7a383b2412c885cd85e10525fd47dc98947457b0c54e3c8f103b86e3b",
+  "runtimeBytes": 496092,
+  "visualReview": "pending",
+  "tolerances": {
+    "weight": 0.0001,
+    "position": 0.0001,
+    "loopAngleRadians": 0.001
+  }
+}

@@ -138,3 +138,24 @@ class HeroMotionTests(unittest.TestCase):
         self.assertLess(target.pose.bones['UpperArm.L'].rotation_quaternion.angle, .001)
         bpy.context.scene.frame_set(4)
         self.assertAlmostEqual(target.pose.bones['UpperArm.L'].rotation_quaternion.angle, .4, delta=.001)
+
+class ProductionContactTests(unittest.TestCase):
+    def test_special_gesture_peaks_at_contact_and_spin_completes_inside_active_segment(self):
+        from scripts.blender import hero_production as production
+        import json
+        from pathlib import Path
+        for role,clip,bone in [('lion','roar','Head'),('plates','headrest','UpperArm.L')]:
+            arm,_,_,_=motion.make_target(role)
+            action=production.custom_action(arm,role,clip)
+            motion.bind_action(arm,action)
+            angles=[]
+            for frame in [1,19,31,61]:
+                bpy.context.scene.frame_set(frame)
+                angles.append(arm.pose.bones[bone].rotation_quaternion.angle)
+            self.assertGreater(angles[1],angles[2],f'{role}: gesture must peak at release, before follow-through')
+            self.assertLess(angles[0],0.001);self.assertLess(angles[3],0.001)
+        for role,clip in [('cow','spin'),('crow','wingSpin')]:
+            report=json.loads(Path(f'specs/011-improve-character-animations/reviews/{role}-bindings.json').read_text())
+            active=report['profile']['bindings'][clip+'.active']
+            self.assertAlmostEqual(active['startSeconds'],0.3)
+            self.assertAlmostEqual(active['endSeconds'],0.7,places=5)

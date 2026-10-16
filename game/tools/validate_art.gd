@@ -1,4 +1,6 @@
 extends SceneTree
+const Hero = preload("res://game/content/hero_animation_catalog.gd")
+const Store = preload("res://game/content/resource_store.gd")
 const Art = preload("res://game/content/art_catalog.gd")
 var errors: Array[String] = []
 var resources: Dictionary = {}
@@ -6,6 +8,8 @@ var records: Dictionary = {}
 var definitions_only := false
 var checked_sources: Dictionary = {}
 var checked_files: Dictionary = {}
+var file_hashes: Dictionary = {}
+var source_clips: Dictionary = {}
 var import_freshness: Dictionary = {}
 
 func read_object(path: String) -> Dictionary:
@@ -26,7 +30,9 @@ func check_hash(path: Variant, digest: Variant, label: String) -> void:
  if not digest is String or regex.search(digest) == null:
   errors.append(label + ".sha256: exact SHA-256 required")
  elif not FileAccess.file_exists("res://" + path): errors.append(label + ".path: missing " + path)
- elif FileAccess.get_sha256("res://" + path) != digest: errors.append(label + ".sha256: hash mismatch for " + path + "; re-export/review changed content")
+ else:
+  if not file_hashes.has(path): file_hashes[path] = FileAccess.get_sha256("res://"+path)
+  if file_hashes[path] != digest: errors.append(label + ".sha256: hash mismatch for " + path + "; re-export/review changed content")
 
 func check_source(id: String) -> void:
  if checked_sources.has(id): return
@@ -163,13 +169,71 @@ func check_subject(definition: Dictionary, enemy: bool) -> void:
  errors.append_array(Art.inspect_enemy(instance, definition) if enemy else Art.inspect_room(instance, definition))
  instance.free()
 
+func check_heroes(res: Dictionary, provenance: Dictionary, selected: String) -> void:
+ var document := read_object("res://content/hero-animations.json")
+ var semantics := read_object("res://content/animation-clips.json")
+ var definitions: Dictionary = {}
+ for hero in ["cow", "crow", "lion", "plates"]: definitions[hero] = read_object("res://content/characters/" + hero + ".json")
+ # Avoid malformed definitions reaching the pure profile validator's model authority.
+ for hero in definitions:
+  if not definitions[hero].get("presentation") is Dictionary:
+   errors.append(hero + ": character definition/presentation required")
+   return
+ errors.append_array(Hero.validate(document,definitions,res,semantics))
+ for summary in document.get("sources",[]):
+  if not summary is Dictionary: continue
+  if not records.has(summary.get("id")) or records[summary.id].get("status") != summary.get("status"):
+   errors.append("hero.sources: stale source summary " + str(summary.get("id")))
+ for profile in document.get("characters",[]):
+  if not profile is Dictionary or not profile.get("characterId") is String: continue
+  var hero: String = profile.characterId
+  if not selected.is_empty() and hero != selected: continue
+  if not profile.get("modelKey") is String or not res.get("models",{}).has(profile.modelKey): continue
+  var path: String = res.models[profile.modelKey]
+  var assets: Array = provenance.get("runtimeAssets",[]).filter(func(a: Variant) -> bool: return a is Dictionary and a.get("id") == "hero." + hero)
+  if assets.size() != 1:
+   errors.append(hero + ": exactly one runtime hero provenance record required")
+   continue
+  var asset: Dictionary = assets[0]
+  if asset.get("runtimePath") != path or asset.get("modelKey") != profile.modelKey: errors.append(hero + ": model path must agree with resources.models authority")
+  check_hash(path,asset.get("runtimeSha256"),hero + ".runtime")
+  check_hash(asset.get("sourcePath"),asset.get("sourceSha256"),hero + ".editable")
+  if not Art.same_ids(asset.get("sourceRecordIds",[]),profile.get("sourceRecordIds",[])): errors.append(hero + ": stale provenance source IDs")
+  for source in profile.get("sourceRecordIds",[]): check_source(str(source))
+  var motion: Variant = asset.get("selectedMotion")
+  if not motion is Array or motion.is_empty(): errors.append(hero + ": selected source clip/file records required")
+  else:
+   for entry in motion:
+    if not entry is Dictionary:
+     errors.append(hero + ": invalid selected motion record")
+     continue
+    check_hash(entry.get("path"),entry.get("sha256"),hero + ".selectedMotion")
+    var source: Dictionary = records.get(entry.get("sourceRecordId"),{})
+    var allowed: Array = [source.get("acquiredPath")]
+    for file in source.get("files",[]):
+     if file is Dictionary: allowed.append(file.get("path"))
+    if not entry.get("path") in allowed: errors.append(hero + ": selected motion file is not retained by its source record")
+    if Art.safe_path(entry.get("path")) and FileAccess.file_exists("res://"+entry.path):
+     if not source_clips.has(entry.path):
+      source_clips[entry.path] = []
+      var bytes := FileAccess.get_file_as_bytes("res://"+entry.path)
+      if bytes.size() < 20 or bytes.slice(0,4).get_string_from_ascii() != "glTF": errors.append(hero + ": selected motion must be retained GLB")
+      else:
+       var gltf: Variant = JSON.parse_string(bytes.slice(20,20+bytes.decode_u32(12)).get_string_from_utf8())
+       if gltf is Dictionary:
+        for clip in gltf.get("animations",[]): source_clips[entry.path].append(clip.get("name"))
+     if not entry.get("clipName") in source_clips[entry.path]: errors.append(hero + ": exact source clip missing " + str(entry.get("clipName")))
+  if not definitions_only and check_import_freshness(path,hero):
+   var store := Store.new()
+   if not store.prepare_profile(hero,"res://"+path,profile): errors.append_array(store.errors)
+
 func _initialize() -> void:
  var args := OS.get_cmdline_user_args()
  var focus := ""
  var id := ""
  for i in args.size():
   if args[i] == "--definitions-only": definitions_only = true
-  elif args[i] in ["--room", "--enemy"] and i + 1 < args.size():
+  elif args[i] in ["--room", "--enemy", "--character"] and i + 1 < args.size():
    focus = args[i]
    id = args[i + 1]
  var res := read_object("res://content/resources.json")
@@ -183,8 +247,8 @@ func _initialize() -> void:
   else: records[source.id] = source
  var rooms: Dictionary = {}
  var enemies: Dictionary = {}
- if focus != "--enemy": rooms = read_object("res://content/rooms.json")
- if focus != "--room": enemies = read_object("res://content/enemy-presentations.json")
+ if focus in ["", "--room"]: rooms = read_object("res://content/rooms.json")
+ if focus in ["", "--enemy"]: enemies = read_object("res://content/enemy-presentations.json")
  var subjects: Array = []
  if focus.is_empty():
   errors.append_array(Art.validate(rooms, enemies, res, provenance))
@@ -192,7 +256,7 @@ func _initialize() -> void:
    if room is Dictionary: subjects.append([room, false])
   for enemy in Art.schema(enemies, "enemies", "enemies", errors):
    if enemy is Dictionary: subjects.append([enemy, true])
- else:
+ elif focus != "--character":
   var collection := "rooms" if focus == "--room" else "enemies"
   var entries := Art.schema(rooms if focus == "--room" else enemies, collection, collection, errors)
   for entry in entries:
@@ -201,6 +265,7 @@ func _initialize() -> void:
     errors.append_array(Art.validate_room_definition(entry, resources, records) if focus == "--room" else Art.validate_enemy_definition(entry, resources, records))
   if subjects.size() != 1: errors.append(collection + "." + id + ": exactly one requested subject required")
  for pair in subjects: check_subject(pair[0], pair[1])
+ if focus.is_empty() or focus == "--character": check_heroes(res, provenance, id if focus == "--character" else "")
  # The inherited props registry also ships supplier art (the bartender bottle).
  # Keep unrelated prop checks out of focused room/other-enemy validation.
  if focus.is_empty() or (focus=="--enemy" and id=="zoner"):

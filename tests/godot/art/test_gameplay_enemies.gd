@@ -12,7 +12,7 @@ func setup_world() -> Dictionary:
  if not store_contract_exists(): return {}
  var store := Store.new()
  assert_true(store.prepare_enemies(content), str(store.errors))
- for id in ["cow", "crow"]: assert_true(store.prepare(id, "res://" + content.resources.models[id], content.clips[id]))
+ for id in ["cow", "crow"]: assert_true(store.prepare_hero(content, id))
  var world := World.new()
  add_child_autofree(world)
  world.initialize(store, content)

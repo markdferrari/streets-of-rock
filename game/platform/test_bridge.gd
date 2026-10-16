@@ -28,6 +28,15 @@ func _command(arguments: Array) -> Variant:
  if game.session.run.is_empty(): return null
  var run: Dictionary = game.session.run
  match command.name:
+  "hero-break":
+   # Web Test only: model import failure on the next retained-duo preparation.
+   var id: String = command.value
+   if not game.content.hero_profiles.has(id): return null
+   var root := Node3D.new()
+   var broken := PackedScene.new()
+   broken.pack(root)
+   root.free()
+   game.store.templates[id] = broken
   "defeat": run.actors[0].hp = 0
   "victory": run.result = "victory"
   "solo":
@@ -143,4 +152,4 @@ func _process(_delta: float) -> void:
  if game.screen.labels.has("go"):
   var node: Label = game.screen.labels.go
   go = {"text": node.text if node.visible else "", "bounds": {"x": node.position.x, "y": node.position.y, "width": node.size.x, "height": node.size.y}}
- host.__sorSnapshotJson = JSON.stringify({"ready": game.session != null, "phase": game.session.phase, "generation": game.session.generation, "run": game.session.run, "selection": game.session.selection, "bounds": game.screen.control_bounds, "acceptedMoves": game.accepted_moves, "ownedInstances": game.store.live_count(), "ownedInstanceIds": game.store.owned.keys(), "preparedResourceCount": game.store.templates.size() + game.store.room_scenes.size(), "enemyArt": {} if game.world == null else game.world.enemy_art_snapshot(), "camera": {} if game.world == null else game.world.frame, "elapsedMs": game.active_clock.elapsed(game.now()), "settings": game.settings, "environment": game.environment, "readiness": game.readiness.snapshot(), "scenery": scenery, "go": go, "movement": {"x": game.input_controller.move_x, "depth": game.input_controller.move_depth}})
+ host.__sorSnapshotJson = JSON.stringify({"ready": game.session != null, "duo":game.session.duo, "heroPreview":{} if game.preview_view == null else {"characterId":game.preview_id,"sampleTime":game.preview_view.sample_time,"elapsed":game.preview_clock.elapsed}, "phase": game.session.phase, "generation": game.session.generation, "run": game.session.run, "selection": game.session.selection, "bounds": game.screen.control_bounds, "acceptedMoves": game.accepted_moves, "ownedInstances": game.store.live_count(), "ownedInstanceIds": game.store.owned.keys(), "preparedResourceCount": game.store.templates.size() + game.store.room_scenes.size(), "enemyArt": {} if game.world == null else game.world.enemy_art_snapshot(), "heroArt":{} if game.world == null else game.world.hero_art_snapshot(), "camera": {} if game.world == null else game.world.frame, "elapsedMs": game.active_clock.elapsed(game.now()), "settings": game.settings, "environment": game.environment, "readiness": game.readiness.snapshot(), "scenery": scenery, "go": go, "movement": {"x": game.input_controller.move_x, "depth": game.input_controller.move_depth}})

@@ -1,8 +1,9 @@
 import {mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 export interface Credit {id:string;name:string;creator:string;licenseId:string;attributionText:string;requiredNotices:string[];modifications?:string[];originalAuthorDeclaration?:string;sourceUrl?:string}
-export function createCredits(provenance:{sources:any[];runtimeAssets?:any[];runtimeProps?:any[]},resources:{art:Record<string,any>;props?:Record<string,string>}):{schemaVersion:number;sources:Credit[];text:string} {
+export function createCredits(provenance:{sources:any[];runtimeAssets?:any[];runtimeProps?:any[]},resources:{art:Record<string,any>;props?:Record<string,string>;models?:Record<string,string>}):{schemaVersion:number;sources:Credit[];text:string} {
  const shippedProps=new Set(Object.values(resources.props??{}));
- const used=new Set<string>([...Object.values(resources.art).flatMap(r=>r.sourceRecordIds??[]),...(provenance.runtimeProps??[]).filter(prop=>shippedProps.has(prop.runtimePath)).flatMap(prop=>prop.sourceRecordIds??[])]);
+ const heroSources=(provenance.runtimeAssets??[]).filter(asset=>asset.id?.startsWith('hero.') && resources.models?.[asset.modelKey]===asset.runtimePath).flatMap(asset=>asset.sourceRecordIds??[]);
+ const used=new Set<string>([...heroSources,...Object.values(resources.art).flatMap(r=>r.sourceRecordIds??[]),...(provenance.runtimeProps??[]).filter(prop=>shippedProps.has(prop.runtimePath)).flatMap(prop=>prop.sourceRecordIds??[])]);
  const sources:Credit[]=[...used].sort().map(id=>{
   const source=provenance.sources.find(s=>s.id===id);
   if(!source||source.status!=='accepted')throw new Error(`${id}: used source must be accepted before shipping credits`);
